@@ -22,4 +22,16 @@ public class SaintTest{
         Saint yuoga = new Saint ("Hyoga", new  Armadura("Cisne", Categoria.BRONZE));
         assertEquals(false, yuoga.getArmaduraVestida());
     }
+    
+    @Test
+    public void verificaGenero(){
+        Saint groot = new Saint("Groot", new Armadura(" Andromeda", Categoria.BRONZE));
+        assertEquals(Genero.NAO_INFORMADO, groot.getGenero());
+    }
+    
+    @Test
+    public void verificaStatusVida(){
+       Saint groot = new Saint("Groot", new Armadura(" Andromeda", Categoria.BRONZE));
+       assertEquals(StatusDeVida.VIVO, groot.getStatusDeVida()); 
+    }
 }
