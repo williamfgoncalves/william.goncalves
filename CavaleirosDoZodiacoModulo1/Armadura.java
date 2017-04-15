@@ -3,7 +3,7 @@ public class Armadura{
     private Categoria categoria;
     
     public Armadura(String constelacao, Categoria categoria){
-        this.constelacao = constelacao;;
+        this.constelacao = constelacao;
         this.categoria = categoria;
     }
     
