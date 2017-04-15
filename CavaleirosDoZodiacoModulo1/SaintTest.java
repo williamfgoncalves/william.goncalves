@@ -32,6 +32,13 @@ public class SaintTest{
     @Test
     public void verificaStatusVida(){
        Saint groot = new Saint("Groot", new Armadura(" Andromeda", Categoria.BRONZE));
-       assertEquals(StatusDeVida.VIVO, groot.getStatusDeVida()); 
+       assertEquals(Status.VIVO, groot.getStatus()); 
+    }
+    
+    @Test
+    public void verificaPerdaVida(){
+        Saint Seya = new Saint("Seya", new Armadura("Fenix", Categoria.PRATA));
+        Seya.perderVida(16.0);
+        assertEquals(84.0, Seya.getVida(), 0.1);
     }
 }
