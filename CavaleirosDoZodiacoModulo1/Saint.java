@@ -4,7 +4,7 @@ public class Saint{
     private double vida = 100.0;
     private Armadura armadura;
     private Genero genero = Genero.NAO_INFORMADO;
-    private StatusDeVida statusDeVida = StatusDeVida.VIVO;
+    private Status status = Status.VIVO;
     
     //construtor da classe
     public Saint(String nome, Armadura armadura){
@@ -32,12 +32,12 @@ public class Saint{
         this.genero = genero;
     }
     
-    public StatusDeVida getStatusDeVida(){
-        return this.statusDeVida;
+    public Status getStatus(){
+        return this.status;
     }
     
-    public void perderVida(){
-       this.vida -= 10.0;       
+    public double perderVida(double dano){
+       return this.vida -= dano;
     }
     
     public double getVida(){
