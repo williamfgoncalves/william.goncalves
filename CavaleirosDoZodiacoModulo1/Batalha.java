@@ -2,7 +2,6 @@ public class Batalha{
     
     private Saint s1;
     private Saint s2;
-    private double dano = 10;
     
     public Batalha(Saint s1, Saint s2){
         this.s1 = s1;
@@ -12,9 +11,9 @@ public class Batalha{
     public void iniciar(){
     
        if(s1.getValorArmadura() == s2.getValorArmadura() || s1.getValorArmadura() > s2.getValorArmadura()){
-            s2.perderVida(dano);
+            s2.perderVida(10.0);
         }else{
-            s1.perderVida(dano);
+            s1.perderVida(10.0);
         }
     }
 }
