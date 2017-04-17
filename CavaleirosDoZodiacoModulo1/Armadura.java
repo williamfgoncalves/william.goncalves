@@ -7,7 +7,11 @@ public class Armadura{
         this.categoria = categoria;
     }
     
-    public int getCategoria(){
-        return this.categoria.getValor();
+    public String getConstelacao(){
+        return this.constelacao;
+    }
+    
+    public Categoria getCategoria() {
+        return this.categoria;
     }
 }
