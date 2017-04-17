@@ -5,7 +5,7 @@ public class Saint{
     private Armadura armadura;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
-    private int qtdSentidosDespertados = 5;
+    protected int qtdSentidosDespertados;
     
     //construtor da classe
     public Saint(String nome, Armadura armadura){
@@ -18,7 +18,7 @@ public class Saint{
     
     
     public int getValorArmadura(){
-        return this.armadura.getCategoria();
+        return this.armadura.getCategoria().getValor();
     }
     
     public void vestirArmadura(){

@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class SaintTest{
+    
     @Test
     public void vestirArmaduouraDeixaArmaduraVestida(){
         //testes tem triple A = 
@@ -44,7 +45,19 @@ public class SaintTest{
     
     @Test
     public void criarUmSaintTemQueTerCincoSentidos(){
-         Saint Seya = new Saint("Seya", new Armadura("Fenix", Categoria.PRATA));
+         BronzeSaint Seya = new BronzeSaint("Seya", new Armadura("Fenix", Categoria.BRONZE));
          assertEquals(5, Seya.getQtdSentidosDespertados());
+    }
+    
+    @Test
+    public void verificaAoCriarSaintPrataNumeroSentidos(){
+         SilverSaint Seya = new SilverSaint("Seya", new Armadura("Fenix", Categoria.PRATA));
+         assertEquals(6, Seya.getQtdSentidosDespertados());
+    }
+    
+    @Test
+    public void verificaAoCriarSaintOuroNumeroSentidos(){
+         GoldSaint Seya = new GoldSaint("Seya", new Armadura("Fenix", Categoria.OURO));
+         assertEquals(7, Seya.getQtdSentidosDespertados());
     }
 }
