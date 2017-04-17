@@ -5,12 +5,17 @@ public class Saint{
     private Armadura armadura;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
+    private int qtdSentidosDespertados = 5;
     
     //construtor da classe
     public Saint(String nome, Armadura armadura){
         this.nome = nome; //agora nome recebe a string n
         this.armadura = armadura;
     }
+    public int getQtdSentidosDespertados(){
+        return this.qtdSentidosDespertados;
+    }
+    
     
     public int getValorArmadura(){
         return this.armadura.getCategoria();

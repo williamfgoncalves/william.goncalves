@@ -41,4 +41,10 @@ public class SaintTest{
         Seya.perderVida(16.0);
         assertEquals(84.0, Seya.getVida(), 0.1);
     }
+    
+    @Test
+    public void criarUmSaintTemQueTerCincoSentidos(){
+         Saint Seya = new Saint("Seya", new Armadura("Fenix", Categoria.PRATA));
+         assertEquals(5, Seya.getQtdSentidosDespertados());
+    }
 }
