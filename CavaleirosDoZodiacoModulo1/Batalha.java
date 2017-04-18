@@ -9,11 +9,12 @@ public class Batalha{
     }
     
     public void iniciar(){
-    
-       if(s1.getValorArmadura() == s2.getValorArmadura() || s1.getValorArmadura() > s2.getValorArmadura()){
-            s2.perderVida(10.0);
+        final double dano = 10.0;
+
+        if(s1.getValorArmadura() == s2.getValorArmadura() || s1.getValorArmadura() > s2.getValorArmadura()){
+            s2.perderVida(dano);
         }else{
-            s1.perderVida(10.0);
+            s1.perderVida(dano);
         }
     }
 }

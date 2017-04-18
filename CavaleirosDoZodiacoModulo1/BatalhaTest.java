@@ -6,7 +6,7 @@ import org.junit.Test;
 public class BatalhaTest
 {
     @Test
-    public void testarBatalhaSaintUmMaiorQueSaintDois(){
+    public void testarBatalhaSaintUmMaiorQueSaintDois()throws Exception{
         Saint goku = new Saint("Goku", new Armadura("Pegasus", Categoria.OURO));
         Saint vegeta= new Saint("Vegeta", new Armadura("Latão", Categoria.PRATA));
         Batalha batalha = new Batalha(goku, vegeta);
@@ -16,7 +16,7 @@ public class BatalhaTest
     }
     
     @Test
-    public void testarBatalhaSaintUmIgualSaintDois(){
+    public void testarBatalhaSaintUmIgualSaintDois()throws Exception{
         Saint shiryu = new Saint("shiryu", new Armadura("Dragão", Categoria.OURO));
         Saint ikki = new Saint("ikki", new Armadura("Fenix", Categoria.OURO));
         Batalha batalha = new Batalha(shiryu, ikki);
@@ -26,7 +26,7 @@ public class BatalhaTest
     }
     
     @Test
-    public void testarBatalhaSaintDoisMaiorQueSaintUm(){
+    public void testarBatalhaSaintDoisMaiorQueSaintUm()throws Exception{
         Saint shiryu = new Saint("shiryu", new Armadura("Ornitorrinco", Categoria.PRATA));
         Saint ikki = new Saint("ikki", new Armadura("Fenix", Categoria.OURO));
         Batalha batalha = new Batalha(shiryu, ikki);
