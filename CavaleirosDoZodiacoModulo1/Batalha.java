@@ -8,7 +8,7 @@ public class Batalha{
         this.s2 = s2;
     }
     
-    public void iniciar(){
+    public void iniciar()throws Exception{
         final double dano = 10.0;
 
         if(s1.getValorArmadura() == s2.getValorArmadura() || s1.getValorArmadura() > s2.getValorArmadura()){
