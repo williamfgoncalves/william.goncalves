@@ -56,7 +56,7 @@ public class SaintTest{
         assertEquals(0.0, Seya.getVida(), 0.1);
     }
     
-    @Test
+    @Test(expected=InvalidParameterException.class)
     public void verificarSaintPerder1000() throws Exception{
         Saint Seya = new Saint("Seya", new Armadura("Fenix", Categoria.PRATA));
         Seya.perderVida(1000.0);
