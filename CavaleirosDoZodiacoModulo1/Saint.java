@@ -7,6 +7,7 @@ public class Saint{
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     protected int qtdSentidosDespertados;
+    private int contador = -1;
     
     public Saint(String nome, Armadura armadura)throws Exception{
         this.nome = nome;
@@ -39,10 +40,13 @@ public class Saint{
     
     public void perderVida(double dano)throws InvalidParameterException{
         if(this.status != Status.MORTO){
-            if(dano > this. vida){
+            if(dano > this.vida){
                 throw new InvalidParameterException("Não é possivel danos que ultrapassem o valor da vida");
             }else{
                 this.vida -= dano;
+                if(this.vida == 0){
+                    this.status = Status.MORTO;
+                }
             }
         }
     }
@@ -53,5 +57,25 @@ public class Saint{
     
      public int getQtdSentidosDespertados(){
         return this.qtdSentidosDespertados;
+    }
+    
+    public Golpe[] getGolpes(){
+        return this.armadura.getConstelacao().getGolpes();
+    }
+    
+    public void aprenderGolpes(Golpe golpe){
+        this.armadura.getConstelacao().adicionarGolpe(golpe);
+    }
+    
+    public Armadura getArmadura(){
+        return this.armadura;
+    }
+    
+    public Golpe getProximoGolpe () {      
+        contador++;
+        if (contador == this.armadura.getConstelacao().getGolpes().length) {
+            contador = 0;
+        }
+        return this.armadura.getConstelacao().getGolpes()[contador];
     }
 }
