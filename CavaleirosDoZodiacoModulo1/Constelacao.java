@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Constelacao{
     private String nome;
-    private Golpe[] golpes = new Golpe[3];
+    private ArrayList <Golpe> golpes = new ArrayList<>();
     private int contador = 0;
     
     public Constelacao(String nome){
@@ -8,20 +10,10 @@ public class Constelacao{
     }
     
     public void adicionarGolpe(Golpe golpe){
-        for(int i = 0; i < this.golpes.length; i++){
-            Golpe golpeAtual = golpes[i];
-            if(golpeAtual == null){
-                golpes[i] = golpe;
-                break;
-            }  
-        }
-        /*if(contador >= 0 && contador <3){
-            this.golpes[contador] = golpe;
-            contador++;
-        }*/
+		this.golpes.add(golpe);
     }
-    
-    public Golpe[] getGolpes(){
+     
+	public ArrayList<Golpe> retornaLista(){
         return this.golpes;
-    }
+	}
 }
