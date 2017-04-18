@@ -64,7 +64,7 @@ public class SaintTest{
         assertEquals(0.0, Seya.getVida(), 0.1);
     }
     
-    @Test(expected=InvalidParameterException.class)
+    @Test(expected=Exception.class)
     public void verificarSaintPerder1000() throws Exception{
         Constelacao andromeda = new Constelacao("Andromeda");
         Saint Seya = new Saint("Seya", new Armadura(andromeda, Categoria.PRATA));
