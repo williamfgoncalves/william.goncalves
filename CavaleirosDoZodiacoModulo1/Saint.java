@@ -66,11 +66,15 @@ public class Saint{
     }
     
     public Golpe[] getGolpes(){
-        return this.armadura.getConstelacao().getGolpes();
+        return getConstelacao().getGolpes();
+    }
+    
+    private Constelacao getConstelacao(){
+        return this.armadura.getConstelacao();
     }
     
     public void aprenderGolpes(Golpe golpe){
-        this.armadura.getConstelacao().adicionarGolpe(golpe);
+        getConstelacao().adicionarGolpe(golpe);
     }
     
     public Armadura getArmadura(){
@@ -82,6 +86,6 @@ public class Saint{
         if (contador == this.armadura.getConstelacao().getGolpes().length) {
             contador = 0;
         }
-        return this.armadura.getConstelacao().getGolpes()[contador];
+        return getConstelacao().getGolpes()[contador];
     }
 }
