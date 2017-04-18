@@ -37,8 +37,14 @@ public class Saint{
         return this.status;
     }
     
-    public double perderVida(double dano){
-        return this.vida -= dano;
+    public void perderVida(double dano)throws InvalidParameterException{
+        if(this.status != Status.MORTO){
+            if(dano > this. vida){
+                throw new InvalidParameterException("Não é possivel danos que ultrapassem o valor da vida");
+            }else{
+                this.vida -= dano;
+            }
+        }
     }
     
     public double getVida(){
