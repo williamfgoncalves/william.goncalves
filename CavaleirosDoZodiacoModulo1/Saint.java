@@ -38,10 +38,10 @@ public class Saint{
         return this.status;
     }
     
-    public void perderVida(double dano)throws InvalidParameterException{
+    public void perderVida(double dano)throws Exception{
         if(this.status != Status.MORTO){
             if(dano > this.vida){
-                throw new InvalidParameterException("Não é possivel danos que ultrapassem o valor da vida");
+                throw new Exception("InvalidParameterException");
             }else{
                 this.vida -= dano;
                 if(this.vida == 0){
