@@ -1,24 +1,20 @@
 public class Saint{
+    
     private String nome;
     private boolean armaduraVestida;
     private double vida = 100.0;
     private Armadura armadura;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
-    private int qtdSentidosDespertados = 5;
+    protected int qtdSentidosDespertados;
     
-    //construtor da classe
-    public Saint(String nome, Armadura armadura){
-        this.nome = nome; //agora nome recebe a string n
+    public Saint(String nome, Armadura armadura)throws Exception{
+        this.nome = nome;
         this.armadura = armadura;
     }
-    public int getQtdSentidosDespertados(){
-        return this.qtdSentidosDespertados;
-    }
-    
     
     public int getValorArmadura(){
-        return this.armadura.getCategoria();
+        return this.armadura.getCategoria().getValor();
     }
     
     public void vestirArmadura(){
@@ -42,10 +38,14 @@ public class Saint{
     }
     
     public double perderVida(double dano){
-       return this.vida -= dano;
+        return this.vida -= dano;
     }
     
     public double getVida(){
         return this.vida;
+    }
+    
+     public int getQtdSentidosDespertados(){
+        return this.qtdSentidosDespertados;
     }
 }
