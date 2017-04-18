@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.security.InvalidParameterException;
 
 public class SaintTest{
     
@@ -64,15 +65,15 @@ public class SaintTest{
         assertEquals(0.0, Seya.getVida(), 0.1);
     }
     
-    @Test(expected=Exception.class)
+    @Test
     public void verificarSaintPerder1000() throws Exception{
         Constelacao andromeda = new Constelacao("Andromeda");
         Saint Seya = new Saint("Seya", new Armadura(andromeda, Categoria.PRATA));
         Seya.perderVida(1000.0);
-        assertEquals(-900.0, Seya.getVida(), 0.1);
+        assertEquals(0, Seya.getVida(), 0.1);
     }
     
-    @Test
+    @Test(expected=InvalidParameterException.class)
     public void verificarSaintPerder5000Negativos() throws Exception{
         Constelacao libra = new Constelacao("Libra");
         Saint Seya = new Saint("Seya", new Armadura(libra, Categoria.PRATA));
@@ -126,7 +127,7 @@ public class SaintTest{
         GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
         Golpe hadukem = new Golpe("Hadukem", 20);
         Seya.aprenderGolpes(hadukem);
-        assertEquals(hadukem, Seya.getArmadura().getConstelacao().getGolpes()[2]);
+        assertEquals(hadukem, Seya.getArmadura().getConstelacao().getGolpes()[0]);
     }
     
      @Test
@@ -139,10 +140,10 @@ public class SaintTest{
         Seya.aprenderGolpes(hadukem);
         Seya.aprenderGolpes(kamehameha);
         Seya.aprenderGolpes(meteoroPegaso);
-        assertEquals(meteoroPegaso, Seya.getProximoGolpe());
-        assertEquals(kamehameha, Seya.getProximoGolpe());
         assertEquals(hadukem, Seya.getProximoGolpe());
+        assertEquals(kamehameha, Seya.getProximoGolpe());
         assertEquals(meteoroPegaso, Seya.getProximoGolpe());
+        assertEquals(hadukem, Seya.getProximoGolpe());
     }
     
 }

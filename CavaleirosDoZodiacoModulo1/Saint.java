@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 public class Saint{
     
     private String nome;
@@ -39,14 +41,18 @@ public class Saint{
     }
     
     public void perderVida(double dano)throws Exception{
+        if(dano < 0){
+            throw new InvalidParameterException("Voce nao pode adicionar dados negativos");
+        }
+        
         if(this.status != Status.MORTO){
-            if(dano > this.vida){
-                throw new Exception("InvalidParameterException");
-            }else{
+            
+            if(vida - dano <= 0){
+                this.status = Status.MORTO;
+                this.vida = 0;
+            }
+            else{
                 this.vida -= dano;
-                if(this.vida == 0){
-                    this.status = Status.MORTO;
-                }
             }
         }
     }
