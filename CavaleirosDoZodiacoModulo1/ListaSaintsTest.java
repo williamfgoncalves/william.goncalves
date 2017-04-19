@@ -161,4 +161,58 @@ public class ListaSaintsTest {
         
         assertEquals(Shiryu,vidas.get(0));
     }
+
+	@Test
+    public void verificarSeOrdenouListaAscendente()throws Exception{
+        
+        Constelacao sagitario = new Constelacao("Sagitario");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Seya.perderVida(5);
+        
+        Constelacao aries = new Constelacao("Aries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Shiryu.perderVida(22);
+        
+        Constelacao andromeda = new Constelacao("Andromeda");
+        BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
+        ikki.perderVida(21);
+        
+        ListaSaints listaSaint = new ListaSaints();
+        listaSaint.adicionarSaint(Seya);
+        listaSaint.adicionarSaint(Shiryu);
+        listaSaint.adicionarSaint(ikki);
+        
+        listaSaint.ordenar(TipoOrdenacao.ASCENDENTE);
+        ArrayList<Saint> vidas = new ArrayList<Saint>();
+        vidas = listaSaint.retornaTodos();
+        
+        assertEquals(Shiryu, vidas.get(0));
+    }
+
+	@Test
+    public void verificarSeOrdenouListaDescendente()throws Exception{
+        
+        Constelacao sagitario = new Constelacao("Sagitario");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Seya.perderVida(5);
+        
+        Constelacao aries = new Constelacao("Aries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Shiryu.perderVida(22);
+        
+        Constelacao andromeda = new Constelacao("Andromeda");
+        BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
+        ikki.perderVida(21);
+        
+        ListaSaints listaSaint = new ListaSaints();
+        listaSaint.adicionarSaint(Seya);
+        listaSaint.adicionarSaint(Shiryu);
+        listaSaint.adicionarSaint(ikki);
+        
+        listaSaint.ordenar(TipoOrdenacao.DESCENDENTE);
+        ArrayList<Saint> vidas = new ArrayList<Saint>();
+        vidas = listaSaint.retornaTodos();
+        
+        assertEquals(Seya, vidas.get(0));
+    }
 }

@@ -99,7 +99,6 @@ public class ListaSaints{
     }
     
     public void ordenarSaint(){
-        Saint saint = null;
 		boolean controle = false;
 		do{
 			controle = false;
@@ -116,6 +115,41 @@ public class ListaSaints{
         	}
 		}while(controle); 
     }
+
+	public void ordenar(TipoOrdenacao tipoOrdenacao){
+	   if(tipoOrdenacao.equals(TipoOrdenacao.ASCENDENTE)){
+			boolean controle = false;
+			do{
+				controle = false;
+				for(int i =0; i < listaSaints.size()-1; i++){ 
+            		Saint atual = this.listaSaints.get(i);
+					Saint proximo = this.listaSaints.get(i+1);
+					boolean precisaTrocar = atual.getVida() > proximo.getVida();
+					if(precisaTrocar){
+						Saint troca = atual;
+						this.listaSaints.set(i, proximo);
+						this.listaSaints.set(i+1, proximo);
+						controle = true;
+					}
+        		}
+			}while(controle); 
+		}else if(tipoOrdenacao.equals(TipoOrdenacao.DESCENDENTE)){
+			boolean controle = false;
+			do{
+				controle = false;
+				for(int i =0; i < listaSaints.size()-1; i++){ 
+            		Saint atual = this.listaSaints.get(i);
+					Saint proximo = this.listaSaints.get(i+1);
+					boolean precisaTrocar = atual.getVida() < proximo.getVida();
+					if(precisaTrocar){
+						this.listaSaints.set(i, proximo);
+						this.listaSaints.set(i+1, atual);
+						controle = true;
+					}
+        		}
+			}while(controle);  
+		}
+	} 
     
     public int getSize(){
         return listaSaints.size();
