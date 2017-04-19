@@ -46,7 +46,7 @@ public class ListaSaintsTest {
         assertEquals(ikki,listaSaint.buscarPorNome("ikki"));
     }
     
-    @Test
+    /*@Test
     public void verificarSeRetornaSaintCategoriaInformada()throws Exception{
         
         Constelacao sagitario = new Constelacao("Sagitario");
@@ -69,15 +69,25 @@ public class ListaSaintsTest {
         
         ArrayList<Saint> categorias = new ArrayList<Saint>(); 
         categorias = listaSaint.buscarPorCategoria(Categoria.OURO);
-        boolean verifica = false; 
         
-        for (int i = 0; i < categorias.size(); i++) { 
-            if (categorias.get(i).getArmadura().getCategoria() != Categoria.OURO) { 
-                verifica = true; 
-            }  
-        } 
-        assertEquals(verifica, false);
-    }
+        assertEquals(Seya, categorias.get(0));
+ 		assertEquals(Hakata, categorias.get(1));
+    }*/
+
+	@Test 
+    public void buscarPorCategoriaComMaisDeUmExistenteNaCategoria() throws Exception { 
+        ListaSaints listaSaints = new ListaSaints(); 
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE)); 
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA)); 
+        Saint shun = new Saint("June", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE)); 
+        listaSaints.adicionarSaint(shun); 
+        listaSaints.adicionarSaint(misty); 
+        listaSaints.adicionarSaint(june); 
+        ArrayList<Saint> resultadoBusca = listaSaints.buscarPorCategoria(Categoria.BRONZE); 
+        assertEquals(shun, resultadoBusca.get(0)); 
+        assertEquals(june, resultadoBusca.get(1)); 
+        assertEquals(2, resultadoBusca.size()); 
+    } 
     
     @Test
     public void verificarSaintMaiorVida()throws Exception{
@@ -125,7 +135,7 @@ public class ListaSaintsTest {
         assertEquals(Shiryu, listaSaint.getSaintMenorVida());
     }
      
-   /* @Test
+   @Test
     public void verificarSeOrdenouLista()throws Exception{
         
         Constelacao sagitario = new Constelacao("Sagitario");
@@ -150,5 +160,5 @@ public class ListaSaintsTest {
         vidas = listaSaint.retornaTodos();
         
         assertEquals(Shiryu,vidas.get(0));
-    }*/
+    }
 }
