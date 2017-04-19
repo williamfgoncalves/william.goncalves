@@ -127,7 +127,7 @@ public class SaintTest{
         GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
         Golpe hadukem = new Golpe("Hadukem", 20);
         Seya.aprenderGolpes(hadukem);
-        assertEquals(hadukem, Seya.getArmadura().getConstelacao().getGolpes()[0]);
+        assertEquals(hadukem, Seya.getArmadura().getConstelacao().getGolpes().get(0));
     }
     
      @Test

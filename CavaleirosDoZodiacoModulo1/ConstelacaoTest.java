@@ -10,7 +10,7 @@ public class ConstelacaoTest
         Constelacao aries = new Constelacao("Aries");
         Golpe hadukem = new Golpe("Hadukem!", 20);
         aries.adicionarGolpe(hadukem);
-        assertEquals(hadukem, aries.getGolpes()[0]);
+        assertEquals(hadukem, aries.getGolpes().get(0));
     }
     
     @Test
@@ -20,8 +20,8 @@ public class ConstelacaoTest
         Golpe shoriukem = new Golpe("shoriukem!", 20);
         aries.adicionarGolpe(hadukem);
         aries.adicionarGolpe(shoriukem);
-        assertEquals(hadukem, aries.getGolpes()[0]);
-        assertEquals(shoriukem, aries.getGolpes()[1]);
+        assertEquals(hadukem, aries.getGolpes().get(0));
+        assertEquals(shoriukem, aries.getGolpes().get(1));
     }
     
     @Test
@@ -33,12 +33,12 @@ public class ConstelacaoTest
         aries.adicionarGolpe(hadukem);
         aries.adicionarGolpe(shoriukem);
         aries.adicionarGolpe(Genkidama);
-        assertEquals(hadukem, aries.getGolpes()[0]);
-        assertEquals(shoriukem, aries.getGolpes()[1]);
-        assertEquals(Genkidama, aries.getGolpes()[2]);
+        assertEquals(hadukem, aries.getGolpes().get(0));
+        assertEquals(shoriukem, aries.getGolpes().get(1));
+        assertEquals(Genkidama, aries.getGolpes().get(2));
     }
     
-    @Test(expected=ArrayIndexOutOfBoundsException.class)
+    @Test
     public void verificarSeSaintAdicionaQuatroGolpes(){
         Constelacao aries = new Constelacao("Aries");
         Golpe hadukem = new Golpe("Hadukem!", 20);
@@ -49,9 +49,9 @@ public class ConstelacaoTest
         aries.adicionarGolpe(shoriukem);
         aries.adicionarGolpe(Genkidama);
         aries.adicionarGolpe(Kamehameha);
-        assertEquals(hadukem, aries.getGolpes()[0]);
-        assertEquals(shoriukem, aries.getGolpes()[1]);
-        assertEquals(Genkidama, aries.getGolpes()[2]);
-        assertEquals(Kamehameha, aries.getGolpes()[3]);
+        assertEquals(hadukem, aries.getGolpes().get(0));
+        assertEquals(shoriukem, aries.getGolpes().get(1));
+        assertEquals(Genkidama, aries.getGolpes().get(2));
+        assertEquals(Kamehameha, aries.getGolpes().get(3));
     }
 }

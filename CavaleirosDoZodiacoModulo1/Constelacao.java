@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Constelacao{
     private String nome;
     private ArrayList <Golpe> golpes = new ArrayList<>();
-    private int contador = 0;
     
     public Constelacao(String nome){
         this.nome = nome;
@@ -13,7 +12,7 @@ public class Constelacao{
 		this.golpes.add(golpe);
     }
      
-	public ArrayList<Golpe> retornaLista(){
+	public ArrayList<Golpe> getGolpes(){
         return this.golpes;
 	}
 }
