@@ -32,23 +32,23 @@ public class ListaSaints{
             }
         }
         return null;*/
-		return this.listaSaints.stream()
+        return this.listaSaints.stream()
             .filter(s -> s.getNome().equals(nome))
             .findFirst()
             .orElse(null);
     }
     
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria){
-        	/*for(Saint saint : listaSaints){
-            	if(saint.getArmadura().getCategoria().equals(categoria)){
-               		 saintCategoriaInformada.add(saint);
-            	}
-        	}
+            /*for(Saint saint : listaSaints){
+                if(saint.getArmadura().getCategoria().equals(categoria)){
+                     saintCategoriaInformada.add(saint);
+                }
+            }
         return saintCategoriaInformada;*/
-    	return (ArrayList<Saint>)this.listaSaints.stream()
+        return (ArrayList<Saint>)this.listaSaints.stream()
             .filter(s -> s.getArmadura().getCategoria().equals(categoria))
             .collect(Collectors.toList());
-	}
+    }
     
     public ArrayList<Saint> buscarPorStatus(Status status){
         ArrayList<Saint> saintStatusInformado = new ArrayList<>();;
@@ -99,60 +99,71 @@ public class ListaSaints{
     }
     
     public void ordenarSaint(){
-		boolean controle = false;
-		do{
-			controle = false;
-			for(int i =0; i < listaSaints.size()-1; i++){ 
-            	Saint atual = this.listaSaints.get(i);
-				Saint proximo = this.listaSaints.get(i+1);
-				boolean precisaTrocar = atual.getVida() > proximo.getVida();
-				if(precisaTrocar){
-					Saint troca = atual;
-					this.listaSaints.set(i, proximo);
-					this.listaSaints.set(i+1, proximo);
-					controle = true;
-				}
-        	}
-		}while(controle); 
+        boolean controle = false;
+        do{
+            controle = false;
+            for(int i =0; i < listaSaints.size()-1; i++){ 
+                Saint atual = this.listaSaints.get(i);
+                Saint proximo = this.listaSaints.get(i+1);
+                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                if(precisaTrocar){
+                    Saint troca = atual;
+                    this.listaSaints.set(i, proximo);
+                    this.listaSaints.set(i+1, proximo);
+                    controle = true;
+                }
+            }
+        }while(controle); 
     }
 
-	public void ordenar(TipoOrdenacao tipoOrdenacao){
-	   if(tipoOrdenacao.equals(TipoOrdenacao.ASCENDENTE)){
-			boolean controle = false;
-			do{
-				controle = false;
-				for(int i =0; i < listaSaints.size()-1; i++){ 
-            		Saint atual = this.listaSaints.get(i);
-					Saint proximo = this.listaSaints.get(i+1);
-					boolean precisaTrocar = atual.getVida() > proximo.getVida();
-					if(precisaTrocar){
-						Saint troca = atual;
-						this.listaSaints.set(i, proximo);
-						this.listaSaints.set(i+1, proximo);
-						controle = true;
-					}
-        		}
-			}while(controle); 
-		}else if(tipoOrdenacao.equals(TipoOrdenacao.DESCENDENTE)){
-			boolean controle = false;
-			do{
-				controle = false;
-				for(int i =0; i < listaSaints.size()-1; i++){ 
-            		Saint atual = this.listaSaints.get(i);
-					Saint proximo = this.listaSaints.get(i+1);
-					boolean precisaTrocar = atual.getVida() < proximo.getVida();
-					if(precisaTrocar){
-						this.listaSaints.set(i, proximo);
-						this.listaSaints.set(i+1, atual);
-						controle = true;
-					}
-        		}
-			}while(controle);  
-		}
-	} 
+    public void ordenar(TipoOrdenacao tipoOrdenacao){
+       if(tipoOrdenacao.equals(TipoOrdenacao.ASCENDENTE)){
+            boolean controle = false;
+            do{
+                controle = false;
+                for(int i =0; i < listaSaints.size()-1; i++){ 
+                    Saint atual = this.listaSaints.get(i);
+                    Saint proximo = this.listaSaints.get(i+1);
+                    boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                    if(precisaTrocar){
+                        Saint troca = atual;
+                        this.listaSaints.set(i, proximo);
+                        this.listaSaints.set(i+1, proximo);
+                        controle = true;
+                    }
+                }
+            }while(controle); 
+        }else if(tipoOrdenacao.equals(TipoOrdenacao.DESCENDENTE)){
+            boolean controle = false;
+            do{
+                controle = false;
+                for(int i =0; i < listaSaints.size()-1; i++){ 
+                    Saint atual = this.listaSaints.get(i);
+                    Saint proximo = this.listaSaints.get(i+1);
+                    boolean precisaTrocar = atual.getVida() < proximo.getVida();
+                    if(precisaTrocar){
+                        this.listaSaints.set(i, proximo);
+                        this.listaSaints.set(i+1, atual);
+                        controle = true;
+                    }
+                }
+            }while(controle);  
+        }
+    } 
     
     public int getSize(){
         return listaSaints.size();
     }
-
+    
+    public ArrayList<Saint> unir(){
+        return null;
+    }
+    
+    public ArrayList<Saint> diff(){
+        return null;
+    }
+    
+    public ArrayList<Saint> intersec(){
+        return null;
+    }
 }
