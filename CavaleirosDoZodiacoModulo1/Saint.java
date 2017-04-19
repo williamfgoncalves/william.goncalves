@@ -17,8 +17,20 @@ public class Saint{
         this.armadura = armadura;
     }
     
+    public Saint(){
+    
+    }
+    
+    public String getNome(){
+        return this.nome;
+    }
+    
     public int getValorArmadura(){
         return this.armadura.getCategoria().getValor();
+    }
+    
+    public Armadura getArmadura(){
+        return this.armadura;
     }
     
     public void vestirArmadura(){
@@ -70,17 +82,12 @@ public class Saint{
         return this.armadura.getConstelacao();
     }
 
-    
     public ArrayList<Golpe> getGolpes(){
         return getConstelacao().getGolpes();
     }
     
     public void aprenderGolpes(Golpe golpe){
         getConstelacao().adicionarGolpe(golpe);
-    }
-    
-    public Armadura getArmadura(){
-        return this.armadura;
     }
     
     public Golpe getProximoGolpe () {      
