@@ -9,10 +9,14 @@ public class Constelacao{
     }
     
     public void adicionarGolpe(Golpe golpe){
-		this.golpes.add(golpe);
+        this.golpes.add(golpe);
+    }
+    
+    public String getNome(){
+        return this.nome;
     }
      
-	public ArrayList<Golpe> getGolpes(){
+    public ArrayList<Golpe> getGolpes(){
         return this.golpes;
-	}
+    }
 }

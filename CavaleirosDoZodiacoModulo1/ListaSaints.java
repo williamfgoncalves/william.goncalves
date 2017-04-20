@@ -9,6 +9,10 @@ public class ListaSaints{
         this.listaSaints = listaSaints;
     }
     
+    public ArrayList<Saint> getListaSaint(){
+        return this.listaSaints;
+    }
+    
     public void adicionarSaint(Saint saint){
         this.listaSaints.add(saint);
     }
@@ -18,7 +22,7 @@ public class ListaSaints{
     }
     
     public ArrayList <Saint> retornaTodos(){
-        return this.listaSaints;
+        return listaSaints;
     }
     
     public void remover(Saint saint){
@@ -155,15 +159,73 @@ public class ListaSaints{
         return listaSaints.size();
     }
     
-    public ArrayList<Saint> unir(){
-        return null;
+    public ArrayList<Saint> unir(ArrayList<Saint> listaRecebida){
+         
+        ArrayList<Saint> novaListaSaints = new ArrayList<>();
+        novaListaSaints = this.retornaTodos();
+        novaListaSaints.addAll(listaRecebida);
+         
+        if(novaListaSaints.isEmpty()){
+           return null;
+        }
+        return novaListaSaints;
     }
     
-    public ArrayList<Saint> diff(){
-        return null;
+    public ArrayList<Saint> diff(ArrayList<Saint> listaRecebida){
+        ArrayList<Saint> novaListaSaintsComDiferentes = new ArrayList<>();
+        boolean controle;
+        
+        if(listaRecebida.isEmpty()){
+            return null;
+        }
+        
+        for(int i = 0; i < listaSaints.size(); i++){
+            controle = false;
+            for(int j = 0; j < listaRecebida.size(); j++){
+                if(listaSaints.get(i).equals(listaRecebida.get(j))){
+                    controle = true;
+                }
+            }
+            if(!controle){
+                novaListaSaintsComDiferentes.add(listaSaints.get(i));
+            }    
+        }
+        return novaListaSaintsComDiferentes;
     }
     
-    public ArrayList<Saint> intersec(){
-        return null;
+    public ArrayList<Saint> intersec(ArrayList<Saint> listaRecebida){
+        ArrayList<Saint> novaListaSaintsComDiferentes = new ArrayList<>();
+        boolean controle;
+        
+        if(listaRecebida.isEmpty()){
+            return null;
+        }
+        
+        for(int i = 0; i < listaSaints.size(); i++){
+            controle = false;
+            for(int j = 0; j < listaRecebida.size(); j++){
+                if(listaSaints.get(i).equals(listaRecebida.get(j))){
+                    controle = true;
+                }
+            }
+            if(controle){
+                novaListaSaintsComDiferentes.add(listaSaints.get(i));
+            }    
+        }
+        return novaListaSaintsComDiferentes;
+    }
+    
+    public String getCSV(){
+       String dados = "";
+       if(listaSaints.isEmpty()){
+           return null;
+       }
+       
+        for(Saint saint : listaSaints){
+            dados += saint.getNome() + "," + saint.getVida() + "," + saint.getConstelacao().getNome() +  ","+ saint.getArmadura().getCategoria() + "," + 
+            saint.getStatus() + "," + saint.getGenero() + "," + saint.getArmaduraVestida() + "\n";
+        }
+        
+        return dados;
     }
 }
