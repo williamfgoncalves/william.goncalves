@@ -17,10 +17,6 @@ public abstract class Saint{
         this.armadura = armadura;
     }
     
-    public Saint(){
-    
-    }
-    
     public String getNome(){
         return this.nome;
     }
