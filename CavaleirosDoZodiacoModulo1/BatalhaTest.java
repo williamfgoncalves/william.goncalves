@@ -9,8 +9,8 @@ public class BatalhaTest
     public void testarBatalhaSaintUmMaiorQueSaintDois()throws Exception{
         Constelacao cancer = new Constelacao("Câncer");
         Constelacao leao = new Constelacao("Leao");
-        Saint goku = new GoldSaint("Goku", new Armadura(cancer, Categoria.OURO));
-        Saint vegeta= new SilverSaint("Vegeta", new Armadura(leao, Categoria.PRATA));
+        Saint goku = new GoldSaint("Goku", cancer.getNome());
+        Saint vegeta= new SilverSaint("Vegeta", leao.getNome());
         Batalha batalha = new Batalha(goku, vegeta);
         batalha.iniciar();
         assertEquals(100.0, goku.getVida(), 0.1);
@@ -21,8 +21,8 @@ public class BatalhaTest
     public void testarBatalhaSaintUmIgualSaintDois()throws Exception{
         Constelacao aquario = new Constelacao("Aquário");
         Constelacao aries = new Constelacao("Áries");
-        Saint shiryu = new GoldSaint("shiryu", new Armadura(aquario, Categoria.OURO));
-        Saint ikki = new SilverSaint("ikki", new Armadura(aries, Categoria.OURO));
+        Saint shiryu = new GoldSaint("shiryu", aquario.getNome());
+        Saint ikki = new SilverSaint("ikki", aries.getNome());
         Batalha batalha = new Batalha(shiryu, ikki);
         batalha.iniciar();
         assertEquals(100.0, shiryu.getVida(), 0.1);
@@ -33,8 +33,8 @@ public class BatalhaTest
     public void testarBatalhaSaintDoisMaiorQueSaintUm()throws Exception{
         Constelacao virgem = new Constelacao("Virgem");
         Constelacao sagitario = new Constelacao("Sagitário");
-        Saint shiryu = new SilverSaint("shiryu", new Armadura(virgem, Categoria.PRATA));
-        Saint ikki = new GoldSaint("ikki", new Armadura(sagitario, Categoria.OURO));
+        Saint shiryu = new SilverSaint("shiryu", virgem.getNome());
+        Saint ikki = new GoldSaint("ikki", sagitario.getNome());
         Batalha batalha = new Batalha(shiryu, ikki);
         batalha.iniciar();
         assertEquals(90.0, shiryu.getVida(), 0.1);

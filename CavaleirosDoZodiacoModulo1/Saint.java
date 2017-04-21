@@ -4,17 +4,18 @@ import java.util.ArrayList;
 public abstract class Saint{
     
     private String nome;
-    private boolean armaduraVestida;
     private double vida = 100.0;
-    private Armadura armadura;
+    protected Armadura armadura;
+    private boolean armaduraVestida;
+    private String constelacao;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     protected int qtdSentidosDespertados;
     private int contador = 0;
     
-    public Saint(String nome, Armadura armadura)throws Exception{
+    public Saint(String nome, String constelacao) throws Exception{
         this.nome = nome;
-        this.armadura = armadura;
+        this.constelacao = constelacao;
     }
     
     public String getNome(){
