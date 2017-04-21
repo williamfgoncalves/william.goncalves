@@ -9,11 +9,11 @@ public class ListaSaintsTest {
     @Test
     public void verificarSeRetornaSaintPeloIndice()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao andromeda = new Constelacao("Andromeda");
         BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
@@ -29,11 +29,11 @@ public class ListaSaintsTest {
     @Test
     public void verificarSeRetornaSaintPorNome()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao andromeda = new Constelacao("Andromeda");
         BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
@@ -46,14 +46,14 @@ public class ListaSaintsTest {
         assertEquals(ikki,listaSaint.buscarPorNome("ikki"));
     }
     
-    /*@Test
+    @Test
     public void verificarSeRetornaSaintCategoriaInformada()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao peixes = new Constelacao("Peixes");
         GoldSaint Hakata = new GoldSaint("Hakata", new Armadura(peixes, Categoria.OURO));
@@ -72,14 +72,14 @@ public class ListaSaintsTest {
         
         assertEquals(Seya, categorias.get(0));
         assertEquals(Hakata, categorias.get(1));
-    }*/
+    }
 
     @Test 
     public void buscarPorCategoriaComMaisDeUmExistenteNaCategoria() throws Exception { 
         ListaSaints listaSaints = new ListaSaints(); 
-        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE)); 
+        Saint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE)); 
         Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA)); 
-        Saint shun = new Saint("June", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE)); 
+        Saint shun = new BronzeSaint("June", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE)); 
         listaSaints.adicionarSaint(shun); 
         listaSaints.adicionarSaint(misty); 
         listaSaints.adicionarSaint(june); 
@@ -92,12 +92,12 @@ public class ListaSaintsTest {
     @Test
     public void verificarSaintMaiorVida()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         Seya.perderVida(5);
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         Shiryu.perderVida(22);
         
         Constelacao andromeda = new Constelacao("Andromeda");
@@ -115,12 +115,12 @@ public class ListaSaintsTest {
     @Test
     public void verificarSaintMenorVida()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         Seya.perderVida(5);
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         Shiryu.perderVida(22);
         
         Constelacao andromeda = new Constelacao("Andromeda");
@@ -138,12 +138,12 @@ public class ListaSaintsTest {
    @Test
     public void verificarSeOrdenouLista()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         Seya.perderVida(5);
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         Shiryu.perderVida(22);
         
         Constelacao andromeda = new Constelacao("Andromeda");
@@ -165,12 +165,12 @@ public class ListaSaintsTest {
     @Test
     public void verificarSeOrdenouListaAscendente()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         Seya.perderVida(5);
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         Shiryu.perderVida(22);
         
         Constelacao andromeda = new Constelacao("Andromeda");
@@ -192,12 +192,12 @@ public class ListaSaintsTest {
     @Test
     public void verificarSeOrdenouListaDescendente()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         Seya.perderVida(5);
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         Shiryu.perderVida(22);
         
         Constelacao andromeda = new Constelacao("Andromeda");
@@ -219,12 +219,12 @@ public class ListaSaintsTest {
     @Test
     public void unirInserindoUmSaintApenasPorArrayList()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         Seya.perderVida(5);
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         Shiryu.perderVida(22);
         
         ListaSaints listaSaint = new ListaSaints();
@@ -243,18 +243,18 @@ public class ListaSaintsTest {
    @Test
    public void unirInserindoTresSaintsPorArrayList()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao andromeda = new Constelacao("Andromeda");
         BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
         
-        GoldSaint Goku = new GoldSaint("Goku", new Armadura(sagitario, Categoria.OURO));
+        GoldSaint Goku = new GoldSaint("Goku", new Armadura(Sagitário, Categoria.OURO));
         
-        SilverSaint Gotanks = new SilverSaint("Gotaks", new Armadura(aries, Categoria.PRATA));
+        SilverSaint Gotanks = new SilverSaint("Gotaks", new Armadura(Áries, Categoria.PRATA));
         
         BronzeSaint Vegeta = new BronzeSaint("Vegeta", new Armadura(andromeda, Categoria.BRONZE));
         
@@ -282,17 +282,17 @@ public class ListaSaintsTest {
    @Test
    public void diffListaComUmDiferentes()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao andromeda = new Constelacao("Andromeda");
         BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
         
-        GoldSaint Goku = new GoldSaint("Goku", new Armadura(sagitario, Categoria.OURO));
-        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(sagitario, Categoria.OURO));
+        GoldSaint Goku = new GoldSaint("Goku", new Armadura(Sagitário, Categoria.OURO));
+        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(Sagitário, Categoria.OURO));
         
         ListaSaints listaSaint = new ListaSaints();
         listaSaint.adicionarSaint(Seya);
@@ -315,17 +315,17 @@ public class ListaSaintsTest {
    @Test
    public void diffListaComUmDiferentesePosicaoDiferente()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao andromeda = new Constelacao("Andromeda");
         BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
         
-        GoldSaint Goku = new GoldSaint("Goku", new Armadura(sagitario, Categoria.OURO));
-        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(sagitario, Categoria.OURO));
+        GoldSaint Goku = new GoldSaint("Goku", new Armadura(Sagitário, Categoria.OURO));
+        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(Sagitário, Categoria.OURO));
         
         ListaSaints listaSaint = new ListaSaints();
         listaSaint.adicionarSaint(Seya);
@@ -348,17 +348,17 @@ public class ListaSaintsTest {
    @Test
    public void intersecListaComUmDiferente()throws Exception{
         
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao andromeda = new Constelacao("Andromeda");
         BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
         
-        GoldSaint Goku = new GoldSaint("Goku", new Armadura(sagitario, Categoria.OURO));
-        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(sagitario, Categoria.OURO));
+        GoldSaint Goku = new GoldSaint("Goku", new Armadura(Sagitário, Categoria.OURO));
+        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(Sagitário, Categoria.OURO));
         
         ListaSaints listaSaint = new ListaSaints();
         listaSaint.adicionarSaint(Seya);
@@ -383,17 +383,17 @@ public class ListaSaintsTest {
    @Test
    public void intersecListaComUmDiferenteEComSaintsEmPosicoesDiferentes()throws Exception{
        
-        Constelacao sagitario = new Constelacao("Sagitario");
-        GoldSaint Seya = new GoldSaint("Seya", new Armadura(sagitario, Categoria.OURO));
+        Constelacao Sagitário = new Constelacao("Sagitário");
+        GoldSaint Seya = new GoldSaint("Seya", new Armadura(Sagitário, Categoria.OURO));
         
-        Constelacao aries = new Constelacao("Aries");
-        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(aries, Categoria.PRATA));
+        Constelacao Áries = new Constelacao("Áries");
+        SilverSaint Shiryu = new SilverSaint("Shiryu", new Armadura(Áries, Categoria.PRATA));
         
         Constelacao andromeda = new Constelacao("Andromeda");
         BronzeSaint ikki = new BronzeSaint("ikki", new Armadura(andromeda, Categoria.BRONZE));
         
-        GoldSaint Goku = new GoldSaint("Goku", new Armadura(sagitario, Categoria.OURO));
-        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(sagitario, Categoria.OURO));
+        GoldSaint Goku = new GoldSaint("Goku", new Armadura(Sagitário, Categoria.OURO));
+        GoldSaint Vegeta = new GoldSaint("Vegeta", new Armadura(Sagitário, Categoria.OURO));
         
         ListaSaints listaSaint = new ListaSaints();
         listaSaint.adicionarSaint(Seya);
@@ -420,19 +420,18 @@ public class ListaSaintsTest {
    @Test
    public void getCSVTestandoComDoisSaints()throws Exception{
        ListaSaints lista = new ListaSaints();
-       Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+       
+       Saint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
        june.setGenero(Genero.FEMININO);
        june.perderVida(15.5);
        lista.adicionarSaint(june);
-
-       Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
+       
+       Saint dohko = new GoldSaint("Dohko", new Armadura(new Constelacao("Áries"), Categoria.OURO));
        dohko.perderVida(90);
        dohko.vestirArmadura();
        lista.adicionarSaint(dohko);
-       
-       String csv = lista.getCSV();
-       System.out.println(csv);
-       assertEquals("June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false\nDohko,10.0,,OURO,VIVO,NAO_INFORMADO,true\n",csv);
-
+       String separador = System.getProperty("line.separator");
+       String esperado = "June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false" + separador + "Dohko,10.0,Áries,OURO,VIVO,NAO_INFORMADO,true";
+       assertEquals(esperado, lista.getCSV());
    }
 }

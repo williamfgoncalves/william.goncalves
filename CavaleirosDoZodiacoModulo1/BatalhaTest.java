@@ -7,10 +7,10 @@ public class BatalhaTest
 {
     @Test
     public void testarBatalhaSaintUmMaiorQueSaintDois()throws Exception{
-        Constelacao cancer = new Constelacao("Cancer");
+        Constelacao cancer = new Constelacao("Câncer");
         Constelacao leao = new Constelacao("Leao");
-        Saint goku = new Saint("Goku", new Armadura(cancer, Categoria.OURO));
-        Saint vegeta= new Saint("Vegeta", new Armadura(leao, Categoria.PRATA));
+        Saint goku = new GoldSaint("Goku", new Armadura(cancer, Categoria.OURO));
+        Saint vegeta= new SilverSaint("Vegeta", new Armadura(leao, Categoria.PRATA));
         Batalha batalha = new Batalha(goku, vegeta);
         batalha.iniciar();
         assertEquals(100.0, goku.getVida(), 0.1);
@@ -19,10 +19,10 @@ public class BatalhaTest
     
     @Test
     public void testarBatalhaSaintUmIgualSaintDois()throws Exception{
-        Constelacao aquario = new Constelacao("Aquario");
-        Constelacao aries = new Constelacao("Aries");
-        Saint shiryu = new Saint("shiryu", new Armadura(aquario, Categoria.OURO));
-        Saint ikki = new Saint("ikki", new Armadura(aries, Categoria.OURO));
+        Constelacao aquario = new Constelacao("Aquário");
+        Constelacao aries = new Constelacao("Áries");
+        Saint shiryu = new GoldSaint("shiryu", new Armadura(aquario, Categoria.OURO));
+        Saint ikki = new SilverSaint("ikki", new Armadura(aries, Categoria.OURO));
         Batalha batalha = new Batalha(shiryu, ikki);
         batalha.iniciar();
         assertEquals(100.0, shiryu.getVida(), 0.1);
@@ -33,8 +33,8 @@ public class BatalhaTest
     public void testarBatalhaSaintDoisMaiorQueSaintUm()throws Exception{
         Constelacao virgem = new Constelacao("Virgem");
         Constelacao sagitario = new Constelacao("Sagitário");
-        Saint shiryu = new Saint("shiryu", new Armadura(virgem, Categoria.PRATA));
-        Saint ikki = new Saint("ikki", new Armadura(sagitario, Categoria.OURO));
+        Saint shiryu = new SilverSaint("shiryu", new Armadura(virgem, Categoria.PRATA));
+        Saint ikki = new GoldSaint("ikki", new Armadura(sagitario, Categoria.OURO));
         Batalha batalha = new Batalha(shiryu, ikki);
         batalha.iniciar();
         assertEquals(90.0, shiryu.getVida(), 0.1);

@@ -187,16 +187,21 @@ public class ListaSaints{
     }
     
     public String getCSV(){
-       String dados = "";
-       if(listaSaints.isEmpty()){
-           return null;
-       }
-       
-        for(Saint saint : listaSaints){
-            dados += saint.getNome() + "," + saint.getVida() + "," + saint.getConstelacao().getNome() +  ","+ saint.getArmadura().getCategoria() + "," + 
-            saint.getStatus() + "," + saint.getGenero() + "," + saint.getArmaduraVestida() + "\n";
+        
+        if(listaSaints.isEmpty()){
+            return null;
         }
         
-        return dados;
+        String separador = System.getProperty("line.separator");
+        StringBuilder stringSaints = new StringBuilder(512);
+
+        stringSaints.append(this.listaSaints.get(0).getCSV());
+        
+        for (int i = 1; i < this.listaSaints.size(); i++) {
+            Saint saint = this.listaSaints.get(i);
+            stringSaints.append(separador);
+            stringSaints.append(saint.getCSV());
+        }
+        return stringSaints.toString();
     }
 }

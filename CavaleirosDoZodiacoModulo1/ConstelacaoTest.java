@@ -7,7 +7,7 @@ public class ConstelacaoTest
 {
     @Test
     public void verificarSeSaintAdicionaUmGolpe(){
-        Constelacao aries = new Constelacao("Aries");
+        Constelacao aries = new Constelacao("Áries");
         Golpe hadukem = new Golpe("Hadukem!", 20);
         aries.adicionarGolpe(hadukem);
         assertEquals(hadukem, aries.getGolpes().get(0));
@@ -15,7 +15,7 @@ public class ConstelacaoTest
     
     @Test
     public void verificarSeSaintAdicionaDoisGolpes(){
-        Constelacao aries = new Constelacao("Aries");
+        Constelacao aries = new Constelacao("Áries");
         Golpe hadukem = new Golpe("Hadukem!", 20);
         Golpe shoriukem = new Golpe("shoriukem!", 20);
         aries.adicionarGolpe(hadukem);
@@ -26,7 +26,7 @@ public class ConstelacaoTest
     
     @Test
     public void verificarSeSaintAdicionaTresDoisGolpes(){
-        Constelacao aries = new Constelacao("Aries");
+        Constelacao aries = new Constelacao("Áries");
         Golpe hadukem = new Golpe("Hadukem!", 20);
         Golpe shoriukem = new Golpe("shoriukem!", 20);
         Golpe Genkidama = new Golpe("Genkidama!", 20);
@@ -40,7 +40,7 @@ public class ConstelacaoTest
     
     @Test
     public void verificarSeSaintAdicionaQuatroGolpes(){
-        Constelacao aries = new Constelacao("Aries");
+        Constelacao aries = new Constelacao("Áries");
         Golpe hadukem = new Golpe("Hadukem!", 20);
         Golpe shoriukem = new Golpe("shoriukem!", 20);
         Golpe Genkidama = new Golpe("Genkidama!", 20);

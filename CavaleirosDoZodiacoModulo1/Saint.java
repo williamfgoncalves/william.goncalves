@@ -1,7 +1,7 @@
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-public class Saint{
+public abstract class Saint{
     
     private String nome;
     private boolean armaduraVestida;
@@ -95,5 +95,16 @@ public class Saint{
         int posicao = this.contador % golpes.size(); 
         this.contador++; 
         return golpes.get(posicao); 
+    }
+    
+    public String getCSV(){
+        return
+            this.nome + "," +
+            this.getVida() + "," +
+            this.getConstelacao().getNome() + "," +
+            this.getArmadura().getCategoria() + "," +
+            this.status + "," +
+            this.genero + "," +
+            this.getArmaduraVestida();
     }
 }
