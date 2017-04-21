@@ -102,57 +102,28 @@ public class ListaSaints{
         return menorVida;
     }
     
-    public void ordenarSaint(){
-        boolean controle = false;
+    public void ordenar(){
+        this.ordenar(TipoOrdenacao.ASCENDENTE);
+    }
+
+    public void ordenar(TipoOrdenacao tipoOrdenacao){
+    boolean ascendente = tipoOrdenacao == TipoOrdenacao.ASCENDENTE;
+    boolean controle = false;
         do{
             controle = false;
             for(int i =0; i < listaSaints.size()-1; i++){ 
                 Saint atual = this.listaSaints.get(i);
                 Saint proximo = this.listaSaints.get(i+1);
-                boolean precisaTrocar = atual.getVida() > proximo.getVida();
-                if(precisaTrocar){
-                    Saint troca = atual;
-                    this.listaSaints.set(i, proximo);
-                    this.listaSaints.set(i+1, proximo);
-                    controle = true;
-                }
-            }
-        }while(controle); 
-    }
-
-    public void ordenar(TipoOrdenacao tipoOrdenacao){
-       if(tipoOrdenacao.equals(TipoOrdenacao.ASCENDENTE)){
-            boolean controle = false;
-            do{
-                controle = false;
-                for(int i =0; i < listaSaints.size()-1; i++){ 
-                    Saint atual = this.listaSaints.get(i);
-                    Saint proximo = this.listaSaints.get(i+1);
-                    boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                boolean precisaTrocar = 
+                    ascendente ? atual.getVida() > proximo.getVida() :
+                    atual.getVida() < proximo.getVida();
                     if(precisaTrocar){
-                        Saint troca = atual;
                         this.listaSaints.set(i, proximo);
                         this.listaSaints.set(i+1, proximo);
                         controle = true;
                     }
-                }
-            }while(controle); 
-        }else if(tipoOrdenacao.equals(TipoOrdenacao.DESCENDENTE)){
-            boolean controle = false;
-            do{
-                controle = false;
-                for(int i =0; i < listaSaints.size()-1; i++){ 
-                    Saint atual = this.listaSaints.get(i);
-                    Saint proximo = this.listaSaints.get(i+1);
-                    boolean precisaTrocar = atual.getVida() < proximo.getVida();
-                    if(precisaTrocar){
-                        this.listaSaints.set(i, proximo);
-                        this.listaSaints.set(i+1, atual);
-                        controle = true;
-                    }
-                }
-            }while(controle);  
-        }
+            }
+        }while(controle); 
     } 
     
     public int getSize(){

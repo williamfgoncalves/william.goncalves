@@ -155,7 +155,7 @@ public class ListaSaintsTest {
         listaSaint.adicionarSaint(Shiryu);
         listaSaint.adicionarSaint(ikki);
         
-        listaSaint.ordenarSaint();
+        listaSaint.ordenar();
         ArrayList<Saint> vidas = new ArrayList<Saint>();
         vidas = listaSaint.retornaTodos();
         
