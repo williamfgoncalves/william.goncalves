@@ -2,7 +2,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public abstract class Saint{
-    
+
     private String nome;
     private double vida = 100.0;
     protected Armadura armadura;
@@ -11,52 +11,54 @@ public abstract class Saint{
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     protected int qtdSentidosDespertados;
-    private int contador = 0;
-    
+    private int contadorGolpes = 0;
+    private int contadorMovimentos = 0;
+    private ArrayList<Movimento> listaMovimentos = new ArrayList<>();
+
     public Saint(String nome, String constelacao) throws Exception{
         this.nome = nome;
         this.constelacao = constelacao;
     }
-    
+
     public String getNome(){
         return this.nome;
     }
-    
+
     public int getValorArmadura(){
         return this.armadura.getCategoria().getValor();
     }
-    
+
     public Armadura getArmadura(){
         return this.armadura;
     }
-    
+
     public void vestirArmadura(){
         this.armaduraVestida = true;
     }
-    
+
     public boolean getArmaduraVestida(){
         return this.armaduraVestida;
     }
-    
+
     public Genero getGenero(){
         return this.genero;
     }
-    
+
     public void setGenero(Genero genero){
         this.genero = genero;
     }
-    
+
     public Status getStatus(){
         return this.status;
     }
-    
+
     public void perderVida(double dano)throws Exception{
         if(dano < 0){
             throw new InvalidParameterException("Voce nao pode adicionar dados negativos");
         }
-        
+
         if(this.status != Status.MORTO){
-            
+
             if(vida - dano <= 0){
                 this.status = Status.MORTO;
                 this.vida = 0;
@@ -66,42 +68,52 @@ public abstract class Saint{
             }
         }
     }
-    
+
     public double getVida(){
         return this.vida;
     }
-    
-     public int getQtdSentidosDespertados(){
+
+    public int getQtdSentidosDespertados(){
         return this.qtdSentidosDespertados;
     }
-    
-     public Constelacao getConstelacao(){
+
+    public Constelacao getConstelacao(){
         return this.armadura.getConstelacao();
     }
 
     public ArrayList<Golpe> getGolpes(){
         return getConstelacao().getGolpes();
     }
-    
+
     public void aprenderGolpes(Golpe golpe){
         getConstelacao().adicionarGolpe(golpe);
     }
-    
+
     public Golpe getProximoGolpe () {      
         ArrayList<Golpe> golpes = getGolpes(); 
-        int posicao = this.contador % golpes.size(); 
-        this.contador++; 
+        int posicao = this.contadorGolpes % golpes.size(); 
+        this.contadorGolpes++; 
         return golpes.get(posicao); 
     }
-    
+
     public String getCSV(){
         return
-            this.nome + "," +
-            this.getVida() + "," +
-            this.getConstelacao().getNome() + "," +
-            this.getArmadura().getCategoria() + "," +
-            this.status + "," +
-            this.genero + "," +
-            this.getArmaduraVestida();
+        this.nome + "," +
+        this.getVida() + "," +
+        this.getConstelacao().getNome() + "," +
+        this.getArmadura().getCategoria() + "," +
+        this.status + "," +
+        this.genero + "," +
+        this.getArmaduraVestida();
+    }
+
+    public void adicionarMovimento(Movimento movimento){
+        listaMovimentos.add(movimento);
+    }
+
+    public Movimento getProximoMovimento(){
+        int posicao = this.contadorMovimentos % listaMovimentos.size();
+        this.contadorMovimentos++;
+        return listaMovimentos.get(posicao);
     }
 }
