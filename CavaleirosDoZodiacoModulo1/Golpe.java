@@ -11,7 +11,7 @@ public class Golpe{
         return this.nome;
     }
     
-    public int getfatorDano(){
+    public int getFatorDano(){
         return this.fatorDano;
     }
 }
