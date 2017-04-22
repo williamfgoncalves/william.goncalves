@@ -1,5 +1,6 @@
+import java.lang.Exception;
+
 public interface Movimento{
-     public void executar();
-     public void vestirArmadura();
+     public void executar()throws Exception;
 }
 
