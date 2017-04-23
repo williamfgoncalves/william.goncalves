@@ -7,22 +7,41 @@ public class BatalhaTest
 {
     @Test
     public void testarBatalhaSaintUmMaiorQueSaintDois()throws Exception{
+        
         Constelacao cancer = new Constelacao("Câncer");
         Constelacao leao = new Constelacao("Leao");
-        Saint goku = new GoldSaint("Goku", cancer.getNome());
-        Saint vegeta= new SilverSaint("Vegeta", leao.getNome());
         
+        Saint goku = new GoldSaint("Goku", cancer.getNome());
         Golpe hadukem = new Golpe("Hadukem", 10);
-        Golpe kamehameha = new Golpe("kamehameha", 30);
         Golpe meteoroPegaso = new Golpe("Meteoro Pegaso", 20);
         goku.aprenderGolpes(hadukem);
-        vegeta.aprenderGolpes(kamehameha);
         goku.aprenderGolpes(meteoroPegaso);
-       
-        Batalha batalha = new Batalha(goku, vegeta);
-        batalha.iniciar();
+        
+        Saint vegeta= new SilverSaint("Vegeta", leao.getNome());
+        Golpe kamehameha = new Golpe("kamehameha", 30);
+        vegeta.aprenderGolpes(kamehameha);
+        
+        //primereiras batalhas sem casaco
+        Golpear batalha = new Golpear(vegeta, goku);
+        vegeta.adicionarMovimento(batalha);
+        Golpear batalha2 = new Golpear(goku, vegeta);
+        goku.adicionarMovimento(batalha2);
+        
+        VestirArmadura botaCasaco = new VestirArmadura(goku);
+        goku.adicionarMovimento(botaCasaco);
+        VestirArmadura colocaCasaco = new VestirArmadura(vegeta);
+        vegeta.adicionarMovimento(colocaCasaco);
+        
+        Golpear batalha3 = new Golpear(vegeta, goku);
+        vegeta.adicionarMovimento(batalha3);
+        Golpear batalha4 = new Golpear(goku, vegeta);
+        goku.adicionarMovimento(batalha4);
+        
+        Batalha batalhaSayajin = new Batalha(goku, vegeta);
+        batalhaSayajin.iniciar();
+
         assertEquals(0.0, goku.getVida(), 0.1);
-        assertEquals(40.0, vegeta.getVida(), 0.1);
+        assertEquals(10.0, vegeta.getVida(), 0.1);
     }
     
    /*@Test

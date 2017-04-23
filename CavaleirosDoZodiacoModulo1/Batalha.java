@@ -9,34 +9,28 @@ public class Batalha{
     }
 
     public void iniciar()throws Exception{
-
         boolean primeiroAtaca = false;
         boolean segundoAtaca = false;
-        Golpear batalha;
-        
+
         if(saint1.getValorArmadura() == saint2.getValorArmadura() ||
         saint1.getValorArmadura() > saint2.getValorArmadura()){
+            saint1.getProximoMovimento().executar();
             primeiroAtaca = true;
-            batalha = new Golpear(saint1, saint2);
-            batalha.executar();
         }else{
+            saint2.getProximoMovimento().executar();
             segundoAtaca = true;
-            batalha = new Golpear(saint2, saint1);
-            batalha.executar();
         }
 
         do{
             if(segundoAtaca){
-                batalha =  new Golpear(saint1, saint2);
-                batalha.executar();
+                saint1.getProximoMovimento().executar();
                 primeiroAtaca = true;
                 segundoAtaca = false;
             }else if(primeiroAtaca){
-                batalha =  new Golpear(saint2, saint1);
-                batalha.executar();
+                saint2.getProximoMovimento().executar();
                 segundoAtaca = true;
                 primeiroAtaca = false;
             }
-        }while(saint1.getVida()> 0 && saint2.getVida()> 0);
+        }while((saint1.getStatus() != Status.MORTO) && (saint2.getStatus() != Status.MORTO));
     }
 }
