@@ -11,12 +11,15 @@ public class GolpearTest
         Constelacao Andromeda = new Constelacao("Andromeda");
         Constelacao Aries = new Constelacao("Áries");
         Golpe Hadukem = new Golpe("Hadukem", 10);
+        Golpe Shoryuken = new Golpe("Shoryuken", 20);
         Aries.adicionarGolpe(Hadukem);
+        Aries.adicionarGolpe(Shoryuken);
 
         Saint Seya = new BronzeSaint("Seya", Andromeda.getNome());
         Saint Aldeibaran = new GoldSaint("Aldeibaran", Aries.getNome());
         Aldeibaran.vestirArmadura();
         Aldeibaran.aprenderGolpes(Hadukem);
+        Aldeibaran.aprenderGolpes(Shoryuken);
 
         Golpear golpear = new Golpear(Aldeibaran, Seya);
         golpear.executar();

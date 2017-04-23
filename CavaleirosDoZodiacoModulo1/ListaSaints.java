@@ -82,9 +82,7 @@ public class ListaSaints{
         return maiorVida;
     }
 
-    
     public Saint getSaintMenorVida() {
-
         if (listaSaints.isEmpty()) {
             return null;
         }
