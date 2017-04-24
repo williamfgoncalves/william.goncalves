@@ -123,4 +123,8 @@ public abstract class Saint{
         this.contadorMovimentos++;
         return listaMovimentos.get(posicao);
     }
+    
+    public int getId(){
+        return this.id;
+    }
 }
