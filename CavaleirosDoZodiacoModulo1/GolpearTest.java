@@ -61,7 +61,7 @@ public class GolpearTest
 
         assertEquals(70.0,Seya.getVida(),0.1);
     }
-    
+
     @Test
     public void testarAtaqueComSaintPrataSemArmadura()throws Exception{
         Constelacao Andromeda = new Constelacao("Andromeda");
@@ -96,7 +96,7 @@ public class GolpearTest
 
         assertEquals(80.0,Seya.getVida(),0.1);
     }
-    
+
     @Test
     public void testarAtaqueComSaintBronzeSemArmadura()throws Exception{
         Constelacao Andromeda = new Constelacao("Andromeda");
@@ -113,8 +113,16 @@ public class GolpearTest
 
         assertEquals(90.0,Seya.getVida(),0.1);
     }
-    
-    @Test
+
+    @Test(expected = ArithmeticException.class)
     public void testarAtaqueComNenhumSaint()throws Exception{
+        Constelacao Andromeda = new Constelacao("Andromeda");
+        Constelacao Aries = new Constelacao("Áries");
+
+        Saint Seya = new BronzeSaint("Seya", Andromeda.getNome());
+        Saint Aldeibaran = new BronzeSaint("Aldeibaran", Aries.getNome());
+
+        Golpear golpear = new Golpear(Aldeibaran, Seya);
+        golpear.executar();
     }
 }

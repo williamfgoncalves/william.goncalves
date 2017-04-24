@@ -1,7 +1,7 @@
 import java.lang.Exception;
 
 public class Golpear implements Movimento{
-    Saint golpeador, golpeado;
+    private Saint golpeador, golpeado;
 
     public Golpear(Saint golpeador, Saint golpeado){
         this.golpeador = golpeador;
