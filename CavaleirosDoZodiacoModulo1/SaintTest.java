@@ -222,7 +222,7 @@ public class SaintTest{
         String esperado = "Goku,100.0,Áries,OURO,VIVO,NAO_INFORMADO,false";
         assertEquals(esperado, Goku.getCSV());
     }
-    
+
     @Test
     public void getCSVComGeneroTrocado()throws Exception{
         Saint Goku = new GoldSaint("Goku","Áries");
@@ -230,7 +230,7 @@ public class SaintTest{
         String esperado = "Goku,100.0,Áries,OURO,VIVO,FEMININO,false";
         assertEquals(esperado, Goku.getCSV());
     }
-    
+
     @Test
     public void getCSVComPerdeVida()throws Exception{
         Saint Goku = new GoldSaint("Goku","Áries");
@@ -238,7 +238,7 @@ public class SaintTest{
         String esperado = "Goku,84.0,Áries,OURO,VIVO,NAO_INFORMADO,false";
         assertEquals(esperado, Goku.getCSV());
     }
-    
+
     @Test
     public void getCSVComNomeNulo()throws Exception{
         Saint Goku = new GoldSaint(null,"Áries");
@@ -265,5 +265,30 @@ public class SaintTest{
 
         Aldeibaran.getProximoMovimento().executar();
         assertEquals(50.0,Shiryu.getVida(),0.1);
+    }
+
+    @Test
+    public void verificarQuantidadeDeSaints()throws Exception{
+        System.out.println("Numero de Saints: " + Saint.getQuantidadeDeSaints());
+    }
+
+    @Test
+    public void verificarQuantidadeDeSaintsSemNenhumSaint()throws Exception{
+
+    }
+
+    @Test
+    public void verificarQuantidadeDeSaintsGeral()throws Exception{
+
+    }
+
+    @Test
+    public void verificarQuantidadeDeSaintsNaClasseListaSaint()throws Exception{
+
+    }
+
+    @Test
+    public void verificarQuantidadeDeSaintsNaBatalha()throws Exception{
+
     }
 }

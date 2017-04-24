@@ -14,11 +14,17 @@ public abstract class Saint{
     private int contadorGolpes = 0;
     private int contadorMovimentos = 0;
     private ArrayList<Movimento> listaMovimentos = new ArrayList<>();
+    private static int quantidadeDeSaints = 0; //atributo de classe pois usa static
 
     //Construtor da classe
     public Saint(String nome, String constelacao) throws Exception{
         this.nome = nome;
         this.constelacao = constelacao;
+        Saint.quantidadeDeSaints++; // adicionado ao atrobuto cada vez que criamos saint;
+    }
+    
+    public static int getQuantidadeDeSaints(){
+        return Saint.quantidadeDeSaints; // retorna o valor geral da classe saint
     }
 
     public String getNome(){
