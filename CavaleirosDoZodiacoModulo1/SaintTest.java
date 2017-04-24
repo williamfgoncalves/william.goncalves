@@ -269,26 +269,35 @@ public class SaintTest{
 
     @Test
     public void verificarQuantidadeDeSaints()throws Exception{
-        System.out.println("Numero de Saints: " + Saint.getQuantidadeDeSaints());
+        int saintsAtuais = Saint.getQuantidadeDeSaints();
+        Saint seya = new GoldSaint("Seya","Touro");
+        Saint Aldebaran = new GoldSaint("Aldebaran","Touro");
+        Saint Ikki = new BronzeSaint("Seya","Andromeda");
+        assertEquals(saintsAtuais+3, Saint.getQuantidadeDeSaints());
     }
 
     @Test
-    public void verificarQuantidadeDeSaintsSemNenhumSaint()throws Exception{
-
+    public void verificarQuantidadeDeSaintsSemAdicionarSaint()throws Exception{
+        int saintsAtuais = Saint.getQuantidadeDeSaints();
+        assertEquals(saintsAtuais, Saint.getQuantidadeDeSaints());
     }
 
     @Test
-    public void verificarQuantidadeDeSaintsGeral()throws Exception{
-
+    public void verificarSaintNasceComIdAdicionarApenasUmNovoSaints()throws Exception{
+        int saintsAtuais = Saint.getQuantidadeDeSaints();
+        Saint seya = new GoldSaint("Seya","Touro");
+        assertEquals(saintsAtuais+1, seya.getId());
     }
-
+    
     @Test
-    public void verificarQuantidadeDeSaintsNaClasseListaSaint()throws Exception{
-
+    public void verificarSaintNasceComId()throws Exception{
+        int saintsAtuais = Saint.getQuantidadeDeSaints();
+        Saint seya = new GoldSaint("Seya","Touro");
+        Saint Aldebaran = new GoldSaint("Aldebaran","Touro");
+        Saint Ikki = new BronzeSaint("Seya","Andromeda");
+        assertEquals(saintsAtuais+1, seya.getId());
+        assertEquals(saintsAtuais+2, Aldebaran.getId());
+        assertEquals(saintsAtuais+3, Ikki.getId());
     }
 
-    @Test
-    public void verificarQuantidadeDeSaintsNaBatalha()throws Exception{
-
-    }
 }
