@@ -1,5 +1,5 @@
-import java.security.InvalidParameterException;
-import java.util.ArrayList;
+import java.security.InvalidParameterException; // importação da biblioteca para gerenciar exceções
+import java.util.ArrayList;// importação da biblioteca para gerenciar ArrayList
 
 public abstract class Saint{
 
@@ -15,6 +15,7 @@ public abstract class Saint{
     private int contadorMovimentos = 0;
     private ArrayList<Movimento> listaMovimentos = new ArrayList<>();
 
+    //Construtor da classe
     public Saint(String nome, String constelacao) throws Exception{
         this.nome = nome;
         this.constelacao = constelacao;
