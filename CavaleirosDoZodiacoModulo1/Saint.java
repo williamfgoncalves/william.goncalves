@@ -27,15 +27,17 @@ public abstract class Saint{
     private ArrayList<Movimento> listaMovimentos = new ArrayList<>();
 
     private static int quantidadeDeSaints = 0; //atributo de classe pois usa static
-
+    
+    private static int acumuladorQtdSaints = 1;
+    
     private int id;
 
     //Construtor da classe
     public Saint(String nome, String constelacao) throws Exception{
         this.nome = nome;
         this.constelacao = constelacao;
+        this.id = ++Saint.acumuladorQtdSaints;
         Saint.quantidadeDeSaints++; // adicionado ao atrobuto cada vez que criamos saint;
-        this.id = quantidadeDeSaints;
     }
 
     protected void finalize() throws Throwable {
@@ -44,6 +46,10 @@ public abstract class Saint{
 
     public static int getQuantidadeDeSaints(){
         return Saint.quantidadeDeSaints; // retorna o valor geral da classe saint
+    }
+    
+    public static int getAcumuladorQtdSaints(){
+        return Saint.acumuladorQtdSaints; // retorna o valor geral da classe saint
     }
 
     public String getNome(){

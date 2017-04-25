@@ -288,14 +288,14 @@ public class SaintTest{
 
     @Test
     public void verificarSaintNasceComIdAdicionarApenasUmNovoSaints()throws Exception{
-        int saintsAtuais = Saint.getQuantidadeDeSaints();
+        int saintsAtuais = Saint.getAcumuladorQtdSaints();
         Saint seya = new GoldSaint("Seya","Touro");
         assertEquals(saintsAtuais+1, seya.getId());
     }
 
     @Test
     public void verificarSaintNasceComId()throws Exception{
-        int saintsAtuais = Saint.getQuantidadeDeSaints();
+        int saintsAtuais = Saint.getAcumuladorQtdSaints();
         Saint seya = new GoldSaint("Seya","Touro");
         Saint Aldebaran = new GoldSaint("Aldebaran","Touro");
         Saint Ikki = new BronzeSaint("Seya","Andromeda");
@@ -303,5 +303,14 @@ public class SaintTest{
         assertEquals(saintsAtuais+2, Aldebaran.getId());
         assertEquals(saintsAtuais+3, Ikki.getId());
     }
-
+    
+    @Test
+    public void verificarSaintNasceComIdAposDestruirSaints()throws Exception{
+        int saintsAtuais = Saint.getAcumuladorQtdSaints();
+        Saint seya = new GoldSaint("Seya","Touro");
+        seya = null;
+        //System.gc();
+        Saint Aldebaran = new GoldSaint("Aldebaran","Touro");
+        assertEquals(saintsAtuais+2, Aldebaran.getId());
+    }
 }
