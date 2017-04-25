@@ -6,6 +6,11 @@ import java.security.InvalidParameterException;
 
 public class SaintTest{
 
+    @After
+    public void tearDown(){
+        System.gc(); // forçando o garbage collector para limpar a memória;
+    }
+    
     @Test
     public void vestirArmaduouraDeixaArmaduraVestida()throws Exception{
         Saint milo = new GoldSaint("milo","Câncer");
@@ -269,11 +274,10 @@ public class SaintTest{
 
     @Test
     public void verificarQuantidadeDeSaints()throws Exception{
-        int saintsAtuais = Saint.getQuantidadeDeSaints();
         Saint seya = new GoldSaint("Seya","Touro");
         Saint Aldebaran = new GoldSaint("Aldebaran","Touro");
         Saint Ikki = new BronzeSaint("Seya","Andromeda");
-        assertEquals(saintsAtuais+3, Saint.getQuantidadeDeSaints());
+        assertEquals(3, Saint.getQuantidadeDeSaints());
     }
 
     @Test
@@ -288,7 +292,7 @@ public class SaintTest{
         Saint seya = new GoldSaint("Seya","Touro");
         assertEquals(saintsAtuais+1, seya.getId());
     }
-    
+
     @Test
     public void verificarSaintNasceComId()throws Exception{
         int saintsAtuais = Saint.getQuantidadeDeSaints();
