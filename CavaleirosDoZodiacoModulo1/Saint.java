@@ -27,9 +27,9 @@ public abstract class Saint{
     private ArrayList<Movimento> listaMovimentos = new ArrayList<>();
 
     private static int quantidadeDeSaints = 0; //atributo de classe pois usa static
-    
+
     private static int acumuladorQtdSaints = 1;
-    
+
     private int id;
 
     //Construtor da classe
@@ -47,7 +47,7 @@ public abstract class Saint{
     public static int getQuantidadeDeSaints(){
         return Saint.quantidadeDeSaints; // retorna o valor geral da classe saint
     }
-    
+
     public static int getAcumuladorQtdSaints(){
         return Saint.acumuladorQtdSaints; // retorna o valor geral da classe saint
     }
@@ -144,22 +144,14 @@ public abstract class Saint{
 
     public String getCSV(){
 
-        return
-
-        this.nome + "," +
-
-        this.getVida() + "," +
-
-        this.getConstelacao().getNome() + "," +
-
-        this.getArmadura().getCategoria() + "," +
-
-        this.status + "," +
-
-        this.genero + "," +
-
-        this.getArmaduraVestida();
-
+        return String.format("%s,%s,%s,%s,%s,%s,%s",
+            this.nome,
+            this.getVida(),
+            this.getConstelacao().getNome(),
+            this.getArmadura().getCategoria(),
+            this.status,
+            this.genero,
+            this.getArmaduraVestida());
     }
 
     public void adicionarMovimento(Movimento movimento){
