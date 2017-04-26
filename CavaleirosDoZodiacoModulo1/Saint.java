@@ -173,5 +173,8 @@ public abstract class Saint{
         return this.id;
 
     }
-
+    
+    public void golpear(Saint golpeado) {
+        this.adicionarMovimento(new Golpear(this, golpeado));
+    }
 }

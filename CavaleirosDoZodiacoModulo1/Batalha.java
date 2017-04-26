@@ -9,28 +9,24 @@ public class Batalha{
     }
 
     public void iniciar()throws Exception{
-        boolean primeiroAtaca = false;
-        boolean segundoAtaca = false;
+        int valorSaint1 = saint1.getArmadura().getCategoria().getValor();
+        int valorSaint2 = saint2.getArmadura().getCategoria().getValor();
+        int fatorDano = 10;
+        Saint saintAtacante = null;
 
-        if(saint1.getValorArmadura() == saint2.getValorArmadura() ||
-        saint1.getValorArmadura() > saint2.getValorArmadura()){
-            saint1.getProximoMovimento().executar();
-            primeiroAtaca = true;
+        if(valorSaint1 >= valorSaint2){
+            saint2.perderVida(fatorDano);
+            saintAtacante = saint1;
         }else{
-            saint2.getProximoMovimento().executar();
-            segundoAtaca = true;
+            saint1.perderVida(fatorDano);
+            saintAtacante = saint2;
         }
 
-        do{
-            if(segundoAtaca){
-                saint1.getProximoMovimento().executar();
-                primeiroAtaca = true;
-                segundoAtaca = false;
-            }else if(primeiroAtaca){
-                saint2.getProximoMovimento().executar();
-                segundoAtaca = true;
-                primeiroAtaca = false;
-            }
-        }while((saint1.getStatus() != Status.MORTO) && (saint2.getStatus() != Status.MORTO));
+        boolean ninguemMorreu = true;
+        while(ninguemMorreu){
+            saintAtacante = (saintAtacante == saint1) ? saint2 : saint1;
+            saintAtacante.getProximoMovimento().executar();
+            ninguemMorreu = (saint1.getStatus() != Status.MORTO) && (saint2.getStatus() != Status.MORTO);
+        }
     }
 }
