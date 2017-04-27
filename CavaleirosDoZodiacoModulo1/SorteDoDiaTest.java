@@ -27,7 +27,7 @@ public class SorteDoDiaTest{
     @Test
     public void verificarSeEstouComSorteRetornaTruePeloMenosUmaVezComFalse(){
         //Arrange
-        Sorteador sorteador = new DadoFalse();
+        Sorteador sorteador = new DadoFalso(4);
         SorteDoDia s1 = new SorteDoDia(sorteador);
         boolean realmenteEstouComSorte = false;
         //Act
@@ -45,7 +45,7 @@ public class SorteDoDiaTest{
     @Test
     public void verificarSeEstouComSorteRetornaTrueEmPeloMenosMetade() throws Exception{
         //Arrange
-        Sorteador sorteador = new DadoFalse();
+        Sorteador sorteador = new DadoFalso(4);
         SorteDoDia s1 = new SorteDoDia(sorteador);
         boolean realmenteEstouComSorte = false;
         int contadorDaSorte = 0;
