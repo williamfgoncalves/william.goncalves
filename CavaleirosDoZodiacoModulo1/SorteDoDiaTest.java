@@ -8,7 +8,7 @@ public class SorteDoDiaTest{
     @Test
     public void verificarSeEstouComSorteRetornaTruePeloMenosUmaVez(){
         //Arrange
-        Sorteador sorteador = new DadoD6();
+        Sorteador sorteador = new DadoFalso(4);
         SorteDoDia s1 = new SorteDoDia(sorteador);
         boolean realmenteEstouComSorte = false;
         
@@ -31,7 +31,7 @@ public class SorteDoDiaTest{
         SorteDoDia s1 = new SorteDoDia(sorteador);
         boolean realmenteEstouComSorte = false;
         //Act
-        for(int i = 0; i <2; i++){
+        for(int i = 0; i <500; i++){
             if(s1.estouComSorte() == true){
                 realmenteEstouComSorte = true;
                 break;
