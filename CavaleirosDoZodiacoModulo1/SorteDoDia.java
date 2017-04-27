@@ -10,4 +10,9 @@ public class SorteDoDia{
         int resultado = sorteador.sortear();
         return resultado % 2 == 0;
     }
+    
+    public boolean consigoDeferirAtaqueDuplo(){
+        int resultado = sorteador.sortear();
+        return resultado % 3 == 0;
+    }
 }
