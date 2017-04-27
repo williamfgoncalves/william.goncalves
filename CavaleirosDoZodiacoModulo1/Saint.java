@@ -3,33 +3,19 @@ import java.security.InvalidParameterException; // importação da biblioteca pa
 import java.util.ArrayList;// importação da biblioteca para gerenciar ArrayList
 
 public abstract class Saint{
-
     private String nome;
-
     private double vida = 100.0;
-
     protected Armadura armadura;
-
     private boolean armaduraVestida;
-
     private String constelacao;
-
     private Genero genero = Genero.NAO_INFORMADO;
-
     private Status status = Status.VIVO;
-
     protected int qtdSentidosDespertados;
-
     private int contadorGolpes = 0;
-
     private int contadorMovimentos = 0;
-
     private ArrayList<Movimento> listaMovimentos = new ArrayList<>();
-
     private static int quantidadeDeSaints = 0; //atributo de classe pois usa static
-
     private static int acumuladorQtdSaints = 1;
-
     private int id;
 
     //Construtor da classe
@@ -57,9 +43,7 @@ public abstract class Saint{
     }
 
     public int getValorArmadura(){
-
         return this.armadura.getCategoria().getValor();
-
     }
 
     public Armadura getArmadura(){
@@ -67,9 +51,7 @@ public abstract class Saint{
     }
 
     public void vestirArmadura(){
-
         this.armaduraVestida = true;
-
     }
 
     public boolean getArmaduraVestida(){
@@ -77,9 +59,7 @@ public abstract class Saint{
     }
 
     public Genero getGenero(){
-
         return this.genero;
-
     }
 
     public void setGenero(Genero genero){
@@ -87,18 +67,14 @@ public abstract class Saint{
     }
 
     public Status getStatus(){
-
         return this.status;
-
     }
 
     public void perderVida(double dano)throws Exception{
         if(dano < 0){
             throw new InvalidParameterException("Voce nao pode adicionar dados negativos");
         }
-
         if(this.status != Status.MORTO){
-
             if(vida - dano <= 0){
                 this.status = Status.MORTO;
                 this.vida = 0;
@@ -110,9 +86,7 @@ public abstract class Saint{
     }
 
     public double getVida(){
-
         return this.vida;
-
     }
 
     public int getQtdSentidosDespertados(){
@@ -120,9 +94,7 @@ public abstract class Saint{
     }
 
     public Constelacao getConstelacao(){
-
         return this.armadura.getConstelacao();
-
     }
 
     public ArrayList<Golpe> getGolpes(){
@@ -130,9 +102,7 @@ public abstract class Saint{
     }
 
     public void aprenderGolpes(Golpe golpe){
-
         getConstelacao().adicionarGolpe(golpe);
-
     }
 
     public Golpe getProximoGolpe () {      
@@ -143,7 +113,6 @@ public abstract class Saint{
     }
 
     public String getCSV(){
-
         return String.format("%s,%s,%s,%s,%s,%s,%s",
             this.nome,
             this.getVida(),
@@ -159,21 +128,16 @@ public abstract class Saint{
     }
 
     public Movimento getProximoMovimento(){
-
         int posicao = this.contadorMovimentos % listaMovimentos.size();
-
         this.contadorMovimentos++;
-
         return listaMovimentos.get(posicao);
 
     }
 
     public int getId(){
-
         return this.id;
-
     }
-    
+
     public void golpear(Saint golpeado) {
         this.adicionarMovimento(new Golpear(this, golpeado));
     }

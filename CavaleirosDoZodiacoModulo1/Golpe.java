@@ -14,4 +14,5 @@ public class Golpe{
     public int getFatorDano(){
         return this.fatorDano;
     }
+    
 }
