@@ -1,26 +1,33 @@
 public class AtaqueDuplo implements Movimento{
 
     private Saint golpeador,golpeado;
-    private Sorteador sorteador;
-    private SorteDoDia sorteDoDia;
+    
 
-    public AtaqueDuplo(Saint golpeador, Saint golpeado, SorteDoDia sorteDoDia){
+    public AtaqueDuplo(Saint golpeador, Saint golpeado){
         this.golpeador = golpeador;
         this.golpeado = golpeado;
-        this.sorteDoDia = sorteDoDia;
     }
 
     public void executar()throws Exception{
 
+        boolean consigoDeferirAtaqueDuplo = new DadoD10().sortear() < 4;
+        int fatorDano = 0;
         double danoAtaqueDuploFalhou = (golpeador.getVida()*5)/100;
-
-        int fatorDano = sorteDoDia.consigoDeferirAtaqueDuplo() ?
+        
+        if(golpeador.getArmaduraVestida()){            
+            fatorDano = consigoDeferirAtaqueDuplo ?
+                (golpeador.getProximoGolpe().getFatorDano()*(1+golpeador.getValorArmadura()))*2
+                : golpeador.getProximoGolpe().getFatorDano()*(1+golpeador.getValorArmadura());
+            }
+        else{
+            fatorDano = consigoDeferirAtaqueDuplo ?
                 golpeador.getProximoGolpe().getFatorDano()*2
-            : golpeador.getProximoGolpe().getFatorDano();
-
+                : golpeador.getProximoGolpe().getFatorDano();
+        }
+        
         golpeado.perderVida(fatorDano);
 
-        if(!sorteDoDia.consigoDeferirAtaqueDuplo()){
+        if(!consigoDeferirAtaqueDuplo){
             golpeador.perderVida(danoAtaqueDuploFalhou);
         }
     }
