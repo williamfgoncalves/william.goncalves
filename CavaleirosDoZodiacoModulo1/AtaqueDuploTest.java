@@ -41,7 +41,7 @@ public class AtaqueDuploTest{
         
         if(goku.getVida() == 100){
             assertEquals(100.0, goku.getVida(), 0.1);
-            assertEquals(90.0, vegeta.getVida(), 0.1);
+            assertEquals(80.0, vegeta.getVida(), 0.1);
         }else{
             assertEquals(95.0, goku.getVida(), 0.1);
             assertEquals(90.0, vegeta.getVida(), 0.1);

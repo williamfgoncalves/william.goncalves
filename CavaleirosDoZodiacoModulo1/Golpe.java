@@ -15,4 +15,7 @@ public class Golpe{
         return this.fatorDano;
     }
     
+    public int zerarProximoAtaque(){
+        return this.fatorDano = 0;
+    }
 }
