@@ -7,7 +7,7 @@ public class Golpear implements Movimento{
         this.golpeador = golpeador;
         this.golpeado = golpeado;
     }
-
+    
     public void executar()throws Exception{
         int fatorDano = golpeador.getArmaduraVestida() ?
                 (golpeador.getProximoGolpe().getFatorDano())*(1+golpeador.getValorArmadura()) 

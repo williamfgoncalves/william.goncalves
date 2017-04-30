@@ -1,16 +1,17 @@
 public class ContraAtaque implements Movimento{
 
     private Saint golpeador, golpeado;
-    private Golpear golpear;
-    private boolean aptoContratacar = golpeado.getVida() < 50 && (golpeado.getArmaduraVestida() == false);
-    private boolean possoContratacar = new DadoD10().sortear() > 4;
+    private Sorteador sorteador;
 
-    public ContraAtaque(Saint golpeador, Saint golpeado){
+    public ContraAtaque(Saint golpeador, Saint golpeado, Sorteador sorteador){
         this.golpeador = golpeador;
         this.golpeado = golpeado;
+        this.sorteador = sorteador;
     }
 
     public void executar()throws Exception{
+        boolean aptoContratacar = golpeado.getVida() < 50 && (golpeado.getArmaduraVestida() == false);
+        boolean possoContratacar = sorteador.sortear() > 4;
 
         if(aptoContratacar){
             if(possoContratacar){
