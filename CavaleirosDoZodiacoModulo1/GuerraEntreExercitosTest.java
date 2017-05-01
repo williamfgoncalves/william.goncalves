@@ -28,13 +28,6 @@ public class GuerraEntreExercitosTest{
        saint6.adicionarMovimento(new VestirArmadura(saint6));
        saint6.aprenderGolpes(new Golpe("Soco", 30));
        
-       saint1.adicionarMovimento(new Golpear(saint1, saint2));
-       saint2.adicionarMovimento(new Golpear(saint2, saint1));
-       saint3.adicionarMovimento(new Golpear(saint3, saint4));
-       saint4.adicionarMovimento(new Golpear(saint4, saint3));
-       saint5.adicionarMovimento(new Golpear(saint5, saint6));
-       saint6.adicionarMovimento(new Golpear(saint6, saint5));
-       
        ExercitoQueAtacaEmOrdemAlternada impostores = new ExercitoQueAtacaEmOrdemAlternada();
        impostores.alistarExercito(saint1);
        impostores.alistarExercito(saint3);
@@ -44,6 +37,7 @@ public class GuerraEntreExercitosTest{
        defensoresDeAthena.alistarExercito(saint2);
        defensoresDeAthena.alistarExercito(saint4);
        defensoresDeAthena.alistarExercito(saint6);
+       defensoresDeAthena.ordenarExercito();
        
        GuerraEntreExercitos tendeu = new GuerraEntreExercitos(defensoresDeAthena.getExercitoAthena(),
        impostores.getExercitoImpostor());

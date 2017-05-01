@@ -17,7 +17,8 @@ public class GuerraEntreExercitos implements Movimento{
             for(int i = 0; i < impostores.size(); i++){
                 Saint defensor = defensoresDeAthena.get(i);
                 Saint impostor = impostores.get(i);
-                
+                defensor.adicionarMovimento(new Golpear(defensor,impostor));
+                impostor.adicionarMovimento(new Golpear(impostor,defensor));
                 Batalha guerra = new Batalha(defensor,impostor);
                 guerra.iniciar();
             }   
@@ -26,6 +27,8 @@ public class GuerraEntreExercitos implements Movimento{
             for(int i = 0; i < defensoresDeAthena.size(); i++){
                 Saint defensor = defensoresDeAthena.get(i);
                 Saint impostor = impostores.get(i);
+                defensor.adicionarMovimento(new Golpear(defensor,impostor));
+                impostor.adicionarMovimento(new Golpear(impostor,defensor));
                 Batalha guerra = new Batalha(defensor,impostor);
                 guerra.iniciar();
             }
