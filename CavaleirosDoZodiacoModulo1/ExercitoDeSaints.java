@@ -1,6 +1,7 @@
-public class ExercitoDeSaints extends ListaSaints{
-    
-    public ExercitoDeSaints(){
-        super();
-    }
+import java.util.ArrayList;
+
+public interface ExercitoDeSaints{
+      
+    public void alistarExercito(Saint saint);
+    public void ordenarExercito();
 }
