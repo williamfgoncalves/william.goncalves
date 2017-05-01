@@ -131,7 +131,6 @@ public abstract class Saint{
         int posicao = this.contadorMovimentos % listaMovimentos.size();
         this.contadorMovimentos++;
         return listaMovimentos.get(posicao);
-
     }
 
     public int getId(){
