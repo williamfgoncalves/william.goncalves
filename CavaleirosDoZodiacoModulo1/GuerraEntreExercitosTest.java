@@ -32,6 +32,7 @@ public class GuerraEntreExercitosTest{
        impostores.alistarExercito(saint1);
        impostores.alistarExercito(saint3);
        impostores.alistarExercito(saint5);
+       impostores.ordenarExercito();
        
        ExercitoQueAtacaEmOrdemHierarquica defensoresDeAthena = new ExercitoQueAtacaEmOrdemHierarquica();
        defensoresDeAthena.alistarExercito(saint2);
