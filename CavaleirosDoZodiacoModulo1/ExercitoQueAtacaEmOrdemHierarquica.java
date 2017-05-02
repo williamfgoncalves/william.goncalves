@@ -12,6 +12,10 @@ public class ExercitoQueAtacaEmOrdemHierarquica implements ExercitoDeSaints{
         return defendoresDeAthena;
     }
     
+    public Saint getSaintsIndice(int indice){
+        return defendoresDeAthena.get(indice);
+    }
+    
     public void ordenarExercito(){
         boolean ascendente = false;
         boolean controle = false;
