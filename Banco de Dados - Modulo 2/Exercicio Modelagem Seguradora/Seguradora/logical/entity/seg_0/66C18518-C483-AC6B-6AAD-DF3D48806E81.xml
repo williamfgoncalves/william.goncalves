@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="66C18518-C483-AC6B-6AAD-DF3D48806E81" name="Beneficiario">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 18:53:46 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDBeneficiario" id="521900E1-591E-5CE4-04E7-0C9ED8235037">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 18:53:58 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome_Beneficiario" id="0A90F636-D9C9-28ED-0203-A75A602D5E30">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 18:54:19 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="51F8E037-3FA7-A0FE-7D92-A39B8F69313D" name="Beneficiario PK">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 18:54:16 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>521900E1-591E-5CE4-04E7-0C9ED8235037</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

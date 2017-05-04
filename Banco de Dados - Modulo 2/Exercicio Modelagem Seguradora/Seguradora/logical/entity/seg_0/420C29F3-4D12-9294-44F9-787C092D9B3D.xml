@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="420C29F3-4D12-9294-44F9-787C092D9B3D" name="Contrato">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 18:50:40 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDContrato" id="548463DE-99A0-6172-093D-AC6CB22D05A4">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 18:50:52 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDSeguro" id="68585C9B-43CC-392F-EA3F-C9B2E728BCCA">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:01:21 UTC</createdTime>
+<generatorID>1EB85C19-7454-9C15-284B-F1617CF32C46</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<referedAttribute>97DB7CF8-E21B-DE26-1DAA-A1B944A45BEE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataInicio" id="6EF161FC-1D34-F0D0-F318-FC0B271A5A63">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:16:09 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataFim" id="EF1D2433-5215-E8D6-40CF-066EE241DF21">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:16:24 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DFD736DA-2D59-4B96-2D97-7C539A39C0CF" name="Contrato PK">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 18:51:11 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>548463DE-99A0-6172-093D-AC6CB22D05A4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AED9E2C2-B85C-D80A-607B-26BDEF2AC25F" name="Endereco">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>8C21C9A2-FAF7-8823-4200-8FCE1B2A3532</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEndereco" id="AA148F4D-69AE-7393-089F-5ED0161826AF">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>D8F8B939-4FB8-0F24-5443-16F13D9FBEDB</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="03DC33B2-0D00-01DD-FBF1-042B7F545970">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>08127FD1-F8C6-2F35-617F-48951851507A</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEP" id="50D5772A-569F-8C14-B432-955BA6BFB8DC">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>B5BF7CBE-E1F9-00F5-C5FE-1B498A65A8CC</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rua" id="DDD80522-82EC-4B83-409A-F41984A43815">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>C1CE08E2-59A2-0298-FE2F-9F4BD32E4BE3</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Complemento" id="91C671F0-4297-01AA-4483-F0F42C9A9F24">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>0C9DFE56-5AB4-494C-7D68-72EED138F694</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_IDCliente" id="8E925E98-F1A9-EC92-241E-92DA74337062">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>9DCA7444-7D36-AC35-6E57-115141DBE3B9</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F497C5D1-DD39-4C7D-0365-1D18FC6F6239" referredColumn="23D5DFFD-C8CA-A510-B16D-80C19C0EE06A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="93E04500-0283-869A-437C-56B30005F439" name="Endereco_PK">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>2E308ADA-E5E1-4376-69EB-33AF52D6A6E7</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA148F4D-69AE-7393-089F-5ED0161826AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E6039E2E-A1CF-4FA0-5CDC-535024404DEC" name="Endereco__IDX">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<ownerDesignName>Seguradora</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>F3911718-E5A6-DAAF-5821-91BCB6DA3A56</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="8E925E98-F1A9-EC92-241E-92DA74337062"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="22BB5565-995D-715E-F57E-9D5A5E5E2D8A" name="Endereco_Cliente_FK">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>F3911718-E5A6-DAAF-5821-91BCB6DA3A56</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E925E98-F1A9-EC92-241E-92DA74337062"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

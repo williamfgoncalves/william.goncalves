@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0449E258-D9D6-E581-DD7F-FFE326EF49A6" name="Seguro">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>C0CD7534-DC5C-8E07-C1A5-AF3F6A0F9371</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguro" id="F25F8047-A960-C12D-C27D-55559A1DDEEF">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>97DB7CF8-E21B-DE26-1DAA-A1B944A45BEE</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome_Seguro" id="2343E588-C4CA-2FD9-ACA3-15CEAF6A4378">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>9070A9CB-6A9D-6EAC-425C-DD020E100E25</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_IDCliente" id="7605E7ED-9F70-4971-2952-01ABDDC68E58">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>4E9F0673-7F4A-AB2B-CD0B-2AE4D3AD30A2</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A271EAC7-E9A4-DCB6-95BC-423AFECC37F2" referredColumn="23D5DFFD-C8CA-A510-B16D-80C19C0EE06A"/>
+</associations>
+</Column>
+<Column name="Tipo_Seguro" id="DFEF6382-E643-9CEF-1FDB-0E13B923AB2E">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:31:11 UTC</createdTime>
+<generatorID>7FE761AC-704D-0DC1-3577-8435D7BD34C7</generatorID>
+<ownerDesignName>Seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="74AEA5F4-84B8-8BB2-8451-A0EC471659FE" name="Seguro_PK">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>1EA36B19-A577-8CB0-E11C-A1783D5C0BEC</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F25F8047-A960-C12D-C27D-55559A1DDEEF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F5D6E82-E6F9-74F8-76EC-4DCD6D050EAC" name="Seguro_Cliente_FK">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>8A37AF31-7D23-F3A6-21EF-B412E5352790</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7605E7ED-9F70-4971-2952-01ABDDC68E58"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

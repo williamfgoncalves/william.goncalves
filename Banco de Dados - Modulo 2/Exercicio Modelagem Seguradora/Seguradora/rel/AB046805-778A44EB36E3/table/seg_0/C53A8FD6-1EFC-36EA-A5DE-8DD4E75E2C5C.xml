@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C53A8FD6-1EFC-36EA-A5DE-8DD4E75E2C5C" name="BeneficiarioContrato">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Contrato_IDContrato" id="792AC2BD-4ABB-4BF1-CF0A-938BC6092FB4">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3806C3CC-FCE1-5E53-6B3B-0E306ED257FF" referredColumn="D439F3DF-F666-9A54-40F7-3B9F84CFE40F"/>
+</associations>
+</Column>
+<Column name="Beneficiario_IDBeneficiario" id="2CA97B40-658C-AC8E-CA08-1099FC7E4BE7">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB6592C9-2612-445C-F2BB-56EC18AA7627" referredColumn="A48C17BF-D017-EB69-8A35-72C1919EBE2C"/>
+</associations>
+</Column>
+<Column name="Contrato_IDCliente" id="A0148ADE-4DAD-3B42-244E-B51619BD70E2">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:34:39 UTC</createdTime>
+<ownerDesignName>Seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero_Beneficiarios" id="B756E111-7EB2-A43B-38AA-D83F9685A7C2">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:37:37 UTC</createdTime>
+<ownerDesignName>Seguradora</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E26DB0F4-A2F7-314B-0B82-8C63629FD3F8" name="BeneficiarioContrato_PK">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="792AC2BD-4ABB-4BF1-CF0A-938BC6092FB4"/>
+<colUsage columnID="2CA97B40-658C-AC8E-CA08-1099FC7E4BE7"/>
+<colUsage columnID="A0148ADE-4DAD-3B42-244E-B51619BD70E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="237261E8-74BC-1677-05AA-4639E4E9AA0B" name="Beneficiario_Contrato_FK (IDContrato)">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>61B8ADA2-AD5C-C1FA-D18B-7F449B5F5D04</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="792AC2BD-4ABB-4BF1-CF0A-938BC6092FB4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D42D2FF3-9383-BE5E-2AFB-80DF2CB25283" name="Beneficiario_Contrato_FK (IDBeneficiario)">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<generatorID>61B8ADA2-AD5C-C1FA-D18B-7F449B5F5D04</generatorID>
+<ownerDesignName>PRojeto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CA97B40-658C-AC8E-CA08-1099FC7E4BE7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

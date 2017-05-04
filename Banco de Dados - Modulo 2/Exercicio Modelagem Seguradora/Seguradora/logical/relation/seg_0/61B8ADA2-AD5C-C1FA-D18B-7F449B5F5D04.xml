@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="BeneficiarioContrato" directorySegmentName="seg_0" id="61B8ADA2-AD5C-C1FA-D18B-7F449B5F5D04">
+<createdBy>william.goncalves</createdBy>
+<createdTime>2017-05-03 19:02:53 UTC</createdTime>
+<ownerDesignName>PRojeto</ownerDesignName>
+<engineerTo>
+<item key="AB046805-72E0-B229-02A6-778A44EB36E3" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>420C29F3-4D12-9294-44F9-787C092D9B3D</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>66C18518-C483-AC6B-6AAD-DF3D48806E81</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
