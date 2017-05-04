@@ -45,6 +45,17 @@
 <colAssociation fkAssociation="0DBB79E8-62FB-63FD-F7DD-88FFD076B1D8" referredColumn="A8B6CAB0-ACBF-33FB-CE58-F1CE7E980566"/>
 </associations>
 </Column>
+<Column name="GrauParentescoCliente" id="48553962-7AB2-E335-CDCC-D2B9898608B8">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 13:27:55 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="D9AB7047-FD75-A745-A428-71CFEDF787B8" name="ContratoDependentes_PK">

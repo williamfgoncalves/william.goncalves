@@ -1,0 +1,19 @@
+Index
+Tela de Planos
+Tela de Espaços da Academia
+Tela Fale Conosco
+----------------------------------
+Tela de login
+Tela para Criar Login
+Tela de Mensalidades
+Tela de Contratos
+Tela de Registro de Entradas/Saidas (Usuario e dependentes)
+Tela de Configurações Gerais(Nome, Endereço, etc)
+---------------------------------------------
+Tela Gerenciamento de Clientes
+Tela de Registro de Entradas/Saidas de clientes
+Tela de ´Planos (Ex: Cadastramento de novos planos)
+Tela de Espaços da Academia (Ex: Adicionar por exemplo um novo espaço dentro da academia ou etc)
+
+
+

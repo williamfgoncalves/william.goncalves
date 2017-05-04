@@ -35,7 +35,7 @@
 <createdBy>William</createdBy>
 <createdTime>2017-05-04 03:31:11 UTC</createdTime>
 <generatorID>97935FFE-45EC-7BAD-B3A2-73EF265D0E47</generatorID>
-<ownerDesignName>Seguradora</ownerDesignName>
+<ownerDesignName>PRojeto</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -47,7 +47,7 @@
 <createdBy>William</createdBy>
 <createdTime>2017-05-04 03:31:11 UTC</createdTime>
 <generatorID>17FE7B8C-B75F-7302-8DF8-817477749364</generatorID>
-<ownerDesignName>Seguradora</ownerDesignName>
+<ownerDesignName>PRojeto</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -58,7 +58,7 @@
 <Column name="Idade" id="198DAA70-8509-8C82-46F9-664878CF12E7">
 <createdBy>William</createdBy>
 <createdTime>2017-05-04 03:40:54 UTC</createdTime>
-<ownerDesignName>Seguradora</ownerDesignName>
+<ownerDesignName>PRojeto</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

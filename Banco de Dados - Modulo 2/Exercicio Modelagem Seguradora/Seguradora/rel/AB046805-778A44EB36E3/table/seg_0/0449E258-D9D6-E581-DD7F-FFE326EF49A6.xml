@@ -24,6 +24,7 @@
 <createdTime>2017-05-03 19:03:44 UTC</createdTime>
 <generatorID>9070A9CB-6A9D-6EAC-425C-DD020E100E25</generatorID>
 <ownerDesignName>PRojeto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -50,7 +51,7 @@
 <createdBy>William</createdBy>
 <createdTime>2017-05-04 03:31:11 UTC</createdTime>
 <generatorID>7FE761AC-704D-0DC1-3577-8435D7BD34C7</generatorID>
-<ownerDesignName>Seguradora</ownerDesignName>
+<ownerDesignName>PRojeto</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
