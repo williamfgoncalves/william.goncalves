@@ -1,0 +1,30 @@
+Order BY: Mostra o  resultado ordenado a partir de uma coluna
+
+Distinct: Exibe valores diferente em uma coluna (Ou seja dados repetidos em uma tabela, rotornam apenas um dado)
+
+WHERE: Filtra registros em uma consulta
+
+OPERADORES LOGICOS: AND e OR: filtram registros se a condição retornar verdeira
+AND - Retorna se TODAS as condições retornam verdadeiras
+OR - Retorna se ALGUMA das condições retornam verdadeiras 
+
+TOP: Retorna um numero especifico de registros
+Retorna pela posição TOP 10 ou por Percentural TOP 10 PERCENT(10%)
+
+UNION: Combina o resultado de duas ou mais combinações SELECT colunas FROM tabela1 UNION SELECT colunas FROM tabela2 
+
+SELECT INTO: Copia uma tabela qualquer para outra tabela que asume todos os dados e os atributos
+SELECT colunas INTO nomedanovatabela FROM tabelaacopiar
+
+Funções Agregadas: 
+	MIN - Valor Minimo : SELECT MAX(Coluna) From tabelaQualquer - Retorna valor mais alto
+	MAX - Valor Maximo : SELECT MIN(Coluna) From tabelaQualquer - Retorna valor mais baixo
+	AVG - Media Aritmetica: SELECT AVG(Coluna) From tabelaQualquer - Retorna a soma de todos os valores dividido pelo numero de linhas
+	SUM - Total (Soma): SELECT SUM(Coluna) From tabelaQualquer - Retorna a soma de todos os valores
+	COUNT - Contar Quantidades: SELECT COUNT(Coluna) From tabelaQualquer 
+
+BETWEEN - Intervalo de filtragem - SELECT coluna FROM tabela WHERE coluna BETWEEN valor1 AND valor2
+
+LIKE e NOTLIKE - Busca no banco atraves de alguma cadeira de caracteres passado na clausula se o valor existe na coluna expecificada
+	SELECT coluna FROM tabela WHERE coluna LIKE 'C' - Retorna valores que da tabela passada na consulta que começam com C
+	
