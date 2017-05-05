@@ -1,0 +1,39 @@
+p{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    text-align: justify;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+        color: black;
+        font-size: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: url("Skyrim_1080x964.png");
+    opacity: 95%; 
+}
+
+img{
+    border-radius: 40px;
+}
+
+li{
+    display: inline;
+    padding: 8px;
+    float: left;
+    
+}
+
+ul li a{
+    background-color: white;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style-type: none;
+}
