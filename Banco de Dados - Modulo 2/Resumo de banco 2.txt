@@ -27,4 +27,11 @@ BETWEEN - Intervalo de filtragem - SELECT coluna FROM tabela WHERE coluna BETWEE
 
 LIKE e NOTLIKE - Busca no banco atraves de alguma cadeira de caracteres passado na clausula se o valor existe na coluna expecificada
 	SELECT coluna FROM tabela WHERE coluna LIKE 'C' - Retorna valores que da tabela passada na consulta que começam com C
-	
+
+JOIN - Prover dados de duas ou mais tabelas, baseado em alguma relacionamento entra colunas e tabelas.
+INNER JOIN - Retorna quando houver pelo menos uma correspondencia em ambas as tabelas selecionas. Ex: 		Select colunaA, colunaB from tabelaA inner join TabelaB ON tabelaA.idTabelaA = tabelaB.idTabelaA.
+Nota que ambas as tabelas tem um IdTabelaA, porem na TabelaA ela é primary key e na tabela B é uma referencia para a tabela A.
+LEFT JOIN - Traga todos os dados da PRIMEIRA tabela que contem relação com a segunda ou não
+RIGHT JOIN - Traga todos os dados da SEGUNDA tabela que contem relação com a segunda ou não
+
+
