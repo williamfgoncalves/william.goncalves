@@ -5,6 +5,9 @@ p{
     text-align: justify;
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 60%;
+    padding: 15px;
+    float: right;
 }
 
 h1{
@@ -15,18 +18,23 @@ h1{
 
 body{
     background-image: url("Skyrim_1080x964.png");
-    opacity: 95%; 
+    opacity: 95%;
+
 }
 
 img{
     border-radius: 40px;
+    padding: 15px;
 }
 
 li{
     display: inline;
-    padding: 8px;
-    float: left;
-    
+    padding: 20px;
+}
+
+ul{
+    text-align: center;
+    margin-top: 20px;
 }
 
 ul li a{
@@ -36,4 +44,10 @@ ul li a{
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     list-style-type: none;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+iframe{
+    padding-left: 20px;
 }

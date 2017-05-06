@@ -1,0 +1,83 @@
+body{
+     background-image: url("http://wallpapercave.com/wp/vgnwpGb.jpg");
+}
+
+.title{
+    width: 100%;
+    height: 280px;
+    text-align: center;
+}
+
+.title img{
+    text-align: center;
+    padding: 20px;
+}
+
+.Mario{
+  width: 24%;
+  height: 320px;
+  background-image: url("marioalternativo.png");
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  float: left; 
+  margin-left: 55px;
+}
+
+.text{
+    width: 65%;
+    height: 320px;
+    border-radius: 20px;
+    float: right;
+    background-color: white;
+    padding: 10px;
+}
+
+.text p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color:  black;
+    text-align: justify;
+}
+
+.spotify iframe{
+    width: 30%;
+    height: 1050px;
+    margin-left: 15px;
+    margin-top: 15px;
+    float: left;
+}
+
+.jogos{
+    margin-top: 10px;
+    float: right;
+    width: 65%;
+}
+
+.game1{
+    margin: 5px;
+    width: 100%;
+    font-family: cursive;
+    font-size: 35px;
+    color: darkred;
+}
+
+.game2{
+    margin: 5px;
+    width: 100%;
+    font-family: cursive;
+    font-size: 35px;
+    color: darkred;
+}
+
+.game3{
+    margin: 5px;
+    width: 100%;
+    font-family: cursive;
+    font-size: 35px;
+    color: darkred;
+}
+
+img{
+    margin: 5px;
+    border-radius: 25px;
+}
