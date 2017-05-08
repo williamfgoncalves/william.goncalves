@@ -1,0 +1,147 @@
+body{
+    background-image: url("img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title{
+    margin-top: 25px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 80px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 100;
+	line-height: 44px;
+    width: 100%;
+    height: 75px;
+    text-align: center;
+}
+
+.menu{
+    height: 40px;
+    background-color: lightsalmon;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li{
+    display: inline-block;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+li a{
+    display: block;
+    padding: 10px 80px;;
+    color: black;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: white;
+}
+
+.playlist{
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    width: 30%;
+    height: 500px;
+}
+
+.playlist iframe{
+    width: 400px;
+    height: 500px;
+}
+
+.text{
+    display: inline-block;
+    width: 67%;
+    height: 500px;
+    margin-top: 30px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+p{
+    margin-top: -5px;
+    margin-bottom: -5px;
+    padding: 15px 15px 15px 15px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 16px;
+    text-align: justify;
+}
+
+iframe{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 30%;
+    height: 350px;
+    float: left;
+}
+
+.pic{
+    width: 30%;
+    height: 350px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.img1{
+    background-image: url("img/nms1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img2{
+    background-image: url("img/nms2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img3{
+    background-image: url("img/nms3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img4{
+    background-image: url("img/nms4.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img5{
+    background-image: url("img/nms5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img6{
+    background-image: url("img/nms6.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img7{
+    background-image: url("img/nms7.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img8{
+    background-image: url("img/nms8.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img9{
+    background-image: url("img/nms9.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
