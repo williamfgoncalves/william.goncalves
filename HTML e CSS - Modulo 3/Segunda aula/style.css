@@ -14,7 +14,7 @@ body{
     height: 25vh;
     font-size: 0;
 }
-.p1 > div {
+.p1 > div{
     border: 2px solid black;
 }
 .primary > div > div {
@@ -24,11 +24,11 @@ body{
 .p1 div{
     height: 100%;
 }
-.p1.red div {
+.p1.red div{
     width: 25%;
     background-color: red;
 }
-.p1.blue div {
+.p1.blue div{
     width: 50%;
     background-color: blue;
 }

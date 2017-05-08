@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fafafa;
+    font-family: 'Open Sans', sans-serif;
+}
+.title{
+    background-color: #c4170c;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+}
+strong{
+    color: white;
+    font-size: 30px;
+}
+.column{
+    margin-top: 20px;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    width: 40%;
+    float: left;
+    background-color: white;
+    border: 1px solid gray;
+}
+.column .titleNotice{
+    margin-top: 30px;
+}
+
+.column .titleNotice h1{
+    padding: 0px 60px;
+    color: #c4170c;
+}
+
+.column .subTitle{
+    padding: 0px 60px;
+    color: #bbb;
+    font-size: 16px;
+}
+
+.column .Image{
+    width: 160px;
+    height: 100px;
+    float: right;
+    background-image: url("http://www.newsbelow.com/upload/164088.jpg");
+    margin-left: 10px;
+}
+
+.column .Text{
+    float: left;
+    padding: 10px 60px;
+    font-size: 18px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 30px;
+    line-height: 30px;
+}
+
+
+.column .Text::first-letter{
+    text-transform:uppercase;
+    font-size:36px;
+    line-height:30px;
+    float:left;
+    color: #c4170c;
+}
