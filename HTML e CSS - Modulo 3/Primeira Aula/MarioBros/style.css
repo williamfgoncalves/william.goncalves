@@ -41,7 +41,7 @@ body{
 
 .spotify iframe{
     width: 30%;
-    height: 1050px;
+    height: 920px;
     margin-left: 15px;
     margin-top: 15px;
     float: left;
@@ -54,30 +54,66 @@ body{
 }
 
 .game1{
-    margin: 5px;
-    width: 100%;
+    margin: 15px;
+    width: 95%;
+    height: 60px;
     font-family: cursive;
     font-size: 35px;
-    color: darkred;
+    color:white;
+    text-align: center;
+    background-color: dodgerblue;
+    border-radius: 25px;
 }
 
 .game2{
-    margin: 5px;
-    width: 100%;
+    margin: 15px;
+    width: 95%;
+    height: 60px;
     font-family: cursive;
     font-size: 35px;
-    color: darkred;
+    color:white;
+    text-align: center;
+    background-color: dodgerblue;
+    border-radius: 25px;
 }
 
 .game3{
-    margin: 5px;
-    width: 100%;
+    margin: 15px;
+    width: 95%;
+    height: 60px;
     font-family: cursive;
     font-size: 35px;
-    color: darkred;
+    color:white;
+    text-align: center;
+    background-color: dodgerblue;
+    border-radius: 25px;
 }
 
-img{
+.imagem{
     margin: 5px;
     border-radius: 25px;
+    width: 400px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+}
+
+.capa1{
+    background-image:url("mariobros2.jpg");
+}
+.capa2{
+    background-image:url("mariobros.png");
+}
+.capa3{
+    background-image:url("NES.jpg");
+}
+.capa4{
+    background-image:url("Nes.png");
+}
+.capa5{
+    background-image:url("mario64.png");
+}
+.capa6{
+    background-image:url("mario642.png");
 }
