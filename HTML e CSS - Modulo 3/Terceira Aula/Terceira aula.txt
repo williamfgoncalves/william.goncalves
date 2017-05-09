@@ -1,0 +1,37 @@
+display none: elimina objetos da tela
+opacity: 0 - Não mostra obejto da tela, porem ele permanece lá. (Tem como alterar )a quantidade da opacidade do objeto
+visibility: haden - Não mostra objeto da tela, porem ele permanece lá.
+
+Seletores:
+
+p.Fisrt of type = pega o primerio objeto do tipo P(Paragraofo)
+p.first-Chield: primerio filho do pai p
+p:nth-chield(1, ou odd(todos numeros impares/) even (todos os pares)):pega os filhos do body pelo indice
+
+estudar resposividade.
+
+=============================================== aula 09/05 =======================================================
+top: movimentos objetos para cima sem mexer nos outros
+left: movimentos objetos para esquerda sem mexer nos outros
+right: movimentos objetos para direita sem mexer nos outros
+bottom: movimentos objetos para baixo sem mexer nos outros
+position:relative - 
+
+POSITION OBSOLUTE: Fixa objetos na tela e nao ocupa espaços!
+x
+se tivermos objetos absolutos ou relativos dentro deles mesmos, ele sempre se baseia no ultimo da hierarquia;
+div 1 > div 2 > div 3 = o 2 fica dentro do 1 e o 3 fica dentro do 2;
+
+para usar o left, right, top ou bottom temos que usar o ABSOLUTE;
+
+para centralizar um objeto absolute devemos colocalo a 50% TOP e 50% LEFT, apos isso usar o TRANSFORME:TRANSLATE(-50, -50)
+
+POSIITION: FIXED Objetos ficam fixos na tela pois se baseiam no portiew.todos os obejtos que estiverem dentro dele vão junto!
+
+ANCORAS, LINKS E MENUS ============================================================================================
+
+Target: blanq = para acessar um outro site mais abrilo em outra aba.
+usar id dentro das ancoras ele posiciona no objeto que tiver o id da pagina
+menus criados dentro de um nav.
+listStyle: none, tira os pontos
+17:07 09/05/2017

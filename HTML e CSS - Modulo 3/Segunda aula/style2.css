@@ -24,9 +24,15 @@ strong{
     margin-left: 10vh;
     margin-right: 10vh;
     width: 40%;
-    float: left;
     background-color: white;
     border: 1px solid gray;
+}
+
+.column:nth-child(odd){
+    float: left;
+}
+.column:nth-child(even){
+    float: right;
 }
 
 .column .titleNotice{
