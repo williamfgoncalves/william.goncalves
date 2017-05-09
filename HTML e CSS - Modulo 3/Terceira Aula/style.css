@@ -1,0 +1,45 @@
+.um{
+    position: absolute;
+    width: 620px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dois{
+    position: absolute;
+    height: 80px;
+    background: rgba(0, 191, 255, 0.5);
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.dois:hover{
+    height: 160px;
+}
+
+.dois strong{
+    margin-left: 10px;
+    font-size: 40px;
+    color: white;
+}
+
+.text p{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.text p strong{
+    font-size: 14px;
+    color: white;
+}
+
+.text{
+    display: none;
+}
+
+.dois:hover .text{
+    display: block;
+}
