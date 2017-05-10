@@ -1,22 +1,75 @@
-body{
+body{ 
     font-family: 'Open Sans', sans-serif;
     margin: 0 auto;
-}
-
-.top_page{
-    width: 100%;
-    height: 350px;
     background-image: url("img/bg.jpg");
+    background-attachment: fixed;
     background-size: cover;
+}
+.menu{
+    width: 50%;
+    height: 40px;
+    background-color: rgba(192,192,192, 0.4);
+    border-radius: 20px;
+    border: 1px solid white;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+.menu .menu-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.menu .menu-items .menu-item {
+    display: inline-block;
+}
+.menu .menu-items .menu-item .menu-link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 50px;
+    text-decoration: none; 
+    font-weight: bold;
 }
 .top_page_bar{
     width: 50%;
     height: 60px;
-    background-color: gray;
+    background-color: rgb(65,65,65);
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.top_page_bar > strong{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    color: rgb(255,255,255);
+}
+.conteudo{
+    width: 50%;
+    height: 100%;
+    background-color:rgb(211,211,211);
     margin: 0 auto;
 }
-.top_page_bar strong{
-    font-size: 30px;
-    color: white;
-    padding: 10,10;
+.conteudo strong{
+    position: relative;
+    top: 20px;
+    left: 10px;
+    bottom: 20px;   
+    font-size: 20px;
+}
+.conteudo ul{
+    position: relative;
+    top: 20px;
+    left: 5px;
+}
+.conteudo hr{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 40px;
+}
+.conteudo p{
+    margin-left: 10px;
+    padding: 20px 0px;
 }
