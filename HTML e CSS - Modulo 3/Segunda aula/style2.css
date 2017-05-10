@@ -28,6 +28,12 @@ strong{
     border: 1px solid gray;
 }
 
+@media screen and(max width:800px){
+    .column{
+        width: 100%;
+    }
+}
+
 .column:nth-child(odd){
     float: left;
 }
