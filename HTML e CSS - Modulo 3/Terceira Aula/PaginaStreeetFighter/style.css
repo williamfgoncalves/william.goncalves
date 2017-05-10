@@ -60,33 +60,35 @@ body{
     margin: 0 auto;
     background-color:rgb(211,211,211);
 }
+.conteudo .sumario{
+    margin-bottom: 10px;
+}
+.conteudo .jogo{
+    margin: 20px 0px;
+}
+.conteudo .historia{
+    margin: 20px 0px;
+}
+.conteudo .serie{
+    margin: 20px 0px;
+}
+.conteudo .game{
+    margin: 20px 0px;
+}
 .conteudo .sumario ul{
     margin-left: 15px;
 }
-.conteudo .jogo strong{
+.conteudo p{
     margin-left: 10px;
+}
+.conteudo strong{
     font-size: 25px;
-}
-.conteudo .jogo p{
     margin-left: 10px;
-}
-.conteudo .historia strong{
-    margin-left: 10px;
-    font-size: 25px;
-}
-.conteudo .historia p{
-    margin-left: 10px;
-}
-.conteudo .serie strong{
-    margin-left: 10px;
-    font-size: 25px;
-    padding-bottom: 20px;
 }
 .conteudo .game strong{
     font-size: 20px;
     margin-left: 10px;
 }
-
 
 .conteudo .titulo{
     padding-top: 50px;
