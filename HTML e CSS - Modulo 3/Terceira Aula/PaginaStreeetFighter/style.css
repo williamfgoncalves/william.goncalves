@@ -10,15 +10,10 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
-.container{
-  width: 100%;
-  height: 50px;
-  margin: 17.5% auto;
-}
 .menu{
-    width: 50%;
+    width: 60%;
     height: 40px;
-    background-color: rgba(192,192,192, 0.4);
+    background-color: rgba(192,192,192, 0.6);
     border-radius: 20px;
     border: 1px solid white;
     margin: 0 auto;
@@ -30,19 +25,24 @@ body{
     padding: 0;
     overflow: hidden;
 }
-.menu .menu-items .menu-item {
+.menu .menu-items .menu-item{
     display: inline-block;
+    border-radius: 20px;
 }
-.menu .menu-items .menu-item .menu-link {
+.menu .menu-items .menu-item .menu-link{
     display: block;
     color: white;
     text-align: center;
-    padding: 15px 50px;
+    padding: 10px 65px;
     text-decoration: none; 
     font-weight: bold;
 }
+
+.menu .menu-items .menu-item:hover{
+    background-color: gray;
+}
 .top_page_bar{
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     box-sizing: border-box;
     padding: 20px 20px;
@@ -54,40 +54,45 @@ body{
     color: rgb(255,255,255);
 }
 .conteudo{
-    width: 50%;
+    width: 60%;
     height: 100%;
     float: none;
     margin: 0 auto;
     background-color:rgb(211,211,211);
 }
 .conteudo .sumario{
-    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .conteudo .jogo{
-    margin: 20px 0px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .conteudo .historia{
-    margin: 20px 0px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .conteudo .serie{
-    margin: 20px 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 .conteudo .game{
-    margin: 20px 0px;
-}
-.conteudo .sumario ul{
-    margin-left: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .conteudo p{
-    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .conteudo strong{
     font-size: 25px;
-    margin-left: 10px;
+    padding-left: 20px;
 }
 .conteudo .game strong{
     font-size: 20px;
-    margin-left: 10px;
+    padding-left: 20px;
 }
 
 .conteudo .titulo{
@@ -97,17 +102,23 @@ body{
     font-weight: bold;
     margin-left: 20px;
 }
-.conteudo .imagem img{
-    display: inline-block;  width: 50%;
+.conteudo .imagem{
+    display: inline-block;
+    width: 30%;
+    padding-left: 20px;
+    padding-right: 40px;
 }
 
-.conteudo .texto .informacao{
-    display: inline-block;  width: 50%;
+.conteudo .informacao{
+    display: inline-block;
+    width: 60%;
 }
-.conteudo .texto .informacao strong{
-    font-size: 14px;
+.conteudo .informacao strong{
+    font-size: 15px;
 }
-.conteudo .texto .informacao p{
+.conteudo .informacao p{
     margin-top: 2px;
     margin-bottom: 2px;
+    font-size: 14px;
+    text-align: justify;
 }
