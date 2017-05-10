@@ -1,9 +1,19 @@
-body{ 
+*{
+    box-sizing: 0;
     font-family: 'Open Sans', sans-serif;
+}
+body{ 
     margin: 0 auto;
-    background-image: url("img/bg.jpg");
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('img/bg.jpg'); 
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+.container{
+  width: 100%;
+  height: 50px;
+  margin: 17.5% auto;
 }
 .menu{
     width: 50%;
@@ -33,43 +43,69 @@ body{
 }
 .top_page_bar{
     width: 50%;
-    height: 60px;
-    background-color: rgb(65,65,65);
     margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px 20px;
     margin-top: 80px;
+    background-color: rgb(65,65,65);
 }
-
-.top_page_bar > strong{
-    position: relative;
-    top: 10px;
-    left: 10px;
+.top_page_bar strong{
     font-size: 30px;
     color: rgb(255,255,255);
 }
 .conteudo{
     width: 50%;
     height: 100%;
-    background-color:rgb(211,211,211);
+    float: none;
     margin: 0 auto;
+    background-color:rgb(211,211,211);
 }
-.conteudo strong{
-    position: relative;
-    top: 20px;
-    left: 10px;
-    bottom: 20px;   
+.conteudo .sumario ul{
+    margin-left: 15px;
+}
+.conteudo .jogo strong{
+    margin-left: 10px;
+    font-size: 25px;
+}
+.conteudo .jogo p{
+    margin-left: 10px;
+}
+.conteudo .historia strong{
+    margin-left: 10px;
+    font-size: 25px;
+}
+.conteudo .historia p{
+    margin-left: 10px;
+}
+.conteudo .serie strong{
+    margin-left: 10px;
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+.conteudo .game strong{
     font-size: 20px;
-}
-.conteudo ul{
-    position: relative;
-    top: 20px;
-    left: 5px;
-}
-.conteudo hr{
     margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 40px;
 }
-.conteudo p{
-    margin-left: 10px;
-    padding: 20px 0px;
+
+
+.conteudo .titulo{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.conteudo .imagem img{
+    display: inline-block;  width: 50%;
+}
+
+.conteudo .texto .informacao{
+    display: inline-block;  width: 50%;
+}
+.conteudo .texto .informacao strong{
+    font-size: 14px;
+}
+.conteudo .texto .informacao p{
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
