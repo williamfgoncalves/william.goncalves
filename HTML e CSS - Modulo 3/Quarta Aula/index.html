@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1><strong>Formulário de Cadastro</strong><h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-group">
+                        <label for="nome">Nome Completo</label><br>
+                        <input id="nome" type="text" placeholder="EX: William Gonçalves" class="form-control"><br>
+                        <label for="data">Data de Nascimento</label><br>
+                        <input id="data" type="date" class="form-control"><br>
+                        <label for="cidade">Cidade</label><br>
+                        <input id="cidade" type="text" class="form-control"><br>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                        <label for="email">Email</label><br>
+                        <input id="email" type="email" placeholder="exemplo@cwi.com.br" class="form-control"><br>
+                        <label for="estado">Estado</label><br>
+                        <select required class="form-control">
+                            <option disabled hidden selected value="">Selecione um Estado</option>
+                            <option value="rs">Rio Glrande Do Sul</option>
+                            <option value="sc">Santa Catarina</option>
+                            <option value="pr">Paraná</option>
+		                </select><br>
+                        <label for="sexo">Sexo</label><br>
+                        <select required class="form-control">
+                            <option disabled hidden selected value="" >Selecione seu sexo</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="sem_genero">Não Identificado</option>
+		                </select><br>
+                </div>
+            </div>
+            <div class="row">   
+                <div class="col-md-10">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">ENVIAR</button>
+                    <input type="reset" class="btn btn-default"></button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+Border radius -------------------------------------------------
+media querys - 
+
+@media screen and(max-widht: 800px)
+SELETOR{
+	ALTERAÇÃO
+}equire
+trabalhar com media query: trabalhar o mais embaixo possivel o css
+----------------------------------------------------------------------
+tabela - lista de alguma coisa que tenha cabeçalho
+
+Formularios:
+input number (steps, max - min) 
+placeholder (define um valor pro input, quando clica ele desaparece)
+values(insere valores defaut)
+textarea cria um bloco para um texto para maior que uma linha
+type email (somente valido com alguma@alguma)
+tyoe submit - um botao, envia dados
+required(torna esse campo obrigatorio)
+minlenght(exibe uma mensagem de valores minimos a preencher um campo)
+maxlenght(exibe uma mensagem de valores maximos a preencher um campo e nao deixa adicionar)
+typepassword (nao exibe os dados no campo, oculta eles)
+typedate(nao pode ter placeholder, adiciona um campo de data)
+select(abre uma especie de dropdown) tem filhos que sao options(disable, select, value)
+checkbox(um  opção de marcar e desmarcar)
+for(pega um id de uma label e foca nela)
+radio button(seleciona um ou outro) usando o 'name' sempre com o nome do atributo
+
+
+sempre usar o minifiler para css e javascript para projetos
+sempre usar o concat dentro dos varios arquivos css e javascript
+ 
+
