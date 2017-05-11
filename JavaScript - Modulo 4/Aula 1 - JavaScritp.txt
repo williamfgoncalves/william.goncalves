@@ -1,0 +1,66 @@
+JAVASCRIPT ===========================================================================
+
+aba console, usar para escrever javascript
+ctrl + l para limpar o console;
+trabalhar com variaveis e alocar valores = (EXEMPLO: var nome = "William")
+Navegadores mais antigos podem quebrar com javascript se não usar ;
+variaiveis nao tem tipagem na variavel, tem no valor
+variaveis podem alterar de valor em qualquer momento do codigo.
+ao regarregar pagina matamos as variaveis
+podemos usar boleanos
+typeof = retornar o tipo de valor de uma varivel.
+typeof typeof = retorna o tipo do tipo do retorno
+criacao de um objeto - var seiya = { nome:"Seiya", vida: 90, tipo:"Bronze"};15:51 11/05/2017
+criacao de um objeto dentro de um outro objeto = var seiya = { nome:"Seiya", vida: 90, tipo:"Bronze"};
+
+var shiryu = seiya
+undefined
+shiryu
+Object {nome: "Seiya", vida: 90, tipo: "Bronze", armadura: Object}
+
+shiryu.nome = "shiryu"
+"shiryu"
+shiryu
+
+Object {nome: "shiryu", vida: 90, tipo: "Bronze", armadura: Object}
+acima copia de referencia
+comparacao de valores usar ===;
+diferente de valores !==;
+podemos ter arrays = var numeros = [3, 2, 5]
+parseint para converter para numeros
+tipo de valor undefined = valores nem declarados e nem atribuidos
+null e undefined sao coisas diferentes
+null é object
+for nao usa int, ussa var; for(var i; i < 5; i++){}
+console.log = usa para escrever no console
+for(var i = 0; i < 5; i++){alert("William")}
+Console log é util para depuração tambem;
+
+FUNÇÕES = Coração do javascript
+function somaDoisNumeros(a, b){return a + b} declarando uma função
+somaDoisNumeros(1,5)
+ 6 = chamando uma funca
+var somar = (a,b) => a+b; = definir funçao abreviada!
+arrowfunction;
+linguagens funcionais são boas para programação em paralelo
+Asteamento de codigo = javascript ao ler o js 
+Funcao isNaN = verifica sé nao é um numero;
+array.join(1) = cria um array juntando a string 1
+Escopo de variaveis, ou global ou de funcao; variaveis que estao de funcao nao podem ser acessados de fora; Existe função de bloco;
+podemos ter um array de funcoes;
+for of, olhar;
+for in: percore as propriedades de um objeto;
+for of: percorre os elementos de um array;
+Não tem equals!;
+para comparação apenas valores;
+meses em javascript começa em 0, por exemplo
+usar documentação da mdn;
+
+
+short circuit
+transpiladores= transforma as tecnologias novas para formas mais antigas da linguagem para rodar em outros nvagadores:
+can i use: site para verificar os tipos funcções novas e em quais navegaroes eles funcionam.
+echma script 2015 é diferente de ecrima script 6
+ao usar dois iguais para comparacao dara problema, perigo
+depp copy = copia todos os dados dentro de uma heirarquia
+shelow copy = copia de todos dentro um linha apenas, nao pega heirarquia
