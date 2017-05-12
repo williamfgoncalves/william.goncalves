@@ -1,0 +1,23 @@
+eloquente javascript = ler os 3 primeiros capitulos do livro no final de semana!
+brasil js = maior evento do mundo de javascipt
+navegador cria um document - objeto javascript : tudo que tem no html podem ser visto por esse arquivo
+document.querySelector('h1'): chama uma query de seletor css
+setinterval = 
+funcoes sem nome serao chamadas apenas uma vez dentro de outra funcao
+set interval : rola uma função para setar um intervalo;
+set interval = simular um real time;
+interpoalçao de strings/templates strings(): tudo que tiver em dolar bigodes vai calculado com sendo codigo javascript
+por causa do asteamento, usar o LET dentro do for, para que a variavel valha apenas para o bloco que ela esteja sendo usada!!;
+
+const = ao criar um variavel, ja devemos ter que dar um parametro para ela,porem elas nao sao imutaveis, ou seja, trocam de valor.(protege a referencia, nao os valores dentro do objeto);
+remover um propriedade de um objeto, basta usar um delete.OBJETO.ATRIBUTO, a partir de agora, o OBJETO nao possui mais o atributo;
+strig protopype slice, faz o fatiamente de uma string, ou seja, podemos remover partes delas. definicimos um unicio e um fim da onde nos queremos cortar e definirmos o limite do corte!
+slice: corta caratere
+split: pega um string e transforma num array
+splayce: transforma um array da forma que eu quiser;
+join: usado para juntar um array
+trabalhar com recursão, utilizar uma tabela de memorization;
+Depurar
+preoculpar-se com otimização de lógica
+ASSINCRONISMO: = VERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+ 

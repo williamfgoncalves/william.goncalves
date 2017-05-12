@@ -1,25 +1,28 @@
 //Exercicio 1
 function daisyGame(a){
     if(a % 2 === 0){
-        console.log("Love me not!");
+        return console.log("Love me not!");
     }else{
-        console.log("Love me!");
+        return console.log("Love me!");
     }
 }
+daisyGame(4)
+daisyGame(5)
 
 //exercicio 2
-function ordenar(palavras){
-    var maior = palavras[0];
-    for(var i = 1; i < palavras.length; i++){
-        if(maior.length < palavras[i].length){
-            maior = palavras[i];
+function maiorTexto(textos){
+    var maior = textos[0];
+    for(var i = 1; i < textos.length; i++){
+        if(maior.length < textos[i].length){
+            maior = textos[i];
         }
     }
     return console.log(maior);
 }
+maiorTexto(['bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos'])
 
 //Exercicio 3
-var funcao = function funcao(a){ console.log(a)}
+var funcao = function (a){ return console.log(a)}
 
 function imprime(nomes, funcao){
     if(typeof funcao !== "function"){
@@ -31,6 +34,8 @@ function imprime(nomes, funcao){
         funcao("Bem Vindo Instrutor " + nomes[i]);
     }
 }
+imprime(['bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos'], funcao)
+imprime(['bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos'], false)
 
 //Exercicio 4
 function somar(numeroUm){
@@ -38,18 +43,16 @@ function somar(numeroUm){
         console.log(numeroUm+numeroDois);
     }
 };
+somar(10)(-7)
 
 //Exercicio 5
 function fibonacci(a){
-    if(a === 1){
-        console.log(1);
-    } else if(a === 2){
-        console.log(1);
+    if(a === 1 || a === 2){
+        return console.log(1);
     }else{
         var b = 1;
         var c = 1;
         var soma;
-        var sum = 0;
         for(var i = 0; i < a; i++){
             soma = b + c;
             b = c;
@@ -58,6 +61,7 @@ function fibonacci(a){
         return console.log(soma-1);
     }
 }
+fibonacci(100)
 
 //exercicio 6
 function queroCafe(mascada, precos){
@@ -69,3 +73,4 @@ function queroCafe(mascada, precos){
         }
     }
 }
+queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]);
