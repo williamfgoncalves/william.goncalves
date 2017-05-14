@@ -61,22 +61,23 @@ function mascadaEmSerie(series){
 }
 
 //Exercicio 6
+//A
 function queroGenero(qualGenero){
     seriesFiltradasGenero = new Array;
      for(let i = 0; i < series.length; i++){
         for(let j = 0; j < series[i].genero.length; j++){
-            if(series[i].genero[j].localeCompare(qualGenero) === 0){
+            if(series[i].genero[j].localeCompare(qualGenero.length) === 0){
                 seriesFiltradasGenero.push(series[i].titulo);
             }
         }
     }
     return seriesFiltradasGenero;
 }
-
+//B
 function queroTitulo(qualTitulo){
     seriesTitulo = new Array;
-     for(let i = 0; i < series.length; i++){
-        if(series[i].titulo.localeCompare(qualTitulo) === 0){
+    for(let i = 0; i < series.length; i++){
+        if(series[i].titulo.includes(qualTitulo)){
             seriesTitulo.push(series[i].titulo);
         }
     }
