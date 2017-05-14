@@ -98,15 +98,27 @@ function creditosIlluminatis(series){
 
 //Exercicio 8
 function esterEggIluminati(series){
+    var serieIluminati = serieEsterEgg(series);
     var elencos = new Array;
-    for(let i = 0; i < series.length; i++){
-       for(let j = 0; j < series[i].elenco.length; j++){
-            if(series[i].elenco[j].includes(".")){
-                var p1 = series[i].elenco[j].lastIndexOf(".")-1
-                var p2 = p1+1;
-                elencos.push(series[i].elenco[j].substring(p1, p2))
-            }
-        }
+    for(let i = 0; i < serieIluminati.elenco.length; i++){
+        var p1 = serieIluminati.elenco[i].lastIndexOf(".")-1;
+        var p2 = p1+1;
+        elencos.push(serieIluminati.elenco[i].substring(p1, p2));
     }
     return elencos;
 }
+
+function serieEsterEgg(series){
+    var controle = 0;
+    for(let i = 0; i < series.length; i++){
+       for(let j = 0; j < series[i].elenco.length; j++){
+            if(series[i].elenco[j].includes(".")){
+                controle++;
+                if(controle === series[i].elenco.length){
+                    return series[i];
+                }
+            }
+        }
+    }
+}
+
