@@ -53,10 +53,8 @@ function procurarPorNome(series, nome){
 function mascadaEmSerie(series){
     var soma = 0;
     var diretores = (soma += series.diretor.length)*100.000
-    console.log(diretores);
     soma = 0;
     var elencos = (soma += series.elenco.length)*40.000
-    console.log(elencos);
     return soma = elencos+diretores;
 }
 
@@ -66,13 +64,14 @@ function queroGenero(qualGenero){
     seriesFiltradasGenero = new Array;
      for(let i = 0; i < series.length; i++){
         for(let j = 0; j < series[i].genero.length; j++){
-            if(series[i].genero[j].localeCompare(qualGenero.length) === 0){
+            if(series[i].genero[j].localeCompare(qualGenero) === 0){
                 seriesFiltradasGenero.push(series[i].titulo);
             }
         }
     }
     return seriesFiltradasGenero;
 }
+
 //B
 function queroTitulo(qualTitulo){
     seriesTitulo = new Array;
@@ -89,15 +88,25 @@ function creditosIlluminatis(series){
     var diretores = new Array;
     var elencos = new Array;
     for(let i = 0; i<series.diretor.length; i++){
-        diretores.push(series.diretor[i].substr(series.diretor[i].lastIndexOf(" ")+1,series.diretor[i].length))
+        diretores.push(series.diretor[i].substring(series.diretor[i].lastIndexOf(" ")+1,series.diretor[i].length))
     }
     for(let i = 0; i<series.elenco.length; i++){
-        elencos.push(series.elenco[i].substr(series.elenco[i].lastIndexOf(" ")+1,series.elenco[i].length))
+        elencos.push(series.elenco[i].substring(series.elenco[i].lastIndexOf(" ")+1,series.elenco[i].length))
     }
     console.log("Titulo da Série: " + series.titulo + "\nDiretor da Série: " +  diretores.sort() + "\nElenco da Série: " + elencos.sort());
 }
 
 //Exercicio 8
-function esterEggIluminati(){
-    
+function esterEggIluminati(series){
+    var elencos = new Array;
+    for(let i = 0; i < series.length; i++){
+       for(let j = 0; j < series[i].elenco.length; j++){
+            if(series[i].elenco[j].includes(".")){
+                var p1 = series[i].elenco[j].lastIndexOf(".")-1
+                var p2 = p1+1;
+                elencos.push(series[i].elenco[j].substring(p1, p2))
+            }
+        }
+    }
+    return elencos;
 }
