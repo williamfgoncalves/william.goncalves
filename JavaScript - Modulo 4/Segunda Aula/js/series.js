@@ -83,3 +83,21 @@ function queroTitulo(qualTitulo){
     }
      return seriesTitulo;
 }
+
+//Exercicio 7
+function creditosIlluminatis(series){
+    var diretores = new Array;
+    var elencos = new Array;
+    for(let i = 0; i<series.diretor.length; i++){
+        diretores.push(series.diretor[i].substr(series.diretor[i].lastIndexOf(" ")+1,series.diretor[i].length))
+    }
+    for(let i = 0; i<series.elenco.length; i++){
+        elencos.push(series.elenco[i].substr(series.elenco[i].lastIndexOf(" ")+1,series.elenco[i].length))
+    }
+    console.log("Titulo da Série: " + series.titulo + "\nDiretor da Série: " +  diretores.sort() + "\nElenco da Série: " + elencos.sort());
+}
+
+//Exercicio 8
+function esterEggIluminati(){
+    
+}
