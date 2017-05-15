@@ -1,0 +1,34 @@
+Json - parece um banco de dados???
+adicionar sermpre o script que é dependido primeiro, para não haver quebra de javascript;
+sempre adicionar o javascript no final do html, em casos extremos colocar no head.
+renderização de caminho critico de browser ============= LER E ESTUDAR!
+
+for in = para percorrer campos/propriedades de um dentro de um objeto!!
+objeto values, some, 
+filter recebe uma função, que o java script vai aplicar e retorna true ou false
+map = receber um array de entrada e mapeia conforme uma formatacao e retorna
+
+REDUCE = funcao que recebe um array de valores e retornar um valor unico apenas; o A do
+ver operações de conjuntos!;
+Sume (verifica todo um array e retorna true caso a condição seja verdadeira)
+Document.elementByiD(busca um objeto html pelo id e joga para uma funcao js)
+podemos pindurar funcções dentro de obejtos atraves do PROTOTYPE
+USAR MATCH PARA EXPRESSÕES REGULARES. /
+
+LER PROTOTYPE DE REGEXP
+PADRAO CRIAR UM JAVASCRIPT PARA TODAS AS PROTOTIPES, PARA NAO CAIR NO PROBLEMA DE ASTEAMENTO DE FUNCAO;
+DUAS !! ESTA FORÇANDO A CONVERSAO DE ALGO PARA BOLEANO;
+
+EVERY() = VERFICA SE TODOS tem um argumento ou nao, retornando true ou false
+filter() = retorna um array de objetos procurados!;
+
+Criando classes em JS:
+
+function serieDeTv(nome, anoEstreia){
+	this.nome = nome;
+	this.anoEstreia = anoEstreia;
+}
+
+serieDeTv.prototype,imprimirNome(){
+}
+
