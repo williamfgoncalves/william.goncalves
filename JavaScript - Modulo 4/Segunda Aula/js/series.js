@@ -8,7 +8,7 @@ function seriesInvalidas(series){
     for(let i = 0; i < series.length; i++){
         if(series[i].anoEstreia > data.getFullYear() || Object.values(series[1]) === "undefined" ||
         Object.values(series[1]) === "null"){
-            seriesInvalidadas.push(series[i].titulo);           
+            seriesInvalidadas.push(series[i].titulo);    
         }
     }
     return seriesInvalidadas.toString();
@@ -23,7 +23,7 @@ function filtrarSeriesPorAno(ano, series){
             seriesFiltradas.push(series[i].titulo);
         }
     }
-    return seriesFiltradas;
+    return seriesFiltradas.toString();
 }
 
 //Exercicio 3
@@ -46,7 +46,7 @@ function procurarPorNome(series, nome){
             }
         }
     }
-    return ator;
+    return ator.toString();
 }
 
 //Exercicio 5
@@ -69,7 +69,7 @@ function queroGenero(qualGenero){
             }
         }
     }
-    return seriesFiltradasGenero;
+    return seriesFiltradasGenero.toString();
 }
 
 //B
@@ -80,7 +80,7 @@ function queroTitulo(qualTitulo){
             seriesTitulo.push(series[i].titulo);
         }
     }
-     return seriesTitulo;
+     return seriesTitulo.toString();
 }
 
 //Exercicio 7
