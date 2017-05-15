@@ -46,3 +46,16 @@ describe("Testando queroTitulo()", function() {
         expect(resultado).toBe(queroTitulo("The"));
     });
 });
+
+describe("Testando creditosIlluminatis()", function() {
+    it("Teste para o array series", function() {
+        var resultado1 = "Titulo da Série: The Walking Dead Diretor da Série: Bellson,Dale,Gadd,Womble Elenco da Série: ,,Bernthal,Callies,Cohan,DeMunn,Gurira,Holden,Lincoln,Morrissey,Reedus,Yeun";
+        expect(resultado1).toBe(creditosIlluminatis(series[2]));
+    });
+});
+describe("Testando esterEggIluminati()", function() {
+    it("Teste para o array series", function() {
+        var resultado1 = "N,U,N,E,S,I,r,L,U,M,I,N,A,T,I";
+        expect(resultado1).toBe(esterEggIluminati(series));
+    });
+});

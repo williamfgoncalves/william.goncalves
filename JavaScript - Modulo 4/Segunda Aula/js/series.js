@@ -3,14 +3,19 @@ console.log(series);
 
 //Exercicio 1
 function seriesInvalidas(series){
-    seriesInvalidadas = new Array;
+    var seriesInvalidadas = new Array;
     var data = new Date();
     for(let i = 0; i < series.length; i++){
-        if(series[i].anoEstreia > data.getFullYear() || Object.values(series[1]) === "undefined" ||
-        Object.values(series[1]) === "null"){
+        if(series[i].anoEstreia > data.getFullYear()){
             seriesInvalidadas.push(series[i].titulo);    
         }
+        for(prop of Object.values(series[i])){
+            if(typeof prop === "undefined" || prop === "null"){
+                seriesInvalidadas.push(series[i].titulo); 
+            }
+        }
     }
+
     return seriesInvalidadas.toString();
 }
 
@@ -93,19 +98,19 @@ function creditosIlluminatis(series){
     for(let i = 0; i<series.elenco.length; i++){
         elencos.push(series.elenco[i].substring(series.elenco[i].lastIndexOf(" ")+1,series.elenco[i].length))
     }
-    console.log("Titulo da Série: " + series.titulo + "\nDiretor da Série: " +  diretores.sort() + "\nElenco da Série: " + elencos.sort());
+    return ("Titulo da Série: " + series.titulo) + (" Diretor da Série: " +  diretores.sort()) + (" Elenco da Série: " + elencos.sort());
 }
 
 //Exercicio 8
 function esterEggIluminati(series){
     var serieIluminati = serieEsterEgg(series);
-    var elencos = new Array;
+    var esterEgg = new Array;
     for(let i = 0; i < serieIluminati.elenco.length; i++){
         var p1 = serieIluminati.elenco[i].lastIndexOf(".")-1;
         var p2 = p1+1;
-        elencos.push(serieIluminati.elenco[i].substring(p1, p2));
+        esterEgg.push(serieIluminati.elenco[i].substring(p1, p2));
     }
-    return elencos;
+    return esterEgg.toString();
 }
 
 function serieEsterEgg(series){
