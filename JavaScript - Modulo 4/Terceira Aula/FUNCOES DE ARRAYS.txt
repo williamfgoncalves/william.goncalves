@@ -1,0 +1,106 @@
+SOME - pode ser chamado atraves de um array qualquer, onde essa funcão vai testar para cada objeto deste array se baseando em alguma regra passada dentro dele.
+
+EX: a[10, 5, 3] | a.some( a => a > 10 ) = FALSE
+
+o A é um array, e ao chamar some, verificamos se para cada objeto contito no array, existe algum valor maior que 10, e retorna FALSE porque nao existe.
+
+-------------------------------------------------------
+
+FILTER - Deve ser chamado atraves de um array, porem, temos que guarda-lo em uma nova variavel, pois seu retorno é um novo array, caso contrario o retorno é apenas temporario. 
+Essa funcao filtra de um array, seguindo a regra passada por parametro ou baseada em uma função já definida.
+
+EX: a[10, 5, 3] | Let b = a.filter( a => a > 4 )
+				    --> b[10,5]
+o A é um array, B é a variavel onde guardaremos o array de retorno. ao chamar filter, verificamos se para cada objeto contito no array, existe algum valor maior que 4, e retorna um novo array para B, com os valores que atendem essa regra
+
+-----------------------------------------------------
+
+MAP - Acessado atraves de um array, esse metodo pega os valores dentro do array, trabalha eles atraves de alguma regra definida(ou nao, podendo apenas retornar) e retorna o array. Ele nao modifica o array inicial.
+
+EX - A[10, 3, 5]  A.MAP(A => A = A *5) --> [50, 15, 25]
+EX - B["Diow", 'Ronaldo', 'Zlantam']  B.MAP(B => B) --> ["Diow", "Ronaldo", "Zlantam"]
+
+Ou seja o MAP funciona como um mapeador, que retorna os valores dentro do array.
+
+-------------------------------------------------------
+
+REDUCE - Use reduce() quando: é preciso encontrar um valor cumulativo ou concatenado com base em elementos de todo o array.
+
+EX: var total = [0, 1, 2, 3].reduce((a, b) => a+b) 
+// total == 6
+
+var reduzido = [[0, 1], [2, 3], [4, 5]].reduce((a, b) => a.concat(b))
+// reduzido é [0, 1, 2, 3, 4, 5]
+
+----------------------------------------------------
+
+INCLUDES - Acessado atraves de um array, verifica se o parametro passado se encontra pelo menos uma vez dentro
+da coleção e retorna um valor booleano true ou false
+
+EX:
+[1, 2, 3].includes(2);     // true
+[1, 2, 3].includes(4);     // false
+[1, 2, 3].includes(3, 3);  // false
+[1, 2, 3].includes(3, -1); // true
+[1, 2, NaN].includes(NaN); // true["Pão","Arroz","Feijão"].includes("ão") // False
+
+Ou seja, procura dentro da coleção se existe algo igual ao passado por parametro
+
+-------------------------------------------------------
+
+LOCALECOMPARE - Verifica caratecere a caractere, se as as duas strings passadas por parametro sao iguas. Usa a tabela ASCI para validar esse valor. Retorna 1 se a string comparada for maior que a passada para comparar, -1 se a passada para comparar for maior e 0 se as strings forem iguais.
+
+EX:
+
+var str1 = "def";
+var str2 = "abc"
+document.write(str1.localeCompare(str2) + "<br/>");
+// Output: 1
+
+var str3 = "ghi";
+document.write(str1.localeCompare(str3)+ "<br/>");
+// Output: -1
+
+var str4 = "def";
+document.write(str1.localeCompare(str4));
+// Output: 0
+
+-----------------------------------------------------
+
+FIND - Acessado atraves de um array, ele verifica no array se existe algum valor que se enquadre dentro da regra passada por parametro. Assim que ele encontra a primeira condição que seja verdadeira, ele a retorna. Caso nao encontra ele retorna UNDEFINED.
+
+EX:
+a = [15,20,15,14,13,12,11,17]
+a.find(a => a > 10 && a < 15) // Retornou 
+14
+a.find(a => a < 10 && a > 5) // Retorna UNDEFINED, pois nenhum valor se encaixa a regra.
+ 
+
+-------------------------------------------------------
+
+EVERY - Acessado atraves de um array, verifica se TODOS os valores da coleção correspondem a condição definida por parametro. Retorna true se todos os valores atenderem ao requisito, se algum dos valores for false, ele retona false.
+
+EX:
+[12, 5, 8, 130, 44].every(elem => elem >= 10); // false
+[12, 54, 18, 130, 44].every(elem => elem >= 10); // true
+
+-------------------------------------------------------
+
+JOIN - O método join() junta todos os elementos de uma array dentro de uma string.
+
+var a = ['Wind', 'Rain', 'Fire'];
+var myVar1 = a.join();      // insere 'Wind,Rain,Fire' em myVar1
+
+-------------------------------------------------------
+
+Expressões Regulares - Usadas para validar, fazer buscas ou extrações de valores dentro de STRINGS.
+Se trabalha fazendo uma varredura na string e verificando se a algum trecho que de um MATCH(combina) com a expressão regular definida.
+Ex Buscar um número de 0,00 a 9,99 - Expressão regular passada - [\d,\d\d] // Aqui só teremos um match caso o valor encontrado esteja dentro do padrao estabelecido, ou seja, se o valor for 999 nao funcionara pois nao atende as definicões da expressao regular;
+
+EX:
+
+\d{5}-\d{3} - Padrão para CEP. o numero entre chaves significa repetições e o D siginifica que se espera um numero.
+
+[A-Z]{3}-\d{4} - Padrao de uma placa de carro no brasil, onde as 3 primeira letras podem ser de A a Z porem maisculas, seguidas de um traço e 3 numeros
+
+Site para testar outros tipos de REGEXP - https://regex101.com/
