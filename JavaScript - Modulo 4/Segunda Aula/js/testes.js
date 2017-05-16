@@ -1,14 +1,14 @@
 describe("Testando seriesInvalidas()", function() {
     it("Teste para o array series", function() {
-        var resultado = "Band of Brothers,Mr. Robot";
+        var resultado = "Narcos - Band of Brothers - Mr. Robot";
         expect(resultado).toBe(seriesInvalidas(series));
     });
 });
 
 describe("Testando filtrarSeriesPorAno()", function() {
     it("Teste para o array series", function() {
-        var resultado = "Stranger Things,Band of Brothers,Bernardo The Master of the Wizards,Mr. Robot,Narcos,Westworld";
-        expect(resultado).toBe(filtrarSeriesPorAno(2015, series));
+        var resultado = "Series Invalidas: The Walking Dead - 10 Days Why";
+        expect(resultado).toBe(filtrarSeriesPorAno(2010, series));
     });
 });
 
@@ -21,7 +21,7 @@ describe("Testando mediaDeEpisodios()", function() {
 
 describe("Testando procurarPorNome()", function() {
     it("Teste para o array series", function() {
-        var resultado = "William Goncalves";
+        var resultado = true;
         expect(resultado).toBe(procurarPorNome(series, "William Goncalves"));
     });
 });
