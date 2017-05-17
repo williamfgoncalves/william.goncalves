@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/controller.js"></script>
+    </head>
+    <body ng-app="myApp">
+        <div class="row">
+        <div class="col-md-3"></div>
+            <div ng-controller="controller2">
+                <div class="col-md-3">
+                    <div ng-model="Filtro">
+                        Insira o nome do POKEMON<input type="text" name="" value="">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <ul>
+                        <li class="list-group-item" ng-repeat="pokemon in pokemons">
+                            NOME:{{pokemon.nome}} | TIPO:{{pokemon.tipo}} 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <div class="col-md-3"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/controller.js"></script>
+    </head>
+    <body ng-app="myApp">
+        <div ng-controller="controller">
+        Nome Pokemon: <input type="text" name="" value="" ng-model="pokemon.nome">
+        <br>
+        <br>
+        Tipo Pokemon: <input type="text" name="" value="" ng-model="pokemon.tipo">
+        <br><br>
+        Nome Pokemon: {{pokemon.nome}}
+        <br><br>
+        Tipo Pokemon: {{pokemon.tipo}}
+        <img src="{{pokemon.imagem}}" width="#00px" height="400px">
+        </div>
+    </body>
+</html>

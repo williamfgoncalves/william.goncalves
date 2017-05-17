@@ -1,0 +1,44 @@
+
+ANGULAR JS ============================================================================
+
+EVERTON ZANATTA --- professor
+http://angularjs.blogspot.com.br/ - blog angular
+https://github.com/angular/angular.js/releases - github angular
+https://angularjs.org  - site angular
+https://www.w3schools.com/angular/ -- para estudar
+
+Existe angular 2 tambem
+ver tutorial site angular;
+
+Angular trabalha com diretivas, que sao adiciona aos elementos html para fazer a magica!
+link do angular é uma cdn!
+ng-app - onde ele estiver dentro do html é uma aplicacao angular!
+pro browser a tag do angular é um atributo da tag html
+o angular vai nos dar uma serie de diretivas e com essas diretivas vamos ter um monte de funcionalidades extras
+executa o script acha o ng-app> acha as tags eangular> executa
+
+View - onde está o html(com as tags angular)
+Scope - faz a interligação entre a view e o controller()
+Controller - onde temos só javascript
+
+NG-INIT - nunca usar(casos raros)
+scope é um objeto que tem propriedades
+nao podemos usar o hg-app mais de uma vez
+
+api - o que temos disponivel
+
+modulos - tem como parametro o nome e dependencias de outros modulos se tiver.
+o modulo tem uma serie de controllers epode estar em apenas um view!!!! ou seja pegiina;
+
+Sempre importar o angular e importar o modulo;
+
+injecao de dependencia --------------- o angular tem!
+ng controller - chama a funcção da controller, ou seja, injeta a controler no html/view
+
+cada controller trabalha de forma independente. para cada trecho da view que eu quero trabalhar, posso ter uma controler para ela, e o scope dessa controller pertencepa a ela e somente ela.
+
+Angular element - para passar o elemento de html
+
+API - Uma especie de contrato, onde 
+=====================================================================================================
+Filters - Angular: filtrar por nome a lista do pokemon | https://docs.angularjs.org/api/ng/filter/filter
