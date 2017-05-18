@@ -20,6 +20,12 @@
                 height: 300px;
                 background-color: aquamarine;
             }
+        #imagem{
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
         </style>
         </head>
     <body ng-app="myApp">
@@ -28,32 +34,19 @@
                  <img src="img/poke.png" alt="">
             </div>
                 <div ng-controller="controller2">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <h3>Insira o nome do POKEMON</h3>
-                        <input type="text" class="form-control" ng-model="procuraPokemon">
+                        <input type="text" class="form-control" ng-model="procuraPokemon.nome">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <ul>
-                            <li class="list-group-item" ng-repeat="pokemon in pokemons | filter:procuraPokemon">
-                                NOME:{{pokemon.nome}} | TIPO:{{pokemon.tipo}} 
+                            <li class="list-group-item" ng-repeat="pokemon in pokemons | filter:procuraPokemon.nome">
+                                NOME:{{pokemon.nome}} | TIPO:{{pokemon.tipo}} | <img id="imagem" ng-src="{{pokemon.imagem}}">  
                             </li>
                         </ul>
                     </div>
                 </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-2"></div>
         </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-                    <div class="col-md-2">
-                        <img src="img/Pikachu.png" alt="">
-                    </div>
-                    <div class="col-md-2">
-                        <img src="img/squirtle.png" alt="">
-                    </div>
-                    <div class="col-md-2">
-                        <img src="img/charmander.png" alt="">
-                    </div>
-            <div class="col-md-3"></div>
-        </div>  
     </body>
 </html>

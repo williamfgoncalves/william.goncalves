@@ -17,13 +17,16 @@ app.controller('controller2', function($scope) {
         {
          nome: "Pikachu",
          tipo: "Raio",
+         imagem: 'img/Pikachu.png'
         },
         {
          nome: "Squirtle",
          tipo: "Agua",
+         imagem: 'img/squirtle.png'
         },
         {
          nome: "Charmander",
          tipo: "Fogo",
+         imagem: 'img/charmander.png'
         }]
 });
