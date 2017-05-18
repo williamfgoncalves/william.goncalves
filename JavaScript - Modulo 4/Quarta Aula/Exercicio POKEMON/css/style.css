@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body{
     background-image: url("https://i.imgur.com/eVcYPSa.png");
 }
@@ -9,49 +12,47 @@ body{
     margin: 0 auto;
     margin-top: 40px;
 }
-
 .menu .obj{
     padding-top: 30px;
     text-align: center;
 }
-.imagem{
-    background-color: aquamarine;
-    width: 300px;
-    height: 100px;
-    margin: 0 auto;
-    border-radius: 20px;
-    margin-top: 20px;
-}
 
-.titulopoke{
-    background-color: aquamarine;
-    width: 300px;
-    height: 80px;
-    margin: 0 auto;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-.titulopoke h3{
+#elementosPokemon > h3{
     text-align: center;
 }
-.listapoke{
-    background-color: aquamarine;
-    width: 300px;
-    height: 100px;
+
+img{
+    text-align: center;
     margin: 0 auto;
-    border-radius: 20px;
-    margin-top: 20px;   
-}
-.listapoke ul{
-    padding-top: 15px;
+    display: block;
 }
 
-.progressopoke{
+.container{
+    display: inline-block;
+}
+h6{
     text-align: center;
-    background-color: aquamarine;
-    width: 300px;
-    height: 320px;
+}
+progress{
+    margin:0 auto;
+}
+.container-fluid{
+    position: relative;
+    width: 30%;
     margin: 0 auto;
-    border-radius: 20px;
+    background-color:aquamarine;
+    border-radius: 30px;
     margin-top: 20px;
+    padding-bottom: 20px;
+}
+#elementosPokemon{
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+}
+#elementosPokemon img{
+  border: 5px solid white;
+}
+hr{
+   border: 1px solid black;
 }

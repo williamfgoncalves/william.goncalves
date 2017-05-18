@@ -4,43 +4,25 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <script src="js/pokemon.js"></script>
     </head>
     <body>
-    <div class="container">
-    <div class="menu">
-        <div class="obj">
-            Numero do POKEMON <input type="text" placeholder="Ex:5" id="numeroPokemon">
-            <input type="submit" value="Enviar" id="btnPesquisar" onclick="pegarNumero()">
+    <div class="top">
+        <img src="img/br.png">
+    </div>
+        
+        <div class="menu">
+            <div class="obj">
+                Numero do POKEMON <input type="text" placeholder="Ex:5" id="numeroPokemon">
+                <input type="submit" value="Enviar" id="btnPesquisar" onclick="pegarNumero()">
+            </div>
         </div>
-    </div>
-    
-    <div class="titulopoke">
-        <h3><div id="tituloPokemon"></div></h3>
-        <h3><div id="idPokemon"></div></h3>
+
+    <div class="container-fluid">
+        <div id="elementosPokemon"></div>
     </div>
 
-    <div class="imagem">
-        <div id="imagemPokemon" align="center"></div>
-    </div>
-
-    <h4 align="center">LISTA DE DESCRICÃO</h4>
-
-
-    <div class="listapoke">    
-            <ul>
-                <li align="center"><div id="listaPokemon"></li>
-            </ul>
-    </div>
-    
-    <h4 align="center">DADOS POKEMON</h4>
-    
-    <div class="progressopoke">
-        <div id="progress"></div>
-    </div>
-    </div>
     </body>
 </html>
