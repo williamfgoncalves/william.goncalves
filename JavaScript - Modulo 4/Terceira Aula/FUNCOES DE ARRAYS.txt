@@ -1,8 +1,8 @@
-SOME - pode ser chamado atraves de um array qualquer, onde essa funcão vai testar para cada objeto deste array se baseando em alguma regra passada dentro dele.
+SOME - pode ser chamado atraves de um array qualquer, onde essa funcão vai testar para cada objeto deste array se baseando em alguma regra passada dentro dele, se existir algum, true, do contrario false.
 
 EX: a[10, 5, 3] | a.some( a => a > 10 ) = FALSE
 
-o A é um array, e ao chamar some, verificamos se para cada objeto contito no array, existe algum valor maior que 10, e retorna FALSE porque nao existe.
+o A é um array, e ao chama some, verificamos se para cada objeto contito no array, existe algum valor maior que 10, e retorna FALSE porque nao existe.
 
 -------------------------------------------------------
 
