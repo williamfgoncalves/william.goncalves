@@ -1,0 +1,26 @@
+ANGULAR ========================================================================================================
+
+DataBindg
+
+
+Filter - usado para filtrar a lista atraves de um objeto: filter:filtorpassado
+ORDER BY - Ordena minha lista pela definição passada
+
+tu cria algo que é util, depois cria algo que consegue compoentizar em pequenos problemas.
+Modulos dependem de modulos! 
+
+RESOLVER EM PEQUENOS PROBLEMAS!!!!!!!!!! SEMPRE PEGAR ALGO GRANDE E COLOCAR EM PEQUENOS PROBLEMAS.
+
+date - para formatar uma em javascript; colocar (o que quer| date | tipo de formato)
+
+criar um input; ali digital a data!
+
+Adicionar sempre funcoes ao scope!!
+$scope.nomeDaEscope = nomeDaFuncao;
+
+angular.element.curingadochrome.scop - para debugar
+
+Lista de instrutores - um array, com o objeto instrutor, que tem nome e aulas(array)
+vamos criar um filtor, ir na api do angular, 
+
+quando quisermos testar um campo especifico de um objeto dentro do nosso html com angular, o filto deve estar dentro dos bigodes, exemplo se tivermos um objeto instrutores com varios campos e queremos aplicar um fultor especificadamente dentro do nome, temos que colocar {{INSTRUTOR.NOME | FILTROPARAAPLICAR}}
