@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/controller.js"></script>
+    </head>
+    <body ng-app="aula2">
+        <div ng-controller="controllerData">
+            <input type="date" ng-model="data" placeholder="dd-MM-yyyy" min="2013-01-01" max="2013-12-31">
+            <button type="submit" ng-click="exibirData(data)">ENVIAR</button>
+            <span>{{ dataPronta }}</span>
+        </div>
+    </body>
+</html>
