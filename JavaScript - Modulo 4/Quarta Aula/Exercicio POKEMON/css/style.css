@@ -1,0 +1,57 @@
+body{
+    background-image: url("https://i.imgur.com/eVcYPSa.png");
+}
+.menu{
+    background-color: aquamarine;
+    width: 400px;
+    height: 80px;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.menu .obj{
+    padding-top: 30px;
+    text-align: center;
+}
+.imagem{
+    background-color: aquamarine;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.titulopoke{
+    background-color: aquamarine;
+    width: 300px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.titulopoke h3{
+    text-align: center;
+}
+.listapoke{
+    background-color: aquamarine;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 20px;   
+}
+.listapoke ul{
+    padding-top: 15px;
+}
+
+.progressopoke{
+    text-align: center;
+    background-color: aquamarine;
+    width: 300px;
+    height: 320px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 20px;
+}
