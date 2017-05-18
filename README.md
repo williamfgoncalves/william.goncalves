@@ -6,6 +6,7 @@
 ### [2º Módulo - Banco de Dados 1](https://github.com/cwi-crescer-2017-1/william.goncalves/tree/master/Banco%20de%20Dados%20-%20Modulo%202)
 ### [3º Módulo - Html e CSS](https://github.com/cwi-crescer-2017-1/william.goncalves/tree/master/HTML%20e%20CSS%20-%20Modulo%203)
 ### [4º Módulo - JavaScript](https://github.com/cwi-crescer-2017-1/william.goncalves/tree/master/JavaScript%20-%20Modulo%204)
+### [5º Módulo - Angular JS](https://github.com/cwi-crescer-2017-1/william.goncalves/tree/master/Angular%20JS%20-%20Modulo%205/Primeira%20Aula)
 
 ![Spock](http://indicetj.com/pdf/95_ehoba_iehova_jehova.jpg)
 
