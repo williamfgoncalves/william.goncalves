@@ -15,6 +15,14 @@ controler.controller('controllerData', function($scope, $filter) {
         }
 });
 
+let count = 0;
+controler.filter('addZerosPad', function(){
+        return function(aula){
+                count++;
+                return '0' + count + ' - ' + aula.toUpperCase();
+        }
+});
+
 controler.filter('mascada', function(){
         return function(nome){
                 return nome.replace(/(nunes)/gi, '$ $1 $');
@@ -22,7 +30,7 @@ controler.filter('mascada', function(){
 });
 
 controler.controller('controllerInstrutores', function($scope) {
-        $scope.instrutores = [{
+        $scope.instrutores = instrutores = [{
                 nome: 'Bernardo',
                 aula: [{
                         numero: 1,
@@ -56,4 +64,21 @@ controler.controller('controllerInstrutores', function($scope) {
                 }]
                 }
                 ];
+
+        $scope.aulas = novaLista(instrutores);
 });
+
+function novaLista(instrutores){
+        var novaLista = new Array;
+                for(let i = 0; i < instrutores.length; i++){
+                        for(let j = 0; j < instrutores[i].aula.length; j++){
+                                var aulas = new Object();
+                                aulas.nome = instrutores[i].nome;
+                                aulas.nomeAula = instrutores[i].aula[j].nome;
+                                aulas.indice = instrutores[i].aula[j].numero;
+                                novaLista.push(aulas);
+                        }
+                }
+        return novaLista;
+}
+
