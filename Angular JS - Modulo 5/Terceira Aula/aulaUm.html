@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="js/controller.js"></script>
+    </head>
+    <body ng-app="aula3">
+        <div ng-controller="controllerForm">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form novalidate name="form1" ng-submit="addInstrutor(instrutor)">
+                    
+                    <label for="nome">INSIRA O NOME DO INSTRUTOR</label>
+                    <input class="form-control" maxlength="20" minlength="3" type="text" ng-model="instrutor.nome" required>
+                    
+                    <label for="sobrenome">INSIRA O SOBRE DO INSTRUTOR</label>
+                    <input class="form-control" maxlength="30" type="text" ng-model="instrutor.sobrenome">
+                    
+                    <label for="idade">INSIRA A IDADE DO INSTRUTOR</label>
+                    <input class="form-control" type="number" ng-model="instrutor.idade" required>
+                    
+                    <label for="email">INSIRA O EMAIL DO INSTRUTOR</label>
+                    <input class="form-control" type="email" ng-model="instrutor.email" required>
+                    
+                    <label for="professor">JÁ DEU AULA NO CRESCER</label>
+                    <input type="checkbox" name="jaDeuAula" ng-model="intrutor.jaDeuAula"> Já deu Aula?
+                    <br>
+                    <label for="aula">SELECIONAR A AULA DO INSTRUTOR</label>
+                    
+                    <select name="listaAulas" ng-model="instrutor.aula">
+                        <option ng-repeat="option in aulas" value="{{option}}">{{option}}</option>
+                    </select>
+
+                    <button class="btn btn-primary" type="submit" name="nome">ADICIONAR</button>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li ng-repeat="instrutor in instrutores" class="list-group-item">
+                        {{instrutor.nome}}
+                        {{instrutor.sobrenome}}
+                        {{instrutor.idade}}
+                        {{instrutor.email}}
+                        {{instrutor.jaDeuAula}}
+                        {{instrutor.aula}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+    </div>
+    </body>
+</html>

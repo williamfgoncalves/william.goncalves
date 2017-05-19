@@ -19,7 +19,7 @@ let count = 0;
 controler.filter('addZerosPad', function(){
         return function(aula){
                 count++;
-                return '0' + count + ' - ' + aula.toUpperCase();
+                return '0' + aula.indice + ' - ' + aula.nomeAula.toUpperCase();
         }
 });
 

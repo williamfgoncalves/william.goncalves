@@ -87,7 +87,7 @@
                                     <th>INSTRUTOR</th>
                                 </tr>
                                 <tr ng-repeat="aula in aulas | orderBy:'indice'">
-                                    <td>{{aula.nomeAula | addZerosPad}}</td>
+                                    <td>{{aula | addZerosPad}}</td>
                                     <td>{{aula.nome}}</td>
                                 </tr>
                             </table>

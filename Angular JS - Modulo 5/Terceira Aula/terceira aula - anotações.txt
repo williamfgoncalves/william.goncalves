@@ -1,0 +1,35 @@
+AULA3 =======================================================================================
+
+REGEXP: Entra no site | escolhe javascript | / /
+define grupo colocando ele entra parentes - para quando eu quiser fazer recuperação do dado.
+espaço é /s = (andre)/s(nunes) expressoes regulares, guia definitivo
+
+============================================================================================
+Form: ao usar tag form com angular, ele ja traz sem a tag algumas coisas para nós
+no nagular, nao usamos submit, passa os dados para o controller
+AO TRABALHAR COM FORMULARIOS, DAR UM NOME!
+
+novalidate class="simple-form" - UAsado
+
+FILTRO PARA MOSTRAR NA TELA EM TEMPO REAL O QUE ESTA ACONTECENDO COM A VARIAVEL.
+<pre>user = {{user | json}}</pre>
+ <pre>master = {{master | json}}</pre>
+
+no form tem classes css de erro!
+
+NG-SHOW: para ocultar informações
+
+Nos temos acesso ao formulario pelo scope atreves do nome do form, ex: form name ="aroz" | scope.aroz é valido
+
+scope.nomedocampo.$invalid = verifica se é invalido.
+]
+
+(meuform | json) - mostra as propriedades do form
+(meuform.meuatributo.error) - mostra a propriedade do atributo e se ele tem erro.
+ng-submt, procura um submit e manda um formulario
+
+Lista Instrutores
+Incluir instrutor
+nome | sobrenome | idade | email | checkbox deu aula | select aulas deu;
+
+PODEMOS USAR NOSSOS OBJETOS PARA MANIPULAR DENTRO HO HTML, BASTA PASSALO COMO PARAMETRO!!!!!!!!!!;
