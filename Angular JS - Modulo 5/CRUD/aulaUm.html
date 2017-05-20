@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    </head>
+    <body ng-app="aula3">
+        <div ng-controller="controllerForm">
+            
+            <!---ADICIONAR AULAS -->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+
+                <form novalidate name="formAula" ng-submit="addAula(aula)">
+                    
+                    <label for="nome">NOME DA AULA</label>
+                    <input type="text" class="form-control" ng-model="aula.nome" required>
+                    <button class="btn btn-primary" type="submit"> ADICIONAR AULA</button>
+
+                </form>
+
+                    <ul class="list-group">
+                        <li ng-repeat="aula in aulas" class="list-group-item">
+                                {{aula.id}}
+                                {{aula.nome}}
+                                <button class="btn btn-warning" type="submit" ng-click="editAula(aula)"> Editar Aula</button>
+                                <button class="btn btn-danger" type="submit" ng-click="removeAula(aula)"> Excluir Aula</button>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="col-md-3"></div>
+            </div>
+
+            <!---ADICIONAR PROFESSOR -->
+            <!--<div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                <form novalidate name="form1" ng-submit="addInstrutor(instrutor)">
+                    
+                    <label for="nome">INSIRA O NOME DO INSTRUTOR</label>
+                    <input class="form-control" maxlength="20" minlength="3" type="text" ng-model="instrutor.nome" required>
+                    
+                    <label for="sobrenome">INSIRA O SOBRE DO INSTRUTOR</label>
+                    <input class="form-control" maxlength="30" type="text" ng-model="instrutor.sobrenome">
+                    
+                    <label for="idade">INSIRA A IDADE DO INSTRUTOR</label>
+                    <input class="form-control" type="number" ng-model="instrutor.idade" required>
+                    
+                    <label for="email">INSIRA O EMAIL DO INSTRUTOR</label>
+                    <input class="form-control" type="email" ng-model="instrutor.email" required>
+                    
+                    <label for="checkbox">JÁ DEU AULA NO CRESCER</label>
+                    <input type="checkbox" ng-model="intrutor.dandoAula">
+                    <br>
+                    <label for="aula">SELECIONAR A AULA DO INSTRUTOR</label>
+                        <select name="listaAulas" ng-model="instrutor.aula">
+                            <option ng-repeat="option in aulas" value="{{option.id}}">{{option.nome}}</option>
+                        </select>
+                    <br>
+                    <label for="text">FOTO INSTRUTOR</label>
+                    <input type="text" ng-model="intrutor.urlFoto">
+                    <br>
+                    <button class="btn btn-primary" type="submit" name="nome">ADICIONAR</button>
+                </form>
+                 <ul class="list-group">
+                    <li ng-repeat="instrutor in instrutores" class="list-group-item">
+                        {{instrutor.nome}}
+                        {{instrutor.sobrenome}}
+                        {{instrutor.idade}}
+                        {{instrutor.email}}
+                        {{instrutor.dandoAula}}
+                        {{instrutor.aulas.nome}}
+                        <img ng-src="{{instrutor.urlFoto}}">
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        -->
+    </div>
+    <script src="js/controller.js"></script>
+    </body>
+</html>
