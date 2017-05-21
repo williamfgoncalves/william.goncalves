@@ -4,6 +4,8 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
         <style>
@@ -34,7 +36,7 @@
                                 <th>ID</th>
                                 <th>AULA</th>
                             </tr>
-                            <tr ng-repeat="aula in aulas">
+                            <tr ng-repeat="aula in aulas | orderBy: 'nome'">
                                 <td>{{aula.id}}</td>
                                 <td>{{aula.nome}}</td>
                                 <td><button class="btn btn-warning" type="submit" ng-click="editAula(aula)"> Editar Aula</button></td>
@@ -75,32 +77,45 @@
                     <input class="form-control" type="email" ng-model="instrutor.email" required>
                     
                     <label for="checkbox">Este instrutor esta dando aulas no CRESCER?</label>
-                    <input class="checkbox" type="checkbox" ng-model="instrutor.dandoAula" ng-true-value="'SIM'" ng-false-value="'NÃO'">
-
+                    <label class="radio-inline"><input type="radio" ng-model="instrutor.dandoAula" value="SIM">SIM</label>
+                    <label class="radio-inline"><input type="radio" ng-model="instrutor.dandoAula" value="NÃO">NÃO</label>
+                    <br>
+                    <br>
+                    <label for="select">Quais aulas este instrutor dará?</label>
+                    <br>
+                    <br>
+                    <select class="selectpicker" ng-model="instrutor.aula" multiple data-selected-text-format="count">
+                        <option ng-repeat="aula in aulas" value="{{aula.id}}">{{aula.nome}}</option>
+                    </select>
+                    <br>
+                    <br>
                     <label for="text">Foto do instrutor</label>
                     <input  class="form-control" type="text" ng-model="instrutor.urlFoto">
                      
                     <button class="btn btn-primary" type="submit" name="nome">ADICIONAR</button>
                 </form>
+
                 <div ng-show="mostrarInstrutor">
                     <table class="table table-striped">
                         <tr>
+                            <td>FOTO</td>
                             <th>ID</th>
                             <th>NOME</th>
                             <th>SOBRENOME</th>
                             <th>IDADE</th>
                             <th>EMAIL</th>
                             <th>DANDO AULA?</th>
-                            <th>FOTO INSTRUTOR</th>
+                            <th>AULAS</th>
                         </tr>
-                        <tr ng-repeat="instrutor in instrutores">
+                        <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+                            <td><img ng-src="{{instrutor.urlFoto}}" class="img-circle" width="60px" height="60px"></td>
                             <td>{{instrutor.id}}</td>
                             <td>{{instrutor.nome}}</td>
                             <td>{{instrutor.sobrenome}}</td>
                             <td>{{instrutor.idade}}</td>
                             <td>{{instrutor.email}}</td>
                             <td>{{instrutor.dandoAula}}</td>
-                            <td><img ng-src="{{instrutor.urlFoto}}" class="img-circle" width="60px" height="60px"></td>
+                            <td>{{instrutor.aula}}</td>
                             <td><button class="btn btn-warning" type="submit" ng-click="editInstrutor(instrutor)"> Editar Aula</button></td>
                             <td><button class="btn btn-danger" type="submit" ng-click="removeInstrutor(instrutor)"> Excluir Aula</button></td>
                         </tr>
@@ -120,7 +135,22 @@
                     <input class="form-control" type="email" ng-model="instrutorAtual.email" required>
                     
                     <label for="checkbox">Este instrutor esta dando aulas no CRESCER?</label>
-                    <input class="checkbox" type="checkbox" ng-model="instrutorAtual.dandoAula" ng-true-value="'SIM'" ng-false-value="'NÃO'">
+                    <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="SIM">SIM</label>
+                    <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="NÃO">NÃO</label>
+                    <br>
+                    <br>
+                    <label for="select">Quais aulas este instrutor dará?</label>
+                    <br>
+                    <br>
+                    <select class="selectpicker" ng-model="instrutor.aula" multiple data-selected-text-format="count">
+                        <option ng-repeat="aula in aulas" value="{{aula.id}}">{{aula.nome}}</option>
+                    </select>
+                    <br>
+                    <br>
+                    <div ng-repeat="aula in aulas">
+                        <label class="checkbox-inline"><input type="checkbox" ng-model="instrutorAtual.aula" ng-false-value="" ng-true-value="{{aula.id}}">{{aula.nome}}</label>
+                        <tt>{{instrutorAtual.aula}}</tt>
+                    </div>
 
                     <label for="text">Foto do instrutor</label>
                     <input  class="form-control" type="text" ng-model="instrutorAtual.urlFoto">
@@ -131,7 +161,6 @@
             <div class="col-md-3"></div>
         </div>
     </div>
-
     <script src="js/controller.js"></script>
     </body>
 </html>
