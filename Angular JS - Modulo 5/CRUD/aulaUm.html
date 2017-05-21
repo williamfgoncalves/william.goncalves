@@ -4,13 +4,22 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="js/jquery-3.2.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
+        <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
         <style>
+        body{
+            background-image: url("http://www.rededecursos.com.br/wp-content/uploads/2015/08/programacao.jpg");
+        }
+        
         #separator{
             height: 50px;
+        }
+        .col-md-8{
+            border: 0.1px solid gray;
+            background-color: white; 
         }
         </style>
 
@@ -21,16 +30,17 @@
             <!---ADICIONAR AULAS -->
 
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <h1 align="center"> AULAS </h1>
-                    <form novalidate name="formAula" ng-submit="addAula(aula)">
-                        <label for="nome">NOME DA AULA</label>
-                        <input type="text" class="form-control" ng-model="aula.nome" required>
-                        <button class="btn btn-primary" type="submit"> Adicionar Aula</button>
-                    </form>
-
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                        <h1 align="center"> AULAS </h1>
+                        <form novalidate name="formAula" ng-submit="addAula(aula)">
+                            <label for="nome">NOME DA AULA</label>
+                            <input type="text" class="form-control" ng-model="aula.nome" required>
+                            <br>
+                            <button class="btn btn-primary" type="submit"> Adicionar Aula</button>
+                        </form>
                     <div ng-show="mostrarAulas">
+                        <br>
                         <table class="table table-striped">                        
                             <tr>
                                 <th>ID</th>
@@ -47,9 +57,10 @@
                     <div ng-show="editarAula">
                         <input type="text" ng-model="aulaAtual.nome">
                         <button class="btn btn-success" type="button" ng-click="salvarAula(aulaAtual)">Salvar Alterações</button>
+                        <button class="btn btn-warning" type="button" ng-click="cancelar(aulaAtual)">Cancelar alterações</button>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-2"></div>
             </div>
             
             <div id="separator" class="row">
@@ -59,8 +70,8 @@
             <!--- adicionar instrutor -->
 
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
                 <h1 align="center"> INSTRUTORES </h1>
                 <form novalidate name="form1" ng-submit="addInstrutor(instrutor)">
                     
@@ -117,8 +128,8 @@
                             <td>{{instrutor.email}}</td>
                             <td>{{instrutor.dandoAula}}</td>
                             <td>{{instrutor.aula}}</td>
-                            <td><button class="btn btn-warning" type="submit" ng-click="editInstrutor(instrutor)"> Editar Aula</button></td>
-                            <td><button class="btn btn-danger" type="submit" ng-click="removeInstrutor(instrutor)"> Excluir Aula</button></td>
+                            <td><button class="btn btn-warning" type="submit" ng-click="editInstrutor(instrutor)"> Editar Instrutor</button></td>
+                            <td><button class="btn btn-danger" type="submit" ng-click="removeInstrutor(instrutor)"> Excluir Instrutor</button></td>
                         </tr>
                 </table>
             </div>
@@ -154,9 +165,10 @@
                     <input  class="form-control" type="text" ng-model="instrutorAtual.urlFoto">
                      
                     <button class="btn btn-success" type="submit" ng-click="salvarInstrutor(instrutorAtual)" name="nome">Salvar alterações</button>
+                    <button class="btn btn-warning" type="button" ng-click="cancelarInstrutor(instrutorAtual)">Cancelar alterações</button>
                 </div>
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-2"></div>
         </div>
     </div>
     <script src="js/controller.js"></script>
