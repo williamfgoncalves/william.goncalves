@@ -20,20 +20,32 @@ controller.controller('controllerForm', function($scope){
 
     function compararNomes(arr, obj){
         
-        let compare = false;
-        for(let i = 0; i < arr.length; i++){
-            if(arr[i].nome.localeCompare(obj.nome) === 0){
-                compare = true;
-            }
-        }
+    let compare = false;
 
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].nome.localeCompare(obj.nome) === 0){
+            compare = true;
+        }
+    }    
+    
         if(compare === true){
-            return 0;
+                return 0;
         }
 
         else{
             return 1;
         }
+    }
+
+    function verificarAula(id){
+        for(let i = 0; $scope.instrutores.length > i; i++){
+            for(let j = 0; j < $scope.instrutores[i].aula.length; j++){
+                if(id === $scope.instrutores[i].aula[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     $scope.addAula = function (aula){
@@ -55,7 +67,7 @@ controller.controller('controllerForm', function($scope){
          $scope.aulaAtual = aula;
     }
 
-    $scope.salvar = function(aulaAtual){
+    $scope.salvarAula = function(aulaAtual){
         let idaula = aulaAtual.id;
         $scope.aulas.splice(idaula,1,aulaAtual);
         delete $scope.aulaAtual;
@@ -64,6 +76,10 @@ controller.controller('controllerForm', function($scope){
 
     $scope.removeAula = function (aula){
         let idAula = $scope.aulas.indexOf(aula);
+        if(verificarAula(aula.id)){
+            alert("Aula esta sendo utilizada por um professor, impossivel excluir!");
+            return;
+        }
 	    $scope.aulas.splice(idAula, 1);
     }
     
@@ -109,7 +125,7 @@ controller.controller('controllerForm', function($scope){
             idade: 30,
             email: 'bernardo@cwi.com.br',
             dandoAula: "SIM",
-            aula: ["0", "4"],
+            aula: [0, 4],
             urlFoto: "http://fullmoonbrewwork.com/wp-content/uploads/2014/06/FMBW_Beers_Phuket-Lager-300x300.png"
         },
         {
@@ -119,7 +135,7 @@ controller.controller('controllerForm', function($scope){
             idade: 35,
             email: 'andre.nunes@cwi.com.br',
             dandoAula: "SIM",
-            aula: ["4"],
+            aula: [4],
             urlFoto: "https://pedrotavars.files.wordpress.com/2012/02/moneysmiley.png"
         }
     ];;
