@@ -76,7 +76,11 @@ controller.controller('controllerForm', function($scope, toastr){
             toastr.error("Algum campo está errado ou faltando informação!");
         }
     }
-    
+
+    $scope.nomeAula = function(id) {
+        return $scope.aulas.find(a => a.id === id).nome;
+    }
+
     $scope.editAula = function (aula) {
          $scope.editarAula = true;
          toastr.warning('Você está editando uma aula!');
@@ -181,8 +185,8 @@ controller.controller('controllerForm', function($scope, toastr){
             idade: 30,
             email: 'bernardo@cwi.com.br',
             dandoAula: "SIM",
-            aula: [0, 4],
-            urlFoto: "http://fullmoonbrewwork.com/wp-content/uploads/2014/06/FMBW_Beers_Phuket-Lager-300x300.png"
+            aula: [0, 2],
+            urlFoto: "https://avatars0.githubusercontent.com/u/526075?v=3&s=40"
         },
         {
             id: 1,
@@ -192,7 +196,27 @@ controller.controller('controllerForm', function($scope, toastr){
             email: 'andre.nunes@cwi.com.br',
             dandoAula: "SIM",
             aula: [4],
-            urlFoto: "https://pedrotavars.files.wordpress.com/2012/02/moneysmiley.png"
+            urlFoto: "https://avatars0.githubusercontent.com/u/10319453?v=3&s=40"
+        },
+        {
+            id: 2,
+            nome: 'Pedro',
+            sobrenome: 'Henrique Pires',
+            idade: 21,
+            email: 'php@cwi.com.br',
+            dandoAula: "SIM",
+            aula: [1],
+            urlFoto: "https://avatars3.githubusercontent.com/u/6934800?v=3&s=40"
+        },
+        {
+            id: 3,
+            nome: 'Everton',
+            sobrenome: 'Zanatta',
+            idade: 25,
+            email: 'zanatta.everton@cwi.com.br',
+            dandoAula: "SIM",
+            aula: [3],
+            urlFoto: "https://avatars3.githubusercontent.com/u/4175351?v=3&s=40"
         }
     ];;
 
@@ -203,18 +227,6 @@ controller.controller('controllerForm', function($scope, toastr){
         {id: 3, nome: 'AngularJS'},
         {id: 4, nome: 'Banco de Dados I'}
     ];
-
-    function mostrarAulasTela(telaA){
-        return telaA = true;
-    }
-    
-    if($scope.aulas.length > 0){
-        $scope.mostrarAulas = true;
-        $scope.mostrarInstrutor = true; 
-    }else{
-        $scope.mostrarAulas = false;
-        $scope.mostrarInstrutor = false;
-    }
 });
 
     
