@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
+        <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body ng-app="aula3">
+    <div ng-controller="controllerForm">
+        <div class="row">
+            <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div align = "center">
+                        <div id="top">
+                            <h1>INSTRUTORES ILUMINATI</h1>
+                        </div>
+                        <div class="form-control">
+                            <button class="btn btn-default" ng-click="mostrarEditarAulas = true">Adicionar Aulas</button>
+                            <button class="btn btn-default" ng-click="mostrarAulas = true">Mostrar Aulas</button>
+                            <button class="btn btn-default" ng-click="mostrarEditarInstrutores = true">Adicionar Instrutores</button>
+                            <button class="btn btn-default" ng-click="mostrarInstrutores = true">Mostrar Instrutores</button>
+                        </div>
+                    </div>
+                    <ng-view></ng-view>
+                </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <script src="js/controller.js"></script>
+    </body>
+</html>

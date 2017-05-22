@@ -1,0 +1,42 @@
+Angular JS ----------------------------------------------------------------------------
+NgClass - tu bota o nome de uma classe ou um teste logico | usa no css para definir formatações no trabalho.
+MeuForm.NomeDoCampo.$invalid- 
+
+Aula de hoje, aula quatro ----------------------------------------------------------------------------------
+
+Servidores http: apache, nging, xampp
+protocolo, host, porta (apos ponto de interogação path)
+
+para buscar informação, usar um get, que rotarna requisições ao site
+para enviar dados ao servidor, temos que usar o post
+
+baixar node js, gitbash e npm(http-server)
+
+npm install http-server -g - para instalar o npm(tem que ter o node instalado!!!!!)
+
+- Propriedades do Meu Computador
+- Configs. avançadas do sistema
+- Variáveis do ambiente
+- Em variáveis do usuário:
+   - Clicar em Editar em Path e adicionar no final do valor:
+   - `%USERPROFILE%\AppData\Roaming\npm;`
+  - Salvar e abrir CMD novamente (edited)
+
+ctrl + shift + botao direito, abre na pasta com propomt de comando;
+
+NG ROUTE - para rotear minhas paginas - tem que importar do site do angular
+ignorar o ng controler e usar o NGVIEW.
+
+dentro do js - nomedacontroler.config(function);
+
+route privider - spa(single page aplication | aplication tradicional mvc)
+
+service, lugar na aplicacao a uma abstração do que tranbalhamos, por exemplo a abstração de uma aula, onde temos uma os atributos e os metodos necessarios.
+
+service podem ser usados dentro de services.
+
+
+requisições para api = $http;
+$http.get(url)
+
+

@@ -1,0 +1,16 @@
+  body{
+            background-image: url("http://www.rededecursos.com.br/wp-content/uploads/2015/08/programacao.jpg");
+        }
+        .col-md-8{
+            background-color: white; 
+        }
+        #top{
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        #top h1{
+            font-family: 'Barrio', cursive;
+            color: black;
+            font-size: 60px;
+        }
