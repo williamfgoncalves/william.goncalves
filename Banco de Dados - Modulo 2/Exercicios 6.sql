@@ -38,4 +38,15 @@ FROM Produto p
 WHERE NOT EXISTS
     (SELECT * 
      FROM PedidoItem pdIt
-	 WHERE pdIt.IDProduto = p.IDProduto)  
+	 WHERE pdIt.IDProduto = p.IDProduto)
+
+---------------------------------------------------------------------------------------------------------
+	 
+SELECT TOP 30 prod.Nome,
+	SUM((prod.PrecoVenda - prod.PrecoCusto) * pedItem.Quantidade) as Lucro
+FROM PedidoItem pedItem
+INNER JOIN Produto prod ON prod.IDProduto = pedItem.IDProduto
+INNER JOIN Pedido ped ON ped.IDPedido = pedItem.IDPedido
+WHERE ped.DataPedido BETWEEN CONVERT(DATE, '01/01/2016', 103) AND CONVERT(DATE, '31/12/2016 23:59:59', 103)
+GROUP BY prod.Nome
+ORDER BY Lucro DESC;
