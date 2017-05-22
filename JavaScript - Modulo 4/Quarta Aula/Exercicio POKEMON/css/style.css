@@ -1,9 +1,6 @@
 * {
   box-sizing: border-box;
 }
-body{
-    background-image: url("https://i.imgur.com/eVcYPSa.png");
-}
 .menu{
     background-color: aquamarine;
     width: 400px;
