@@ -7,8 +7,7 @@ controller.controller('controllerForm', function($scope, toastr){
     $scope.editarInstrutor = false;
     $scope.mostrarAulas;
     $scope.mostrarInstrutor;
-    
-    
+
     function gerarId(arr){
         let id;
         if(arr.length > 0){
@@ -18,6 +17,7 @@ controller.controller('controllerForm', function($scope, toastr){
         }   
         return id;
     }
+
 
     function compararNomes(arr, obj){
     let compare = false;
@@ -72,21 +72,27 @@ controller.controller('controllerForm', function($scope, toastr){
             delete $scope.aula;
             toastr.success('Aula adicionada com sucesso!');
             $scope.mostrarAulas = true;
+        }else{
+            toastr.error("Algum campo está errado ou faltando informação!");
         }
     }
     
     $scope.editAula = function (aula) {
          $scope.editarAula = true;
          toastr.warning('Você está editando uma aula!');
-         $scope.aulaAtual = aula;
+         $scope.aulaAtual = angular.copy(aula);
     }
 
     $scope.salvarAula = function(aulaAtual){
-        let idaula = aulaAtual.id;
-        $scope.aulas.splice(idaula,1,aulaAtual);
-        delete $scope.aulaAtual;
-        toastr.success('Aula alterada com sucesso!');
-        $scope.editarAula = false;
+        if($scope.formEditarAula.$valid){
+            let idaula = aulaAtual.id;
+            $scope.aulas.splice(idaula,1,aulaAtual);
+            delete $scope.aulaAtual;
+            toastr.success('Aula alterada com sucesso!');
+            $scope.editarAula = false;
+        }else{
+            toastr.error("Algum campo está errado ou faltando informação!");
+        }
     }
 
     $scope.cancelar = function(aulaAtual){
@@ -106,7 +112,6 @@ controller.controller('controllerForm', function($scope, toastr){
     
     $scope.addInstrutor = function (instrutor){
         if($scope.form1.$valid){
-
             let compararNome = compararNomes($scope.instrutores, instrutor);
             if(compararNome === 0){
                 toastr.error("Este instrutor já existe!");
@@ -128,13 +133,16 @@ controller.controller('controllerForm', function($scope, toastr){
             delete $scope.instrutor;
             toastr.success('Instrutor adicionado com sucesso!');
             $scope.mostrarEdicao = false;
+        }
+        else{
+            toastr.error("Algum campo está errado ou faltando informação!");
         }   
     }
 
     $scope.editInstrutor = function (instrutor) {
          $scope.editarInstrutor = true;
          toastr.warning('Você está editando o instrutor!');
-         $scope.instrutorAtual = instrutor;
+         $scope.instrutorAtual = angular.copy(instrutor);
     }
 
     $scope.cancelarInstrutor = function(instrutorAtual){
@@ -144,11 +152,16 @@ controller.controller('controllerForm', function($scope, toastr){
     }
 
     $scope.salvarInstrutor = function(instrutorAtual){
-        let idInstrutor = instrutorAtual.id;
-        $scope.instrutores.splice(idInstrutor,1,instrutorAtual);
-        delete $scope.instrutorAtual;
-        toastr.success('Instrutor alterado com sucesso!');
-        $scope.editarInstrutor = false;
+        if($scope.form2.$valid){
+            let idInstrutor = instrutorAtual.id;
+            $scope.instrutores.splice(idInstrutor,1,instrutorAtual);
+            delete $scope.instrutorAtual;
+            toastr.success('Instrutor alterado com sucesso!');
+            $scope.editarInstrutor = false;
+        }
+        else{
+            toastr.error("Algum campo está errado ou faltando informação!");
+        }   
     }
 
     $scope.removeInstrutor = function (instrutor){
@@ -191,7 +204,11 @@ controller.controller('controllerForm', function($scope, toastr){
         {id: 4, nome: 'Banco de Dados I'}
     ];
 
-     if($scope.aulas.length > 0){
+    function mostrarAulasTela(telaA){
+        return telaA = true;
+    }
+    
+    if($scope.aulas.length > 0){
         $scope.mostrarAulas = true;
         $scope.mostrarInstrutor = true; 
     }else{
