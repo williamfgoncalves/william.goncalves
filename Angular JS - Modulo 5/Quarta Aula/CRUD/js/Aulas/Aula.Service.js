@@ -1,15 +1,9 @@
-var controller = angular.module('aula3', ['ngAnimate','toastr','ngRoute']);
-
-controller.factory('aulaService', function ($http) {
+controller.factory('Aula.Service', function ($http) {
 
   let urlBase = 'http://localhost:3000';
 
   function getTodasAsAulas() {
     return $http.get(urlBase + '/aula');
-  };
-
-  function getAulaPorId(id) {
-    return $http.get(urlBase + '/aula' + '/' + id);
   };
 
   function atualizar(aula) {

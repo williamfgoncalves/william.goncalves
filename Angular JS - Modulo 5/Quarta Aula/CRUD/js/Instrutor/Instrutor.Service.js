@@ -1,13 +1,9 @@
-controller.factory('instrutorService', function ($http) {
+controller.factory('Instrutor.Service', function ($http) {
 
     let urlBase = 'http://localhost:3000';
 
-    function getTodasOsInstrutores() {
+    function getTodosOsInstrutores() {
       return $http.get(urlBase + '/instrutor');
-    };
-
-    function getInstrutorPorId(id) {
-      return $http.get(urlBase + '/instrutor' + '/' + id);
     };
 
     function atualizarInstrutor(instrutor) {
