@@ -1,0 +1,36 @@
+ <form novalidate name="form2" ng-submit="salvarInstrutor(instrutorAtual)"> 
+    <div ng-show="editarInstrutor">
+        <label for="nome">Insira o nome do instrutor</label>
+        <input class="form-control" maxlength="20" minlength="3" placeholder="Ex: Bruno" type="text" ng-model="instrutorAtual.nome" required>
+        
+        <label for="sobrenome">Insira o sobrenome do instrutor</label>
+        <input class="form-control" maxlength="30" type="text" placeholder="Ex: Santos" ng-model="instrutorAtual.sobrenome">
+        
+        <label for="idade">Insira a idade do instrutor</label>
+        <input class="form-control" type="number"  placeholder="Ex: 22" ng-model="instrutorAtual.idade" required>
+        
+        <label for="email">Insira o email do instrutor</label>
+        <input class="form-control" type="email" placeholder="Ex: nome@exemplo.com" ng-model="instrutorAtual.email" required>
+        
+        <label for="checkbox">Este instrutor esta dando aulas no CRESCER?</label>
+        <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="SIM">SIM</label>
+        <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="NÃO">NÃO</label>
+        <br>
+        <br>
+        <br>
+        <br>
+        <label for="select">Quais aulas este instrutor dará?</label>
+        <select class="form-control" ng-model="instrutorAtual.aula"  multiple>
+            <option ng-repeat="aula in aulas | orderBy: 'id'" ng-value="{{ aula.id }}">
+                {{aula.nome}}
+            </option>
+        </select>
+        <br>
+        <br>
+        <label for="text">Foto do instrutor</label>
+        <input  class="form-control" placeholder="www.foto.com/foto.jpg" type="text" ng-model="instrutorAtual.urlFoto">
+            
+        <button class="btn btn-success" type="submit" name="nome">Salvar alterações</button>
+        <button class="btn btn-warning" type="button" ng-click="cancelarInstrutor(instrutorAtual)">Cancelar alterações</button>
+    </div>
+</form>

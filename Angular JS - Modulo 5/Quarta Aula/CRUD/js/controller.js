@@ -1,16 +1,30 @@
 //Criacao do modulo 
-var controller = angular.module('aula3', ['ngAnimate','toastr','ngRoute']);
-
     controller.config(function ($routeProvider) { 
         $routeProvider 
-            .when('exibirAula', { 
+            .when('/adicionarAula', { 
             controller: 'aulaController', 
-            templateUrl: 'exibirAula.html' 
-            })
-            .when('exibirInstrutor', { 
+            templateUrl: './adicionarAula.html' 
+        })
+            .when('/editarAula', { 
+            controller: 'aulaController', 
+            templateUrl: './editarAula.html' 
+        })
+            .when('/exibirAulas', { 
+            controller: 'aulaController', 
+            templateUrl: './exibirAulas.html' 
+        })
+            .when('/adicionarInstrutor', { 
             controller: 'instrutorController', 
-            templateUrl: 'exibirInstrutor.html' 
-            }) 
+            templateUrl: 'adicionarInstrutor.html' 
+        })
+            .when('/editarInstrutor', { 
+            controller: 'instrutorController', 
+            templateUrl: 'editarInstrutor.html' 
+        }) 
+            .when('/exibirInstrutores', { 
+            controller: 'instrutorController', 
+            templateUrl: 'exibirInstrutores.html' 
+        }) 
             .otherwise({redirectTo:'/'}); 
     });
 

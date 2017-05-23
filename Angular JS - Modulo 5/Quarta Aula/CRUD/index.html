@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head  ng-app="aula3">
+<html lang="en"ng-app="aula3">
+    <head>
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +9,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.min.js"></script>
         <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
+        <script src="js/serviceAula.js"></script>
+        <script src="js/serviceInstrutor.js"></script>
+        <script src="js/controller.js"></script>   
     </head>
     <body>
     <div ng-controller="controllerForm">
@@ -32,12 +35,18 @@
                         </div>
                     </div>
 
+                    <a href="#!/adicionarAula">Adicionar Aula</a>
+                    <a href="#!/editarAula">Editar Aula</a>
+                    <a href="#!/exibirAulas">Exibir Aula</a>
+                    <a href="#!/adicionarInstrutor">Adicionar Instrutor</a>
+                    <a href="#!/editarInstrutor">Editar Instrutor</a>
+                    <a href="#!/exibirInstrutores">Exibir Instrutor</a>
+                    
                     <ng-view></ng-view>
-                
+
                 </div>
             <div class="col-md-2"></div>
         </div>
     </div>
-    <script src="js/controller.js"></script>
     </body>
 </html>
