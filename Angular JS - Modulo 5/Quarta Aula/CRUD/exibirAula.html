@@ -1,7 +1,5 @@
-        <div ng-show="mostrarEditarAulas">
-
-            <h1 align="center"> AULAS </h1>
-
+    <div ng-controller="aulaController">
+        <h1 align="center"> AULAS </h1>
             <form novalidate name="formAula" ng-submit="addAula(aula)">
                 <label for="nome">NOME DA AULA</label>
                 <input type="text" class="form-control" placeholder="Ex: Java" ng-model="aula.nome" required>
@@ -12,32 +10,27 @@
             <button class="btn btn-warning" ng-click="mostrarEditarAulas = false">Esconder Aulas</button>
         </div>
 
-        <div ng-show="mostrarAulas">
-            <br>
-            <table class="table table-striped">                        
-                <tr>
-                    <th>ID</th>
-                    <th>AULA</th>
-                </tr>
-                <tr ng-repeat="aula in aulas | orderBy: 'nome'">
-                    <td>{{aula.id}}</td>
-                    <td>{{aula.nome}}</td>
-                    <td><button class="btn btn-warning" type="submit" ng-click="editAula(aula)"> Editar Aula</button></td>
-                    <td><button class="btn btn-danger" type="submit" ng-click="removeAula(aula)"> Excluir Aula</button></td>
-                </tr>
-            </table>
-            <br>
-            <button class="btn btn-warning" ng-click="mostrarAulas = false">Esconder Aulas</button>
-        </div>
+        <br>
+        <table class="table table-striped">                        
+            <tr>
+                <th>ID</th>
+                <th>AULA</th>
+            </tr>
+            <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+                <td>{{aula.id}}</td>
+                <td>{{aula.nome}}</td>
+                <td><button class="btn btn-warning" type="submit" ng-click="editAula(aula)"> Editar Aula</button></td>
+                <td><button class="btn btn-danger" type="submit" ng-click="removeAula(aula)"> Excluir Aula</button></td>
+            </tr>
+        </table>
+        <br>
+        <button class="btn btn-warning" ng-click="mostrarAulas = false">Esconder Aulas</button>
 
-            <form novalidate name="formEditarAula" ng-submit="salvarAula(aulaAtual)">
-                <div ng-show="editarAula">
-                    <input type="text" ng-model="aulaAtual.nome" placeholder="Ex: Java" required>
-                    <button class="btn btn-success" type="submit" >Salvar Alterações</button>
-                    <button class="btn btn-warning" type="button" ng-click="cancelar(aulaAtual)">Cancelar alterações</button>
-                </div>
-            </form>
+        <form novalidate name="formEditarAula" ng-submit="salvarAula(aulaAtual)">
+            <div ng-show="editarAula">
+                <input type="text" ng-model="aulaAtual.nome" placeholder="Ex: Java" required>
+                <button class="btn btn-success" type="submit" >Salvar Alterações</button>
+                <button class="btn btn-warning" type="button" ng-click="cancelar(aulaAtual)">Cancelar alterações</button>
+            </div>
+        </form>
     </div>
-
-    <div class="col-md-2"></div>
-</div>

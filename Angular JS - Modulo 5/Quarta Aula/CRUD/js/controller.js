@@ -1,17 +1,17 @@
 //Criacao do modulo 
-var controller = angular.module('aula3', ['ngAnimate', 'toastr']);
+var controller = angular.module('aula3', ['ngAnimate','toastr','ngRoute']);
 
     controller.config(function ($routeProvider) { 
-    $routeProvider 
-        .when('/exibirAula.html', { 
-        controller: 'aulaController', 
-        templateUrl: 'aulaUm.html' 
-        }) 
-        .when('/exibirInstrutor.html', { 
-        controller: 'instrutorController', 
-        templateUrl: 'aulaUm.html' 
-        }) 
-        .otherwise({redirectTo: '/exibirAula.html'}); 
+        $routeProvider 
+            .when('exibirAula', { 
+            controller: 'aulaController', 
+            templateUrl: 'exibirAula.html' 
+            })
+            .when('exibirInstrutor', { 
+            controller: 'instrutorController', 
+            templateUrl: 'exibirInstrutor.html' 
+            }) 
+            .otherwise({redirectTo:'/'}); 
     });
 
     controller.controller('controllerForm', function($scope, toastr){
@@ -67,7 +67,6 @@ var controller = angular.module('aula3', ['ngAnimate', 'toastr']);
             return false;
         }
 
-
         $scope.aulas =[
             {id: 0, nome: 'OO'},
             {id: 1, nome: 'HTML e CSS'},
@@ -75,7 +74,10 @@ var controller = angular.module('aula3', ['ngAnimate', 'toastr']);
             {id: 3, nome: 'AngularJS'},
             {id: 4, nome: 'Banco de Dados I'}
         ];
+        
     });
+
+    //AULAS
 
     controller.controller('aulaController', function ($scope){
 
@@ -134,6 +136,8 @@ var controller = angular.module('aula3', ['ngAnimate', 'toastr']);
         }
 
     });
+
+    //INSTRUTORES
 
     controller.controller('instrutorController', function ($scope){
 

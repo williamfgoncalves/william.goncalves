@@ -1,117 +1,108 @@
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div ng-controller="instrutorController">
+        <h1 align="center"> INSTRUTORES </h1>
 
-    <div ng-show="mostrarEditarInstrutores">
-    
-    <h1 align="center"> INSTRUTORES </h1>
-
-    <form novalidate name="form1" ng-submit="addInstrutor(instrutor)">
-        
-        <label for="nome">Insira o nome do instrutor</label>
-        <input class="form-control" maxlength="20" minlength="3" placeholder="Ex: Bruno" type="text" ng-model="instrutor.nome" required>
-        
-        <label for="sobrenome">Insira o sobrenome do instrutor</label>
-        <input class="form-control" maxlength="30" type="text" placeholder="Ex: Santos" ng-model="instrutor.sobrenome">
-        
-        <label for="idade">Insira a idade do instrutor</label>
-        <input class="form-control" type="number" placeholder="Ex: 22" ng-model="instrutor.idade" required>
-        
-        <label for="email">Insira o email do instrutor</label>
-        <input class="form-control" type="email" placeholder="Ex: nome@exemplo.com" ng-model="instrutor.email" required>
-        
-        <label for="checkbox">Este instrutor esta dando aulas no CRESCER?</label>
-        <label class="radio-inline"><input type="radio" ng-model="instrutor.dandoAula" value="SIM">SIM</label>
-        <label class="radio-inline"><input type="radio" ng-model="instrutor.dandoAula" value="NÃO">NÃO</label>
+        <form novalidate name="form1" ng-submit="addInstrutor(instrutor)">
+            
+            <label for="nome">Insira o nome do instrutor</label>
+            <input class="form-control" maxlength="20" minlength="3" placeholder="Ex: Bruno" type="text" ng-model="instrutor.nome" required>
+            
+            <label for="sobrenome">Insira o sobrenome do instrutor</label>
+            <input class="form-control" maxlength="30" type="text" placeholder="Ex: Santos" ng-model="instrutor.sobrenome">
+            
+            <label for="idade">Insira a idade do instrutor</label>
+            <input class="form-control" type="number" placeholder="Ex: 22" ng-model="instrutor.idade" required>
+            
+            <label for="email">Insira o email do instrutor</label>
+            <input class="form-control" type="email" placeholder="Ex: nome@exemplo.com" ng-model="instrutor.email" required>
+            
+            <label for="checkbox">Este instrutor esta dando aulas no CRESCER?</label>
+            <label class="radio-inline"><input type="radio" ng-model="instrutor.dandoAula" value="SIM">SIM</label>
+            <label class="radio-inline"><input type="radio" ng-model="instrutor.dandoAula" value="NÃO">NÃO</label>
+            <br>
+            <br>
+            <label for="select">Quais aulas este instrutor dará?</label>
+            <select class="form-control" ng-model="instrutor.aula"  multiple>
+                <option ng-repeat="aula in aulas | orderBy: 'id'" ng-value="{{ aula.id }}">
+                    {{aula.nome}}
+                </option>
+            </select>
+            <br>
+            <br>
+            <label for="text">Foto do instrutor</label>
+            <input  class="form-control" type="text" placeholder="www.foto.com/foto.jpg" ng-model="instrutor.urlFoto">
+            <br>
+            <button class="btn btn-primary" type="submit" name="nome">ADICIONAR</button>
+        </form>
         <br>
-        <br>
-        <label for="select">Quais aulas este instrutor dará?</label>
-        <select class="form-control" ng-model="instrutor.aula"  multiple>
-            <option ng-repeat="aula in aulas | orderBy: 'id'" ng-value="{{ aula.id }}">
-                {{aula.nome}}
-            </option>
-        </select>
-        <br>
-        <br>
-        <label for="text">Foto do instrutor</label>
-        <input  class="form-control" type="text" placeholder="www.foto.com/foto.jpg" ng-model="instrutor.urlFoto">
-        <br>
-        <button class="btn btn-primary" type="submit" name="nome">ADICIONAR</button>
-    </form>
-    <br>
-    <button class="btn btn-warning" ng-click="mostrarEditarInstrutores = false">Esconder Adicionar Instrutores</button>    
-    </div>
-    <div ng-show="mostrarInstrutores">
+        <button class="btn btn-warning" ng-click="mostrarEditarInstrutores = false">Esconder Adicionar Instrutores</button>    >
 
         <table class="table table-striped">
-            <tr>
-                <td>FOTO</td>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>SOBRENOME</th>
-                <th>IDADE</th>
-                <th>EMAIL</th>
-                <th>DANDO AULA?</th>
-                <th>AULAS</th>
-            </tr>
-            <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
-                <td><img ng-src="{{instrutor.urlFoto}}" class="img-circle" width="60px" height="60px"></td>
-                <td>{{instrutor.id}}</td>
-                <td>{{instrutor.nome}}</td>
-                <td>{{instrutor.sobrenome}}</td>
-                <td>{{instrutor.idade}}</td>
-                <td>{{instrutor.email}}</td>
-                <td>{{instrutor.dandoAula}}</td>
-                <td>
-                    <div ng-repeat="aula in instrutor.aula | orderBy: 'nome'">
-                        {{nomeAula(aula)}}
-                    </div>
-                </td>
-                <td><button class="btn btn-warning" type="submit" ng-click="editInstrutor(instrutor)"> Editar Instrutor</button></td>
-                <td><button class="btn btn-danger" type="submit" ng-click="removeInstrutor(instrutor)"> Excluir Instrutor</button></td>
-            </tr>
-    </table>
-    <button class="btn btn-warning" ng-click="mostrarInstrutores = false">Esconder Aulas</button>
-    <br>
-</div>
-<br>
-    <form novalidate name="form2" ng-submit="salvarInstrutor(instrutorAtual)"> 
-    <div ng-show="editarInstrutor">
-        <label for="nome">Insira o nome do instrutor</label>
-        <input class="form-control" maxlength="20" minlength="3" placeholder="Ex: Bruno" type="text" ng-model="instrutorAtual.nome" required>
-        
-        <label for="sobrenome">Insira o sobrenome do instrutor</label>
-        <input class="form-control" maxlength="30" type="text" placeholder="Ex: Santos" ng-model="instrutorAtual.sobrenome">
-        
-        <label for="idade">Insira a idade do instrutor</label>
-        <input class="form-control" type="number"  placeholder="Ex: 22" ng-model="instrutorAtual.idade" required>
-        
-        <label for="email">Insira o email do instrutor</label>
-        <input class="form-control" type="email" placeholder="Ex: nome@exemplo.com" ng-model="instrutorAtual.email" required>
-        
-        <label for="checkbox">Este instrutor esta dando aulas no CRESCER?</label>
-        <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="SIM">SIM</label>
-        <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="NÃO">NÃO</label>
+                <tr>
+                    <td>FOTO</td>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>SOBRENOME</th>
+                    <th>IDADE</th>
+                    <th>EMAIL</th>
+                    <th>DANDO AULA?</th>
+                    <th>AULAS</th>
+                </tr>
+                <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+                    <td><img ng-src="{{instrutor.urlFoto}}" class="img-circle" width="60px" height="60px"></td>
+                    <td>{{instrutor.id}}</td>
+                    <td>{{instrutor.nome}}</td>
+                    <td>{{instrutor.sobrenome}}</td>
+                    <td>{{instrutor.idade}}</td>
+                    <td>{{instrutor.email}}</td>
+                    <td>{{instrutor.dandoAula}}</td>
+                    <td>
+                        <div ng-repeat="aula in instrutor.aula | orderBy: 'nome'">
+                            {{nomeAula(aula)}}
+                        </div>
+                    </td>
+                    <td><button class="btn btn-warning" type="submit" ng-click="editInstrutor(instrutor)"> Editar Instrutor</button></td>
+                    <td><button class="btn btn-danger" type="submit" ng-click="removeInstrutor(instrutor)"> Excluir Instrutor</button></td>
+                </tr>
+        </table>
+            <button class="btn btn-warning" ng-click="mostrarInstrutores = false">Esconder Aulas</button>
         <br>
-        <br>
-        <br>
-        <br>
-        <label for="select">Quais aulas este instrutor dará?</label>
-        <select class="form-control" ng-model="instrutorAtual.aula"  multiple>
-            <option ng-repeat="aula in aulas | orderBy: 'id'" ng-value="{{ aula.id }}">
-                {{aula.nome}}
-            </option>
-        </select>
-        <br>
-        <br>
-        <label for="text">Foto do instrutor</label>
-        <input  class="form-control" placeholder="www.foto.com/foto.jpg" type="text" ng-model="instrutorAtual.urlFoto">
-            
-        <button class="btn btn-success" type="submit" name="nome">Salvar alterações</button>
-        <button class="btn btn-warning" type="button" ng-click="cancelarInstrutor(instrutorAtual)">Cancelar alterações</button>
-    </div>
-    </form>
 
-</div>
-<div class="col-md-2"></div>
-</div>
+        <br>
+        <form novalidate name="form2" ng-submit="salvarInstrutor(instrutorAtual)"> 
+            <div ng-show="editarInstrutor">
+                <label for="nome">Insira o nome do instrutor</label>
+                <input class="form-control" maxlength="20" minlength="3" placeholder="Ex: Bruno" type="text" ng-model="instrutorAtual.nome" required>
+                
+                <label for="sobrenome">Insira o sobrenome do instrutor</label>
+                <input class="form-control" maxlength="30" type="text" placeholder="Ex: Santos" ng-model="instrutorAtual.sobrenome">
+                
+                <label for="idade">Insira a idade do instrutor</label>
+                <input class="form-control" type="number"  placeholder="Ex: 22" ng-model="instrutorAtual.idade" required>
+                
+                <label for="email">Insira o email do instrutor</label>
+                <input class="form-control" type="email" placeholder="Ex: nome@exemplo.com" ng-model="instrutorAtual.email" required>
+                
+                <label for="checkbox">Este instrutor esta dando aulas no CRESCER?</label>
+                <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="SIM">SIM</label>
+                <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="NÃO">NÃO</label>
+                <br>
+                <br>
+                <br>
+                <br>
+                <label for="select">Quais aulas este instrutor dará?</label>
+                <select class="form-control" ng-model="instrutorAtual.aula"  multiple>
+                    <option ng-repeat="aula in aulas | orderBy: 'id'" ng-value="{{ aula.id }}">
+                        {{aula.nome}}
+                    </option>
+                </select>
+                <br>
+                <br>
+                <label for="text">Foto do instrutor</label>
+                <input  class="form-control" placeholder="www.foto.com/foto.jpg" type="text" ng-model="instrutorAtual.urlFoto">
+                    
+                <button class="btn btn-success" type="submit" name="nome">Salvar alterações</button>
+                <button class="btn btn-warning" type="button" ng-click="cancelarInstrutor(instrutorAtual)">Cancelar alterações</button>
+            </div>
+        </form>
+    </div>
+
