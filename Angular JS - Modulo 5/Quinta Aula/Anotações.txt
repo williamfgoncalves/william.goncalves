@@ -1,0 +1,20 @@
+tirar - nomes, email e id; remoção, id unico
+
+colocar no app a configuração e as rotas
+
+quanto mais quebrada a aplicação melhor, ou seja, tudo que for de aulas em uma pasta aula, e assim sucessivamente.
+ctrl'' = abre um terminal;
+
+qaulquer coisa ir no network e dar um f5
+
+service- retorna funcoes que tu pode acessar e retorna uma promessa que no controler manipula;
+get cria uma promessa, para receber um resultado de uma promessa, usa o THEN
+injetar a service na controller - para poder ter acesso a promisse
+
+bootsratp snipets - baixar
+
+ao editar uma aula ir na service e chamar  o alterar
+
+ins defined - funciona para verififcar se algo existe, como por exemplo no inclior que nao tem ai
+
+
