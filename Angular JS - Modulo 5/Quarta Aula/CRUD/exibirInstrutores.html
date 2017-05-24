@@ -52,7 +52,7 @@
             <td>{{instrutor.sobrenome}}</td>
             <td>{{instrutor.idade}}</td>
             <td>{{instrutor.email}}</td>
-            <td>{{instrutor.dandoAula}}</td>
+            <td>{{instrutor.dandoAula | nomeDandoAula}}</td>
             <td>
                 <div ng-repeat="aula in instrutor.aula | orderBy: 'nome'">
                     {{nomeAula(aula)}}

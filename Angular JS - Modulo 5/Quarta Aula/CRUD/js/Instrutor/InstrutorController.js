@@ -17,9 +17,26 @@
     }
     
     $scope.aulas = listaTodasAulas();
+
+    function estaDandoAula(instrutor){
+        let dandoAula = instrutor.dandoAula.localeCompare('SIM'); 
+        if(dandoAula === 0){
+            instrutor.dandoAula = true;
+        }else{
+            instrutor.dandoAula = false;
+        }
+    }
     
     $scope.nomeAula = function(id) {
         return $scope.aulas.find(a => a.id === id).nome;
+    }
+
+    $controller.filter('nomeDandoAula',function(nome) {
+        if(nome === 'true'){
+            return 'SIM';
+        }else{
+            return 'NÃO'
+        }
     }
     
     $scope.addInstrutor = function (instrutor){
@@ -27,6 +44,7 @@
             if(instrutor.urlFoto === "" || typeof instrutor.urlFoto === "undefined"){
                 instrutor.urlFoto = "https://pescadordesonhos.files.wordpress.com/2009/12/1-anonimo-famoso-oow.jpg";
             }
+            estaDandoAula(instrutor);
             InstrutorService.create(instrutor).then(function(response){
                 toastr.success('Instrutor adicionado com sucesso!');
             });
@@ -58,6 +76,7 @@
             if(instrutorAtual.urlFoto === "" || typeof instrutorAtual.urlFoto === "undefined"){
                 instrutorAtual.urlFoto = "https://pescadordesonhos.files.wordpress.com/2009/12/1-anonimo-famoso-oow.jpg";
             }
+            estaDandoAula(instrutorAtual);
             InstrutorService.update(instrutorAtual).then(function(response){
                 toastr.success('Instrutor alterado com sucesso!');
             });
