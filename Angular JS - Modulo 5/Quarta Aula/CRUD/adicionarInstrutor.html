@@ -29,6 +29,6 @@
     <label for="text">Foto do instrutor</label>
     <input  class="form-control" type="text" placeholder="www.foto.com/foto.jpg" ng-model="instrutor.urlFoto">
     <br>
-    <button class="btn btn-primary" type="submit" name="nome">ADICIONAR</button>
+    <button class="btn btn-primary" ng-disabled="form1.$invalid" type="submit" name="nome">ADICIONAR</button>
 </form>
 

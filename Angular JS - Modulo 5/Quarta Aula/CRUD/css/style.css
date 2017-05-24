@@ -18,3 +18,24 @@
             color: black;
             font-size: 60px;
         }
+        .navbar-nav {
+            float:none;
+            margin:0 auto;
+            display: block;
+            text-align: center;
+        }
+        .navbar-nav > li {
+            display: inline-block;
+            float:none;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        a:hover{
+            background-color: gray;
+        }
