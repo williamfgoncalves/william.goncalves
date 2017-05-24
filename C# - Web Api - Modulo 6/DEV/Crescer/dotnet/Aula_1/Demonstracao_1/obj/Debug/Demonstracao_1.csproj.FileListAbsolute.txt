@@ -1,0 +1,6 @@
+C:\Users\william.goncalves\Documents\Projetos_GIT\william.goncalves\C# - Web Api - Modulo 6\DEV\Crescer\dotnet\Aula_1\Demonstracao_1\bin\Debug\Demonstracao_1.exe.config
+C:\Users\william.goncalves\Documents\Projetos_GIT\william.goncalves\C# - Web Api - Modulo 6\DEV\Crescer\dotnet\Aula_1\Demonstracao_1\bin\Debug\Demonstracao_1.exe
+C:\Users\william.goncalves\Documents\Projetos_GIT\william.goncalves\C# - Web Api - Modulo 6\DEV\Crescer\dotnet\Aula_1\Demonstracao_1\bin\Debug\Demonstracao_1.pdb
+C:\Users\william.goncalves\Documents\Projetos_GIT\william.goncalves\C# - Web Api - Modulo 6\DEV\Crescer\dotnet\Aula_1\Demonstracao_1\obj\Debug\Demonstracao_1.csprojResolveAssemblyReference.cache
+C:\Users\william.goncalves\Documents\Projetos_GIT\william.goncalves\C# - Web Api - Modulo 6\DEV\Crescer\dotnet\Aula_1\Demonstracao_1\obj\Debug\Demonstracao_1.exe
+C:\Users\william.goncalves\Documents\Projetos_GIT\william.goncalves\C# - Web Api - Modulo 6\DEV\Crescer\dotnet\Aula_1\Demonstracao_1\obj\Debug\Demonstracao_1.pdb
