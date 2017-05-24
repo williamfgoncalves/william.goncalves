@@ -1,4 +1,4 @@
-controller.factory('Aula.Service', function ($http) {
+controller.factory('AulaService', function ($http) {
 
   let urlBase = 'http://localhost:3000';
 
@@ -11,14 +11,17 @@ controller.factory('Aula.Service', function ($http) {
   };
 
   function criar(aula) {
-    aula.id = ++idAtual;
-    aulas.push(angular.copy(aula));
+    return $http.post(urlBase + '/aula', aula);
   };
 
+   function excluir(aula) {
+    return $http.delete(urlBase + '/aula/' + aula.id);
+   };
+
   return {
-    list: getTodasAsAulas,
-    findById: getAulaPorId,
+    listarAulas: getTodasAsAulas,
     update: atualizar,
-    create: criar
+    create: criar,
+    remove: excluir
   };
 });

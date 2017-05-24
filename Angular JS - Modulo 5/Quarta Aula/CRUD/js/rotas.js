@@ -1,19 +1,19 @@
     controller.config(function ($routeProvider) { 
         $routeProvider 
             .when('/adicionarAula', { 
-            controller: 'Aula.Controller', 
+            controller: 'AulaController', 
             templateUrl: './adicionarAula.html' 
         })
             .when('/exibirAulas', { 
-            controller: 'Aula.Controller', 
+            controller: 'AulaController', 
             templateUrl: './exibirAulas.html' 
         })
             .when('/adicionarInstrutor', { 
-            controller: 'Instrutor.Controller', 
+            controller: 'InstrutorController', 
             templateUrl: 'adicionarInstrutor.html' 
         })
             .when('/exibirInstrutores', { 
-            controller: 'Instrutor.Controller', 
+            controller: 'InstrutorController', 
             templateUrl: 'exibirInstrutores.html' 
         }) 
             .otherwise({redirectTo:'/'}); 

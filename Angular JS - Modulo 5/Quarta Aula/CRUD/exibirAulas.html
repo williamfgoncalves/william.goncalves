@@ -6,15 +6,17 @@
     </div>
 </form>
 
-<table class="table table-striped">                        
-    <tr>
-        <th>ID</th>
-        <th>AULA</th>
-    </tr>
-    <tr ng-repeat="aula in aulas | orderBy: 'nome'">
-        <td>{{aula.id}}</td>
-        <td>{{aula.nome}}</td>
-        <td><button class="btn btn-warning" type="submit" ng-href="#!/editarAula" ng-click="editAula(aula)"> Editar Aula</button></td>
-        <td><button class="btn btn-danger" type="submit" ng-click="removeAula(aula)"> Excluir Aula</button></td>
-    </tr>
-</table>
+<div ng-show="exibirAula">
+    <table class="table table-striped">                        
+        <tr>
+            <th>ID</th>
+            <th>AULA</th>
+        </tr>
+        <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+            <td>{{aula.id}}</td>
+            <td>{{aula.nome}}</td>
+            <td><button class="btn btn-warning" type="submit" ng-click="editAula(aula)"> Editar Aula</button></td>
+            <td><button class="btn btn-danger" type="submit" ng-click="removeAula(aula)"> Excluir Aula</button></td>
+        </tr>
+    </table>
+</div>

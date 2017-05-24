@@ -17,8 +17,6 @@
         <label class="radio-inline"><input type="radio" ng-model="instrutorAtual.dandoAula" value="NÃO">NÃO</label>
         <br>
         <br>
-        <br>
-        <br>
         <label for="select">Quais aulas este instrutor dará?</label>
         <select class="form-control" ng-model="instrutorAtual.aula"  multiple>
             <option ng-repeat="aula in aulas | orderBy: 'id'" ng-value="{{ aula.id }}">
@@ -35,31 +33,33 @@
     </div>
 </form>
 
-<table class="table table-striped">
-    <tr>
-        <td>FOTO</td>
-        <th>ID</th>
-        <th>NOME</th>
-        <th>SOBRENOME</th>
-        <th>IDADE</th>
-        <th>EMAIL</th>
-        <th>DANDO AULA?</th>
-        <th>AULAS</th>
-    </tr>
-    <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
-        <td><img ng-src="{{instrutor.urlFoto}}" class="img-circle" width="60px" height="60px"></td>
-        <td>{{instrutor.id}}</td>
-        <td>{{instrutor.nome}}</td>
-        <td>{{instrutor.sobrenome}}</td>
-        <td>{{instrutor.idade}}</td>
-        <td>{{instrutor.email}}</td>
-        <td>{{instrutor.dandoAula}}</td>
-        <td>
-            <div ng-repeat="aula in instrutor.aula | orderBy: 'nome'">
-                {{nomeAula(aula)}}
-            </div>
-        </td>
-        <td><button class="btn btn-warning" type="submit" ng-href="#!/editarInstrutor" ng-click="editInstrutor(instrutor)"> Editar Instrutor</button></td>
-        <td><button class="btn btn-danger" type="submit" ng-click="removeInstrutor(instrutor)"> Excluir Instrutor</button></td>
-    </tr>
-</table>
+<div ng-show="exibirInstrutor">
+    <table class="table table-striped">
+        <tr>
+            <td>FOTO</td>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>SOBRENOME</th>
+            <th>IDADE</th>
+            <th>EMAIL</th>
+            <th>DANDO AULA?</th>
+            <th>AULAS</th>
+        </tr>
+        <tr ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+            <td><img ng-src="{{instrutor.urlFoto}}" class="img-circle" width="60px" height="60px"></td>
+            <td>{{instrutor.id}}</td>
+            <td>{{instrutor.nome}}</td>
+            <td>{{instrutor.sobrenome}}</td>
+            <td>{{instrutor.idade}}</td>
+            <td>{{instrutor.email}}</td>
+            <td>{{instrutor.dandoAula}}</td>
+            <td>
+                <div ng-repeat="aula in instrutor.aula | orderBy: 'nome'">
+                    {{nomeAula(aula)}}
+                </div>
+            </td>
+            <td><button class="btn btn-warning" type="submit" ng-click="editInstrutor(instrutor)"> Editar Instrutor</button></td>
+            <td><button class="btn btn-danger" type="submit" ng-click="removeInstrutor(instrutor)"> Excluir Instrutor</button></td>
+        </tr>
+    </table>
+</div>

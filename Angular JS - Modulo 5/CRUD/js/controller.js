@@ -77,9 +77,7 @@ controller.controller('controllerForm', function($scope, toastr){
         }
     }
 
-    $scope.nomeAula = function(id) {
-        return $scope.aulas.find(a => a.id === id).nome;
-    }
+    
 
     $scope.editAula = function (aula) {
          $scope.editarAula = true;
