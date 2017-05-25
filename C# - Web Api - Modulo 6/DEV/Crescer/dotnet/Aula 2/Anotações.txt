@@ -1,0 +1,23 @@
+Class library- somente para criação de projetos com classes;
+
+Sempre adicionar referncias - ao projeto;
+
+classes anemicas - classes sem implentacao
+armazer valores em foreaech que tenham valores fixos e usar essa list para realizar os testes ao inves de um emaranhado de ifs;
+
+===============================================================================================================================
+
+Clan Code -----------------------------------------------------------
+
+where = o msmo filter do javascript
+orderby = 
+
+pode encadear lamba em c#
+
+o map no c# é select;
+
+existem objetos anonimos 
+
+String interpolation - ver;
+
+then by aluno; 
