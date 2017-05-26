@@ -13,7 +13,7 @@ namespace Repositorio
     public class RepositorioFuncionarios
     {
         public List<Funcionario> Funcionarios { get; private set; }
-        
+
         public RepositorioFuncionarios()
         {
             CriarBase();
@@ -85,7 +85,7 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorCargo(Cargo cargo)
         {
-            return Funcionarios.Where(funcionario => funcionario.Cargo.Equals(cargo)).ToList(); 
+            return Funcionarios.Where(funcionario => funcionario.Cargo.Equals(cargo)).ToList();
         }
 
         public IList<Funcionario> OrdenadosPorCargo()
@@ -99,13 +99,13 @@ namespace Repositorio
         {
             return Funcionarios
                 .Where(funcionario => TemNome(funcionario.Nome, nome, StringComparison.CurrentCultureIgnoreCase)).ToList();
-        }        
+        }
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
             return Funcionarios
                .Where(funcionario => turnos.Contains(funcionario.TurnoTrabalho)).ToList();
-        }        
+        }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
@@ -122,10 +122,10 @@ namespace Repositorio
             return year;
         }
 
-        public double SalarioMedio(TurnoTrabalho ? turno = null)
+        public double SalarioMedio(TurnoTrabalho? turno = null)
         {
             return Funcionarios
-                .Where(funcionario => turno.Equals(null) ? true: funcionario.TurnoTrabalho.Equals(turno))
+                .Where(funcionario => turno.Equals(null) ? true : funcionario.TurnoTrabalho.Equals(turno))
                 .Select(funcionrio => funcionrio.Cargo.Salario).Average();
         }
 
@@ -139,25 +139,52 @@ namespace Repositorio
         public IList<dynamic> BuscaRapida()
         {
             return Funcionarios
-                .Select(f => new { NomeFuncionario = f.Nome,
-                    TituloCargo = f.Cargo.Titulo})
-                    .Cast<dynamic>().ToList(); ;
-            }
+                .Select(f => new
+                {
+                    NomeFuncionario = f.Nome,
+                    TituloCargo = f.Cargo.Titulo
+                })
+                    .Cast<dynamic>().ToList();
+        }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .GroupBy(funcionario => funcionario.TurnoTrabalho)
+                .Select(f => new
+                {
+                    Turno = f.Key,
+                    Quantidade = f.Count()
+                })
+                .Cast<dynamic>().ToList();
         }
 
         public dynamic FuncionarioMaisComplexo()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(funcionario => !funcionario.Cargo.Titulo.Equals("Desenvolvedor Júnior"))
+                .Select(f => new
+                {
+                    Nome = f.Nome,
+                    DataNascimento = f.DataNascimento.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    SalarioRS = String.Format("R$ {0:N2}", f.Cargo.Salario).Replace('.', ','),
+                    SalarioUS = String.Format("${0:N2}", f.Cargo.Salario),
+                    QuantidadeMesmoCargo = Funcionarios.Where(c => c.Cargo.Equals(f.Cargo)).Count()
+                })
+                .OrderByDescending(f => ContarConsoantes(f.Nome))
+                .First();
         }
 
         // Funcã
         public bool TemNome(string source, string toCheck, StringComparison comp)
         {
             return source.IndexOf(toCheck, comp) >= 0;
+        }
+
+        int ContarConsoantes(string nome)
+        {
+            const string vogais = "aeiou";
+            return nome.Count(chr => vogais.Contains(char.ToLowerInvariant(chr)));
         }
     }
 }
