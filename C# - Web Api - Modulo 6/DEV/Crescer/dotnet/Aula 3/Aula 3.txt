@@ -1,0 +1,54 @@
+Aula -===================================================================================
+CLasse anonima, nao precisamos criala, basta instacia-la
+
+classes e objetos internal, so sao visiveis dentro do projeto;
+
+DINAMIC - sao para deixar nossos objetos e classes parecidos como o javascrip, de forma dinamica, onde ele em tempo de compilação cria um objeto sem que ele essteja dentro de uma classe.
+Muito usado quando eu quero usa-lo apenas uma vez dentro de um projeto.
+
+Request  http ------------------------------------------------------------------------------------------------------
+crhpme faz requisicao para o servidor http(WebApi). ao receber uma request ele manda uma response.
+
+get - obter dados do html
+post - obter dados
+
+Status code for 200 esta tudo certo, tudo lindo, tudo maravilhoso.
+
+----------------------------------------------------------------------------------------------------------------
+servidor web dot net - IS
+
+File> new> project> web> Empaty e marcar web api> Criar uma controller Web api empaty>
+Convention over configuration
+
+criar uma controller um metodo get\
+
+ public string get()
+        {
+            var herois = new List<string>()
+            {
+                "Goke",
+                "Batman",
+                "Ryu"
+            }
+            return herois;
+        }
+
+
+As controlles, trata requisicoes http;
+Para as models, criamos uma classe para represntação do objetos que queremos mosrar dentro do nossp web site;
+
+cRIAR UMA CLSSE de herois(), uma classe de poder
+
+para nao gerarmos problemas com trheads executadas simultaneamente, usamos o LOCK, para poder deixar bloqueado o trecho de codigo enquanto ele é executado.
+
+
+KyLoguer - verrrrrrrrrrrrrrrrrrrrrrrrrr
+
+packege manager console, usar para instalar 
+no web api config
+
+
+
+LOCALSTORAGE
+LocalStorage.setitem("Senha", "123456");
+bootsnip
