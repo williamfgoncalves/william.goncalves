@@ -97,7 +97,8 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(funcionario => TemNome(funcionario.Nome, nome, StringComparison.CurrentCultureIgnoreCase)).ToList();
         }        
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
@@ -138,6 +139,11 @@ namespace Repositorio
         public dynamic FuncionarioMaisComplexo()
         {
             throw new NotImplementedException();
+        }
+
+        public bool TemNome(string source, string toCheck, StringComparison comp)
+        {
+            return source.IndexOf(toCheck, comp) >= 0;
         }
     }
 }
