@@ -122,20 +122,27 @@ namespace Repositorio
             return year;
         }
 
-        public double SalarioMedio(TurnoTrabalho? turno = null)
+        public double SalarioMedio(TurnoTrabalho ? turno = null)
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(funcionario => turno.Equals(null) ? true: funcionario.TurnoTrabalho.Equals(turno))
+                .Select(funcionrio => funcionrio.Cargo.Salario).Average();
         }
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(funcionario =>
+                funcionario.DataNascimento.Month == DateTime.Today.Month).ToList();
         }
 
         public IList<dynamic> BuscaRapida()
         {
-            throw new NotImplementedException();
-        }
+            return Funcionarios
+                .Select(f => new { NomeFuncionario = f.Nome,
+                    TituloCargo = f.Cargo.Titulo})
+                    .Cast<dynamic>().ToList(); ;
+            }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
@@ -147,6 +154,7 @@ namespace Repositorio
             throw new NotImplementedException();
         }
 
+        // Funcã
         public bool TemNome(string source, string toCheck, StringComparison comp)
         {
             return source.IndexOf(toCheck, comp) >= 0;
