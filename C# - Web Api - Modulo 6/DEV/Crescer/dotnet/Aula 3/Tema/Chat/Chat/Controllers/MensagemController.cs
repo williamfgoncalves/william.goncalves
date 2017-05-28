@@ -10,17 +10,18 @@ namespace Chat.Controllers
 {
     public class MensagemController : ApiController
     {
-        private static List<Mensagem> Mensagens = new List<Mensagem>();
+        public static List<Mensagem> Mensagens = new List<Mensagem>();
         private object locker = new object();
+        private static int controlarIdMensagem = 0;
 
         public IEnumerable<Mensagem> Get()
         {
             return Mensagens;
         }
 
-        public IHttpActionResult Post(Mensagem Mensagem)
+        public IHttpActionResult Post(Mensagem mensagem)
         {
-            if (Mensagem == null)
+            if (mensagem == null)
             {
                 return BadRequest();
             }
@@ -28,10 +29,11 @@ namespace Chat.Controllers
             {
                 lock (locker)
                 {
-                    Mensagens.Add(Mensagem);
+                    Mensagens.Add(mensagem);
+                    mensagem.IdMensagem = ++controlarIdMensagem;
+                    mensagem.DataEnvio = DateTime.Now;
+                    return Ok(mensagem);
                 }
-
-                return Ok(Mensagem);
             }
         }
     }

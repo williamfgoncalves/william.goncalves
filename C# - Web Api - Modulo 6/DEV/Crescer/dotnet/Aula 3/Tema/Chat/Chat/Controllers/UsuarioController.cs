@@ -10,17 +10,18 @@ namespace Chat.Controllers
 {
     public class UsuarioController : ApiController
     {
-        private static List<Usuario> Usuarios = new List<Usuario>();
+        public static List<Usuario> Usuarios = new List<Usuario>();
         private object locker = new object();
+        private static int controlarIdUsuario = 0;
 
         public IEnumerable<Usuario> Get()
         {
             return Usuarios;
         }
 
-        public IHttpActionResult Post(Usuario Usuario)
+        public IHttpActionResult Post(Usuario usuario)
         {
-            if (Usuario == null)
+            if (usuario == null)
             {
                 return BadRequest();
             }
@@ -28,10 +29,10 @@ namespace Chat.Controllers
             {
                 lock (locker)
                 {
-                    Usuarios.Add(Usuario);
+                    Usuarios.Add(usuario);
+                    usuario.IdUsuario = ++controlarIdUsuario;
+                    return Ok(usuario);
                 }
-
-                return Ok(Usuario);
             }
         }
     }

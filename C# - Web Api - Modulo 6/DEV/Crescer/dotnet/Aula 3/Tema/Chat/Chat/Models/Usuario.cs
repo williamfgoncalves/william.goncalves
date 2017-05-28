@@ -8,7 +8,7 @@ namespace Chat.Models
     public class Usuario
     {
         public int IdUsuario { get; set; }
-        private String Nome { get; set; }
-        private String Foto { get; set; }
+        public String Nome { get; set; }
+        public String UrlFoto { get; set; }
     }
 }
