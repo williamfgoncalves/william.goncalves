@@ -10,8 +10,8 @@
 
        $scope.addUsuario = function (usuario){
             UsuarioService.criarUsuario(usuario).then(function (response){
-                $localStorage.nome = usuario.nome;
-                $localStorage.foto = usuario.foto;
+                localStorage.setItem('nome', usuario.Nome,toString());
+                localStorage.setItem('foto', usuario.UrlFoto,toString());
                 toastr.info("Login efetuado com sucesso!");
                 listaTodosUsuarios();
             });
