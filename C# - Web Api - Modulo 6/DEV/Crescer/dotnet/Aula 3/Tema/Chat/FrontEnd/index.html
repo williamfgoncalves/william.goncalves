@@ -17,6 +17,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
 
         <script src="js/app.js"></script>
+        <script src="js/rotas.js"></script>
         <script src="js/Mensagens/MensagemService.js"></script>
         <script src="js/Mensagens/MensagemController.js"></script>
         <script src="js/Mensagens/UsuarioService.js"></script>
@@ -24,51 +25,6 @@
 
     </head>
     <body>
-
-        <div ng-controller="UsuarioController">
-            <form ng-submit="addUsuario(usuario)">
-                <input type="text" ng-model="usuario.Nome">
-                <input type="text" ng-model="usuario.UrlFoto">
-                <button type="submit">Logar-se</button>
-            </form>
-
-            <table class="table">
-                <tr ng-repeat="usuario in usuarios">
-                    <td>
-                        {{usuario.Nome}}
-                        <img ng-src="{{usuario.UrlFoto}}" alt="" class="img-circle"> 
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div ng-controller="MensagemController">
-            <div class="row">
-                <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <div align = "center">
-                            <div id="top">
-                                <h1>CHAT ILUMINATI</h1>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tr ng-repeat="mensagem in mensagens">
-                                <td>
-                                    {{mensagem.usuario.Nome}}
-                                    <img ng-src="{{mensagem.usuario.foto}}">
-                                    {{mensagem.Texto}}
-                                    {{mensagem.DataEnvio}}
-                                </td>
-                            </tr>
-                        </table>
-                        <form ng-submit="addMensagem(mensagem)">
-                            <textarea class="form-control" rows="5" ng-model="mensagem.Texto"></textarea>
-                            <button type="submit">Enviar Mensagem</button>                      
-                        </form>
-                    </div>
-                <div class="col-md-3"></div>
-            </div>
-        </div>
-
+         <ng-view></ng-view>
     </body>
 </html>

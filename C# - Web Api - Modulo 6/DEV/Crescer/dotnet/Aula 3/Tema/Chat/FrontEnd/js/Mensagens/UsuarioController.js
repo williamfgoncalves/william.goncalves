@@ -16,11 +16,4 @@
                 listaTodosUsuarios();
             });
         }
-
-        /*$scope.cancelar = function(aulaAtual){
-            delete $scope.aulaAtual;
-            toastr.warning('Você cancelou a edição da aula!');
-            $scope.editarAula = false;
-            $scope.exibirAula = true;
-        }*/
     });

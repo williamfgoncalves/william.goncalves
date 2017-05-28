@@ -7,30 +7,24 @@
             setInterval(recursiva,2000);
         }
 
-        recursiva();
+        //recursiva();
 
         function listaTodasMensagens() {
             MensagemService.listarMensagens().then(function (response) {
             $scope.mensagens = response.data;
+            debugger;
             });
         }
 
-        $scope.usuario = {nome:localStorage.getItem('nome'), foto:localStorage.getItem('foto')};
+        $scope.usuario = {nome:localStorage.getItem('nome'), UrlFoto:localStorage.getItem('foto')};
 
         $scope.addMensagem = function (mensagem){
 
         mensagem.usuario = $scope.usuario;
 
         MensagemService.criarMensagens(mensagem).then(function (response){
-                setInterval(listaTodasMensagens(), 1000);
+                listaTodasMensagens();
             });
             delete $scope.mensagem;
         }
-
-        /*$scope.cancelar = function(aulaAtual){
-            delete $scope.aulaAtual;
-            toastr.warning('Você cancelou a edição da aula!');
-            $scope.editarAula = false;
-            $scope.exibirAula = true;
-        }*/
     });
