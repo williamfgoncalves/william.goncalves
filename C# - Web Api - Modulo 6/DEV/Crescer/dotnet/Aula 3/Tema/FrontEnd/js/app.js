@@ -1,1 +1,0 @@
-var controller = angular.module('chatCwi', ['ngRoute','ngAnimate', 'toastr', 'ngStorage']);
