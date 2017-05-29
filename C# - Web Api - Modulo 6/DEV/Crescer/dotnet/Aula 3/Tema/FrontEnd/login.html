@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="login">
+                <div ng-controller="UsuarioController">
+                    <form name="login" ng-submit="addUsuario(usuario)">
+                        <div class="form-group">
+                            <label for="nome">Nome do usuário:</label>
+                            <input type="text" class="form-control" minlength="4" placeholder="Ex: Fulano da Silva" ng-model="usuario.Nome">
+                            <label for="nome">Foto do usuário:</label>
+                            <input type="text" class="form-control" minlength="4" placeholder="Ex: www.foto.com/04.jpg" ng-model="usuario.UrlFoto">
+                            <button type="submit" class="btn btn-primary" ng-disabled="login.$invalid">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-3"></div>
+</div>
