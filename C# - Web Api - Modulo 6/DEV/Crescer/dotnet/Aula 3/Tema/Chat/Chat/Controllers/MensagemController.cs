@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Web.Http;
 
 namespace Chat.Controllers
@@ -27,6 +28,9 @@ namespace Chat.Controllers
             }
             else
             {
+                Regex regexIluminati = new Regex("andre nunes", RegexOptions.IgnoreCase);
+                mensagem.Texto = regexIluminati.Replace(mensagem.Texto, "$$$$$ $$$$$");
+
                 lock (locker)
                 {
                     Mensagens.Add(mensagem);
