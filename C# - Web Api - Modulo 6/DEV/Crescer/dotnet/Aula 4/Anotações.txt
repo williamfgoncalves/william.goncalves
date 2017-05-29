@@ -1,0 +1,23 @@
+Aula 4 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Signal R - usada para poder fazer o serviodr um pouco mais inteligante, sempre que ele receber um request, ele avisa o front que precisa enviar uma mensagem.
+
+
+ADO.NET  maniera mais rapida de fazer crud com um BD
+
+Criar uma api
+nomedaempresa.nomedasolucao.nomedocomponente;
+usar sempre o httpactionresult post e get
+Disposing - como o garbage colletor, ele limpa as memorias nao usadas na aplicação;
+
+portas acima de 50000, sempre usar esse tipo de porta;
+
+criar uma string de conexão - 
+Regras de negocio devem ficar em outra camada chamda dominio
+usar o out para retornar mais informações do da minha funcao;
+Responsabilidade da API é apenas de comunicação com o front
+Patern de repositorio - permite isolamento
+
+
+http://www.oracle.com/technetwork/topics/dotnet/index-085163.html
+http://www.cdata.com/drivers/mysql/ado/

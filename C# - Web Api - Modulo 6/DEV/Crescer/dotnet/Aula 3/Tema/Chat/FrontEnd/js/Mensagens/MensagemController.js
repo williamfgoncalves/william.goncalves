@@ -12,7 +12,7 @@
 
         var recursiva = function () {
             listaTodasMensagens()
-            setTimeout(recursiva,3000);
+            setTimeout(recursiva, 3000);
         }
 
         recursiva();

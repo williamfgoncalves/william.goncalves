@@ -44,4 +44,7 @@ h1{
     border-radius: 15px;
     background-color: lightgray;
 }
+.btn-danger{
+    float: right;
+}
     
