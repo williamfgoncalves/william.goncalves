@@ -18,8 +18,6 @@ namespace Demo1.Infraestrutura.Entidades
 
             if (string.IsNullOrWhiteSpace(NomeCliente))
                 mensagens.Add("Insira um nome Valido!.");
-            //if (Itens.Count<0)
-                //mensagens.Add("Insira um numero minimo de produtos!.");
 
             return mensagens.Count() == 0;
         }

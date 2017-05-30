@@ -15,25 +15,37 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Alterar(Pedido pedido)
         {
-            throw new NotImplementedException();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                // Executa o INSERT
+                using (var comando = conexao.CreateCommand())
+                {
+                    // Criacao do comando de update
+                    comando.CommandText =
+                        @"UPDATE PEDIDO SET NomeCliente = @NomeCliente";
+                    comando.Parameters.AddWithValue("@NomeCliente", pedido.NomeCliente);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Criar(Pedido pedido)
         {
-            //lista de produtos para o pedido
-            List<ItemPedido> Itens;
 
             using(var conexao = new SqlConnection(stringConexao))
             {
                 //abrindo conexao
+
                 conexao.Open();
+
                 using (var comando = conexao.CreateCommand())
                 {
-                    comando.CommandText = ("Insert into pedido(nomeCliente,Itens) values (@nomeCliente, @Itens)");
-
-                    comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
-                    comando.Parameters.AddWithValue("@Itens", pedido.Itens);
-
+                    //inserindo pedido no banco
+                    comando.CommandText = ("Insert into Pedido (NomeCliente) values (@NomeCliente)");
+                    comando.Parameters.AddWithValue("@NomeCliente", pedido.NomeCliente);
                     comando.ExecuteNonQuery();
                 }
 
@@ -44,39 +56,89 @@ namespace Demo1.Infraestrutura.Repositorios
                     var result = (decimal)comando.ExecuteScalar();
                     pedido.Id = (int)result;
                 }
-            }
-            // realizar o insert do Pedido
-            // obter o ultimo id do pedido (SELECT @@IDENTITY)
 
-            // para cada item do pedido, realizar o insert do ItemPedido
-            // obter o ultimo id do ItemPedido (SELECT @@IDENTITY)
+               using (var comando = conexao.CreateCommand())
+               {
+                    //iterando itens dentro de pedido
+                   foreach(ItemPedido item in pedido.Itens)
+                   {
+                        //inserindo na tabela de pedido os itens do respectivo pedido 
+                        comando.CommandText = ("Insert into ItemPedido(PedidoId, ProdutoId, Quantidade) values (@PedidoId, @ProdutoId, @Quantidade)");
+                        comando.Parameters.AddWithValue("@PedidoId", pedido.Id);
+                        comando.Parameters.AddWithValue("@ProdutoId", item.ProdutoId);
+                        comando.Parameters.AddWithValue("@Quantidade", item.Quantidade);
+
+                        comando.ExecuteNonQuery();
+
+                        //atualizando ó estoque dos produtos adicionados no pedido
+                        comando.CommandText = ("Update Produto set Estoque = Estoque - @Quantidade WHERE Id = @itemProdutoId");
+                        comando.Parameters.AddWithValue("@itemProdutoId", item.ProdutoId);
+                        comando.ExecuteNonQuery();
+                        comando.Parameters.Clear(); // limpando os paramentros do comando para um novo while
+                    }
+               }
+            }
         }
 
         public void Excluir(int id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "DELETE Pedido WHERE Id = @id";
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
 
         public IEnumerable<Pedido> Listar()
         {
-            var pedidos = new List<Pedido>();
+            var pedidos = new List<Pedido>(); // criando a lista de pedidos para jogar na tela
+
             using (var conexao = new SqlConnection(stringConexao))
             {
                 conexao.Open();
+
                 using (var comando = conexao.CreateCommand())
                 {
-                    comando.CommandText = "SELECT id, nomeCliente, Itens FROM Pedido";
+                    //selecionando as informações do pedido fazendo inner join com a item pedido
+                    comando.CommandText = @"SELECT p.Id AS IdPedido, p.NomeCliente, ip.Id AS IdItemPedido, ip.ProdutoId, ip.Quantidade FROM Pedido p JOIN ItemPedido ip ON p.Id = ip.PedidoId";
                     var dataReader = comando.ExecuteReader();
 
                     while (dataReader.Read())
                     {
-                        var pedido = new Pedido();
+                        int idAtual = (int)dataReader["IdPedido"]; // pegando o id do pedido para os testes
 
-                        pedido.Id = (int)dataReader["id"];
-                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
-                        pedido.Itens = (List<ItemPedido>)dataReader["Itens"];
-
-                        pedidos.Add(pedido);
+                        if (pedidos.Where(p => p.Id == idAtual).Count() == 1)
+                        {
+                            pedidos.Where(p => p.Id == idAtual).First().Itens.Add(new ItemPedido()
+                            {
+                                Id = (int)dataReader["IdItemPedido"],
+                                ProdutoId = (int)dataReader["ProdutoId"],
+                                Quantidade = (int)dataReader["Quantidade"]
+                            });
+                        }
+                        else
+                        {
+                            pedidos.Add(new Pedido()
+                            {
+                                Id = idAtual,
+                                NomeCliente = (string)dataReader["NomeCliente"],
+                                Itens = new List<ItemPedido>()
+                                {
+                                    new ItemPedido {
+                                        Id = (int)dataReader["IdItemPedido"],
+                                        ProdutoId = (int)dataReader["ProdutoId"],
+                                        Quantidade = (int)dataReader["Quantidade"]
+                                    }
+                                }
+                            }
+                            );
+                        }
                     }
                 }
             }
@@ -85,7 +147,54 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public Pedido Obter(int id)
         {
-            throw new NotImplementedException();
+            Pedido pedido = new Pedido();
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "SELECT p.Id AS IdPedido, p.NomeCliente, ip.Id AS IdItemPedido, ip.ProdutoId, ip.Quantidade FROM Pedido p JOIN ItemPedido ip ON p.Id = ip.PedidoId AND p.Id = @Id";
+
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    var dataReader = comando.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        int idAtual = (int)dataReader["IdPedido"];
+
+                        if (pedido.Id == idAtual)
+                        {
+                            pedido.Itens.Add(new ItemPedido()
+                            {
+                                Id = (int)dataReader["IdItemPedido"],
+                                ProdutoId = (int)dataReader["ProdutoId"],
+                                Quantidade = (int)dataReader["Quantidade"]
+                            });
+                        }
+                        else
+                        {
+                            pedido.Id = idAtual;
+                            pedido.NomeCliente = (string)dataReader["NomeCliente"];
+
+                            pedido.Itens = new List<ItemPedido>()
+                            {
+                                new ItemPedido
+                                {
+                                    Id = (int)dataReader["IdItemPedido"],
+                                    ProdutoId = (int)dataReader["ProdutoId"],
+                                    Quantidade = (int)dataReader["Quantidade"]
+                                }
+                             };
+
+                        }
+                    }
+                }
+            }
+
+            return pedido;
         }
     }
 }

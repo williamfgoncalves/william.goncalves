@@ -13,21 +13,43 @@ namespace Demo1.WebApi.Controllers
 {
     public class PedidoController : ApiController
     {
-        PedidoRepositorio _pedidoRepositorio = new PedidoRepositorio();
+        PedidoRepositorio pedidoRepositorio = new PedidoRepositorio();
         // criar o produto
         public IHttpActionResult Post(Pedido pedido)
         {
             var mensagens = new List<string>();
             if (!pedido.validar(out mensagens))
                 return BadRequest(string.Join(".", mensagens.ToArray()));
-            _pedidoRepositorio.Criar(pedido);
+            pedidoRepositorio.Criar(pedido);
+            return Ok(pedido);
+        }
+
+        public IHttpActionResult Put(Pedido pedido)
+        {
+            var mensagens = new List<string>();
+            if (!pedido.validar(out mensagens))
+                return BadRequest(string.Join(".", mensagens.ToArray()));
+            pedidoRepositorio.Alterar(pedido);
             return Ok(pedido);
         }
 
         public IHttpActionResult Get()
         {
-            var pedidos = _pedidoRepositorio.Listar();
+            var pedidos = pedidoRepositorio.Listar();
             return Ok(pedidos);
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            return Ok(pedidoRepositorio.Obter(id));
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            pedidoRepositorio.Excluir(id);
+
+            return Ok();
+        }
+
     }
 }
