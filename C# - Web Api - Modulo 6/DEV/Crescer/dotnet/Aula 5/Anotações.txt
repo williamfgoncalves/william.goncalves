@@ -1,0 +1,22 @@
+Imadiate window -- para parar uma transação (acesso a todas as variaveis do ambiente que estou)
+menor escopo possivel sempre para a begin transaction;; Quando acessamos varias vezes a mesma conexao, dar prioridade a abrir uma noexão apenas e depois ir a abrindo quando necessario. por de baixo dos panos, a web api usa a mesma conexão sempre, ele a deixa parada em um poll de conexões e depois somente a reusa.
+
+
+Aula 5 ------------------------------------------- Entity FRAMEWORK -----------------------------------------------------------------------------------------
+
+ORM - mapeamento de objeto relacional!!
+entity framework implemente esse padrão!;
+class library > nome do projeto > Enridades> classe autor> intalra a entity ela pelo nugget> existe uma classe central, chamado de contexto erda em DbContext > 
+colocar um construtpr chamando a calsse base> criar um db set> (Se comporta como uma list)> tem que ativar> classe map para poder realizar configurações do entity > tem o migration para poder fazre com que as alteraç~ies do projeto reflitam no banco
+update database para fazer as alterações no banco!
+first or default - procura na lista o primerio que encontrar, ou o primeiro default que ele encontrar 
+
+
+snifar a rede : sql server profiler;
+
+
+
+
+
+
+Boa partica, colocar dentro do app config
