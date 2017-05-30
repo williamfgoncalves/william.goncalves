@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo1.Infraestrutura.Repositorios { 
+namespace Demo1.Infraestrutura.Repositorios
+{
     public class ProdutoRepositorios
     {
         //string de conexão com o servidor;
@@ -40,38 +41,110 @@ namespace Demo1.Infraestrutura.Repositorios {
                     comando.CommandText = "SELECT @@IDENTITY";
                     // Executa o comando e retorna o primeiro resultado
                     var result = (decimal)comando.ExecuteScalar();
-                    produto.id = (int)result;
+                    produto.Id = (int)result;
                 }
             }
         }
 
-            public List<Produto> listar()
+        public void Alterar(Produto produto)
+        {
+            using (var conexao = new SqlConnection(stringConexao))
             {
-                var produtos = new List<Produto>();
-                using( var conexao = new SqlConnection(stringConexao))
+                conexao.Open();
+
+                // Executa o INSERT
+                using (var comando = conexao.CreateCommand())
                 {
-                    conexao.Open();
-                    using (var comando = conexao.CreateCommand())
+                    comando.CommandText =
+                        @"UPDATE PRODUTO SET Nome = @nome, Preco = @preco, Estoque = @estoque WHERE Id = @id";
+                    comando.Parameters.AddWithValue("@nome", produto.Nome);
+                    comando.Parameters.AddWithValue("@preco", produto.Preco);
+                    comando.Parameters.AddWithValue("@estoque", produto.Estoque);
+                    comando.Parameters.AddWithValue("@id", produto.Id);
+
+                    // Executa o comando e 
+                    // retorna somente a quantidade de linhas afetads
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public List<Produto> listar()
+        {
+            var produtos = new List<Produto>();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "SELECT id, nome, preco, estoque FROM produto";
+                    var dataReader = comando.ExecuteReader();
+
+                    while (dataReader.Read())
                     {
-                        comando.CommandText = "SELECT id, nome, preco, estoque FROM produto";
-                        var dataReader = comando.ExecuteReader();
+                        var produto = new Produto();
 
-                        while (dataReader.Read())
-                        {
-                            var produto = new Produto();
+                        produto.Id = (int)dataReader["id"];
+                        produto.Nome = (string)dataReader["nome"];
+                        produto.Preco = (decimal)dataReader["preco"];
+                        produto.Estoque = (int)dataReader["estoque"];
 
-                            produto.id = (int)dataReader["id"];
-                            produto.Nome = (string)dataReader["nome"];
-                            produto.Preco = (decimal)dataReader["preco"];
-                            produto.Estoque = (int)dataReader["estoque"];
-
-                            produtos.Add(produto);
-                        }
+                        produtos.Add(produto);
                     }
                 }
+            }
+            return produtos;
+        }
 
-                return produtos;
+        public void Excluir(int id)
+        {
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                // Executa o INSERT
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "DELETE Produto WHERE Id = @id";
+
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    // Executa o comando e 
+                    // retorna somente a quantidade de linhas afetads
+                    comando.ExecuteNonQuery();
+                }
             }
         }
-    }
 
+        public Produto Obter(int id)
+        {
+            Produto produto = null;
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                        "SELECT Id, Nome, Preco, Estoque FROM Produto WHERE Id = @id";
+
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        produto = new Produto();
+                        produto.Id = (int)dataReader["Id"];
+                        produto.Nome = (string)dataReader["Nome"];
+                        produto.Preco = (decimal)dataReader["Preco"];
+                        produto.Estoque = (int)dataReader["Estoque"];
+                        return produto;
+                    }
+                }
+            }
+
+            return produto;
+        }
+    }
+}

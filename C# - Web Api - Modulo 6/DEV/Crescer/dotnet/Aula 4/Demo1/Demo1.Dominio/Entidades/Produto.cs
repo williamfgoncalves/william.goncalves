@@ -7,7 +7,7 @@ namespace Demo1.Dominio.Entidades
 {
     public class Produto
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public String Nome { get; set; }
         public Decimal Preco { get; set; }
         public int Estoque { get; set; }
