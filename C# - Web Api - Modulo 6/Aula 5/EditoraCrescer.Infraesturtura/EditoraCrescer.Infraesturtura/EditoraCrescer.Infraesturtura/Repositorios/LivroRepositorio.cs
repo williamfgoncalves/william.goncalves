@@ -15,5 +15,17 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
         {
             return contexto.Livros.ToList();
         }
+
+        public void Criar(Livro livro)
+        {
+            contexto.Livros.Add(livro);
+            contexto.SaveChanges();
+        }
+
+        public void Remover(int id)
+        {
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == id);
+            contexto.Livros.Remove(livro);
+        }
     }
 }
