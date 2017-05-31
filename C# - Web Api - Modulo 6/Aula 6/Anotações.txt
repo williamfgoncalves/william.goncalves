@@ -1,0 +1,24 @@
+Aula 6 ===============================================================
+
+Para voltar uma migration eu posso usar, 
+
+Rest - representional state transfer (é um padrão, diversos status codes)
+Restful - Segue o padrão REST
+ORM - mapear um banco de dados erlacional 
+
+Route prefix= define um prefixo para uma rota!
+{httpget ou qualquer coisa} ele acha o que tu precisa na pgina
+
+
+Classes que herdam de IDisposable TE QUE DRA DISPOSE
+DISPOSE - DESBLOQUEIA O USO DOS objetos depois de consumir eles;
+
+Saber que tem o tracking
+
+metodos que tem virtual, podemos sobreescrever 
+
+Contexto .entry(objeto modificado).state = system.alguma cosia
+
+Usar o include para para poder trazer revisor e autor atraes de inner join. ele e usar o fake o compara os ids dos  dos autos com o livros e dos revisores com os livros[
+
+retornar um dynaic e usar um fake object para retornar os objeto de forma resumida e nao precisa do include, ele sabe!!!
