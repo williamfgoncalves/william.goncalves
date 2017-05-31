@@ -55,9 +55,10 @@
     <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Maps\AutorMap.cs" />
     <Compile Include="Maps\LivroMap.cs" />
-    <Compile Include="Migrations\201705301943579_CriacaoDoBanco.cs" />
-    <Compile Include="Migrations\201705301943579_CriacaoDoBanco.Designer.cs">
-      <DependentUpon>201705301943579_CriacaoDoBanco.cs</DependentUpon>
+    <Compile Include="Maps\RevisorMap.cs" />
+    <Compile Include="Migrations\201705310353226_CriacaoDoBanco.cs" />
+    <Compile Include="Migrations\201705310353226_CriacaoDoBanco.Designer.cs">
+      <DependentUpon>201705310353226_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705301943579_CriacaoDoBanco.resx">
-      <DependentUpon>201705301943579_CriacaoDoBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705310353226_CriacaoDoBanco.resx">
+      <DependentUpon>201705310353226_CriacaoDoBanco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
