@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    [RoutePrefix("api/livros")]
+    [RoutePrefix("Api/Livros")]
 
     public class LivrosController : ApiController
     {

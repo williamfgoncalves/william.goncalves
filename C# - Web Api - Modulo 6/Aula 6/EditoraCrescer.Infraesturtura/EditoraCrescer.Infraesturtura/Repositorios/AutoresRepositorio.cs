@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EditoraCrescer.Infraesturtura.Entidades;
+using System.Data.Entity;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
@@ -16,9 +17,15 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             return contexto.Autores.ToList();
         }
 
-        public List<Autor> ObterPorId(int id)
+        public Autor ObterPorId(int id)
         {
-            return contexto.Autores.FirstOrDefault(x => x.id == id);
+            return contexto.Autores.FirstOrDefault(x => x.Id == id);
+        }
+
+        public List<Livro> ObterLivrosAutor(int id)
+        {
+            var livros = contexto.Livros.Where(x => x.IdAutor == id).ToList();
+            return livros;
         }
 
         public void Criar(Autor autor)
@@ -27,10 +34,23 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             contexto.SaveChanges();
         }
 
-        public void Remover(int id)
+        public Autor Editar(Autor autor)
+        {
+            contexto.Entry(autor).State = EntityState.Modified;
+            contexto.SaveChanges();
+            return autor;
+        }
+
+        public Autor Remover(int id)
         {
             var autor = contexto.Autores.FirstOrDefault(x => x.Id == id);
             contexto.Autores.Remove(autor);
+            return autor;
+        }
+
+        public void Dispose()
+        {
+            contexto.Dispose();
         }
     }
 }

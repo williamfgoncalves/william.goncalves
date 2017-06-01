@@ -9,7 +9,8 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
-    [RoutePrefix("api/livros")]
+    [RoutePrefix("api/Autores")]
+
     public class AutoresController : ApiController
     {
         AutoresRepositorio repositorio = new AutoresRepositorio();
@@ -23,22 +24,54 @@ namespace EditoraCrescer.Api.Controllers
 
         [HttpGet]
         [Route("{Id:int}")]
-        public IHttpActionResult BuscarAutorPorid()
+        public IHttpActionResult BuscarAutorPorid(int id)
         {
-            var Autores = repositorio.Obter();
+            var Autores = repositorio.ObterPorId(id);
             return Ok(new { dados = Autores });
         }
 
+        [HttpGet]
+        [Route("{Id:int}/Livros")]
+        public IHttpActionResult BuscarLivroDosAutorPorid(int id)
+        {
+            var LivrosAutor = repositorio.ObterLivrosAutor(id);
+            return Ok(new { dados = LivrosAutor });
+        }
+
+        [HttpPost]
         public IHttpActionResult Post(Autor autor)
         {
             repositorio.Criar(autor);
             return Ok(new { dados = autor });
         }
 
-        public IHttpActionResult Delete(int id)
+        [HttpPut]
+        [Route("{Id:int}")]
+        public IHttpActionResult EditarAutor(int id, Autor autor)
         {
-            repositorio.Remover(id);
-            return Ok();
+            if (autor.Id == id)
+            {
+                repositorio.Editar(autor);
+                return Ok(new { dados = autor });
+            }
+            else
+            {
+                return BadRequest("Livro não encontrado!");
+            }
+        }
+
+        [HttpDelete]
+        [Route("{Id:int}")]
+        public IHttpActionResult DeletarAutor(int id)
+        {
+            var autor = repositorio.Remover(id);
+            return Ok(new { dados = autor });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
