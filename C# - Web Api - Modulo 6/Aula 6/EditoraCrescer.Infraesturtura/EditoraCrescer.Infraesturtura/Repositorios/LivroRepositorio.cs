@@ -17,14 +17,33 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             return contexto.Livros.ToList();
         }
 
+        public dynamic ObterLivroResumido()
+        {
+            return contexto.Livros.Select(x => new { x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero }).ToList();
+        }
+
         public Livro ObterPorId(int isbn)
         {
             return contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
         }
 
-        public Livro ObterPorNome(string genero)
+        public Livro ObterPorGenero(string genero)
         {
             return contexto.Livros.FirstOrDefault(x => x.Genero.Contains(genero));
+        }
+
+        public dynamic ObterPorGeneroResumido(string genero)
+        {
+            var livros = contexto.Livros.Select(x => new { x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero }).ToList();
+            return livros.Where(x => x.Genero.Contains(genero)).ToList();
+        }
+
+        public dynamic ObterLivrosSeteUltimosDias()
+        {
+            var data = DateTime.Now.AddDays(-7);
+            var livros = contexto.Livros.Where(x => x.DataPublicacao > data )
+                .Select(x => new {x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero }).ToList();
+            return livros;
         }
 
         public Livro Criar(Livro livro)

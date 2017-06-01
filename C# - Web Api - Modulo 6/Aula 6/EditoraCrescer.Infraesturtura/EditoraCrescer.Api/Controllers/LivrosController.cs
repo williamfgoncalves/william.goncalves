@@ -24,6 +24,14 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpGet]
+        [Route("Resumido")]
+        public IHttpActionResult BuscarLivrosResumido()
+        {
+            var Livros = repositorio.ObterLivroResumido();
+            return Ok(new { dados = Livros });
+        }
+
+        [HttpGet]
         [Route("{isbn:int}")]
         public IHttpActionResult BuscarLivrosPorID(int isbn)
         {
@@ -35,7 +43,23 @@ namespace EditoraCrescer.Api.Controllers
         [Route("{genero}")]
         public IHttpActionResult BuscarLivrosPorGenero(string genero)
         {
-            var Livros = repositorio.ObterPorNome(genero);
+            var Livros = repositorio.ObterPorGenero(genero);
+            return Ok(new { dados = Livros });
+        }
+
+        [HttpGet]
+        [Route("GeneroResumido/{genero}")]
+        public IHttpActionResult BuscarLivrosPorGeneroResumido(string genero)
+        {
+            var Livros = repositorio.ObterPorGeneroResumido(genero);
+            return Ok(new { dados = Livros });
+        }
+
+        [HttpGet]
+        [Route("Lancamentos")]
+        public IHttpActionResult BuscarLivrosSeteUltimosDias()
+        {
+            var Livros = repositorio.ObterLivrosSeteUltimosDias();
             return Ok(new { dados = Livros });
         }
 
