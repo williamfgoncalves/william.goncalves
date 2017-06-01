@@ -1,0 +1,4 @@
+DRY - 
+db funcionts - para tirar horas minutos e segundos
+
+usar o skip e take para poder usar paginacao

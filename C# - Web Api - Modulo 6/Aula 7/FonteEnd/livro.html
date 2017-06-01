@@ -1,0 +1,61 @@
+<div>
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>Nome: <input type="text"></li>
+                    <li>Senha: <input type="text"></li>
+                    <li><input type="button"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- USAR QUERY PARAMETERS HTTP({OBJETO}) OBJETO (URL, METODO E PARAMS) -->
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div uib-carousel active="active" interval="5000" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="livro in livros track by livro.Isbn" index="livro.Isbn">
+                        <img ng-src="{{livro.UrlImagem}}" class="img-circle" width="80px" height="80px">
+                        <div class="carousel-caption">
+                            <h4>{{livro.Titulo}}</h4>
+                            <p>{{livro.Descricao}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <ul ng-repeat="livro in livros" class="list-group">
+                    <li class="list-group-item">
+                        <img ng-src="{{livro.UrlImagem}}" class="img-circle" width="80px" height="80px">
+                        <strong>{{livro.Titulo}}</strong>
+                        <strong>{{livro.Descricao}}</strong>
+                        <strong>{{livro.Genero}}</strong>
+                        <strong>{{livro.DataPublicacao}}</strong>
+                    </li>
+                </ul>
+            </div>        <div class="col-md-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+            <div class="col-md-2">
+                <button type="">AFTER</button>
+            </div>
+            <div class="col-md-6">
+                <button type="">INSCREVER-SE</button>
+            </div>
+            <div class="col-md-3">
+                <button type="">NEXT</button>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

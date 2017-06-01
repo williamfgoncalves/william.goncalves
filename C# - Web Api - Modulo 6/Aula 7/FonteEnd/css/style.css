@@ -1,0 +1,14 @@
+*{
+    box-sizing: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    font-family: 'Lobster', cursive;
+    font-family: 'Baloo', cursive;
+    font-family: 'Karla', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    background-image: url("https://previews.123rf.com/images/dmstudio/dmstudio1007/dmstudio100700014/7333978-modern-bookshelf-Stock-Vector-library-bookshelf-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

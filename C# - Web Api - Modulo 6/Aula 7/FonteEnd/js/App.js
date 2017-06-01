@@ -1,0 +1,1 @@
+var controller = angular.module('EditoraCwi', ['ngRoute','ngAnimate', 'toastr', 'ngStorage']);

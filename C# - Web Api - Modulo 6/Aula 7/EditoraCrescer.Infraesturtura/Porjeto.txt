@@ -1,0 +1,7 @@
+Tratamentp de exceções ----------------------------------------
+vem do servidor iss> para pelo http mensage, vai para o routeamento e depois vai controler;
+dentro da web apoi, o vors vale para toda a aplicacao;
+
+Cada exception, tem um numero padrao;
+
+modal e drop down para login
