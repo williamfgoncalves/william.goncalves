@@ -11,10 +11,20 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
     public class LivroRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
+        private AutoresRepositorio autorRepositorio = new AutoresRepositorio();
+        private RevisoresRepositorio revisorRepositorio = new RevisoresRepositorio();
 
         public List<Livro> Obter()
         {
             return contexto.Livros.ToList();
+        }
+
+        public dynamic BuscarLivrosPublicados(int quantidadePular, int quantidadeTrazer)
+        {
+            return contexto.Livros.Select(x => new { Id = x.Isbn, Titulo = x.Titulo, Capa = x.UrlImagem, Genero = x.Genero, NomeAutor = x.Autor.Nome })
+                    .OrderBy(x => x.NomeAutor)
+                    .Skip(quantidadePular)
+                    .Take(quantidadeTrazer);
         }
 
         public dynamic ObterLivroResumido()
@@ -24,7 +34,12 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public Livro ObterPorId(int isbn)
         {
-            return contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+
+            livro.Autor = autorRepositorio.ObterPorId(livro.IdAutor);
+            livro.Revisor = revisorRepositorio.ObterRevisorPorId(livro.IdRevisor);
+
+            return livro;
         }
 
         public Livro ObterPorGenero(string genero)
@@ -34,16 +49,15 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public dynamic ObterPorGeneroResumido(string genero)
         {
-            var livros = contexto.Livros.Select(x => new { x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero }).ToList();
-            return livros.Where(x => x.Genero.Contains(genero)).ToList();
+            return contexto.Livros.Select(x => new { x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero })
+                .Where(x => x.Genero.Contains(genero)).ToList();
         }
 
         public dynamic ObterLivrosSeteUltimosDias()
         {
             var data = DateTime.Now.AddDays(-7);
-            var livros = contexto.Livros.Where(x => x.DataPublicacao > data )
-                .Select(x => new {x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero }).ToList();
-            return livros;
+            return contexto.Livros.Where(x => x.DataPublicacao > data )
+                .Select(x => new {x.Isbn, Titulo = x.Titulo, Capa = x.UrlImagem, NomeAutor = x.Autor.Nome, Genero = x.Genero }).ToList();
         }
 
         public Livro Criar(Livro livro)
@@ -62,9 +76,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public Livro Remover(int id)
         {
-            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == id);
-            contexto.Livros.Remove(livro);
-            return livro;
+            return contexto.Livros.Remove(contexto.Livros.FirstOrDefault(x => x.Isbn == id));
         }
 
         public void Dispose()

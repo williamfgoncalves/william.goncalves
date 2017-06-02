@@ -1,0 +1,82 @@
+<div>
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Login
+                <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <label for="nome" class="form-group">Nome:</label>  
+                            <input type="text" class="form-group" >
+                        </li>
+                        <li>
+                            <label for="password" class="form-group">Senha:</label>
+                            <input type="password" class="form-group">
+                        </li>
+                        <li>
+                            <input type="button" value="Enviar" class="btn btn-defaut">
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <div class="barraLivro"><h1>EDITORA CRESCER</h1></div>
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="caixaLivrosTopo">
+                    <div ng-repeat="livro in livrosLancamentos">
+                        <div class="livro">
+                            <div class="texto">
+                                <p><strong>{{livro.Titulo}}</strong></p>
+                                <p><strong>{{livro.NomeAutor}}</strong></p>
+                                <p><strong>{{livro.Genero}}</strong></p>
+                            </div>
+                            <div class="imagem">
+                                <img ng-src="{{livro.Capa}}" width="80px" height="120px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="barraLivro"><h1>Se delicie com nossos livros!</h1></div>
+                <div class="caixaLivros">
+                    <div ng-repeat="livro in livrosNaoLancamentos">
+                        <div class="livro">
+                            <div class="texto">
+                                <p><strong>{{livro.Titulo}}</strong></p>
+                                <p><strong>{{livro.NomeAutor}}</strong></p>
+                                <p><strong>{{livro.Genero}}</strong></p>
+                            </div>
+                            <div class="imagem">
+                                <img ng-src="{{livro.Capa}}" width="80px" height="120px">
+                                <input type="submit" value="Ver Detalhes" ng-click="verLivro(livro.Id)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-3">
+                <button type="submit" ng-click="" class="btn btn-primary">AFTER</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" ng-click="" class="btn btn-primary">INSCREVER-SE</button>
+            </div>
+            <div class="col-md-3">
+                <button type="" ng-click="" class="btn btn-primary">NEXT</button>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

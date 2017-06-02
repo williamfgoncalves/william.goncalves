@@ -24,6 +24,13 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpGet]
+        public IHttpActionResult BuscarLivrosPublicados(int quantidadePular, int quantidadeTrazer)
+        {
+            var Livros = repositorio.BuscarLivrosPublicados(quantidadePular, quantidadeTrazer);
+            return Ok(new { dados = Livros });
+        }
+
+        [HttpGet]
         [Route("Resumido")]
         public IHttpActionResult BuscarLivrosResumido()
         {

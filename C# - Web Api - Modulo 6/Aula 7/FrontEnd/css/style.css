@@ -1,0 +1,76 @@
+*{
+    box-sizing: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    font-family: 'Lobster', cursive;
+    font-family: 'Baloo', cursive;
+    font-family: 'Karla', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    background-image: url("https://previews.123rf.com/images/dmstudio/dmstudio1007/dmstudio100700014/7333978-modern-bookshelf-Stock-Vector-library-bookshelf-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.caixaLivros{
+  width: 100%;
+  height: 510px;
+}
+.caixaLivrosTopo{
+  width: 100%;
+  height: 100px;
+}
+.caixaLivros .livro{
+  width: 24%;;
+  height: 240px;
+  background-color: lightgray;
+  margin: 0 auto;
+  margin-left: 10px;
+  margin-top: 10px;
+  float: left;
+  border-radius:20px;
+}
+.livro .texto{
+  margin-top: 10px;
+  text-align: center;
+}
+.livro .imagem{
+  margin-top: 10px;
+  text-align:center;
+}
+.dropdown-menu{
+  width: 300px;
+  height: 180px;
+  background-color: lightgray;
+  border-radius: 25px;
+}
+.dropdown-menu li{
+  text-align: center;
+  margin-top: 15px;
+}
+.barraLivro h1{
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+
+.infos{
+  width: 500px;
+  height: 550px;
+  background-color: red;
+}
+.infos .livroInfo{
+  width:45%;
+  height:95%;
+  background-color: blue;
+  float:right;
+  margin: 10px;
+}
+.infos .textoInfo{
+  width:45%;
+  height:95%;
+  background-color: blue;
+  float:left;
+  margin: 10px;
+}

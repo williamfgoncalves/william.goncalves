@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="infos">
+                <div class="livroInfo">
+                    <img ng-src="{{livro.UrlImagem}}" width="200" height="350">
+                </div>
+                <div class="textoInfo">
+                    <p>{{livro.Titulo}}</p>
+                    <p>{{livro.Descricao}}</p>
+                    <p>{{livro.Genero}}</p>
+                    <p>{{livro.DataPublicacao | date : "dd/MM/yyyy"}}</p>
+                    <p>{{livro.Autor.Nome}}</p>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-2"></div>
+</div>
