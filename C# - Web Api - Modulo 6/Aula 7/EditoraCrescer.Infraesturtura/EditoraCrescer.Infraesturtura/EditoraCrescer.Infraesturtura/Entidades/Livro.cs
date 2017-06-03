@@ -12,12 +12,12 @@ namespace EditoraCrescer.Infraesturtura.Entidades
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public string Genero { get; set; }
-        public DateTime DataPublicacao { get; set; }
+        public DateTime? DataPublicacao { get; set; }
         public string UrlImagem { get; set; }
         public int IdAutor { get; set; }
         public Autor Autor { get; set; }
         public Revisor Revisor { get; set; }
         public int IdRevisor { get; set; }
-        public DateTime DataRevisão { get; set; }
+        public DateTime? DataRevisão { get; set; }
     }
 }

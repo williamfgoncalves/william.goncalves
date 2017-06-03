@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201705311940102_AdicionarCampoUrlFotoTabelaLivro.Designer.cs">
       <DependentUpon>201705311940102_AdicionarCampoUrlFotoTabelaLivro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706022357255_PermitindoCamposNulosDatas.cs" />
+    <Compile Include="Migrations\201706022357255_PermitindoCamposNulosDatas.Designer.cs">
+      <DependentUpon>201706022357255_PermitindoCamposNulosDatas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutoresRepositorio.cs" />
@@ -80,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705311940102_AdicionarCampoUrlFotoTabelaLivro.resx">
       <DependentUpon>201705311940102_AdicionarCampoUrlFotoTabelaLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706022357255_PermitindoCamposNulosDatas.resx">
+      <DependentUpon>201706022357255_PermitindoCamposNulosDatas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

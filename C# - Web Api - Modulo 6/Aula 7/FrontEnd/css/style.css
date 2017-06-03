@@ -7,28 +7,24 @@ body{
     font-family: 'Baloo', cursive;
     font-family: 'Karla', sans-serif;
     font-family: 'Quicksand', sans-serif;
-    background-image: url("https://previews.123rf.com/images/dmstudio/dmstudio1007/dmstudio100700014/7333978-modern-bookshelf-Stock-Vector-library-bookshelf-background.jpg");
+    background-image: url("http://static.tumblr.com/3b759515087ff9fc19ab766a01cb155c/ozekbce/eaIo6906a/tumblr_static_bmd1e6ju0iokkkggk4844c4c0.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 .caixaLivros{
   width: 100%;
-  height: 510px;
-}
-.caixaLivrosTopo{
-  width: 100%;
-  height: 100px;
+  height: 680px;
+  background-color: white;
 }
 .caixaLivros .livro{
-  width: 24%;;
-  height: 240px;
-  background-color: lightgray;
+  width: 24%;
+  height: 280px;
+  border: 0.2px solid black;
   margin: 0 auto;
   margin-left: 10px;
   margin-top: 10px;
   float: left;
-  border-radius:20px;
 }
 .livro .texto{
   margin-top: 10px;
@@ -38,39 +34,38 @@ body{
   margin-top: 10px;
   text-align:center;
 }
-.dropdown-menu{
-  width: 300px;
-  height: 180px;
-  background-color: lightgray;
-  border-radius: 25px;
-}
-.dropdown-menu li{
-  text-align: center;
+.livro .botao{
   margin-top: 15px;
+  text-align:center;
 }
-.barraLivro h1{
-  text-align: center;
-  width: 100%;
-  height: 50px;
-  background-color: white;
+.before{
+  margin-left: 10px;
+  margin-top: 20px;
+  float: left;
 }
-
-.infos{
-  width: 500px;
-  height: 550px;
-  background-color: red;
+.next{
+  margin-right: 10px;
+  margin-top: 20px;
+  float: right;
 }
-.infos .livroInfo{
-  width:45%;
-  height:95%;
-  background-color: blue;
-  float:right;
-  margin: 10px;
+.modal{
+  width:400px;
+  background-color:gray;
+  margin: 0 auto;
+  display: block;
 }
-.infos .textoInfo{
-  width:45%;
-  height:95%;
-  background-color: blue;
-  float:left;
-  margin: 10px;
+.modal .imagem{
+  text-align:center;
+  padding-top: 10px;
+}
+.modal .textoLivro{
+  padding-top: 25px;
+  text-align:center;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+.login{
+    padding: 20px;
+    border-radius: 15px;
+    background-color: lightgray;
 }

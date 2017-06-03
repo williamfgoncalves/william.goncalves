@@ -1,4 +1,4 @@
- controller.controller('livroController', function ($scope, $routeParams, $localStorage, livroService, toastr){
+ controller.controller('livroController', function ($scope, $routeParams, $location, livroService, toastr){
     
     $scope.parametros = {
       quantidadePular: 0,
@@ -23,18 +23,11 @@
         });
     };
 
-    function listarLivroPorId(){
-        livroService.listarLivroPorId($scope.idAtual).then(function (response){
-            $scope.livroPorId = response.data.dados;
-            debugger;
-            console.log($scope.livroPorId);
-        })
-    }
-
     $scope.verLivro = function (id) {
-        $scope.idAtual = id;          
-        listarLivroPorId();
-        location.href = '#!/livroDetalhes';
+        $location.path('/livros/' + id);
+    }
+    $scope.logar = function(){
+        $location.path('/login');
     }
 
     listarLivrosLancamentos();
