@@ -37,9 +37,10 @@
                                     <input type="submit" value="Ver Detalhes" ng-click="verLivro(livro.Id)">
                                 </div>
                             </div>
+                            <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
                         </div>
-                        <div class="before"><input class="btn btn-defaut btn-lg" type="submit" ng-click=""></div>
-                        <div class="next"><input class="btn btn-defaut btn-lg" type="submit" ng-click=""></div>
+                        <div class="before"><input class="btn btn-defaut btn-lg" type="submit" value="Voltar" ng-click="retornarPagina()"></div>
+                        <div class="next"><input class="btn btn-defaut btn-lg" type="submit" value="Avançar" ng-click="avancarPagina()"></div>
                     </form>
                 </div>
             </div>
