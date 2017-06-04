@@ -1,4 +1,4 @@
-controller.controller('livroDetalhesController', function ($scope, $routeParams, livroService){
+angular.module('editoraCwi').controller('livroDetalhesController', function ($scope, $routeParams, livroService){
 
     buscarLivro($routeParams.id);
 

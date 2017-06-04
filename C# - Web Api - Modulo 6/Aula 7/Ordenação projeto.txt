@@ -1,0 +1,14 @@
+Pagina inicial (Nao precisa de login) - ok
+	-Livros lançados ultimos sete dias - ok
+	-Livros já publicados (duas linhas de 4 livros (Título | Capa (foto) | Gênero | Nome do Autor) - ok
+	-Botão para assinatura
+
+Pagina de detalhamento do livro (Ao clicar em um livro)
+	-Mostrar livro unicamente sozinho, não mostrar apenas data de revisao e revisor - ok
+
+Página de Login (Para area adiministrativa do site)
+	-Usuario se loga para ir para a página administrativa do site - Página pronta
+
+-Página de area Administrativa
+	-Mostrar todos os livros
+	

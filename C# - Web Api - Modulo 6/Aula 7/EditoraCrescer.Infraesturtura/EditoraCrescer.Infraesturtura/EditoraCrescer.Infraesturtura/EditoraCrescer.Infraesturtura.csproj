@@ -51,11 +51,16 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
+    <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\Permissao.cs" />
     <Compile Include="Entidades\Revisor.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Maps\AutorMap.cs" />
     <Compile Include="Maps\LivroMap.cs" />
+    <Compile Include="Maps\PermissaoMap.cs" />
     <Compile Include="Maps\RevisorMap.cs" />
+    <Compile Include="Maps\UsuarioMap.cs" />
     <Compile Include="Migrations\201705310353226_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705310353226_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705310353226_CriacaoDoBanco.cs</DependentUpon>
@@ -68,11 +73,20 @@
     <Compile Include="Migrations\201706022357255_PermitindoCamposNulosDatas.Designer.cs">
       <DependentUpon>201706022357255_PermitindoCamposNulosDatas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706031730489_adicionarTabelasUsuariosePermissoesNoBanco.cs" />
+    <Compile Include="Migrations\201706031730489_adicionarTabelasUsuariosePermissoesNoBanco.Designer.cs">
+      <DependentUpon>201706031730489_adicionarTabelasUsuariosePermissoesNoBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706031734306_AlterarNomeTabelaParaUsuario.cs" />
+    <Compile Include="Migrations\201706031734306_AlterarNomeTabelaParaUsuario.Designer.cs">
+      <DependentUpon>201706031734306_AlterarNomeTabelaParaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutoresRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
     <Compile Include="Repositorios\RevisoresRepositorio.cs" />
+    <Compile Include="Repositorios\UsuariosRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -87,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706022357255_PermitindoCamposNulosDatas.resx">
       <DependentUpon>201706022357255_PermitindoCamposNulosDatas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706031730489_adicionarTabelasUsuariosePermissoesNoBanco.resx">
+      <DependentUpon>201706031730489_adicionarTabelasUsuariosePermissoesNoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706031734306_AlterarNomeTabelaParaUsuario.resx">
+      <DependentUpon>201706031734306_AlterarNomeTabelaParaUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

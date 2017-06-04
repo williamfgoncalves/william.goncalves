@@ -2,14 +2,17 @@
     <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="login">
-                    <form name="login" ng-submit="">
-                        <div class="form-group">
-                            <label for="nome">Nome do usuário:</label>
-                            <input type="text" class="form-control" minlength="4" placeholder="Ex: Fulano da Silva" ng-model="usuario.Nome">
-                            <label for="nome">Foto do usuário:</label>
-                            <input type="text" class="form-control" minlength="4" placeholder="Ex: www.foto.com/04.jpg" ng-model="usuario.UrlFoto">
-                            <button type="submit" class="btn btn-primary" ng-disabled="login.$invalid">Entrar</button>
-                        </div>
+                    <form novalidate name="formLogin" ng-submit="login(usuario)">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input ng-model="usuario.email" type="email" class="form-control" name="email">
+                            </div>
+                           <div class="form-group">
+                                <label for="senha">Senha</label>
+                                <input ng-model="usuario.senha" type="password" class="form-control" name="senha">
+                            </div>
+                            <button class="btn btn-default">Buscar</button>
+                            </form>
                     </form>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-    controller.config(function ($routeProvider) { 
+angular.module('editoraCwi').config(function ($routeProvider) { 
         $routeProvider 
             .when('/livros', { 
             controller: 'livroController', 
@@ -8,8 +8,17 @@
             templateUrl: './livroDetalhes.html' 
         })
         .when('/login', { 
-            controller: 'livroDetalhesController', 
+            controller: 'loginController', 
             templateUrl: './login.html' 
         })
-            .otherwise({redirectTo:'/livros'}); 
+        .when('/administrativo', { 
+            controller: 'administrativoController', 
+            templateUrl: './administrativo.html',
+            resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise();
+                }
+            }
+        })
+        .otherwise({redirectTo:'/livros'}); 
     });

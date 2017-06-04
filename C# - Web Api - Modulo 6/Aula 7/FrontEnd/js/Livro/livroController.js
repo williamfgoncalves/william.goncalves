@@ -1,4 +1,4 @@
- controller.controller('livroController', function ($scope, $routeParams, $location, livroService, toastr){
+angular.module('editoraCwi').controller('livroController', function ($scope, $routeParams, $location, livroService, toastr){
     
     $scope.parametros = {
       quantidadePular: 0,

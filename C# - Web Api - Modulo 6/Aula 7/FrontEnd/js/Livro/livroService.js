@@ -1,4 +1,4 @@
-controller.factory('livroService', function ($http) {
+angular.module('editoraCwi').factory('livroService', function ($http) {
 
   let urlBase = 'http://localhost:55070/Api/Livros';
   
