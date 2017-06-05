@@ -1,0 +1,35 @@
+ <div class="row">
+    <div class="col m2 l2"></div>
+        <div class="col m8 l8"> 
+            <h1>Clique em um livro para Publicar</h1>
+            <form name="livros">
+                <div class="livros" ng-repeat="livro in livrosTodos">        
+                    <div class="block">
+                        <h4>{{livro.Titulo}}</h4>
+                        <p>{{livro.NomeAutor}}</p>
+                        <p>{{livro.Genero}}</p>
+                        <a ng-click="excluirLivro(livro)"> <img ng-src="{{livro.UrlImagem}}" width="130px"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    <div class="col m2 l2"></div>
+</div>
+
+<div class="row">
+    <div class="col m2 l2"></div>
+    <div class="col m8 l8">       
+        <form class="col s8 orange lighten-3" novalidate ng-submit="publicar(livroAtual)" name="formLivroPublicado">
+            <div class="block2">
+                <h3>{{livroAtual.Titulo}}</h3>
+                <h4>{{livroAtual.Autor.Nome}}</h4>
+                <p>{{livroAtual.Descricao}}</p>
+                <h4>{{livroAtual.Genero}}<h4>
+                <img ng-src="{{livroAtual.UrlImagem}}" class="responsive-img" width="400px">
+            </div>
+            <button type="submit">PUBLICAR</button>
+            <button type="submit" ng-click="cancelar(livro)">cancelar</button>
+        </form>
+    </div>
+    <div class="col m2 l2"></div>
+</div>

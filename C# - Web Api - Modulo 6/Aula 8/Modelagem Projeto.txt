@@ -1,0 +1,35 @@
+Produto (id, nome)
+	Infantil
+	Adulto
+	Casamento
+	Formatura
+
+Pacote - id, nome, descricao, valorDiaria
+	Básico: Decoração
+	Intermediário: Decoração + Instalação(não tem preço adicional)
+	Avançado: Decoração + Instalação (não tem preço adicional) + Equipe(não tem preço adicional)
+
+Opcicionais Festa (id, nome, valorDiario, quantidade) -
+	Piscina de Bolinhas
+	Carrinho de Algodão Doce
+	Cama Elástica
+	Escorregador Inflável
+
+Criar tabea=la n:n venda-opcicionais (id, idvenda, id opcicionais)
+
+Finalizar Reserva (id, id produto, idcliente, idpacote, totalvalor(que é ser pago), dataentregaPrivista, dataentrega, realizada, valorAserPgao(Valor real pago, se tiver ou nao))
+
+Cliente id- 
+	Nome
+	Cpf
+	Endereço
+	genero
+	dataNaacimento
+	numero
+	EMAIL
+	
+Login - id
+	Nome
+	Email
+	Senha
+	String - tipo de cargo

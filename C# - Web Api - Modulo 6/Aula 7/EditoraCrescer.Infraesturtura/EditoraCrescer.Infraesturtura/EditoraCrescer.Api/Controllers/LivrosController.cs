@@ -70,7 +70,7 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = Livros });
         }
 
-        [BasicAuthorization(Roles = "Administrador")]
+        [BasicAuthorization(Roles = "Administrador, Publicador, Revisor, Colaborador")]
         [HttpPost]
         public IHttpActionResult CriarLivro(Livro livro)
         {
@@ -78,6 +78,7 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = livro });
         }
 
+        [BasicAuthorization(Roles = "Administrador, Publicador, Revisor")]
         [HttpPut]
         [Route("{isbn:int}")]
         public IHttpActionResult EditarLivro(int isbn, Livro livro)
@@ -94,6 +95,24 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = livro });
         }
 
+        [BasicAuthorization(Roles = "Publicador")]
+        [HttpPut]
+        [Route("{isbn:int}")]
+        public IHttpActionResult publicarLivro(int isbn, Livro livro)
+        {
+            if (livro.Isbn == isbn)
+            {
+                repositorio.Publicar(livro.Isbn);
+            }
+            else
+            {
+                BadRequest("Livro não encontrado!");
+            }
+
+            return Ok(new { dados = livro });
+        }
+
+        [BasicAuthorization(Roles = "Administrador")]
         [HttpDelete]
         [Route("{isbn:int}")]
         public IHttpActionResult Delete(int isbn)

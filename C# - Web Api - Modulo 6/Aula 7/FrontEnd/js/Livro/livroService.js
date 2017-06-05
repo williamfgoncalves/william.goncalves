@@ -8,7 +8,9 @@ angular.module('editoraCwi').factory('livroService', function ($http) {
     listarLivrosQueNaoSaoLancamentos: listarLivrosQueNaoSaoLancamentos,
     listarLivroPorId : listarLivroPorId,
     adicionarLivro : adicionarLivro,
-    editarLivro: editarLivro
+    editarLivro: editarLivro,
+    excluirLivro: excluirLivro,
+    publicarLivro:publicarLivro
   };
 
   function listarTodosLivros(){
@@ -39,6 +41,28 @@ angular.module('editoraCwi').factory('livroService', function ($http) {
   }
 
   function editarLivro(livro, headerAuth) {
+    return $http({
+      url: urlBase + '/' + livro.Isbn, 
+      method: 'PUT',
+      headers: {
+        Authorization: headerAuth
+      },
+      data: livro
+    });
+  }
+
+  function excluirLivro(livro, headerAuth) {
+    return $http({
+      url: urlBase + '/' + livro.Isbn, 
+      method: 'DELETE',
+      headers: {
+        Authorization: headerAuth
+      },
+      data: livro
+    })
+  };
+
+  function publicarLivro(livro, headerAuth) {
     return $http({
       url: urlBase + '/' + livro.Isbn, 
       method: 'PUT',

@@ -29,7 +29,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public dynamic ObterLivroResumido()
         {
-            return contexto.Livros.Select(x => new { x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero }).ToList();
+            return contexto.Livros.Where(l => l.DataPublicacao != null && l.DataRevisao != null)
+                .Select(x => new { x.Isbn, x.Titulo, x.UrlImagem, x.Autor.Nome, x.Genero }).ToList();
         }
 
         public Livro ObterPorId(int isbn)
@@ -72,9 +73,44 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             return livro;
         }
 
+        public bool Revisar(int idRevisor, int isbn)
+        {
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            if (livro == null)
+            {
+                return false;
+            }
+            else
+            {
+                livro.IdRevisor = idRevisor;
+                livro.DataRevisao = DateTime.Now;
+                contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
+        public bool Publicar(int isbn)
+        {
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            if (livro == null)
+            {
+                return false;
+            }
+            else
+            {
+                livro.DataPublicacao = DateTime.Now;
+                contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
         public Livro Remover(int id)
         {
-            return contexto.Livros.Remove(contexto.Livros.FirstOrDefault(x => x.Isbn == id));
+            var livro = contexto.Livros.Remove(contexto.Livros.FirstOrDefault(x => x.Isbn == id));
+            contexto.SaveChanges();
+            return livro;
         }
 
         public void Dispose()

@@ -1,6 +1,9 @@
 angular.module('editoraCwi').controller('livroController', function ($scope, $routeParams, $localStorage, $location, livroService, toastr){
     
-    console.log("Rwste");
+    console.log("Entrou")!
+    listarTodosOsLivros();
+    listarLivrosLancamentos();
+    listarlivrosNaoLancamento();
 
     $scope.parametros = {
       quantidadePular: 0,
@@ -14,7 +17,6 @@ angular.module('editoraCwi').controller('livroController', function ($scope, $ro
                 $scope.parametros.quantidadePular = 0;
                 return;
             }
-
             listarlivrosNaoLancamento();
     }
     $scope.avancarPagina = function(){
@@ -24,6 +26,7 @@ angular.module('editoraCwi').controller('livroController', function ($scope, $ro
 
     function listarTodosOsLivros(){
         livroService.listarTodosLivros().then(function (response){
+            console.log(response);
             $scope.livrosTodos = response.data.dados;
         })
     }
@@ -62,13 +65,15 @@ angular.module('editoraCwi').controller('livroController', function ($scope, $ro
     }
 
     $scope.editarLivro = function (livro) {
-         $scope.livroAtual = angular.copy(livro);
+        $scope.livroAtual = angular.copy(livro);
+        $scope.exibirPublicacao = true;
+        $scope.publicandoLivro = false;
     }
 
     $scope.salvarLivro = function(livroAtual){
         if($scope.formLivroEditado.$valid){
             livroService.editarLivro(livroAtual, $localStorage.headerAuth).then(function(response){
-                toastr.success('Instrutor alterado com sucesso!');
+                toastr.success('Livro alterado com sucesso!');
             });
             delete $scope.livroAtual;
             $scope.editarInstrutor = false;
@@ -79,7 +84,20 @@ angular.module('editoraCwi').controller('livroController', function ($scope, $ro
         }
     }
 
-    listarTodosOsLivros();
-    listarLivrosLancamentos();
-    listarlivrosNaoLancamento();
-});
+    $scope.publicarLivro = function(livroAtual){
+        livroService.publicarLivro(livroAtual, $localStorage.headerAuth).then(function(response){
+        toastr.success('Livro publicado com sucesso!');
+        delete $scope.livroAtual;
+        $scope.exibirPublicacao = false;
+        $scope.publicandoLivro = true;
+    })
+
+    $scope.excluirLivro = function(livro){
+        livroService.excluirLivro(livro, $localStorage.headerAuth).then(function(response){
+            toastr.success('Livro excluido com sucesso!');
+        });
+        delete $scope.livro;
+        $scope.editarInstrutor = false;
+        $scope.exibirInstrutor = true;
+    }
+}});

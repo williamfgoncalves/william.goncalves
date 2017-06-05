@@ -38,5 +38,23 @@ angular.module('editoraCwi').config(function ($routeProvider) {
                 }
             }
         })
+        .when('/excluirLivro', { 
+            controller: 'livroController', 
+            templateUrl: './excluirLivro.html',
+            resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise();
+                }
+            }
+        })
+        .when('/publicarLivro', { 
+            controller: 'livroController', 
+            templateUrl: './publicarLivro.html',
+            resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise();
+                }
+            }
+        })
         .otherwise({redirectTo:'/livros'}); 
     });
