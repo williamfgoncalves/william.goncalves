@@ -17,10 +17,10 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             return contexto.Revisores.ToList();
         }
 
-        public Revisor ObterRevisorPorId(int id)
+        public int ObterRevisorPorId(int id)
         {
             var revisor = contexto.Revisores.FirstOrDefault(x => x.Id == id);
-            return revisor;
+            return revisor.Id;
         }
 
         public void Criar(Revisor revisor)

@@ -70,6 +70,7 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = Livros });
         }
 
+        [BasicAuthorization(Roles = "Administrador")]
         [HttpPost]
         public IHttpActionResult CriarLivro(Livro livro)
         {

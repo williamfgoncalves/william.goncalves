@@ -16,7 +16,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public List<Livro> Obter()
         {
-            return contexto.Livros.ToList();
+            return contexto.Livros.Include("Autor").ToList();
         }
 
         public dynamic BuscarLivrosPublicados(int quantidadePular, int quantidadeTrazer)
@@ -34,10 +34,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public Livro ObterPorId(int isbn)
         {
-            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
-
-            livro.Autor = autorRepositorio.ObterPorId(livro.IdAutor);
-            livro.Revisor = revisorRepositorio.ObterRevisorPorId(livro.IdRevisor);
+            var livro = contexto.Livros.Include("Autor").
+                FirstOrDefault(x => x.Isbn == isbn);
 
             return livro;
         }

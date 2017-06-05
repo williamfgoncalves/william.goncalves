@@ -1,0 +1,41 @@
+ <div class="row">
+    <div class="col m2 l2"></div>
+        <div class="col m8 l8">
+            <form name="livros">
+                <div class="livros" ng-repeat="livro in livrosTodos">        
+                    <div class="block">
+                        <h4>{{livro.Titulo}}</h4>
+                        <p>{{livro.NomeAutor}}</p>
+                        <p>{{livro.Genero}}</p>
+                        <a ng-click="editarLivro(livro)"> <img ng-src="{{livro.UrlImagem}}" width="130px"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    <div class="col m2 l2"></div>
+</div>
+
+<div class="row">
+    <div class="col m2 l2"></div>
+        <form class="col s8 orange lighten-3" novalidate ng-submit="salvarLivro(livroAtual)" name="formLivroEditado">
+            
+            <label for="titulo">Titulo</label>
+            <input placeholder="Ex: A Chuva" type="text" required ng-model="livroAtual.Titulo" class="validate">
+           
+            <label for="descricao">Descrição</label>
+            <textarea class="materialize-textarea" required ng-model="livroAtual.Descricao"></textarea>
+            
+            <label for="Genero">Genero</label>
+            <input placeholder="Ex: Ação" type="text" required ng-model="livroAtual.Genero"  class="validate">
+            
+            <label for="Genero">Capa</label>
+            <input placeholder="Ex: www.foto.com/04.jpg" type="text" required ng-model="livroAtual.UrlImagem" class="validate">
+
+            <label for="Autor">Autor</label>
+            <input placeholder="Ex: Mario Quintana" type="text" required ng-model="livroAtual.Autor.Nome" class="validate">
+
+            <button class="waves-effect waves-light btn" ng-disabled="formLivroEditado.$invalid" type="submit"> Adicionar Livro</button>
+            
+        </form>
+    <div class="col m2 l2"></div>
+</div>

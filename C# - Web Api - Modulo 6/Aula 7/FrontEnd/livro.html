@@ -1,49 +1,19 @@
-<div>
-	<div class="row">
-		<div class="col-md-9">
-            <h1>EDITORA CRESCER</h1>
-		</div>
-		<div class="col-md-3">
-			<button type="button" class="btn btn-lg btn-block" ng-click="logar()">
-				Login
-			</button>
-		</div>
-	</div>
-
-    <div class="row">
-        <div class="col-md-2"></div>
-            <div class="col-md-8">
-                
-            </div>
-        <div class="col-md-2"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="caixaLivros">
-                    <form name="livros">
-                        <div ng-repeat="livro in livrosNaoLancamentos">
-                            <div class="livro">
-                                <div class="texto">
-                                    <p><strong>{{livro.Titulo}}</strong></p>
-                                    <p><strong>{{livro.NomeAutor}}</strong></p>
-                                    <p><strong>{{livro.Genero}}</strong></p>
-                                </div>
-                                <div class="imagem">
-                                    <img ng-src="{{livro.Capa}}" width="80px" height="120px">
-                                </div>
-                                <div class="botao">
-                                    <input type="submit" value="Ver Detalhes" ng-click="verLivro(livro.Id)">
-                                </div>
-                            </div>
-                            <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
-                        </div>
-                        <div class="before"><input class="btn btn-defaut btn-lg" type="submit" value="Voltar" ng-click="retornarPagina()"></div>
-                        <div class="next"><input class="btn btn-defaut btn-lg" type="submit" value="Avançar" ng-click="avancarPagina()"></div>
-                    </form>
+<div class="row">
+    <div class="col m2 l2"></div>
+    <div class="col m8 l8">
+        <form name="livros">
+            <div class="livros" ng-repeat="livro in livrosNaoLancamentos">        
+                <div class="block">
+                    <h4>{{livro.Titulo}}</h4>
+                    <p>{{livro.Descricao}}</p>
+                    <p>{{livro.NomeAutor}}</p>
+                    <p>{{livro.Genero}}</p>
+                    <a ng-click="verLivro(livro.Id)"> <img ng-src="{{livro.Capa}}" width="130px"></a>
                 </div>
             </div>
-        <div class="col-md-2"></div>
+                <div class="before"><input class="btn btn-defaut btn-lg" type="submit" value="Voltar" ng-click="retornarPagina()"></div>
+                <div class="next"><input class="btn btn-defaut btn-lg" type="submit" value="Avançar" ng-click="avancarPagina()"></div>
+        </form>
     </div>
+    <div class="col m2 l2"></div>
 </div>

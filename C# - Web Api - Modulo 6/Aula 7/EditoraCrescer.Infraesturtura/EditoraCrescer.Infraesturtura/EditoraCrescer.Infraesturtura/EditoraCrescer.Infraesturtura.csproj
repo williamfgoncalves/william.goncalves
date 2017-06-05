@@ -81,6 +81,18 @@
     <Compile Include="Migrations\201706031734306_AlterarNomeTabelaParaUsuario.Designer.cs">
       <DependentUpon>201706031734306_AlterarNomeTabelaParaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706041757400_corrigirNomeDataRevisao.cs" />
+    <Compile Include="Migrations\201706041757400_corrigirNomeDataRevisao.Designer.cs">
+      <DependentUpon>201706041757400_corrigirNomeDataRevisao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706050050243_alterandoColunaIdRevisorComoOpicional.cs" />
+    <Compile Include="Migrations\201706050050243_alterandoColunaIdRevisorComoOpicional.Designer.cs">
+      <DependentUpon>201706050050243_alterandoColunaIdRevisorComoOpicional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706050253142_alterandoColunaIdRevisorComoOpicionalFuncionando.cs" />
+    <Compile Include="Migrations\201706050253142_alterandoColunaIdRevisorComoOpicionalFuncionando.Designer.cs">
+      <DependentUpon>201706050253142_alterandoColunaIdRevisorComoOpicionalFuncionando.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutoresRepositorio.cs" />
@@ -107,6 +119,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706031734306_AlterarNomeTabelaParaUsuario.resx">
       <DependentUpon>201706031734306_AlterarNomeTabelaParaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041757400_corrigirNomeDataRevisao.resx">
+      <DependentUpon>201706041757400_corrigirNomeDataRevisao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050050243_alterandoColunaIdRevisorComoOpicional.resx">
+      <DependentUpon>201706050050243_alterandoColunaIdRevisorComoOpicional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050253142_alterandoColunaIdRevisorComoOpicionalFuncionando.resx">
+      <DependentUpon>201706050253142_alterandoColunaIdRevisorComoOpicionalFuncionando.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,24 @@
+ <div class="row">
+    <div class="col m2 l2"></div>
+        <form class="col s8 orange lighten-3" novalidate ng-submit="adicionarLivro(livro)" name="formLivro">
+            
+            <label for="titulo">Titulo</label>
+            <input placeholder="Ex: A Chuva" type="text" required ng-model="livro.Titulo" class="validate">
+           
+            <label for="descricao">Descrição</label>
+            <textarea class="materialize-textarea" required ng-model="livro.Descricao"></textarea>
+            
+            <label for="Genero">Genero</label>
+            <input placeholder="Ex: Ação" type="text" required ng-model="livro.Genero"  class="validate">
+            
+            <label for="Genero">Capa</label>
+            <input placeholder="Ex: www.foto.com/04.jpg" type="text" required ng-model="livro.UrlImagem" class="validate">
+
+            <label for="Autor">Autor</label>
+            <input placeholder="Ex: Mario Quintana" type="text" required ng-model="livro.Autor.Nome" class="validate">
+
+            <button class="waves-effect waves-light btn" ng-disabled="formLivro.$invalid" type="submit"> Adicionar Livro</button>
+            
+        </form>
+    <div class="col m2 l2"></div>
+</div>

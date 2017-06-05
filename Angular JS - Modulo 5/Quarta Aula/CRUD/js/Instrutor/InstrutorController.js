@@ -35,7 +35,7 @@
         if(nome === 'true'){
             return 'SIM';
         }else{
-            return 'NÃO'
+            return 'NÃO';
         }
     }
     

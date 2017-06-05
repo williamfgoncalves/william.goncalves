@@ -1,18 +1,13 @@
 <div class="row">
-    <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="modal">
-                <div class="imagem">
-                    <img ng-src="{{livro.UrlImagem}}" width="380" height="500px">
-                </div>
-                <div class="textoLivro">
-                    <p><label class="form-group">Titulo: </label> {{livro.Titulo}}
-                    <p><label class="form-group">Descrição: </label> {{livro.Descricao}}
-                    <p><label class="form-group">Gênero: </label> {{livro.Genero}}
-                    <p><label class="form-group">Data da Publicação: </label> {{livro.DataPublicacao | date : "dd/MM/yyyy"}}
-                    <p><label class="form-group">Autor: </label> {{livro.Autor.Nome}}
-                </div>
-            </div>
+    <div class="col m2 l2"></div>
+    <div class="col m8 l8">       
+        <div class="block2">
+            <h3>{{livro.Titulo}}</h3>
+            <h4>{{livro.Autor.Nome}}</h4>
+            <p>{{livro.Descricao}}</p>
+            <h4>{{livro.Genero}}<h4>
+            <img ng-src="{{livro.UrlImagem}}" class="responsive-img" width="400px">
         </div>
-    <div class="col-md-2"></div>
+    </div>
+    <div class="col m2 l2"></div>
 </div>

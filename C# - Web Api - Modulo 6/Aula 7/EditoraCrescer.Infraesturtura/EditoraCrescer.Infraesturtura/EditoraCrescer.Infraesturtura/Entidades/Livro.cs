@@ -17,7 +17,7 @@ namespace EditoraCrescer.Infraesturtura.Entidades
         public int IdAutor { get; set; }
         public Autor Autor { get; set; }
         public Revisor Revisor { get; set; }
-        public int IdRevisor { get; set; }
-        public DateTime? DataRevisão { get; set; }
+        public int? IdRevisor { get; set; }
+        public DateTime? DataRevisao { get; set; }
     }
 }

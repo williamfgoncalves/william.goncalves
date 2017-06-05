@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css"/>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/css?family=Karla:700|Lobster" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karla:700|Lobster|Quicksand" rel="stylesheet">
         
@@ -21,7 +22,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://rawgit.com/cwi-crescer-2017-1/instrutores/master/modulo-05-angularjs/auth/auth.module.js" type="text/javascript"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
         <script src="js/App.js"></script>
         <script src="js/rotas.js"></script>
         <script src="js/Login/loginController.js"></script>
@@ -29,9 +31,30 @@
         <script src="js/Livro/livroService.js"></script>
         <script src="js/Livro/livroController.js"></script>
         <script src="js/Livro/livroDetalhesController.js"></script>
-
     </head>
-    <body>
+    <body ng-controller="loginController">
+        <div class="row">
+            <div class="col s2"></div>
+                <div class="col s8 orange lighten-3">
+                    <div align = "center">
+                        <div id="top">
+                            <img src="data:image/png;base64,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">
+                        </div>
+                    </div>
+                    <nav>
+                        <div class="nav-wrapper  orange darken-2">
+                            <a href="#!" class="brand-logo">Editora Crescer</a>
+                                <ul class="right hide-on-med-and-down">
+                                    <li><a class="waves-effect waves-light btn" href="#">HOME</a></li>
+                                    <li><a class="waves-effect waves-light btn" href="#!/administrativo">ADMINISTRATIVO </a></li>
+                                    <li><a class="waves-effect waves-light btn" href="#!/login"> LOGIN</a></li>
+                                    <li><a class="waves-effect waves-light btn" ng-click="logout()">Logout</a></li>
+                                </ul>
+                        </div>
+                    </nav>
+                </div>
+            <div class="col s2"></div>
+        </div>
         <ng-view></ng-view>
     </body>
 </html>
