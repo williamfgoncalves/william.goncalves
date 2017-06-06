@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201706060524501_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201706060524501_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706060552022_CriacaoTabelaUsuarios.cs" />
+    <Compile Include="Migrations\201706060552022_CriacaoTabelaUsuarios.Designer.cs">
+      <DependentUpon>201706060552022_CriacaoTabelaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contexto.cs" />
@@ -82,6 +86,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706060524501_CriacaoDoBanco.resx">
       <DependentUpon>201706060524501_CriacaoDoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706060552022_CriacaoTabelaUsuarios.resx">
+      <DependentUpon>201706060552022_CriacaoTabelaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
