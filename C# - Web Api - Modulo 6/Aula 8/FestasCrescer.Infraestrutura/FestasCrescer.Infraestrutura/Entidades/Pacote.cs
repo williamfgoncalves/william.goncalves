@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FestasCrescer.Infraestrutura.Entidades
 {
-    class Pacote
+    public class Pacote
     {
-        public int Id { get; set; }
-        public String Nome { get; set; }
-        public String Descricao { get; set; }
-        public decimal valorDiaria { get; set; }
+        public int IdPacote { get; set; }
+        public String NomePacote { get; set; }
+        public String DescricaoPacote { get; set; }
+        public decimal valorDiariaPacote { get; set; }
     }
 }

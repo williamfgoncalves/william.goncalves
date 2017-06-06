@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FestasCrescer.Infraesturtura.Entidades
+namespace FestasCrescer.Infraestrutura.Entidades
 {
-    class Produto
+    public enum Cargo
     {
+        Gerente = 0,
+        Colaborador = 1
     }
 }
