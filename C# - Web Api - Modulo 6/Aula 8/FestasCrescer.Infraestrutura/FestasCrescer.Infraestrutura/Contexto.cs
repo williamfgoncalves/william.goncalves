@@ -19,7 +19,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
         public DbSet<Opcional> Opcionais { get; set; } // tabelas do banco
         public DbSet<Pacote> Pacotes { get; set; } // Tabela do banco
         public DbSet<Reserva> Reservas { get; set; } //Tabela do banco
-        //public DbSet<Usuario> Usuarios { get; set; }  
+        public DbSet<Usuario> Usuarios { get; set; }  
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             modelBuilder.Configurations.Add(new OpcionalMap());
             modelBuilder.Configurations.Add(new PacoteMap());
             modelBuilder.Configurations.Add(new ReservaMap());
-            //modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FestasCrescer.Infraestrutura.Entidades
 {
-    /*public class Usuario : EntidadeBasica
+    public class Usuario : EntidadeBasica
     {
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
@@ -18,15 +18,14 @@ namespace FestasCrescer.Infraestrutura.Entidades
         public String Senha { get; set; }
         public Cargo Cargo { get; set; }
 
-        public Usuario(string nome, string email, string senha)
+        public Usuario(string nome, string email, string senha, Cargo cargo)
         {
             Nome = nome;
             Email = email;
             Id = 0;
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
-            Permissoes = new List<Permissao>();
-            AtribuirPermissoes("Colaborador");
+            Cargo = cargo;
         }
 
         public string ResetarSenha()
@@ -59,12 +58,6 @@ namespace FestasCrescer.Infraestrutura.Entidades
             return CriptografarSenha(senha) == Senha;
         }
 
-        public void AtribuirPermissoes(params string[] nomes)
-        {
-            foreach (var nome in nomes)
-                Permissoes.Add(new Permissao(nome));
-        }
-
         public override bool Validar()
         {
             Mensagens.Clear();
@@ -80,6 +73,6 @@ namespace FestasCrescer.Infraestrutura.Entidades
 
             return Mensagens.Count == 0;
         }
-    }*/
+    }
 }
 

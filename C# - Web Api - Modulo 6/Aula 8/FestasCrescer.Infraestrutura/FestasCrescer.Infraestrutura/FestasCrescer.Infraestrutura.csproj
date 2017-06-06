@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Entidades\Cargo.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Genero.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Opcional.cs" />
@@ -62,6 +63,12 @@
     <Compile Include="Maps\OpcionalMap.cs" />
     <Compile Include="Maps\PacoteMap.cs" />
     <Compile Include="Maps\ReservaMap.cs" />
+    <Compile Include="Maps\UsuarioMap.cs" />
+    <Compile Include="Migrations\201706060524501_CriacaoDoBanco.cs" />
+    <Compile Include="Migrations\201706060524501_CriacaoDoBanco.Designer.cs">
+      <DependentUpon>201706060524501_CriacaoDoBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contexto.cs" />
   </ItemGroup>
@@ -71,6 +78,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706060524501_CriacaoDoBanco.resx">
+      <DependentUpon>201706060524501_CriacaoDoBanco.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

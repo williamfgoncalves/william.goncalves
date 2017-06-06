@@ -8,7 +8,7 @@ namespace FestasCrescer.Infraestrutura.Entidades
 {
     public enum Cargo
     {
-        Gerente = 0,
-        Colaborador = 1
+        Gerente,
+        Colaborador
     }
 }
