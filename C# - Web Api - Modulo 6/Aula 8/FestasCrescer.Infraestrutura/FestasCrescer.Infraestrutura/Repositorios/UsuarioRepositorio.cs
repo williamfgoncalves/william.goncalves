@@ -38,12 +38,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
         public Usuario Obter(string email)
         {
             var usuario = contexto.Usuarios.Where(u => u.Email == email).Include(u => u.Cargo).FirstOrDefault();
-            return contexto.Usuarios.Where(u => u.Email == email).Include(u => u.).FirstOrDefault();
-        }
-
-        public void Dispose()
-        {
-            Contexto.Dispose();
+            return contexto.Usuarios.Where(u => u.Email == email).Include(u => u.Cargo).FirstOrDefault();
         }
     }
 }
