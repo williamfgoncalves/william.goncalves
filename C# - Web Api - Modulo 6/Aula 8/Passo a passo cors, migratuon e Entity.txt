@@ -1,0 +1,11 @@
+CORS - API
+$ Install-Package Microsoft.AspNet.WebApi.Cors
+
+config.EnableCors(new EnableCorsAttribute("*", "*", "*"));`
+
+Migration e entity
+
+Install-Package EntityFramework
+
+Enable-Migrations
+Add-Migration NOMEMIGRATION

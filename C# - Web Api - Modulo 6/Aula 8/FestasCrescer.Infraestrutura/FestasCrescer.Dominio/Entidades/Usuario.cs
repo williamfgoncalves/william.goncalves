@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FestasCrescer.Infraestrutura.Entidades
+namespace FestasCrescer.Dominio.Entidades
 {
     public class Usuario : EntidadeBasica
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FestasCrescer.Infraestrutura.Entidades
+namespace FestasCrescer.Dominio.Entidades
 {
     public enum Cargo
     {

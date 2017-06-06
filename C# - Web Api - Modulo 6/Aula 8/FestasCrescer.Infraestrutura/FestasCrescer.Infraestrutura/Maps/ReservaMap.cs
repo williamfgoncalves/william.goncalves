@@ -1,4 +1,4 @@
-﻿using FestasCrescer.Infraestrutura.Entidades;
+﻿using FestasCrescer.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -14,21 +14,21 @@ namespace FestasCrescer.Infraestrutura.Maps
         {
             ToTable("Reservas");
             HasKey(x => x.IdReserva);
-            HasRequired(x => x.Festa)
-                .WithMany()
-                .HasForeignKey(x => x.IdFesta);
-            HasRequired(x => x.Pacote)
-                .WithMany()
-                .HasForeignKey(x => x.IdPacote);
             HasRequired(x => x.Cliente)
                 .WithMany()
-                .HasForeignKey(x => x.IdCliente);
-            HasMany(x => x.Opcionais).WithMany().Map(x =>
+                .Map(x => x.MapKey("IdCliente"));
+            HasRequired(x => x.Festa)
+                .WithMany()
+                .Map(x => x.MapKey("IdFesta"));
+            HasRequired(x => x.Pacote)
+                .WithMany()
+                .Map(x => x.MapKey("IdPacote"));
+            /*HasMany(x => x.Opcionais).WithMany().Map(x =>
             {
                 x.MapLeftKey("IdReserva");
                 x.MapRightKey("IdOpcionais");
                 x.ToTable("ReservaOpcionais");
-            });
+            }*/);
         }
     }
 }

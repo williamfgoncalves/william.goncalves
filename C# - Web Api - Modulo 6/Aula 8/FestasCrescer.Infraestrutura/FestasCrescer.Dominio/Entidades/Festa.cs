@@ -4,11 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FestasCrescer.Infraestrutura.Entidades
+namespace FestasCrescer.Dominio.Entidades
 {
     public class Festa
     {
         public int IdFesta { get; set; }
         public String NomeFesta { get; set; }
+
+        protected Festa() { }
+        public Festa(string nomeFesta)
+        {
+            this.NomeFesta = nomeFesta;
+        }
     }
 }
