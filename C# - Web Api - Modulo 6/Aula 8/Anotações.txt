@@ -1,0 +1,4 @@
+Verificar se da para excluir tabelas do banco do antigo trabalho
+
+Side Navigation Layout - usar para layout
+
