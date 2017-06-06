@@ -1,4 +1,4 @@
-﻿namespace FestasCrescer.Infraestrutura.Entidades
+﻿namespace FestasCrescer.Dominio.Entidades
 {
     public enum Genero
     {

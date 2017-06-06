@@ -1,0 +1,10 @@
+{     
+	"IdCliente": 0,
+	"Nome": "Watson",
+	"CPF": 03566659096,
+	"Endereco": "Rua do Colono",
+	"Genero": 0,
+	"DataNascimento": "1996/04/06",
+	"Numero": 996202124,
+    "Email": "watson@cwi.com.br"
+}

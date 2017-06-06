@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FestasCrescer.Infraestrutura.Entidades
+namespace FestasCrescer.Dominio.Entidades
 {
     public class Opcional
     {
@@ -12,5 +12,14 @@ namespace FestasCrescer.Infraestrutura.Entidades
         public String NomeOpcional { get; set; }
         public decimal ValorDiariaOpcional { get; set; }
         public int QuantidadeEstoqueOpcional { get; set; }
+
+        protected Opcional() { }
+
+        public Opcional(String nomeOpcional, decimal valorDiarioOpcional, int quantidadeOpcional)
+        {
+            this.NomeOpcional = nomeOpcional;
+            this.ValorDiariaOpcional = valorDiarioOpcional;
+            this.QuantidadeEstoqueOpcional = quantidadeOpcional;
+        }
     }
 }
