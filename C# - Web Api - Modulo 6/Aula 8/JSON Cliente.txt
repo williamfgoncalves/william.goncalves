@@ -1,6 +1,6 @@
 {     
 	"IdCliente": 0,
-	"Nome": "Watson",
+	"NomeCliente": "Watson",
 	"CPF": 03566659096,
 	"Endereco": "Rua do Colono",
 	"Genero": 0,

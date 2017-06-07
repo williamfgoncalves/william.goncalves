@@ -43,7 +43,6 @@
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Festa.cs" />
-    <Compile Include="Entidades\Genero.cs" />
     <Compile Include="Entidades\Opcional.cs" />
     <Compile Include="Entidades\Pacote.cs" />
     <Compile Include="Entidades\Permissao.cs" />

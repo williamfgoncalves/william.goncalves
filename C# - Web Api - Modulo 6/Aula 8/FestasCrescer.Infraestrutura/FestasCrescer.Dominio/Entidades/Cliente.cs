@@ -12,14 +12,14 @@ namespace FestasCrescer.Dominio.Entidades
         public String NomeCliente { get; private set; }
         public long CPF { get; private set; }
         public String Endereco { get; private set; }
-        public Genero Genero { get; private set; }
+        public String Genero { get; private set; }
         public DateTime DataNascimento { get; private set; }
         public int Numero { get; private set; }
         public String Email { get; private set; }
 
         protected Cliente() { }
 
-        public Cliente(String nomeCliente, long cpf, String endereco, Genero genero, DateTime dataNascimento, int numero, String email)
+        public Cliente(String nomeCliente, long cpf, String endereco, String genero, DateTime dataNascimento, int numero, String email)
         {
             this.NomeCliente = nomeCliente;
             this.CPF = cpf;

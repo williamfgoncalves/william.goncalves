@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace FestasCrescer.Api.Controllers
 {
-    [RoutePrefix("api/Clientes")]
+    [RoutePrefix("api/Cliente")]
     public class ClienteController : ApiController
     {
         ClienteRepositorio repositorio = new ClienteRepositorio();
@@ -31,9 +31,10 @@ namespace FestasCrescer.Api.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Post(ClienteModel clienteModel)
+        public IHttpActionResult CriarCliente(ClienteModel model)
         {
-            var cliente = new Cliente(clienteModel.NomeCliente, clienteModel.CPF, clienteModel.Endereco, clienteModel.Genero, clienteModel.DataNascimento, clienteModel.Numero, clienteModel.Email);
+            var cliente = new Cliente(model.NomeCliente, model.CPF, model.Endereco, model.Genero, model.DataNascimento, model.Numero, model.Email);
+
             repositorio.Criar(cliente);
             return Ok(new { dados = cliente });
         }
