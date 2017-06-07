@@ -33,7 +33,7 @@ namespace FestasCrescer.Api.Controllers
         [HttpPost]
         public IHttpActionResult Post(ClienteModel clienteModel)
         {
-            var cliente = new Cliente(clienteModel.NomeCliente, clienteModel.CPF, clienteModel.Endereco, clienteModel.Genero, clienteModel.DataNascimento, clienteModel.Numero, clienteModel.Numero);
+            var cliente = new Cliente(clienteModel.NomeCliente, clienteModel.CPF, clienteModel.Endereco, clienteModel.Genero, clienteModel.DataNascimento, clienteModel.Numero, clienteModel.Email);
             repositorio.Criar(cliente);
             return Ok(new { dados = cliente });
         }

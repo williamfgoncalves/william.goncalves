@@ -1,4 +1,4 @@
-﻿using FestasCrescer.Infraestrutura.Entidades;
+﻿using FestasCrescer.Dominio.Entidades;
 using FestasCrescer.Infraestrutura.Maps;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,8 @@ namespace FestasCrescer.Infraestrutura.Repositorios
         public DbSet<Opcional> Opcionais { get; set; } // tabelas do banco
         public DbSet<Pacote> Pacotes { get; set; } // Tabela do banco
         public DbSet<Reserva> Reservas { get; set; } //Tabela do banco
-        public DbSet<Usuario> Usuarios { get; set; }  
+        public DbSet<Usuario> Usuarios { get; set; } // Tabela do banco
+        public DbSet<Permissao> Permissoes { get; set; } //Tabela do banco
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,6 +30,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             modelBuilder.Configurations.Add(new PacoteMap());
             modelBuilder.Configurations.Add(new ReservaMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new PermissaoMap());
         }
     }
 }

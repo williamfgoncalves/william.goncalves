@@ -8,12 +8,12 @@ namespace FestasCrescer.Dominio.Entidades
 {
     public class Pacote
     {
-        public int IdPacote { get; set; }
-        public String NomePacote { get; set; }
-        public String DescricaoPacote { get; set; }
-        public decimal ValorDiariaPacote { get; set; }
+        public int IdPacote { get; private set; }
+        public String NomePacote { get; private set; }
+        public String DescricaoPacote { get; private set; }
+        public decimal ValorDiariaPacote { get; private set; }
 
-        protected Pacote() { };
+        protected Pacote() { }
 
         public Pacote(String nomePacote, String descricaoPacote, decimal valorDiarioPacote)
         {

@@ -12,20 +12,27 @@ namespace FestasCrescer.Dominio.Entidades
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
 
-        public int Id { get; set; }
-        public String Nome { get; set; }
-        public String Email { get; set; }
-        public String Senha { get; set; }
-        public Cargo Cargo { get; set; }
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+        public List<Permissao> Permissoes { get; set; }
 
-        public Usuario(string nome, string email, string senha, Cargo cargo)
+        // Construtor padrão para o Entity Framework
+        protected Usuario()
+        {
+        }
+
+        public Usuario(string nome, string email, string senha)
         {
             Nome = nome;
             Email = email;
-            Id = 0;
+            Id = Guid.NewGuid();
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
-            Cargo = cargo;
+            Permissoes = new List<Permissao>();
+            AtribuirPermissoes("Colaborador");
+            AtribuirPermissoes("Administrador");
         }
 
         public string ResetarSenha()
@@ -56,6 +63,12 @@ namespace FestasCrescer.Dominio.Entidades
         public bool ValidarSenha(string senha)
         {
             return CriptografarSenha(senha) == Senha;
+        }
+
+        public void AtribuirPermissoes(params string[] nomes)
+        {
+            foreach (var nome in nomes)
+                Permissoes.Add(new Permissao(nome));
         }
 
         public override bool Validar()

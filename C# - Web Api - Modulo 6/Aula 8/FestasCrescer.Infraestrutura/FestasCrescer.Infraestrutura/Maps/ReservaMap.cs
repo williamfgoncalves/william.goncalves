@@ -23,12 +23,13 @@ namespace FestasCrescer.Infraestrutura.Maps
             HasRequired(x => x.Pacote)
                 .WithMany()
                 .Map(x => x.MapKey("IdPacote"));
-            /*HasMany(x => x.Opcionais).WithMany().Map(x =>
+
+            HasMany(x => x.Opcionais).WithMany().Map(x =>
             {
                 x.MapLeftKey("IdReserva");
                 x.MapRightKey("IdOpcionais");
-                x.ToTable("ReservaOpcionais");
-            }*/);
+                x.ToTable("ReservaOpcional");
+            });
         }
     }
 }

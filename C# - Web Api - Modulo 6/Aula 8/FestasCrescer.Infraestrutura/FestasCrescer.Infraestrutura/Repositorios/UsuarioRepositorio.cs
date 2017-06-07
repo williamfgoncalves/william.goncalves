@@ -1,4 +1,4 @@
-﻿using FestasCrescer.Infraestrutura.Entidades;
+﻿using FestasCrescer.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FestasCrescer.Infraestrutura.Repositorios
 {
-    class UsuarioRepositorio
+    public class UsuariosRepositorio
     {
         private Contexto contexto = new Contexto();
 
@@ -37,8 +37,15 @@ namespace FestasCrescer.Infraestrutura.Repositorios
 
         public Usuario Obter(string email)
         {
-            var usuario = contexto.Usuarios.Where(u => u.Email == email).Include(u => u.Cargo).FirstOrDefault();
-            return contexto.Usuarios.Where(u => u.Email == email).Include(u => u.Cargo).FirstOrDefault();
+            var usuario = contexto.Usuarios.Where(u => u.Email == email).Include(u => u.Permissoes).FirstOrDefault();
+            return contexto.Usuarios.Where(u => u.Email == email).Include(u => u.Permissoes).FirstOrDefault();
+        }
+
+        public String[] ObterPermissoes(Usuario usuario)
+        {
+            return contexto.Usuarios
+                .Where(u => u.Id == usuario.Id)
+                .Select(p => p.Permissoes.Select(x => x.Nome).FirstOrDefault()).ToArray();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using FestasCrescer.Infraestrutura.Entidades;
+﻿using FestasCrescer.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

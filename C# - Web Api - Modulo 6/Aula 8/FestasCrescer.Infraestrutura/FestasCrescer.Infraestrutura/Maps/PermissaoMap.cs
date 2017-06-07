@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace FestasCrescer.Infraestrutura.Maps
 {
-    class ClienteMap : EntityTypeConfiguration<Cliente>
+    public class PermissaoMap : EntityTypeConfiguration<Permissao>
     {
-        public ClienteMap()
+        public PermissaoMap()
         {
-            ToTable("Clientes");
-            HasKey(x => x.IdCliente);
+            ToTable("Permissoes");
+            HasKey(x => x.Id);
         }
     }
 }

@@ -8,10 +8,11 @@ namespace FestasCrescer.Dominio.Entidades
 {
     public class Festa
     {
-        public int IdFesta { get; set; }
-        public String NomeFesta { get; set; }
+        public int IdFesta { get; private set; }
+        public String NomeFesta { get; private set; }
 
         protected Festa() { }
+
         public Festa(string nomeFesta)
         {
             this.NomeFesta = nomeFesta;

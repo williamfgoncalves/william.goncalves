@@ -40,15 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Cargo.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Festa.cs" />
     <Compile Include="Entidades\Genero.cs" />
     <Compile Include="Entidades\Opcional.cs" />
     <Compile Include="Entidades\Pacote.cs" />
+    <Compile Include="Entidades\Permissao.cs" />
     <Compile Include="Entidades\Reserva.cs" />
-    <Compile Include="Entidades\ReservaOpcional.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

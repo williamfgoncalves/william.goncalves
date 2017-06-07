@@ -1,0 +1,19 @@
+<form novalidate ng-submit="login(usuario)">
+    <div align="center">
+        <div class="row">
+            <div class="input-field col s4">
+                <label for="email">Email</label>
+                <input type="email" ng-model="usuario.email" placeholder="Ex:fulano@silva.com" class="validate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <label for="password">Password</label>
+                <input type="password" ng-model="usuario.senha" class="validate">
+            </div>
+        </div>
+        <div class="row">
+            <button class="waves-effect waves-light btn-large">LOGIN</button>
+        </div>
+    </div>
+</form>

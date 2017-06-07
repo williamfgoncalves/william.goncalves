@@ -8,16 +8,16 @@ namespace FestasCrescer.Dominio.Entidades
 {
     public class Reserva
     {
-        public int IdReserva { get; set; }
-        public Festa Festa { get; set; }
-        public Cliente Cliente { get; set; }
-        public Pacote Pacote { get; set; }
-        public List<Opcional> Opcionais { get; set; }
-        public decimal TotalValorEstimado { get; set; }
-        public DateTime DataReserva { get; set; }
-        public DateTime DataEntregaPrevista { get; set; }
-        public DateTime? DataEntregaRealizada { get; set; }
-        public decimal TotalValorPago { get; set; }
+        public int IdReserva { get; private set; }
+        public Festa Festa { get; private set; }
+        public Cliente Cliente { get; private set; }
+        public Pacote Pacote { get; private set; }
+        public List<Opcional> Opcionais { get; private set; }
+        public decimal TotalValorEstimado { get; private set; }
+        public DateTime DataReserva { get; private set; }
+        public DateTime DataEntregaPrevista { get; private set; }
+        public DateTime? DataEntregaRealizada { get; private set; }
+        public decimal TotalValorPago { get; private set; }
 
         protected Reserva() { }
         public Reserva(Festa festa, Cliente cliente, Pacote pacote, decimal totalValorEstimado, DateTime dataReserva, DateTime dataEntregaPrevista)
