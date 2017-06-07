@@ -23,7 +23,6 @@ namespace FestasCrescer.Infraestrutura.Maps
             HasRequired(x => x.Pacote)
                 .WithMany()
                 .Map(x => x.MapKey("IdPacote"));
-
             HasMany(x => x.Opcionais).WithMany().Map(x =>
             {
                 x.MapLeftKey("IdReserva");
