@@ -1,4 +1,4 @@
-angular.module('upEventos').controller('loginController', function ($scope, authService) {
+angular.module('upEventos').controller('loginController', function ($scope, $location, authService) {
 
   $scope.logout = function(){
     authService.logout();
@@ -8,7 +8,10 @@ angular.module('upEventos').controller('loginController', function ($scope, auth
     authService.login(usuario)
       .then(
         function (response) {
+          console.log(response);
           alert("Logado!");
+          
+          $location.path("/home");
         },
         function (response) {
           alert("Erro!");

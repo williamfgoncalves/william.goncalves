@@ -9,7 +9,7 @@ namespace FestasCrescer.Api.Models
     public class ClienteModel
     {
         public String NomeCliente { get;  set; }
-        public long CPF { get;  set; }
+        public String CPF { get;  set; }
         public String Endereco { get;  set; }
         public String Genero { get;  set; }
         public DateTime DataNascimento { get;  set; }

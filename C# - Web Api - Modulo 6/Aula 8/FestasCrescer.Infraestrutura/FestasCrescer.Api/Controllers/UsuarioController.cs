@@ -75,7 +75,7 @@ namespace FestasCrescer.Api.Controllers
             if (usuario == null)
                 return ResponderErro("Usuário não encontrado.");
 
-            return ResponderOK(new { usuario.Nome, usuario.Permissoes, usuario.Email });
+            return ResponderOK(new { dados =  usuario.Nome, usuario.Permissoes, usuario.Email });
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FestasCrescer.Dominio.Entidades
 {
-    public class Cliente
+    public class Cliente : EntidadeBasica
     {
         public int IdCliente { get; private set; }
         public String NomeCliente { get; private set; }
-        public long CPF { get; private set; }
+        public String CPF { get; private set; }
         public String Endereco { get; private set; }
         public String Genero { get; private set; }
         public DateTime DataNascimento { get; private set; }
@@ -19,7 +19,7 @@ namespace FestasCrescer.Dominio.Entidades
 
         protected Cliente() { }
 
-        public Cliente(String nomeCliente, long cpf, String endereco, String genero, DateTime dataNascimento, int numero, String email)
+        public Cliente(String nomeCliente, String cpf, String endereco, String genero, DateTime dataNascimento, int numero, String email)
         {
             this.NomeCliente = nomeCliente;
             this.CPF = cpf;
@@ -28,6 +28,22 @@ namespace FestasCrescer.Dominio.Entidades
             this.DataNascimento = dataNascimento;
             this.Numero = numero;
             this.Email = email;
+        }
+
+        public override bool Validar()
+        {
+            Mensagens.Clear();
+
+            if (string.IsNullOrWhiteSpace(NomeCliente))
+                Mensagens.Add("Nome é inválido.");
+
+            if (string.IsNullOrWhiteSpace(Email))
+                Mensagens.Add("Email é inválido.");
+
+            if (string.IsNullOrWhiteSpace(CPF))
+                Mensagens.Add("Senha é inválido.");
+
+            return Mensagens.Count == 0;
         }
     }
 }

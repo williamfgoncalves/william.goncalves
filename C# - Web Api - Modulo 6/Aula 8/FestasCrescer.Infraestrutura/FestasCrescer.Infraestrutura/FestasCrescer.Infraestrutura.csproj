@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201706071321400_alterarTipoDadoCampoGenero.Designer.cs">
       <DependentUpon>201706071321400_alterarTipoDadoCampoGenero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706072028294_alterarTipoDoCpf.cs" />
+    <Compile Include="Migrations\201706072028294_alterarTipoDoCpf.Designer.cs">
+      <DependentUpon>201706072028294_alterarTipoDoCpf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contexto.cs" />
@@ -89,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706071321400_alterarTipoDadoCampoGenero.resx">
       <DependentUpon>201706071321400_alterarTipoDadoCampoGenero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706072028294_alterarTipoDoCpf.resx">
+      <DependentUpon>201706072028294_alterarTipoDoCpf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
