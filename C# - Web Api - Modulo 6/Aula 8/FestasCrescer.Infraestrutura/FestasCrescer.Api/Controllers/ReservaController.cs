@@ -35,10 +35,9 @@ namespace FestasCrescer.Api.Controllers
             var cliente = Crepositorio.ObterPorId(model.IdCliente);
             var pacote = Prepositorio.ObterPorId(model.IdPacote);
             var opcionais = Orepositorio.buscarOpcionaisPorId(model.Opcionais);
-            model.TotalValorEstimado = pacote.ValorDiariaPacote;
-            var reserva = new Reserva(festa, cliente, pacote, opcionais, model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
-            //repositorio.Criar(reserva);
-            return Ok(new { dados = reserva });
+            var valorEstimado;
+            var orcamento = new Reserva(festa, cliente, pacote, opcionais, model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
+            return Ok(new { dados = orcamento });
         }
     }
 }

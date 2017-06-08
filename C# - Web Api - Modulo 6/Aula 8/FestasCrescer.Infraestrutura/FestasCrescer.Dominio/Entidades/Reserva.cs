@@ -31,6 +31,34 @@ namespace FestasCrescer.Dominio.Entidades
             this.DataEntregaPrevista = dataEntregaPrevista;
         }
 
+        public decimal gerarValorTotal(decimal valorPacote, decimal valorOpcionais)
+        {
+            if(valorPacote == 0 || valorOpcionais == 0 )
+            {
+                return 0;
+            }
+            var numeroDias = (DataReserva.Date - DataEntregaPrevista.Date).Days;
+            var valorTotalReserva = (valorPacote + valorOpcionais)*numeroDias;
+            return valorTotalReserva;
+        }
+
+        public decimal gerarValorOpcionais( List<Opcional> opcionais)
+        {
+            decimal soma = 0;
+
+            if (opcionais.Count === 0)
+            {
+                return soma;
+            }
+
+            foreach (var item in opcionais)
+            {
+                soma += item.ValorDiariaOpcional;
+            }
+
+            return soma;
+        }
+
         public void RealizarEntrega(Reserva Reserva, decimal totalValorPago)
         {
             Reserva.DataEntregaRealizada = DateTime.Now;
