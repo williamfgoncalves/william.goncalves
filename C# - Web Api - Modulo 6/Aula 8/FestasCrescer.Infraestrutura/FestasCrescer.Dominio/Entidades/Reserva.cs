@@ -20,16 +20,17 @@ namespace FestasCrescer.Dominio.Entidades
         public decimal TotalValorPago { get; private set; }
 
         protected Reserva() { }
-        public Reserva(Festa festa, Cliente cliente, Pacote pacote, decimal totalValorEstimado, DateTime dataReserva, DateTime dataEntregaPrevista)
+        public Reserva(Festa festa, Cliente cliente, Pacote pacote, List<Opcional> opcionais, decimal totalValorEstimado, DateTime dataReserva, DateTime dataEntregaPrevista)
         {
             this.Festa = festa;
             this.Cliente = cliente;
             this.Pacote = pacote;
+            this.Opcionais = opcionais;
             this.TotalValorEstimado = totalValorEstimado;
             this.DataReserva = dataReserva;
             this.DataEntregaPrevista = dataEntregaPrevista;
         }
-        
+
         public void RealizarEntrega(Reserva Reserva, decimal totalValorPago)
         {
             Reserva.DataEntregaRealizada = DateTime.Now;

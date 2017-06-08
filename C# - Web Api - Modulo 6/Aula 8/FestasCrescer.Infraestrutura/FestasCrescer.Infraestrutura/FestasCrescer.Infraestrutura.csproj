@@ -74,6 +74,7 @@
     <Compile Include="Repositorios\ClienteRepositorio.cs" />
     <Compile Include="Repositorios\FestaRepositorio.cs" />
     <Compile Include="Repositorios\OpcionalRepositorio.cs" />
+    <Compile Include="Repositorios\PacoteRepositorio.cs" />
     <Compile Include="Repositorios\ReservaRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>

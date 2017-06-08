@@ -3,10 +3,10 @@ angular.module('upEventos').factory('clienteService', function ($http) {
     let urlBase = 'http://localhost:55047/api/Cliente';
 
     return {
-        adicionarCliente : adicionarCliente
+        adicionarCliente : adicionarCliente,
+        listarTodosClientes : listarTodosClientes
     };
 
-    debugger;
     function adicionarCliente(cliente, headerAuth) {
     return $http({
         url: urlBase, cliente,
@@ -16,5 +16,9 @@ angular.module('upEventos').factory('clienteService', function ($http) {
         },
             data: cliente
         });
+    }
+
+    function listarTodosClientes(){
+        return $http.get(urlBase);     
     }
 })

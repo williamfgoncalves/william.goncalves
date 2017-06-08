@@ -1,0 +1,38 @@
+<h3>Inscreve tua RESERVA MOSTRO!!! BRILLLLL</h3>  
+    <form name="formCliente" ng-submit="cadastrarReserva(reserva)">
+            <div class="form-group">
+                    <label for="email">Cliente:</label>
+                    <select ng-model="reserva.IdCliente" class="form-control">
+                            <option ng-repeat="cliente in clientes" value="{{cliente.IdCliente}}">{{cliente.NomeCliente}}</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                    <label for="email">Tipo de Festa:</label>
+                    <select ng-model="reserva.IdFesta" class="form-control">
+                            <option ng-repeat="festa in festas" value="{{festa.IdFesta}}">{{festa.NomeFesta}}</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                    <label for="email">Tipo de Pacote:</label>
+                    <select ng-model="reserva.IdPacote" ng-click="somar(pacote.ValorDiariaPacote)" class="form-control">
+                            <option ng-repeat="pacote in pacotes" value="{{pacote.IdPacote}}">{{pacote.NomePacote}} | {{pacote.DescricaoPacote}}</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                    <label for="email">Selecione seu(s) Opciona(is)l:</label>
+                    <select multiple ng-model="reserva.Opcionais" ng-click="somar(opcional.ValorDiariaOpcional)" class="form-control">
+                            <option ng-repeat="opcional in opcionais" value="{{opcional.IdOpcional}}">{{opcional.NomeOpcional}}</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                    <label for="date">Data da Reserva</label>
+                    <input type="date" required class="form-control" ng-model="reserva.DataReserva">
+            </div>
+            <div class="form-group">
+                    <label for="date">Data da Entrega Prevista</label>
+                    <input type="date" required class="form-control" ng-model="reserva.DataEntregaPrevista">
+            </div>
+            {{reserva}}
+            {{valor}}
+            <button type="submit" class="btn btn-default">Cadastrar</button>
+    </form>

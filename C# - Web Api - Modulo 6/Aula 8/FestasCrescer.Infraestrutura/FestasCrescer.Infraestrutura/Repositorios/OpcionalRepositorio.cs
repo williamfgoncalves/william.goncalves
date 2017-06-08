@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FestasCrescer.Infraestrutura.Repositorios
 {
-    class OpcionalRepositorio
+    public class OpcionalRepositorio
     {
         private Contexto Contexto = new Contexto();
 
