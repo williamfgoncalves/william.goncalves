@@ -12,9 +12,22 @@ namespace FestasCrescer.Infraestrutura.Repositorios
     {
         private Contexto Contexto = new Contexto();
 
-        public List<Reserva> Obter()
+        public dynamic Obter()
         {
-            return Contexto.Reservas.ToList();
+            var reservas = Contexto.Reservas
+                .Select(x => new
+                {
+                    NomeCliente = x.Cliente.NomeCliente,
+                    NomeFesta = x.Festa.NomeFesta,
+                    NomePacote = x.Pacote.NomePacote,
+                    DataReserva = x.DataReserva,
+                    DataEntregaPrevista = x.DataEntregaPrevista,
+                    DataEntregaRealizada = x.DataEntregaRealizada,
+                    ValorEstimado = x.TotalValorEstimado,
+                    ValorPagar = x.TotalValorPago
+                }).ToList();
+
+            return reservas;
         }
 
         public Reserva ObterPorId(int id)

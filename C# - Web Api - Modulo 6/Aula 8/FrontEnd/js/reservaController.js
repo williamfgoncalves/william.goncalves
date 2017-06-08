@@ -4,6 +4,7 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
     listarFestas();
     listarOpcionais();
     listarPacotes();
+    listarReservas()
 
     $scope.reserva;
 
@@ -11,15 +12,12 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
         if($scope.formReserva.$valid){
             reservaService.adicionarReserva(reserva, $localStorage.headerAuth).then(function(response){
                 alert('Cliente adicionado com sucesso!');
+                $scope.orcamento = response.data.dados;
             });
             delete $scope.reserva;
         }else{
             alert("Algum campo está errado ou faltando informação!");
         }
-    }
-
-    function somar(soma){
-        $scope.valor += soma;  
     }
 
     function listarClientes(){
@@ -43,6 +41,12 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
     function listarPacotes(){
         pacoteService.listarTodosPacotes().then(function (response){
             $scope.pacotes = response.data.dados;
+        })
+    }
+
+    function listarReservas(){
+        reservaService.listarTodosReservas().then(function(response){
+            $scope.reservas = response.data.dados;
         })
     }
 });

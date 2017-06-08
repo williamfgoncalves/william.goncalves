@@ -22,6 +22,18 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return Contexto.Opcionais.FirstOrDefault(x => x.IdOpcional == id);
         }
 
+        public List<Opcional> buscarOpcionaisPorId(List<int> id)
+        {
+            var opcionais = new List<Opcional>();
+
+            foreach (var item in id)
+            {
+                var opcionalAtual = Contexto.Opcionais.FirstOrDefault(x => x.IdOpcional == item);
+                if (opcionalAtual != null) opcionais.Add(opcionalAtual);
+            }
+            return opcionais; 
+        }
+
         public void Criar(Opcional opcional)
         {
             Contexto.Opcionais.Add(opcional);
