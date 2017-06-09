@@ -112,6 +112,7 @@
     <Compile Include="Models\ClienteModel.cs" />
     <Compile Include="Models\RegistrarUsuarioModel.cs" />
     <Compile Include="Models\ReservaModel.cs" />
+    <Compile Include="Models\ReservaModelBanco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

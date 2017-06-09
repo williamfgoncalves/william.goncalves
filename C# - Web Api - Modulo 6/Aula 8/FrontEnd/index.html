@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        
+        <link rel="stylesheet" href="css/style.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
@@ -24,19 +25,15 @@
         <script src="js/reservaService.js"></script>
         <script src="js/reservaController.js"></script>
     </head>
-    <body ng-controller="loginController">
 
+    <body ng-controller="loginController">
+    <div class="col-md-12"><h1 align="center">UP PRODUÇÕES E EVENTOS</h1></div>
     <div class="col-md-12">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                  <ul class="list-group">
-                    <li class="list-group-item"><a href="#!/login">Login</a></li>
-                    <li class="list-group-item"><a href="#!/home">Cadastrar Reserva</a></li>
-                    <li class="list-group-item"><a href="#!/relatorios">Exibir Relatorios</a></li>
-                    <li class="list-group-item"><a href="#" ng-click="logout();">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
+        <ul class="list-group" align="center">
+            <li class="list-group-item"><a href="#!/login">Login</a></li>
+            <li class="list-group-item"><a href="#!/home">Home</a></li>
+            <li class="list-group-item"><a href="#" ng-click="logout();">Logout</a></li>
+        </ul>
     </div>
 
     <div class="row">

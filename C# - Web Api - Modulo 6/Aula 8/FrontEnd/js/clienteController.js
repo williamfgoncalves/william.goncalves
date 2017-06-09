@@ -6,7 +6,7 @@ angular.module('upEventos').controller('clienteController', function ($scope, $r
         if($scope.formCliente.$valid){
             debugger;
             clienteService.adicionarCliente(cliente, $localStorage.headerAuth).then(function(response){
-                alert('Cliente adicionado com sucesso!');
+                alert(response);
             });
             delete $scope.cliente;
         }else{

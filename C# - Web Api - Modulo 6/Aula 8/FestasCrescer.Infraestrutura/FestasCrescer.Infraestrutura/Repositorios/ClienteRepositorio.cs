@@ -22,10 +22,15 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return Contexto.Clientes.FirstOrDefault( x=> x.IdCliente == id);
         }
 
-        public void Criar(Cliente cliente)
+        public bool Criar(Cliente cliente)
         {
-            Contexto.Clientes.Add(cliente);
-            Contexto.SaveChanges();
+            if (podeCadastrar(cliente.CPF))
+            {
+                Contexto.Clientes.Add(cliente);
+                Contexto.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Cliente Editar(Cliente cliente)
@@ -41,6 +46,16 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             Contexto.Clientes.Remove(cliente);
             Contexto.SaveChanges();
             return cliente;
+        }
+
+        public bool podeCadastrar(string cpf)
+        {
+            var cliente = Contexto.Clientes.Where(x => x.CPF.Contains(cpf)).FirstOrDefault();
+            if (cliente != null)
+            {
+                return false;
+            }
+            return true;
         }
 
         public void Dispose()
