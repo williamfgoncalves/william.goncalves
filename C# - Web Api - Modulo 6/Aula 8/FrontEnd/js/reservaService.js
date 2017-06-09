@@ -42,12 +42,12 @@ angular.module('upEventos').factory('reservaService', function ($http) {
     }
 
     function listarReservasUltimos30dias(){
-        return $http.get(urlBase + '/ultimosdias');     
+        return $http.get(urlBase + '/pendentes30Dias');     
     }
 
     function devolverReserva(reserva, headerAuth) {
     return $http({
-        url: urlBase + '/' +  reserva.IdReserva,
+        url: urlBase + '/' + reserva.IdReserva,
         method: 'PUT',
         headers: {
             Authorization: headerAuth

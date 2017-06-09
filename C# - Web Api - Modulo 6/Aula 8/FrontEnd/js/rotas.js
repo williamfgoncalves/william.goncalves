@@ -46,5 +46,15 @@ angular.module('upEventos').config(function ($routeProvider) {
                 }
             }
         })
+        .when('/relatorio30dias', {
+            controller: 'reservaController',
+            templateUrl: './relatorio30dias.html',
+            resolve: {
+                // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        })
         .otherwise({ redirectTo: '/login' })
 })

@@ -35,6 +35,14 @@ namespace FestasCrescer.Api.Controllers
             return Ok(new { dados = reservas });
         }
 
+        [Route("pendentes30Dias")]
+        [HttpGet]
+        public IHttpActionResult BuscarReservasPendentes3()
+        {
+            var reservas = repositorio.obterUltimosDias();
+            return Ok(new { dados = reservas });
+        }
+
         //Orcamento
         [HttpPost]
         public IHttpActionResult CriarReserva(ReservaModel model)
@@ -44,8 +52,8 @@ namespace FestasCrescer.Api.Controllers
             return Ok(new { dados = orcamento });
         }
 
-        [Route("cadastroBanco")]
         [HttpPost]
+        [Route("cadastroBanco")]
         public IHttpActionResult CriarReservaBanco(ReservaModelBanco model)
         {
             var reserva = new Reserva(model.Festa, model.Cliente, model.Pacote, model.Opcionais, model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
@@ -54,17 +62,12 @@ namespace FestasCrescer.Api.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult DevolverReserva(ReservaModelBanco model)
+        [Route("{IdReserva:int}")]
+        public IHttpActionResult DevolverReserva(int IdReserva)
         {
-            Reserva reserva = new Reserva(model.Festa, model.Cliente, model.Pacote, model.Opcionais, model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
-
-            var valorOpcionais = reserva.gerarValorOpcionais(reserva.Opcionais);
-            var valorPacote = reserva.Pacote.ValorDiariaPacote;
-            var gerarValorTotal = reserva.gerarValorTotal(valorPacote, valorOpcionais, reserva.DataReserva, DateTime.Now);
-
-            reserva.RealizarEntrega(reserva, gerarValorTotal);
+            var reserva = repositorio.ObterPorId(IdReserva);
+            reserva.RealizarEntrega(reserva);
             repositorio.Editar(reserva);
-
             return Ok();
         }
     }

@@ -30,28 +30,47 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return reservas;
         }
 
-        public dynamic ObterReservasPendentes()
+        public dynamic obterUltimosDias()
+        {
+            var reservas = Contexto.Reservas.Where(x => x.DataEntregaRealizada != null &&
+                DbFunctions.AddDays(x.DataEntregaRealizada, 30) >= DateTime.Now)
+                .Select(x => new
+                {
+                    NomeCliente = x.Cliente.NomeCliente,
+                    NomeFesta = x.Festa.NomeFesta,
+                    NomePacote = x.Pacote.NomePacote,
+                    DataReserva = x.DataReserva,
+                    DataEntregaRealizada = x.DataEntregaRealizada,
+                    ValorPagar = x.TotalValorEstimado
+                }).OrderByDescending(x =>  x.DataEntregaRealizada)
+                .ToList();
+            return reservas;
+        }
+
+        public dynamic obterClientesReservasPendentes()
         {
             var reservas = Contexto.Reservas.Where(x => x.DataEntregaRealizada == null)
                 .Select(x => new
                 {
-                    x.Cliente,
-                    x.Festa,
-                    x.Pacote,
-                    x.Opcionais,
-                    x.DataReserva,
-                    x.DataEntregaPrevista,
-                    x.DataEntregaRealizada,
-                    x.TotalValorEstimado,
-                    x.TotalValorPago
+                    NomeCliente = x.Cliente.NomeCliente,
+                    NomeFesta = x.Festa.NomeFesta,
+                    NomePacote = x.Pacote.NomePacote,
+                    DataReserva = x.DataReserva,
+                    DataEntregaRealizada = x.DataEntregaRealizada,
+                    ValorPagar = x.TotalValorPago
                 }).ToList();
-
+            return reservas;
+        }
+        public dynamic ObterReservasPendentes()
+        {
+            var reservas = Contexto.Reservas.Where(x => x.DataEntregaRealizada == null)
+                .Include("Cliente").Include("Festa").Include("Pacote").Include("Opcionais").ToList();
             return reservas;
         }
 
         public Reserva ObterPorId(int id)
         {
-            return Contexto.Reservas.FirstOrDefault(x => x.IdReserva == id);
+            return Contexto.Reservas.Include("Cliente").Include("Festa").Include("Pacote").Include("Opcionais").FirstOrDefault(x => x.IdReserva == id);
         }
 
         public Reserva MontarObjeto(int IdFesta, int IdCliente, int IdPacote, List<int> Opcionais, decimal TotalValorEstimado, DateTime DataReserva, DateTime DataEntregaPrevista)
