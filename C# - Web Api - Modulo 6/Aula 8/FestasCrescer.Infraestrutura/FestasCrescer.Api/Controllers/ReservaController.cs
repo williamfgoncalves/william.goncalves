@@ -1,4 +1,5 @@
-﻿using FestasCrescer.Api.Models;
+﻿using FestasCrescer.Api.App_Start;
+using FestasCrescer.Api.Models;
 using FestasCrescer.Dominio.Entidades;
 using FestasCrescer.Infraestrutura.Repositorios;
 using System;
@@ -20,6 +21,9 @@ namespace FestasCrescer.Api.Controllers
         private OpcionalRepositorio Orepositorio = new OpcionalRepositorio();
         private ReservaRepositorio repositorio = new ReservaRepositorio();
 
+        //[BasicAuthorization(Roles = "Administrador, Publicador, Revisor, Colaborador")]
+
+        [BasicAuthorization]
         [HttpGet]
         public IHttpActionResult BuscarReservas()
         {
@@ -27,6 +31,7 @@ namespace FestasCrescer.Api.Controllers
             return Ok(new { dados = reservas });
         }
 
+        [BasicAuthorization]
         [Route("pendentes")]
         [HttpGet]
         public IHttpActionResult BuscarReservasPendentes()
@@ -35,6 +40,7 @@ namespace FestasCrescer.Api.Controllers
             return Ok(new { dados = reservas });
         }
 
+        [BasicAuthorization(Roles = "Administrador")]
         [Route("pendentes30Dias")]
         [HttpGet]
         public IHttpActionResult BuscarReservasPendentes3()
@@ -43,7 +49,7 @@ namespace FestasCrescer.Api.Controllers
             return Ok(new { dados = reservas });
         }
 
-        //Orcamento
+        [BasicAuthorization]
         [HttpPost]
         public IHttpActionResult CriarReserva(ReservaModel model)
         {
@@ -52,6 +58,7 @@ namespace FestasCrescer.Api.Controllers
             return Ok(new { dados = orcamento });
         }
 
+        [BasicAuthorization]
         [HttpPost]
         [Route("cadastroBanco")]
         public IHttpActionResult CriarReservaBanco(ReservaModelBanco model)
@@ -61,6 +68,7 @@ namespace FestasCrescer.Api.Controllers
             return Ok();
         }
 
+        [BasicAuthorization]
         [HttpPut]
         [Route("{IdReserva:int}")]
         public IHttpActionResult DevolverReserva(int IdReserva)
