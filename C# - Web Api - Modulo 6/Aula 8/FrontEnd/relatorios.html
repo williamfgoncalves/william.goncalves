@@ -3,18 +3,13 @@
             <th>Tipo da Festa</th>
             <th>Nome Cliente</th>
             <th>Nome do Pacote</th>
-            <th>Opcionais</th>
-            <th>Data Reserva</th>
-            <th>Data Entrega</th>
-            <th>Subtotal</th>
+            <th>Numero dias Atrasados</th>
         </tr>
-            <td>{{reserva.NomeFesta}}</td>
-            <td>{{reserva.NomeCliente}}</td>
-            <td>{{reserva.NomePacote}}</td>
-            <td>{{reserva.Opcionais}}
-            <td>{{reserva.DataReserva}}</td>
-            <td>{{reserva.DataEntregaRealizada}}</td>
-            <td>{{reserva.ValorPagar}}</td>
+        <tr ng-repeat="reservasDias in reservasOrdenadasNumeroDiasMaisAntigos">
+            <td>{{reservasDias.NomeFesta}}</td>
+            <td>{{reservasDias.NomeCliente}}</td>
+            <td>{{reservasDias.NomePacote}}</td>
+            <td>{{reservasDias.NumeroDiasAtrasado}}</td>
             <td><button class="btn btn-warning" type="submit" ng-click="devolverReserva(reserva)"> Devolver Reserva</button></td>
         </tr>
 </table>

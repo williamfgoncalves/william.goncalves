@@ -3,20 +3,18 @@
             <th>Tipo da Festa</th>
             <th>Nome Cliente</th>
             <th>Nome do Pacote</th>
-            <th>Opcionais</th>
-            <th>Total Valor Estimado</th>
             <th>Data Reserva</th>
             <th>Data Entrega Previsa</th>
+            <th>Total Valor Estimado</th>
             <th></th>
         </tr>
         <tr ng-repeat="reserva in reservasPendentes">
-            <td>{{reserva.Cliente.NomeCliente}}</td>
             <td>{{reserva.Festa.NomeFesta}}</td>
+            <td>{{reserva.Cliente.NomeCliente}}</td>
             <td>{{reserva.Pacote.NomePacote}}</td>
             <td>{{reserva.DataReserva | date}}</td>
             <td>{{reserva.DataEntregaPrevista | date}}</td>
-            <td>{{reserva.DataEntregaRealizada | date}}</td>
-            <td>{{reserva.TotalValorPago}}</td>
+            <td>{{reserva.TotalValorEstimado}}</td>
             <td><button class="btn btn-warning" type="submit" ng-click="devolverReserva(reserva)"> Devolver Reserva</button></td>
         </tr>
 </table>

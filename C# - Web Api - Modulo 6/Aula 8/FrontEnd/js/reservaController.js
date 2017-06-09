@@ -7,6 +7,7 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
     listarReservas()
     listarReservasPendentes();
     listarReservasUltimosDias();
+    listarReservasNumeroDiasDescend();
     $scope.cadastrado = false;
     $scope.cadastro = true;
     $scope.reserva;
@@ -80,6 +81,13 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
         reservaService.listarReservasUltimos30dias().then(function(response){
             $scope.reservasUltimosDias = response.data.dados;
             console.log($scope.reservasUltimosDias);
+        })
+    }
+
+    function listarReservasNumeroDiasDescend(){
+        reservaService.listarReservasOrdenadoPorNumeroDiasDescendente().then(function(response){
+            $scope.reservasOrdenadasNumeroDiasMaisAntigos = response.data.dados;
+            console.log($scope.reservasOrdenadasNumeroDiasMaisAntigos);
         })
     }
 });

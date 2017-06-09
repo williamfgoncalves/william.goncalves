@@ -43,9 +43,18 @@ namespace FestasCrescer.Api.Controllers
         [BasicAuthorization(Roles = "Administrador")]
         [Route("pendentes30Dias")]
         [HttpGet]
-        public IHttpActionResult BuscarReservasPendentes3()
+        public IHttpActionResult BuscarReservasPendentes30Dias()
         {
             var reservas = repositorio.obterUltimosDias();
+            return Ok(new { dados = reservas });
+        }
+
+        [BasicAuthorization]
+        [Route("pendentesMaisAntigos")]
+        [HttpGet]
+        public IHttpActionResult BuscarReservasOrdenadasMaisAntigas()
+        {
+            var reservas = repositorio.obterMaisAntigosOrdenado();
             return Ok(new { dados = reservas });
         }
 

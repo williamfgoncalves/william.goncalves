@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
     {
         private Contexto Contexto = new Contexto();
 
+        //obter reservas sem distincao
         public dynamic Obter()
         {
             var reservas = Contexto.Reservas
@@ -30,6 +32,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return reservas;
         }
 
+        //obtem reservas ultimos trinta dias
         public dynamic obterUltimosDias()
         {
             var reservas = Contexto.Reservas.Where(x => x.DataEntregaRealizada != null &&
@@ -41,26 +44,22 @@ namespace FestasCrescer.Infraestrutura.Repositorios
                     NomePacote = x.Pacote.NomePacote,
                     DataReserva = x.DataReserva,
                     DataEntregaRealizada = x.DataEntregaRealizada,
-                    ValorPagar = x.TotalValorEstimado
+                    ValorPagar = x.TotalValorPago
                 }).OrderByDescending(x =>  x.DataEntregaRealizada)
                 .ToList();
             return reservas;
         }
 
-        public dynamic obterClientesReservasPendentes()
+        public dynamic obterMaisAntigosOrdenado()
         {
-            var reservas = Contexto.Reservas.Where(x => x.DataEntregaRealizada == null)
-                .Select(x => new
-                {
-                    NomeCliente = x.Cliente.NomeCliente,
-                    NomeFesta = x.Festa.NomeFesta,
-                    NomePacote = x.Pacote.NomePacote,
-                    DataReserva = x.DataReserva,
-                    DataEntregaRealizada = x.DataEntregaRealizada,
-                    ValorPagar = x.TotalValorPago
-                }).ToList();
+            var reservas = Contexto.Reservas.Where(x => x.DataEntregaRealizada == null && x.DataEntregaPrevista < DateTime.Now).OrderByDescending(x => SqlFunctions.DateDiff("dd", x.DataEntregaPrevista, DateTime.Now))
+                .Include("Cliente").Include("Festa").Include("Pacote").Include("Opcionais")
+                .Select(x => new { NomeFesta = x.Festa.NomeFesta, NomeCliente = x.Cliente.NomeCliente, NomePacote = x.Pacote.NomePacote, NumeroDiasAtrasado = SqlFunctions.DateDiff("dd", x.DataEntregaPrevista, DateTime.Now) }) 
+                .ToList();
             return reservas;
         }
+
+        //Obter reservas pendentes
         public dynamic ObterReservasPendentes()
         {
             var reservas = Contexto.Reservas.Where(x => x.DataEntregaRealizada == null)
@@ -68,11 +67,13 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return reservas;
         }
 
+        //obter reserva por id
         public Reserva ObterPorId(int id)
         {
             return Contexto.Reservas.Include("Cliente").Include("Festa").Include("Pacote").Include("Opcionais").FirstOrDefault(x => x.IdReserva == id);
         }
 
+        //montar objeto reserva
         public Reserva MontarObjeto(int IdFesta, int IdCliente, int IdPacote, List<int> Opcionais, decimal TotalValorEstimado, DateTime DataReserva, DateTime DataEntregaPrevista)
         {
             var festa = Contexto.Festas.FirstOrDefault(x => x.IdFesta == IdFesta);
@@ -92,12 +93,14 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return reserva;
         }
 
+        //criar uma reserva
         public void Criar(Reserva reserva)
         {
             Contexto.Reservas.Add(reserva);
             Contexto.SaveChanges();
         }
 
+        //editar uma reserva
         public Reserva Editar(Reserva reserva)
         {
             Contexto.Entry(reserva).State = EntityState.Modified;
@@ -105,6 +108,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return reserva;
         }
 
+        //remover uma reserva
         public Reserva Remover(int id)
         {
             var reserva = Contexto.Reservas.FirstOrDefault(x => x.IdReserva == id);
@@ -113,6 +117,7 @@ namespace FestasCrescer.Infraestrutura.Repositorios
             return reserva;
         }
 
+        //dar dispose
         public void Dispose()
         {
             Contexto.Dispose();
