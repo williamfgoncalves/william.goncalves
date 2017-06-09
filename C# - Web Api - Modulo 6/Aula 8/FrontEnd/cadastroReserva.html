@@ -1,4 +1,4 @@
-<h3>Inscreve tua RESERVA MOSTRO!!! BRILLLLL</h3>  
+<div ng-show="cadastro">
     <form name="formReserva" ng-submit="cadastrarReserva(reserva)">
             <div class="form-group">
                     <label for="cliente">Cliente:</label>
@@ -32,7 +32,29 @@
                     <label for="date">Data da Entrega Prevista</label>
                     <input type="date" required class="form-control" ng-model="reserva.DataEntregaPrevista">
             </div>
-            {{reserva}}
-            {{orcamento}}
             <button type="submit" class="btn btn-default">Cadastrar</button>
     </form>
+</div>
+
+<div ng-show="cadastrado">   
+        <table class="table table-striped">                        
+                <tr>
+                <th>Nome Cliente</th>
+                <th>Tipo da Festa</th>
+                <th>Nome do Pacote</th>
+                <th>Opcionais</th>
+                <th>Data Reserva</th>
+                <th>Data Entrega Previsa</th>
+                <th>Subtotal</th>
+                </tr>
+                <tr>
+                <td>{{orcamento.Cliente.NomeCliente}}</td>
+                <td>{{orcamento.Festa.NomeFesta}}</td>
+                <td>{{orcamento.Pacote.NomePacote}}</td>
+                <td>{{orcamento.DataReserva}}</td>
+                <td>{{orcamento.DataEntregaPrevista}}</td>
+                <td>{{orcamento.TotalValorEstimado}}</td>
+                <td><button class="btn btn-warning" type="submit" ng-click="adicionarReservaBanco(orcamento)">Autorizar Locacao</button></td>
+                </tr>
+        </table>
+</div>

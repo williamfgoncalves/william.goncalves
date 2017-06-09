@@ -27,17 +27,45 @@ namespace FestasCrescer.Api.Controllers
             return Ok(new { dados = reservas });
         }
 
+        [Route("pendentes")]
+        [HttpGet]
+        public IHttpActionResult BuscarReservasPendentes()
+        {
+            var reservas = repositorio.ObterReservasPendentes();
+            return Ok(new { dados = reservas });
+        }
+
         //Orcamento
         [HttpPost]
         public IHttpActionResult CriarReserva(ReservaModel model)
         {
-            var festa = Frepositorio.ObterPorId(model.IdFesta);
-            var cliente = Crepositorio.ObterPorId(model.IdCliente);
-            var pacote = Prepositorio.ObterPorId(model.IdPacote);
-            var opcionais = Orepositorio.buscarOpcionaisPorId(model.Opcionais);
-            var valorEstimado;
-            var orcamento = new Reserva(festa, cliente, pacote, opcionais, model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
+            var orcamento = repositorio.MontarObjeto(model.IdFesta,model.IdCliente,model.IdPacote,model.Opcionais,model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
+            repositorio.Criar(orcamento);
             return Ok(new { dados = orcamento });
+        }
+
+        [Route("cadastroBanco")]
+        [HttpPost]
+        public IHttpActionResult CriarReservaBanco(ReservaModelBanco model)
+        {
+            var reserva = new Reserva(model.Festa, model.Cliente, model.Pacote, model.Opcionais, model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
+            repositorio.Criar(reserva);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult DevolverReserva(ReservaModelBanco model)
+        {
+            Reserva reserva = new Reserva(model.Festa, model.Cliente, model.Pacote, model.Opcionais, model.TotalValorEstimado, model.DataReserva, model.DataEntregaPrevista);
+
+            var valorOpcionais = reserva.gerarValorOpcionais(reserva.Opcionais);
+            var valorPacote = reserva.Pacote.ValorDiariaPacote;
+            var gerarValorTotal = reserva.gerarValorTotal(valorPacote, valorOpcionais, reserva.DataReserva, DateTime.Now);
+
+            reserva.RealizarEntrega(reserva, gerarValorTotal);
+            repositorio.Editar(reserva);
+
+            return Ok();
         }
     }
 }

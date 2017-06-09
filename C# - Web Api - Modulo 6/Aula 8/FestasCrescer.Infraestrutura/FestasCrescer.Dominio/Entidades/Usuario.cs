@@ -32,7 +32,6 @@ namespace FestasCrescer.Dominio.Entidades
                 Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
             AtribuirPermissoes("Colaborador");
-            AtribuirPermissoes("Administrador");
         }
 
         public string ResetarSenha()

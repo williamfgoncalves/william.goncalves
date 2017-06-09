@@ -1,11 +1,13 @@
-angular.module('upEventos').controller('reservaController', function ($scope, $routeParams, $localStorage, clienteService, festaService, opcionalService, pacoteService, reservaService){
+angular.module('upEventos').controller('reservaController', function ($scope, $routeParams,  $location,  $localStorage, clienteService, festaService, opcionalService, pacoteService, reservaService){
     
     listarClientes();
     listarFestas();
     listarOpcionais();
     listarPacotes();
     listarReservas()
-
+    listarReservasPendentes();
+    $scope.cadastrado = false;
+    $scope.cadastro = true;
     $scope.reserva;
 
     $scope.cadastrarReserva = function(reserva){
@@ -13,11 +15,26 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
             reservaService.adicionarReserva(reserva, $localStorage.headerAuth).then(function(response){
                 alert('Cliente adicionado com sucesso!');
                 $scope.orcamento = response.data.dados;
+                console.log(response);
+                $scope.cadastrado = true;
+                $scope.cadastro = false;
             });
             delete $scope.reserva;
         }else{
             alert("Algum campo está errado ou faltando informação!");
         }
+    }
+    
+    $scope.adicionarReservaBanco = function(orcamento){
+        reservaService.adicionarReservaBanco(orcamento, $localStorage.headerAuth).then(function(response){
+            alert("Vcoe cadastrou com sucesso!!");
+        })
+    }
+
+    $scope.devolverReserva = function(reserva){
+        reservaService.devolverReserva(reserva, $localStorage.headerAuth).then(function(response){
+            alert("Vcoe devolveu os itens com sucesso!!");   
+        })
     }
 
     function listarClientes(){
@@ -47,6 +64,18 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
     function listarReservas(){
         reservaService.listarTodosReservas().then(function(response){
             $scope.reservas = response.data.dados;
+        })
+    }
+
+    function listarReservasPendentes(){
+        reservaService.listarReservasNaoDevolvidas().then(function(response){
+            $scope.reservasPendentes = response.data.dados;
+        })
+    }
+
+    function listarReservasUltimosDias(){
+        reservaService.listarReservasUltimos30dias().then(function(response){
+            $scope.reservasUltimosDias = response.data.dados;
         })
     }
 });

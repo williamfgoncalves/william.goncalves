@@ -19,7 +19,9 @@ namespace FestasCrescer.Dominio.Entidades
         public DateTime? DataEntregaRealizada { get; private set; }
         public decimal TotalValorPago { get; private set; }
 
-        protected Reserva() { }
+        
+        public Reserva() { }
+
         public Reserva(Festa festa, Cliente cliente, Pacote pacote, List<Opcional> opcionais, decimal totalValorEstimado, DateTime dataReserva, DateTime dataEntregaPrevista)
         {
             this.Festa = festa;
@@ -31,32 +33,32 @@ namespace FestasCrescer.Dominio.Entidades
             this.DataEntregaPrevista = dataEntregaPrevista;
         }
 
-        public decimal gerarValorTotal(decimal valorPacote, decimal valorOpcionais)
+        public decimal gerarValorTotal(decimal valorPacote, decimal valorOpcionais, DateTime dataInicial, DateTime dataFinal)
         {
             if(valorPacote == 0 || valorOpcionais == 0 )
             {
                 return 0;
             }
-            var numeroDias = (DataReserva.Date - DataEntregaPrevista.Date).Days;
+            var numeroDias = (dataInicial.Date - dataFinal.Date).Days;
             var valorTotalReserva = (valorPacote + valorOpcionais)*numeroDias;
-            return valorTotalReserva;
+            return Math.Abs(valorTotalReserva);
         }
 
-        public decimal gerarValorOpcionais( List<Opcional> opcionais)
+        public decimal gerarValorOpcionais(List<Opcional> opcionais)
         {
-            decimal soma = 0;
+            decimal valorTotalOpcionais = 0;
 
-            if (opcionais.Count === 0)
+            if (opcionais.Count == 0)
             {
-                return soma;
+                return valorTotalOpcionais;
             }
 
             foreach (var item in opcionais)
             {
-                soma += item.ValorDiariaOpcional;
+                valorTotalOpcionais += item.ValorDiariaOpcional;
             }
 
-            return soma;
+            return valorTotalOpcionais;
         }
 
         public void RealizarEntrega(Reserva Reserva, decimal totalValorPago)

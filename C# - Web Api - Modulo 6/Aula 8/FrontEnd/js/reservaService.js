@@ -4,7 +4,11 @@ angular.module('upEventos').factory('reservaService', function ($http) {
 
     return {
         adicionarReserva : adicionarReserva,
-        listarTodosReservas : listarTodosReservas
+        listarTodosReservas : listarTodosReservas,
+        listarReservasNaoDevolvidas : listarReservasNaoDevolvidas,
+        listarReservasUltimos30dias : listarReservasUltimos30dias,
+        adicionarReservaBanco:adicionarReservaBanco,
+        devolverReserva: devolverReserva         
     };
 
     function adicionarReserva(reserva, headerAuth) {
@@ -18,8 +22,27 @@ angular.module('upEventos').factory('reservaService', function ($http) {
         });
     }
 
+    function adicionarReservaBanco(reserva, headerAuth) {
+    return $http({
+        url: urlBase + '/cadastroBanco', reserva,
+        method: 'POST',
+        headers: {
+            Authorization: headerAuth
+        },
+            data: reserva
+        });
+    }
+
     function listarTodosReservas(){
         return $http.get(urlBase);     
+    }
+
+    function listarReservasNaoDevolvidas(){
+        return $http.get(urlBase + '/pendentes');     
+    }
+
+    function listarReservasUltimos30dias(){
+        return $http.get(urlBase + '/ultimosdias');     
     }
 
     function devolverReserva(reserva, headerAuth) {

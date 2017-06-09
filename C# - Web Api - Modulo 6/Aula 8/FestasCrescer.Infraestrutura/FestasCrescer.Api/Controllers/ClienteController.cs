@@ -36,13 +36,17 @@ namespace FestasCrescer.Api.Controllers
             var cliente = new Cliente(model.NomeCliente, model.CPF, model.Endereco, model.Genero, model.DataNascimento, model.Numero, model.Email);
             if (cliente.Validar())
             {
-                repositorio.Criar(cliente);
-                return Ok(new { dados = cliente });
+                bool criou =  repositorio.Criar(cliente);
+
+                if (!criou)
+                {
+                    return BadRequest("Erro ao cadastrar Usuario!");
+                }
+
+                    return Ok(new { dados = cliente });
             }
-            else
-            {
-                return BadRequest("Erro ao cadastrar Usuario!");
-            }
+
+            return BadRequest("Erro ao cadastrar Usuario!");
         }
 
         [HttpPut]
