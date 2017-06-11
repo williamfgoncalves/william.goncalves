@@ -61,10 +61,14 @@ namespace FestasCrescer.Dominio.Entidades
             return valorTotalOpcionais;
         }
 
-        public void RealizarEntrega(Reserva Reserva, decimal totalValorPago)
+        public void RealizarEntrega(Reserva Reserva)
         {
+            var dias = Math.Abs((Reserva.DataReserva.Date - Reserva.DataEntregaPrevista).Days);
+            var valorTotal = Reserva.TotalValorEstimado;
+            var diaPagar = valorTotal / dias;
+            var valorPagarAtual = diaPagar * Math.Abs((Reserva.DataReserva.Date - DateTime.Now.Date).Days);
             Reserva.DataEntregaRealizada = DateTime.Now;
-            Reserva.TotalValorPago = totalValorPago;
+            Reserva.TotalValorPago = valorPagarAtual;
         }
     }
 }

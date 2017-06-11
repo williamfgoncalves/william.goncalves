@@ -6,6 +6,8 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
     listarPacotes();
     listarReservas()
     listarReservasPendentes();
+    listarReservasUltimosDias();
+    listarReservasNumeroDiasDescend();
     $scope.cadastrado = false;
     $scope.cadastro = true;
     $scope.reserva;
@@ -32,6 +34,7 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
     }
 
     $scope.devolverReserva = function(reserva){
+        console.log(reserva);
         reservaService.devolverReserva(reserva, $localStorage.headerAuth).then(function(response){
             alert("Vcoe devolveu os itens com sucesso!!");   
         })
@@ -70,12 +73,21 @@ angular.module('upEventos').controller('reservaController', function ($scope, $r
     function listarReservasPendentes(){
         reservaService.listarReservasNaoDevolvidas().then(function(response){
             $scope.reservasPendentes = response.data.dados;
+            console.log($scope.reservasPendentes);
         })
     }
 
     function listarReservasUltimosDias(){
         reservaService.listarReservasUltimos30dias().then(function(response){
             $scope.reservasUltimosDias = response.data.dados;
+            console.log($scope.reservasUltimosDias);
+        })
+    }
+
+    function listarReservasNumeroDiasDescend(){
+        reservaService.listarReservasOrdenadoPorNumeroDiasDescendente().then(function(response){
+            $scope.reservasOrdenadasNumeroDiasMaisAntigos = response.data.dados;
+            console.log($scope.reservasOrdenadasNumeroDiasMaisAntigos);
         })
     }
 });

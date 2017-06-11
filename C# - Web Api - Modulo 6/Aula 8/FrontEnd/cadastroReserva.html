@@ -39,22 +39,20 @@
 <div ng-show="cadastrado">   
         <table class="table table-striped">                        
                 <tr>
-                <th>Nome Cliente</th>
-                <th>Tipo da Festa</th>
-                <th>Nome do Pacote</th>
-                <th>Opcionais</th>
-                <th>Data Reserva</th>
-                <th>Data Entrega Previsa</th>
-                <th>Subtotal</th>
+                        <th>Nome Cliente</th>
+                        <th>Tipo da Festa</th>
+                        <th>Nome do Pacote</th>
+                        <th>Data Reserva</th>
+                        <th>Data Entrega Previsa</th>
+                        <th>Valor Total</th>
                 </tr>
                 <tr>
-                <td>{{orcamento.Cliente.NomeCliente}}</td>
-                <td>{{orcamento.Festa.NomeFesta}}</td>
-                <td>{{orcamento.Pacote.NomePacote}}</td>
-                <td>{{orcamento.DataReserva}}</td>
-                <td>{{orcamento.DataEntregaPrevista}}</td>
-                <td>{{orcamento.TotalValorEstimado}}</td>
-                <td><button class="btn btn-warning" type="submit" ng-click="adicionarReservaBanco(orcamento)">Autorizar Locacao</button></td>
+                        <td>{{orcamento.Cliente.NomeCliente}}</td>
+                        <td>{{orcamento.Festa.NomeFesta}}</td>
+                        <td>{{orcamento.Pacote.NomePacote}}</td>
+                        <td>{{orcamento.DataReserva | date}}</td>
+                        <td>{{orcamento.DataEntregaPrevista | date}}</td>
+                        <td>R$ {{orcamento.TotalValorEstimado}}</td>
                 </tr>
         </table>
 </div>

@@ -1,0 +1,18 @@
+<table class="table table-striped">                        
+        <tr>
+            <th>Nome Cliente</th>
+            <th>Tipo da Festa</th>
+            <th>Nome do Pacote</th>
+            <th>Data Reserva</th>
+            <th>Data Entrega</th>                       
+            <th>Total Valor</th>
+        </tr>
+        <tr ng-repeat="reserva in reservasUltimosDias">
+            <td>{{reserva.NomeCliente}}</td>
+            <td>{{reserva.NomeFesta}}</td>
+            <td>{{reserva.NomePacote}}</td>
+            <td>{{reserva.DataReserva | date}}</td>
+            <td>{{reserva.DataEntregaRealizada | date}}</td>
+            <td>R$ {{reserva.ValorPagar}}</td>
+        </tr>
+</table>

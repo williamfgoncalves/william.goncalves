@@ -1,4 +1,5 @@
-﻿using FestasCrescer.Api.Models;
+﻿using FestasCrescer.Api.App_Start;
+using FestasCrescer.Api.Models;
 using FestasCrescer.Dominio.Entidades;
 using FestasCrescer.Infraestrutura.Repositorios;
 using System;
@@ -10,6 +11,7 @@ using System.Web.Http;
 
 namespace FestasCrescer.Api.Controllers
 {
+    [BasicAuthorization]
     [RoutePrefix("api/Cliente")]
     public class ClienteController : ApiController
     {
