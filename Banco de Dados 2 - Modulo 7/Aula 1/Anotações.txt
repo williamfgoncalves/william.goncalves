@@ -1,0 +1,40 @@
+O oracle usa 800mb, mas nao precisamos disso, por isso alteramos para 200mb;
+oracle-servicexe - servico do cliente
+oraclexetnslistener - um ouvindo do banco, faz o meio de campo;
+nao utilizar @ para senha do oracle -
+
+usa-se o system para criar outro usuarios e outras database
+ 
+
+Create tablespace CRESCER17DAT - Criando uma tableespace
+ datafile 'C:\oracle\oraclexe\app\oracle\oradata\XE\crescer17dat01.dbf' - com esse nome
+ size 100m - com um tamanho inicial de 100mb
+ autoextend on - ela e autoextendida, cresce sob demanda
+ next 100m - a cada 100mb esgotado, ele cria outro
+ maxsize 2048m; tamanho maximo de 2gb
+
+Create user CRESCER2017 identified by CRESCER2017; - cria um usuario e o que vem depois do identified by  é a senha; - SEMPRE DAR PERMISSOES PARA O USUARIO
+Consigo criar um usuario já com uma table espace
+
+grant connect, resource, create view to CRESCER2017; - CRIA PERMISSOES PARA MEU USUARIO CRESCER
+
+alter user CRESCER2017 default tablespace CRESCER17DAT; - definindo a table espace para o usuario crescer2017
+
+CREATE TABLE PESSOA(
+IDPessoa integer not null,
+Nome varchar2(30) not null,
+constraint PK_Pessoa primary key (IDPessoa)
+); 
+
+create sequence SQPessoa; -- Criando uma sequencia de dados, o oracle nao tem autoincremento
+
+insert into PESSOA (IDPessoa, Nome)
+Values (SQPessoa.nextval, 'Andre') -- Usar no lugar do ID o nome da sequence e uma funcao que gera o proximo valor;
+
+Comandos DDL gera auto commit, nao temos como usar begggin transaction
+seperar comandos de acesso a dados dos comandos de alteracao/criacao de dados;
+
+Posso ter varios schmeas dentro de um backup
+
+ORACLE É CASE SENSITIVE
+	
