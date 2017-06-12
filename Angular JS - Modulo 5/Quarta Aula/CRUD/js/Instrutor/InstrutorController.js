@@ -2,8 +2,8 @@
     
     $scope.exibirInstrutor = true;
 
-    listaTodosInstrutores();    
-    //metodo que retonar todas as aulas
+    listaTodosInstrutores();
+    
     function listaTodosInstrutores() {
             InstrutorService.listarInstrutores().then(function (response) {
             $scope.instrutores = response.data;
@@ -31,14 +31,6 @@
         return $scope.aulas.find(a => a.id === id).nome;
     }
 
-    $controller.filter('nomeDandoAula',function(nome) {
-        if(nome === 'true'){
-            return 'SIM';
-        }else{
-            return 'NÃO';
-        }
-    }
-    
     $scope.addInstrutor = function (instrutor){
         if($scope.form1.$valid){
             if(instrutor.urlFoto === "" || typeof instrutor.urlFoto === "undefined"){
