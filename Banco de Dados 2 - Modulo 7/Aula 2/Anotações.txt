@@ -1,0 +1,45 @@
+Correção exercicios primeiro dia.
+
+1) sysdate tras data e hora, o TRUNC - Trunca os valores, arredondamento para baixo. em datas arredondar para baixo é colocar a hora para 00:00 e para os Months, ele arredonda para o inicio do mês, no primeiro dia e com hora 00:00
+EVITAR VERIFICAÇÕES NEGATIVAS!! É CUSTOSO(NAO TEM BOM DESEMPENHO) 
+Coamndo user (table, view, trigers)
+
+EXEC dbms_stats.gather_schema_stats( USER); <-- Atualizar estatisticas do banco de dados!;
+
+algo.algo <-- o primeiro é uma packge e o segundo é algo a ser rodado!!;
+SELECT USER FORM DUAL - Me traz o usuario logado corrente!;
+
+Quando tivermos um grande volumes de dados, e as pesquisas estiverem lentas, tentar fazer uma atualizacao de estatistica!
+
+Quando tivermos um mapeamente N:N é legal criar uma view para retornar esses dados ao banco!;
+
+Explain plane: palno de exercução. Se  nele tibver Hash, então nao temos indeces e estamos usando table full scan;  
+
+QuNando usar o in, nao usar o where dentro da subquery
+
+o in compara coisas que sao iguais, nao podemos comparar strings x numero;
+n =o exist, nao precisamos fazer a comparacao diretamente, ele sempre vai esperar, por true ou false
+
+PLSQL -------------------------------------------------------------------------------------------------------------------
+
+DECLARE
+  vNome_Completo  varchar2(30);
+  vAno            number(4);
+  vData           date;
+BEGIN
+  -- Atribuindo um valor para a variavel
+  vNome_Completo := 'Maria da Silva';
+  vData          := sysdate+1000;
+  vAno           := to_char(vData, 'yyyy');
+
+    -- Imprimindo as variaveis 
+  DBMS_OUTPUT.PUT_LINE(vNome_Completo);
+  DBMS_OUTPUT.PUT_LINE('Em 1000 dias estaremos em: ' || to_char(vAno)); -- os pipes sao para concatenação
+END;
+
+DENTRO DE UM BLOCO PL/SQL , TEMOS QUE SEMPRE COLOCAR DNETRO DE UMA VARIVAL OU UM BLOCO DE DADOS;
+
+Cursores - quando retornar varias linhas, dentro da clausula declare, declaro ele;
+
+SQL%FOUND - se alguma dml afetoiu minha base(true/false)
+SQL%ROWCOUNT; (numero de linhas afetadas)
