@@ -1,5 +1,5 @@
 -- EXERCICIO 1
-/*
+
 SELECT P.IDPRODUTO, P.NOME
 FROM PRODUTO P WHERE P.IDPRODUTO != ALL( 
   SELECT P.IDPRODUTO FROM PRODUTO P
@@ -32,9 +32,4 @@ SELECT COUNT( PI.IDPEDIDOITEM) as ItensVendidosUltimoAno
 	INNER JOIN PEDIDO PE
 	ON PI.IDPEDIDO = PE.IDPEDIDO
 	WHERE PI.IDPRODUTO = :PRODUTOID
-	AND PE.DATAPEDIDO > TO_DATE('2017/01/01','yyyy/mm/dd')*/
-  
-select cl.nome, c.Nome, c.Uf
-  from Cidade c
-  inner join cliente cl
-  on c.IdCidade = cl.IdCidade
+	AND PE.DATAPEDIDO > TO_DATE('2017/01/01','yyyy/mm/dd')

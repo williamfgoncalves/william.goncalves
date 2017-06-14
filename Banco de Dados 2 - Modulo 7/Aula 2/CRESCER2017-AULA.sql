@@ -23,9 +23,9 @@ END;
     Select count(1) from Cliente;
   
   END;
-  
-  
-  DECLARE
+
+--Exercicio 1
+ DECLARE
     CURSOR Cidade_Cursor IS
     select Nome, Uf, count(Nome) as NUM_CIDADES_REPETIDAS
       from Cidade
@@ -45,3 +45,34 @@ END;
       END LOOP;  
     END LOOP;
   end;
+
+-- Exercicio 2
+DECLARE
+    valorPedidoAtualizado Pedido.ValorPedido%TYPE;
+    indiceBegin Pedido.idPedido%TYPE;
+    
+    CURSOR PedidoCursor (indiceDoFor in number) IS
+        select quantidade, precounitario
+        from pedidoitem
+        where idpedido = indiceDoFor;
+    begin
+        indiceBegin := :idpedido;
+        valorPedidoAtualizado := 0;
+    FOR item IN PedidoCursor(indiceBegin) LOOP
+        valorPedidoAtualizado := valorPedidoAtualizado + (item.quantidade * item.precounitario);
+    END LOOP;
+    
+    UPDATE Pedido
+    SET VALORPEDIDO = valorPedidoAtualizado
+    WHERE IDPEDIDO = indiceBegin;
+end;
+
+-- Exercicio 3 
+DECLARE 
+    CURSOR ClienteCursor IS
+    SELECT IDCLIENTE
+    FROM CLIENTE WHERE IDCLIENTE NOT IN(
+    SELECT C.CLIENTE FROM CLIENTE C
+    INNER JOIN PEDIDO PE 
+    ON C.IDCLIENTE = PE.IDCLIENTE
+    WHERE PE.DATAPEDIDO >= ADD_MONTHS(TRUNC(SYSDATE), - 6));
