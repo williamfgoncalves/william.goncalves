@@ -1,29 +1,3 @@
-begin 
-  DBMS_OUTPUT.PUT_LINE('Buenas Tardes!');
-end;
-
-DECLARE
-  vNome_Completo  varchar2(30);
-  vAno            number(4);
-  vData           date;
-BEGIN
-  -- Atribuindo um valor para a variavel
-  vNome_Completo := 'Maria da Silva';
-  vData          := sysdate+1000;
-  vAno           := to_char(vData, 'yyyy');
-
-    -- Imprimindo as variaveis 
-  DBMS_OUTPUT.PUT_LINE(vNome_Completo);
-  DBMS_OUTPUT.PUT_LINE('Em 1000 dias estaremos em: ' || to_char(vAno)); -- os pipes sao para concatenação
-END;
-
-  BEGIN
-  
-    -- Consultando o total de registros
-    Select count(1) from Cliente;
-  
-  END;
-
 --Exercicio 1
  DECLARE
     CURSOR Cidade_Cursor IS
@@ -108,6 +82,3 @@ DECLARE
             END LOOP;
         END LOOP;
     END;
-
-
-
