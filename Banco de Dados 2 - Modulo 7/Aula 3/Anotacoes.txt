@@ -1,0 +1,9 @@
+Toda chave estrangeira, temos que ter indice!!
+A diferenca entre uma procedure e uma function é que a function sempre retorna um  valor!
+a procedure altera dadaos e a function retonra um valor;
+a funcao sempre retorna algo, tomar cuidado a passar o valor do retorno para uma variavel ou usar ela em querys de selecao;
+
+tesstes unitarios - qualquer procedure ou procedure dentro de packge
+
+locks comeco e uma transação e nao comito, no rollback;
+ - 

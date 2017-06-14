@@ -3,25 +3,33 @@
     CURSOR Cidade_Cursor IS
     select Nome, Uf, count(Nome) as NUM_CIDADES_REPETIDAS
       from Cidade
-      group by nome, uf
-      having count(nome) > 1;
-    CURSOR Cliente_Cursor IS  
-    select cl.nome as nomeCliente, c.Nome as ClienteCidade, c.Uf
-      from Cidade c
-      inner join cliente cl
-      on c.IdCidade = cl.IdCidade;
+      group by Nome, Uf
+      having count(Nome) > 1;
+    CURSOR Cliente_Cursor (pNome in varchar2, pUf in varchar2) IS  
+    select cl.idcliente, cl.nome as nomeCliente, c.Nome as ClienteCidade, c.Uf
+      from cliente cl 
+      inner join Cidade c
+      on c.IdCidade = cl.IdCidade
+      where  c.Nome = pNome
+      and c.Uf = pUf;
   begin
     FOR item IN Cidade_Cursor LOOP
+      dbms_output.put_line('Cidade: '|| item.Nome );
       FOR item2 IN Cliente_Cursor LOOP
-        IF item.nome = item2.ClienteCidade THEN
-          DBMS_OUTPUT.PUT_LINE(item2.nomeCliente);
-        END IF;  
+        dbms_output.put_line('Cliente: '|| item2.nomeCliente);
       END LOOP;  
     END LOOP;
   end;
 
+create index IX_Cidade_NomeUF
+on Cidade (Nome, UF);
+create index IX_ClienteCidade
+on Cliente(IdCidade);
+
 -- Exercicio 2
-DECLARE
+CREATE OR REPLACE 
+PROCEDURE Atualiza_Valor_Pedido is
+    
     valorPedidoAtualizado Pedido.ValorPedido%TYPE;
     indiceBegin Pedido.idPedido%TYPE;
     
@@ -40,6 +48,23 @@ DECLARE
     SET VALORPEDIDO = valorPedidoAtualizado
     WHERE IDPEDIDO = indiceBegin;
 end;
+
+CREATE OR REPLACE
+PROCEDURE Atualiza_Valor_Pedido (pIDPedido IN INTEGER) AS
+  vValorPedido  Pedido.ValorPedido%type;
+BEGIN
+
+   Select SUM(Quantidade * PrecoUnitario)
+   into   vValorPedido
+   From   PedidoItem
+   Where  IDPedido = pIDPedido;
+   
+   Update Pedido
+   Set    ValorPedido = vValorPedido
+   Where  IDPedido    = pIDPedido;
+
+END;
+
 
 -- Exercicio 3 
 DECLARE 
