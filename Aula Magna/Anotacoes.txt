@@ -1,0 +1,63 @@
+Aula magna - Crescer 2017/1
+
+Bruno trassante - Nucleo de tecnologia
+ 
+Maturidade de projetos
+
+Excelencia - Framework de amadurecimento agil.
+maturidade.cwi.com.br
+
+Gerencia de configuração - controle de codigo : Branch - copia do codigo para poder 
+integracao e deploy - deploy - colocar seu codigo em produção em um servidor para rodar
+Integração continua - Jenkins - robozinhos que fazer coisas braçais e garantem a qualidade do nosso codigo, executando testes e etc até o deploy dele
+
+testes - 
+
+performance - page speed toll | yslow - FRONT - END
+              New Relic | Stackfy
+
+Segurança - owasp - define aas regras de segurança em paginas web
+
+Arquitetura - statelles  - Quando o ususario pode navegar com sua sessão em diversas maquinas
+	      cdn - copia das tuas apis em varios locais, porem mais proximas do usuarios
+	      HDD - Hype Driven Development - usar sempre a tecnologia nova, isso pode ser muito ruim
+
+Experiencia do usuario - google analicts - hotjar - mapeamento de calor no seu site, onde o usuario clica;
+
+Codigo - validações autoamtica de codigo - SONAR CUBE; sonar.cwi.com.br
+
+Banco de dados- nao usar regra de negocio no banco;
+
+
+PERFORMANCE WEB ---------------------------------------------------------------------------------------------------------------------------
+
+Sprites de imagens - Quanto menos request melhor!!!!!!
+Juntar varios arquivos javascript em um unico só para dibrar o gargalo de requisições do navegador;
+Evitar resizing de imagens - Progressive images!
+Imagens base 64 - ele ja traz a imagem do servidor diretamente na primeira requisição, nao precisa de outra requisição para as imgens;
+Icones que vem em fontes do google(São vetorizadas);
+css no topo e js no fim;
+Renderização critica (ver);
+Ver http 2.0
+
+OWASP ------------------------------------------------------------------------------------------------------------------
+
+MAIORES ERROS EM APLICACOES WEB - 
+REDIRECIONAMENTO E ENCAMINHAMENTO INVALIDO
+UTILIZAÇÃO DE COMPONENTES VULNERAVEIS CONHECIDOS:  EXEMPLOS DE PUGINS QUE JA TEM PROBLEMAS UTILIZADOS;
+CSRF - Quando o site é redirecionado para uma pagina errada e esta pagina é maliciosa e rouba teus dados;(Evitamos atraves de um tokem de autenticacao)
+falta de função para controler de acesso; - quando tentamos redirecionar para uma pegina invalida, ou eja que nao temos autenticacao para aquela pagina
+exposições de dados sensiveis -  -termos de criptografia
+Configuração incorreta de segurança - 
+Referencia insegura e direta a objetos
+quando aparece na sua url por exemplo www.google.com.br/id=1234
+xss - execução de js malicioso no cliente
+qubrea de autentiicacao e gerenciamento de sessão - quando nos regatamos informações que são extremamente  nocivas;
+Injeção de codigo sql; - Nunca concatenar strings, usar querys parametrizadas
+
+Entity Framework ---------------------------------------------------------------------------------------------------------------------------------
+Iquerable
+o entity so busca no banco quando voce da um to list;
+Lazy LOading - (dentro do construtor do contexto, chamar o configuration e acessar o atributo layse loading seta para true e depois acessa o proxycreate para true tambem) para ativalo, quando temos uma relacao dentro de uma tabela e nao queremos usar o include, podemos pegar o campo que referenncia a classe na classe que esta buscando e colocamos o atributo para virtual e seu tipo;
+
+As no tracking - quando eu puxo uma lista do banco mas nao preciso fazer alterações nela como por exemplo somente exibir, usar o HAS NO TRAKING
