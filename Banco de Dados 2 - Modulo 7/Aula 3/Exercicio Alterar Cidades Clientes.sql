@@ -1,55 +1,32 @@
 create or replace package body pck_CidadesDuplicadas as
- 
- function BuscaNomeCidade (cIDcliente in Number) RETURN VARCHAR2 AS
-          vNomeCidade Varchar2(30);
-  BEGIN
-      Select c.Nome
-      Into vNomeCidade
-      From Cliente cl
-      inner join Cidade c
-      on cl.Idcidade = c.IdCidade
-      where cl.IdCliente = cIDcliente;
-    Return vNomeCidade;
-  End;  
-
- Function BuscaUFCidade (cIDcliente in Number) RETURN VARCHAR2 AS
-    vUFCidade Varchar2(2);
-  BEGIN
-      Select c.UF
-      Into   vUFCidade
-      From Cliente cl
-      inner join Cidade c
-      on cl.Idcidade = c.IdCidade
-      where cl.IdCliente = cIDcliente;
-    Return vUFCidade;
-  End;
 
   procedure AtualizarClientesCidades is
+  
     cursor c_cidades is
-        select cid.Nome, cid.UF, min(cid.IdCidade) as IdDaCidadeDuplicada
+        select min(cid.IdCidade) as IdDaCidadeDuplicada, cid.Nome, cid.UF
         from Cidade cid
-        group by cid.Nome, cid.UF;
+        group by cid.Nome, cid.UF
+        HAVING COUNT(1) > 1;
+    
+    cursor c_clientes(vNomeCidade IN VARCHAR2, vUFcidade IN VARCHAR2) is
+        Select cl.IdCliente, 
+            cid.Nome as     NomeCidadeCliente,
+            cid.UF as       UFCidadeCliente,
+            cl.IDCIDADE as idDaCidade
+        From Cliente cl
+        inner join Cidade cid
+        on cl.Idcidade = cid.IdCidade
+        where cid.NOME = vNomeCidade AND cid.UF = vUFcidade;
+        
     begin
-      FOR c in c_cidades LOOP     
-               update Cliente
-               set IdCidade = c.IdDaCidadeDuplicada
-               where pck_CidadesDuplicadas.BuscaNomeCidade(IdCliente) = c.Nome
-                AND
-               pck_CidadesDuplicadas.BuscaUFCidade(IdCliente) = c.UF;
-      END LOOP;
+        FOR cid in c_cidades LOOP
+                FOR clid in c_clientes(cid.Nome, cid.UF) LOOP
+                    update Cliente cli
+                    set cli.IdCidade = cid.IdDaCidadeDuplicada
+                    where cli.IDCIDADE != cid.IdDaCidadeDuplicada AND cli.IDCLIENTE = clid.IdCliente;
+                END LOOP;
+            DELETE FROM Cidade WHERE Nome = cid.Nome AND IDCidade != cid.IdDaCidadeDuplicada;
+        END LOOP;
     end AtualizarClientesCidades;
     
-  procedure DeletaCidadeDuplicada is
-    cursor c_cidades is
-        select cid.Nome, cid.UF, min(cid.IdCidade) as IdDaCidadeDuplicada
-        from Cidade cid
-        group by cid.Nome, cid.UF;
-    begin
-      FOR c in c_cidades LOOP     
-            Delete From Cidade 
-            Where Nome = c.Nome AND UF = c.UF;
-      END LOOP;
-    end DeletaCidadeDuplicada;
-    
-End pck_CidadesDuplicadas;
 End pck_CidadesDuplicadas;
