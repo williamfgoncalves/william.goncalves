@@ -1,0 +1,10 @@
+Trigger
+Ela partece a uma tabela e esta vinculada a alguma das tres processos DML.
+Geralmente usar para fazer log de registros
+pode executar antes ou depois de  algo
+executa por comando ou por cada linha do comando
+nao funciona para select
+DESC noemtabela - me traz uma descricao da tabela descrita
+Inserting uodateing, deleting - sao funcoes padroes do oracle que recebem true ou false, comforme a ação feita no banco
+Sempre gerar Log dos seus arquivos
+Comum no sql server usar no with(nolock) para relatorios
