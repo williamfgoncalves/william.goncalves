@@ -3,33 +3,25 @@
     CURSOR Cidade_Cursor IS
     select Nome, Uf, count(Nome) as NUM_CIDADES_REPETIDAS
       from Cidade
-      group by Nome, Uf
-      having count(Nome) > 1;
-    CURSOR Cliente_Cursor (pNome in varchar2, pUf in varchar2) IS  
-    select cl.idcliente, cl.nome as nomeCliente, c.Nome as ClienteCidade, c.Uf
-      from cliente cl 
-      inner join Cidade c
-      on c.IdCidade = cl.IdCidade
-      where  c.Nome = pNome
-      and c.Uf = pUf;
+      group by nome, uf
+      having count(nome) > 1;
+    CURSOR Cliente_Cursor IS  
+    select cl.nome as nomeCliente, c.Nome as ClienteCidade, c.Uf
+      from Cidade c
+      inner join cliente cl
+      on c.IdCidade = cl.IdCidade;
   begin
     FOR item IN Cidade_Cursor LOOP
-      dbms_output.put_line('Cidade: '|| item.Nome );
       FOR item2 IN Cliente_Cursor LOOP
-        dbms_output.put_line('Cliente: '|| item2.nomeCliente);
+        IF item.nome = item2.ClienteCidade THEN
+          DBMS_OUTPUT.PUT_LINE(item2.nomeCliente);
+        END IF;  
       END LOOP;  
     END LOOP;
   end;
 
-create index IX_Cidade_NomeUF
-on Cidade (Nome, UF);
-create index IX_ClienteCidade
-on Cliente(IdCidade);
-
 -- Exercicio 2
-CREATE OR REPLACE 
-PROCEDURE Atualiza_Valor_Pedido is
-    
+DECLARE
     valorPedidoAtualizado Pedido.ValorPedido%TYPE;
     indiceBegin Pedido.idPedido%TYPE;
     
@@ -49,23 +41,6 @@ PROCEDURE Atualiza_Valor_Pedido is
     WHERE IDPEDIDO = indiceBegin;
 end;
 
-CREATE OR REPLACE
-PROCEDURE Atualiza_Valor_Pedido (pIDPedido IN INTEGER) AS
-  vValorPedido  Pedido.ValorPedido%type;
-BEGIN
-
-   Select SUM(Quantidade * PrecoUnitario)
-   into   vValorPedido
-   From   PedidoItem
-   Where  IDPedido = pIDPedido;
-   
-   Update Pedido
-   Set    ValorPedido = vValorPedido
-   Where  IDPedido    = pIDPedido;
-
-END;
-
-
 -- Exercicio 3 
 DECLARE 
     CURSOR ClienteCursor IS
@@ -84,7 +59,7 @@ end;
 
 -- Exercicio 4
 
-DECLARE
+    DECLARE
     CURSOR ProdutoMesCursor(IdProdutoProcurado IN NUMBER, DataAserPesquisada IN VARCHAR) IS
         SELECT PI.IDPRODUTO, SUM(PI.QUANTIDADE) AS QUANTIDADEPRODUTOS
         FROM PEDIDO PE
@@ -101,7 +76,7 @@ DECLARE
         WHERE PMT.IDPRODUTO = IdProdutoProcurado AND PMT.QUANTIDADE IS NOT NULL;
         Zerar NUMBER := 0;
     BEGIN
-        FOR item IN ProdutoMesCursor(4246, '2017/04') LOOP
+        FOR item IN ProdutoMesCursor(2,'2014/02') LOOP
             FOR item2 IN MateriaisNecessarios(item.IdProduto) LOOP
                dbms_output.put_line(item2.descricao || ' - ' || TO_CHAR(item2.QUANTIDADE * item.QUANTIDADEPRODUTOS));
             END LOOP;
