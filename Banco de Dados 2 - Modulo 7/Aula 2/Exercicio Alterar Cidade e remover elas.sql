@@ -27,7 +27,7 @@ create or replace package body pck_CidadesDuplicadas as
                 cid.UF
         from   Cliente cli
         inner join Cidade cid on cid.IDCidade = cli.IDCidade
-        where  cid.Nome = pNome;
+        where  cid.Nome = pNome
         and    cid.UF   = pUF;
          
     begin
@@ -37,6 +37,7 @@ create or replace package body pck_CidadesDuplicadas as
           END LOOP;
       END LOOP;
     end;
+  end;
     
   CREATE OR REPLACE
   FUNCTION BuscaNomeCidade
