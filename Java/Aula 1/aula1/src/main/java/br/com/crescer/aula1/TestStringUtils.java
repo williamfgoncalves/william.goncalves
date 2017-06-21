@@ -9,9 +9,7 @@ public class TestStringUtils implements StringUtils{
 
     @Override
     public boolean isEmpty(String string) {
-        if(string.isEmpty())
-            return true;
-        else return false;
+        return string == null || string.trim().isEmpty();
     }
     
     @Override
