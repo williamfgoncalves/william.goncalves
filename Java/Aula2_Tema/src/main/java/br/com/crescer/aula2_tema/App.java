@@ -14,7 +14,8 @@ public class App {
       //TESTE 1.4   //System.out.println(ftc.mv("C:\\Users\\William\\Documents\\testarArquivo\\log\\log.txt", "C:\\Users\\William\\Documents\\testarArquivo\\log2\\"));
       //TESTE 2.1   //System.out.println(rts.read("C:\\Users\\William\\Documents\\testarArquivo\\log\\log2.txt"));
       //TESTE 3.1   //
-      wrc.write("C:\\Users\\William\\Documents\\testarArquivo\\log\\log2.txt", "Ta pegando BIXO!");
+      //wrc.write("C:\\Users\\William\\Documents\\testarArquivo\\log\\log2.txt", "Ta pegando BIXO!");
       //System.out.println(rts.read("C:\\Users\\William\\Documents\\testarArquivo\\log\\log2.txt"));
+       
      }
 }
