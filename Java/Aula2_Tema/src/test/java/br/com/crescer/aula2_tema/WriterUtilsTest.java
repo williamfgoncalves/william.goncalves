@@ -1,5 +1,6 @@
-package br.com.crescer.aula2.tema;
+package br.com.crescer.aula2_tema;
 
+import br.com.crescer.aula2_tema.WriterUtilsCode;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,12 +16,12 @@ public class WriterUtilsTest {
 
     private static final String TARGET_PATH = "target";
 
-    private final WriterUtils writerUtils;
+    private final WriterUtilsCode writerUtils;
 
     private String filename;
 
     public WriterUtilsTest() {
-        this.writerUtils = new WriterUtilsImpl();
+        this.writerUtils = new WriterUtilsCode();
     }
 
     @Before

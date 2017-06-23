@@ -1,5 +1,6 @@
-package br.com.crescer.aula2.tema;
+package br.com.crescer.aula2_tema;
 
+import br.com.crescer.aula2_tema.ReaderUtilsCode;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,12 +18,12 @@ public class ReaderUtilsTest {
 
     private static final String TARGET_PATH = "target";
 
-    private final ReaderUtils readerUtils;
+    private final ReaderUtilsCode readerUtils;
 
     private String filename;
 
     public ReaderUtilsTest() {
-        this.readerUtils = new ReaderUtilsImpl();
+        this.readerUtils = new ReaderUtilsCode();
     }
 
     @Before

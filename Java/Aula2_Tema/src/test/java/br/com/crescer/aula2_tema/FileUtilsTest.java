@@ -1,5 +1,6 @@
-package br.com.crescer.aula2.tema;
+package br.com.crescer.aula2_tema;
 
+import br.com.crescer.aula2_tema.FileUtilsCode;
 import java.io.File;
 import java.util.Date;
 import org.junit.Test;
@@ -13,10 +14,10 @@ public class FileUtilsTest {
 
     private static final String TARGET_PATH = "target";
 
-    private final FileUtils fileUtils;
+    private final FileUtilsCode fileUtils;
 
     public FileUtilsTest() {
-        this.fileUtils = new FileUtilsImpl();
+        this.fileUtils = new FileUtilsCode();
     }
 
     @BeforeClass
