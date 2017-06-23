@@ -12,7 +12,6 @@ public class CidadeDaoImpl implements CidadeDao {
 
     @Override
     public void insert(Cidade t) {
-
         try (final PreparedStatement preparedStatement
                 = ConexaoUtils.getConection().prepareStatement(INSERT_CIDADE)) {
             preparedStatement.setLong(1, t.getId());
