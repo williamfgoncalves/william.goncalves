@@ -8,6 +8,7 @@ public class Main {
        // cid.setIDEstado(12);
        // c.insert(cid);
        SQLUtilsImpl sui = new SQLUtilsImpl();
-       sui.runFile("C:\\Users\\William\\Documents\\testarArquivo\\queryTeste.sql");
+       //sui.runFile("C:\\Users\\William\\Documents\\testarArquivo\\queryTeste.sql");
+       System.out.println(sui.executeQuery("SELECT * FROM Estado"));
     }
 }

@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -22,7 +23,6 @@ public class SQLUtilsImpl implements SQLUtils{
         String query = "";
         File file = new File(filename);
         Path path = file.toPath();
-        Reader reader;
         
         if(file.isFile() && path.getFileName().toString().contains(".sql")){
             try {
@@ -40,8 +40,20 @@ public class SQLUtilsImpl implements SQLUtils{
     }
 
     @Override
-    public String executeQuery(String query) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String executeQuery(String query){
+        StringBuilder sbd = new StringBuilder();
+        
+        try {
+            PreparedStatement preparedStatement = ConexaoUtils.getConection().prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery(query);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int coluna = rsmd.getColumnCount();
+            gerarCabecalho(coluna, sbd, rsmd);
+            gerarLinhas(rs,coluna, sbd);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sbd.toString();
     }
 
     @Override
@@ -57,5 +69,23 @@ public class SQLUtilsImpl implements SQLUtils{
     private void executaQuery(String s) throws SQLException{
         Statement statement = ConexaoUtils.getConection().createStatement();
         statement.executeQuery(s);
+    }
+    
+    private void gerarCabecalho(int coluna, StringBuilder sbd, ResultSetMetaData rsmd) throws SQLException{
+        for(int i=1; i<= coluna; i++){
+            sbd.append(rsmd.getColumnName(i)).append(", ");
+        }
+        sbd.deleteCharAt(sbd.length() - 2);
+        sbd.append("\n");     
+    } 
+    
+    private void gerarLinhas(ResultSet rs, int coluna, StringBuilder sbd) throws SQLException{
+        while(rs.next()){
+               for(int i=1; i<= coluna; i++){
+                   sbd.append(rs.getString(i)).append(", ");
+               }
+               sbd.deleteCharAt(sbd.length() - 2);
+               sbd.append("\n");
+         }
     }
 }
