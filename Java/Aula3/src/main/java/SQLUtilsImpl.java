@@ -85,9 +85,9 @@ public class SQLUtilsImpl implements SQLUtils{
         //ConexaoUtils.getConection().commit();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
+            Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -95,8 +95,8 @@ public class SQLUtilsImpl implements SQLUtils{
     @Override
     public File importCSV(String query) {
         WriterUtilsCode write = new WriterUtilsCode();
-        write.write("C:\\Users\\William\\Documents\\testarArquivo\\Estado.csv", executeQuery(query).toString());
-        return new File("C:\\Users\\William\\Documents\\testarArquivo\\Estado.csv");
+        write.write("C:\\Users\\william.goncalves\\Documents\\TestarArquivo\\Estado.csv", executeQuery(query).toString());
+        return new File("C:\\Users\\william.goncalves\\Documents\\TestarArquivo\\Estado.csv");
     }
     
     private void executaQuery(String s) throws SQLException{

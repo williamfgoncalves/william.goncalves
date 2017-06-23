@@ -1,0 +1,27 @@
+JAVA AULA 4 --------------------------------------------------------------------------------------------------
+
+Tentar fazer os testes as vezes antes de implementar, para saber se estou trazendo os dados
+Metadata = retorna os dados da coluna consultada ou da query executada
+
+Mapper- para evitar replicacao de codigo ou varias implementacoes iguais dentro das clases, podemos gerar algo mais abstrato como mapper
+
+JPA -Api de Persistencia
+Padrao sugerido pela oracle
+se baseia em POJO
+Usa o Eclipse linq
+para trabalhar com JPA precisamos de um XML
+Para persistir com o banco tem que estar dentro o setado dentro persistence.xml o nome da classe mapeada
+
+Criar uma pasta resources > uma pasta meta-inf
+
+Comity no entity manager é false por defaut!
+
+Nunca tentar alterar os dados buscados diretamente do banco! sempre usar o begin transction entre o merge ou o persist;
+
+HIBERNATE = Usa todos os metodos dele ja existentes do jpa porem com alguns outros mudancas;
+
+Criteria - fica top
+
+O ORM funciona para N bancos sempre de forma linda e maravilhosa;
+
+Para o unique result tem que usar o max result

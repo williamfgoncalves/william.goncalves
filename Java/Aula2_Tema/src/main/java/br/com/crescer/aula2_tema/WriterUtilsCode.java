@@ -22,7 +22,7 @@ public class WriterUtilsCode implements WriterUtils{
     @Override
     public void write(String file, String conteudo) {
         File fileWrite = new File(file);
-        if(fileWrite.toPath().getFileName().toString().contains(".txt") && fileWrite.isFile()){
+        if(fileWrite.toPath().getFileName().toString().contains(".csv") && fileWrite.isFile()){
             try {
                 Writer writer = new FileWriter(file);
                 BufferedWriter bufferWrite = new BufferedWriter(writer);
