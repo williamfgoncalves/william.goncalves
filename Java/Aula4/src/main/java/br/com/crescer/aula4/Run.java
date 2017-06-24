@@ -29,7 +29,14 @@ public class Run {
         final Cliente cliente = new Cliente();
         cliente.setID(14L);
         cliente.setNome("Willliam");
+        
+        em.getTransaction().begin();
         session.save(cliente);
+        em.getTransaction().commit();
+        
+        //session.close();
+        em.close();
+        emf.close();
         
         /* METODOS ABAIXO SAO USADOS NO JPA
         em.getTransaction().begin(); // abrindo transacao
