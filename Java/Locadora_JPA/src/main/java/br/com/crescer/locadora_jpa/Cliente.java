@@ -2,7 +2,6 @@
 package br.com.crescer.locadora_jpa;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -14,16 +13,25 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Funcionario implements Serializable {
+public class Cliente implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_FUNCIONARIO")
-    @SequenceGenerator(name = "SEQ_FUNCIONARIO", sequenceName = "SEQ_FUNCIONARIO", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CLIENTE  ")
+    @SequenceGenerator(name = "SEQ_CLIENTE  ", sequenceName = "SEQ_CLIENTE", allocationSize=1)
     private Long Id;
    
     @Column(name="NOME", nullable=false) 
     private String Nome;
     
+    @Column(name="CPF")
+    private String CPF;
+    
+    @Column(name="RG", nullable = false)
+    private String RG;
+    
+    @Column(name="RUA")
+    private String Rua;
+   
     @Column(name="BAIRRO")
     private String Bairro;
     
@@ -33,12 +41,6 @@ public class Funcionario implements Serializable {
     @Column(name="NUMERO_CASA")
     private String Numero_Casa;
     
-    @Column(name="RUA")
-    private String Rua;
-    
-    @Column(name="RG", nullable = false)
-    private String RG;
-    
     @Column(name="EMAIL")
     private String Email;
     
@@ -47,15 +49,6 @@ public class Funcionario implements Serializable {
     
     @Column(name="CELULAR")
     private String Celular;
-    
-    @Column(name="SALARIO")
-    private BigDecimal Salario;
-    
-    @Column(name="FUNCAO")
-    private String Funcao;
-    
-    @Column(name="CPF")
-    private String CPF;
     
     @Column(name="NASCIMENTO")
     @Temporal(TemporalType.DATE)
@@ -140,23 +133,7 @@ public class Funcionario implements Serializable {
     public void setCelular(String Celular) {
         this.Celular = Celular;
     }
-
-    public BigDecimal getSalario() {
-        return Salario;
-    }
-
-    public void setSalario(BigDecimal Salario) {
-        this.Salario = Salario;
-    }
-
-    public String getFuncao() {
-        return Funcao;
-    }
-
-    public void setFuncao(String Funcao) {
-        this.Funcao = Funcao;
-    }
-
+    
     public String getCPF() {
         return CPF;
     }
