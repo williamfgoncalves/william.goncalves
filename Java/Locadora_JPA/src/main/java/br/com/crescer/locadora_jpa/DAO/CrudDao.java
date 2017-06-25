@@ -1,4 +1,4 @@
-package br.com.crescer.locadora_jpa;
+package br.com.crescer.locadora_jpa.DAO;
 
 import java.util.List;
 

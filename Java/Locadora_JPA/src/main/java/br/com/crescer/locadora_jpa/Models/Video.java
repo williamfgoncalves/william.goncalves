@@ -1,4 +1,4 @@
-package br.com.crescer.locadora_jpa;
+package br.com.crescer.locadora_jpa.Models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

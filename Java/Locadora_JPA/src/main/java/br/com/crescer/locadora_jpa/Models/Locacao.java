@@ -1,7 +1,8 @@
-package br.com.crescer.locadora_jpa;
+package br.com.crescer.locadora_jpa.Models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
 
 @Entity
 public class Locacao implements Serializable{
@@ -20,7 +22,7 @@ public class Locacao implements Serializable{
     @SequenceGenerator(name = "SEQ_LOCACAO", sequenceName = "SEQ_LOCACAO", allocationSize=1)
     private Long Id;
     
-    @Column(name = "VALOR_INICIAL")
+    @Column(name = "VALOR_TOTAL")
     private BigDecimal Valor_Total;
     
     @ManyToOne(cascade = CascadeType.ALL)
@@ -34,6 +36,10 @@ public class Locacao implements Serializable{
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_VIDEO")
     private Video Video;
+    
+    @Column(name = "DATA_DEVOLUCAO")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date Data_Devolucao;
 
     public Long getId() {
         return Id;
@@ -73,5 +79,13 @@ public class Locacao implements Serializable{
 
     public void setVideo(Video Video) {
         this.Video = Video;
+    }
+
+    public Date getData_Devolucao() {
+        return Data_Devolucao;
+    }
+
+    public void setData_Devolucao(Date Data_Devolucao) {
+        this.Data_Devolucao = Data_Devolucao;
     }
 }
