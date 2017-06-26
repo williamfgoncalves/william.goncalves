@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class ParcelatorTest {
 
-    /*private static final Calendar CALENDAR = Calendar.getInstance();
+    private static final Calendar CALENDAR = Calendar.getInstance();
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyyy");
 
     private final Parcelator parcelator;
@@ -32,7 +32,7 @@ public class ParcelatorTest {
     /**
      * Test of calcular method, of class Parcelator.
      */
-    /*@Test
+    @Test
     public void testCalcular() {
         CALENDAR.set(2017, 5, 18);
         
@@ -50,6 +50,6 @@ public class ParcelatorTest {
         assertEquals(total, parcelas.entrySet().stream()
                 .map(Entry::getValue)
                 .collect(Collectors.reducing(BigDecimal.ZERO, BigDecimal::add)));
-    }*/
+    }
 
 }

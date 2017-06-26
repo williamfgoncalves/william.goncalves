@@ -18,6 +18,6 @@ public class UnitTestParcelatorUtils{
         String data = "05/05/2016";
         SimpleDateFormat simpleDataFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = simpleDataFormat.parse(data);
-        return parcelatorUtil.calcular(new BigDecimal(1000), 10, 0.1, date); 
+        return parcelatorUtil.calcular(new BigDecimal(1000), 10, 10, date); 
     }
 }
