@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +14,7 @@ import org.junit.Test;
  * @author carloshenrique
  */
 public class WriterUtilsTest {
-/*
+
     private static final String TARGET_PATH = "target";
 
     private final WriterUtilsCode writerUtils;
@@ -33,10 +34,15 @@ public class WriterUtilsTest {
     /**
      * Test of write method, of class WriterUtils.
      */
-   /* @Test
+    @Test
     public void testWrite() throws IOException {
         final String test = "teste de inclusão " + new Date().getTime();
         writerUtils.write(filename, test);
-        assertTrue(Files.readAllLines(Paths.get(filename)).contains(test));
-    }*/
+        List<String> lines = Files.readAllLines(Paths.get(filename));
+        for (String line : lines) {
+            System.out.println(line);
+        }
+        //System.out.println(Files.readAllLines(Paths.get(filename)).toString());
+        //assertTrue(Files.readAllLines(Paths.get(filename)).contains(test));
+    }
 }
