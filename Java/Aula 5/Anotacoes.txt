@@ -1,0 +1,27 @@
+atributos final tem que serem setados dentro do construtor dentro da minha classe
+h2 banco em memoria - ver
+
+Aula de hoje - SERVLET;
+Servidor Glass fish - o melhor de todos! o pai, o deus iluminati.
+
+Servlet - calsse que representa um http request(suporte todos os metodos do http)
+DoGet - get do http - vai o request e o response
+n 
+toda session armazena uma sessao para o cara dentro do cookie
+
+HttpServletRequest - Consigo manipular todos os dados de resposta do server para  o client
+
+get writer - para escrever no navegador qualqur coisa no html
+
+Contety tipe - 
+
+SET COLLECTION - nao deixa ter objetos duplicados, como strings duplicadas 
+
+Apos adicionar o glas fish e colocar a jar do jdbc dentro dele, agora para transacoes dentro do banco de dados nao precisamos mais gerenciar uma transacao dentro do banco de dados
+
+geralmente bean sao regras de negocio
+
+Servlet nao abre transacao do entity manager
+usamos o EJB - usar anotation @stateles
+consegue injetar entity manager dentro delo
+
