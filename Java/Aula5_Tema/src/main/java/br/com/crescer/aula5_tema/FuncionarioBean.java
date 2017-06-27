@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 public class FuncionarioBean {
+    
     @PersistenceContext(unitName = "crescer")
     private EntityManager entityManager;
     private FuncionarioDao f = new FuncionarioDao();

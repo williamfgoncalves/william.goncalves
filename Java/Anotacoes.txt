@@ -1,0 +1,43 @@
+JSF -------
+É server side, ele processa do lado do servidor
+Preciso de um web.xml
+para gerenciar a localizacao do pattern. basta tirar p /faces/*
+temos o manageBean no JSF - gerencia uma tela para minha aplicacao
+o @viewscope mantem todas as instancias do managebean abertas no lado servidor enquanto a pagina estiver aberta(Custoso com memoria)
+
+request scope - so no escopo da requisicao, ele chama, executa e morre,
+Session scope - igual ao view, porem para sessions
+aplication scope - serve para a aplicacao, igual ao view;
+
+Ciclo de vida - vem requisicao, verifica se para aquela pagina se nao tem uma visao aberta, se sim recupera o estado, se nao cria / faz as validações / atualiza os valores do input para o bean, pega o valor da tela e joga para a classe.
+
+Facelets - é o padrao do jsf;
+template, html, core, jstl core, jstl functions;
+
+elemento duplicado, é id igual na pagina, sempre cuidar disso, vai dar treta!
+
+Podemos criar templates, onde ao definirmos ui:alguma coisa, ele vai poder 
+
+tudo que for enviar para o servidor tem que ser via um form, ou seja, atraves do metodo POST.
+
+Consigo atualizar via ajax apenas um campo do meu formulario tambem,
+
+Fces config - é um arquivo de configuração do JSF, serve para internacionalizacao e etc.
+
+Bundle - é uma forma de intercionalizar a minha aplicaco de forma mais simples.
+
+Navegacao - 
+
+Filter - faz verificações de requiscoes de dados antes de ela entra no ciclo de vida de um jsf
+
+Converter - o converter faz o parse dos dados para string e para objetos, e vice e versa, porque no back esperamos um obejtos, mas o html nos retorna um string e vice e versa.
+
+h:message, voce pode mostrar todos os erros do jsf que rolam no back pro front
+
+Validator = é uma validador para qualquer campo que queremos validar, nao importa o dado, ele valida
+
+Para exibir mensagem de erro na tela temos que usar o h:message, do caso nao exibe na tela essa mensagem de erro.
+
+render add- so renderiza atraves de uma condicao
+
+PUNKLER - PARA PROJETOS EM ANGULAR , MUITO MASSA!!!!!!!!!!!!!!!
