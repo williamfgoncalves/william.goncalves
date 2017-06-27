@@ -1,0 +1,21 @@
+SERVLET - FLUXO DE REQUISAO E RESPOSTA
+
+Aplicaco cliente rodando no navegador, cliente digite na barra do navegador, ao dar enter enivar requisao http para um servidor java(tomcat, glassfish), este servidor tem o container web, que gerencia a requisao web e passa para o servlet transformando o componemte que veio do cliente em um objeto web httpservletRequest. 
+Apos isso o java tem o trabalho de gerar a requisao, como um pagina web dinamica por exemplo e da para o client como resposta um objeto httpservletresponse que logo apos para ser enviado para o cliente é novamente transaforma em uma transmissao http.
+
+Conceito de javaServlet
+- pequena aplicacao java que recebe requisicoes http, processa a solicitacao e devolve um http resposta
+- o cara que gerencia os servlets e um modulo do server chamado container.
+- para termos um servlet dentro da nossa aplicacao temos que ter uma classe que extende a HTTPSERVLET, e essa classe fica responsavel por receber, gerenciar e devolver as requisicoes;
+
+Como funciona a requisacao 
+- o client digita na url no browser fazendo esta requisacao  e atraves desta url que conseguimos acessar nosso servlet do lado do servidor
+
+Mapeamento de um servlet
+- quando o servidor web recebe a requisao ele faz a (verificao, interpretacao) do que esta vindo e joga para o servlet adequado para que seja executado.
+- Podemos gerenciar esse mapeamente por dois meios, o web.xml dentro da pasta WEB-INF, que descreve o mapeamento e temos tambem como usar uma anotacao (@WebServlet(name="xxx", urlPatterns = {"/xxxx"})) dentro da classe que tem um servlet para que esta anotacao gerencie o mapeamento para nós.
+
+A classe que define um servlet
+- uma classe web que tenha como definicao atender requisoes http em uma aplicacao web deve estender a classe abstrata denominada HTTPSERVLET, e esta por sua vez na heirarquia de classes do java estende uma classe chamada GENERICSERVLET, a qual implementa algumas interfaces, entre elas a servlet
+
+

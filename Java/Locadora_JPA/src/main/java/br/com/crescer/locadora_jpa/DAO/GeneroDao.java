@@ -15,17 +15,17 @@ public class GeneroDao implements CrudDao <Genero, Long>{
 
     @Override
     public Genero save(Genero e) {
-        session.getTransaction().begin();
+        //session.getTransaction().begin();
         session.save(e);
-        session.getTransaction().commit();
+        //session.getTransaction().commit();
         return e;
     }
 
     @Override
     public void remove(Genero e) {
-        session.getTransaction().begin();
+        //session.getTransaction().begin();
         session.delete(e);
-        session.getTransaction().commit();
+        //session.getTransaction().commit();
     }
 
     @Override
