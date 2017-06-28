@@ -1,0 +1,122 @@
+*{
+    box-sizing: 0;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("https://pmctvline2.files.wordpress.com/2015/01/vikings_season3_cast.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#check{
+    display: none;
+}
+#icone{
+    cursor: pointer;
+    padding: 15px;
+    position: fixed;
+    z-index: 1;
+}
+.barra{
+    background-color: #333;
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    transition: all 0.2s linear;
+    left: -300px;
+}
+nav{
+    width: 100%;
+    position: absolute;
+    top: 60px;
+}
+nav a{
+    text-decoration: none;
+}
+.link{
+    background-color: #494950;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    transition: all 0.2s linear;
+    color: #f4f4f9;
+    border-bottom: 2px solid #222;
+    opacity: 0;
+    margin-top: 200px;
+}
+.link:hover{
+    background-color: #844010;
+}
+#check:checked ~ .barra{
+    transform: translateX(300px);
+}
+#check:checked ~ .barra nav a .link{
+    opacity: 1;
+    margin-top: 0;
+    transition-delay: 0.2s;
+}
+.welcome{
+    background-color: #f4f4f9;
+    width: 600px;
+    height: 90px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.welcome .imgW{
+    text-align: center;
+}
+.welcome .labelW{
+    text-align: center;
+}
+.imgW img{
+    width: 60px;
+    height: 60px;
+    border-radius: 25px;
+}
+.labelW label{
+    font-size: 19px;   
+}
+.insertPost{
+    background-color: #f4f4f9;
+    width: 600px;
+    height: 90px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.insertPost textarea{
+    resize: none;
+}
+.Post{
+    background-color: #f4f4f9;
+    width: 600px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.Post .imagemPost{
+    width: 100px;
+    height: 75px;
+    padding: 10px;
+    display: inline-block;
+}
+.Post .imagemPost img{
+    width: 100px;
+    height: 120px;
+    border-radius: 25px;
+}
+.Post .dadoPost{
+    width: 460px;
+    height: 120px;
+    margin: 10px;
+    background-color: red;
+    display: inline-block; 
+    float: right;
+}
