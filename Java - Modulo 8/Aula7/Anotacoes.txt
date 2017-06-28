@@ -1,0 +1,15 @@
+SPRING BOOT - O cara que faz tudo, ele auto configura tudo
+Spring data - ele gerencia a camada de acesso a dados
+Spring - Seccuriry - Gerencia a camada de seguranca
+Spring MVC - Funciona com web api
+flyaway
+liquid base
+
+RESPONSE BODY qualquer metodo que tiver anotado com response body ele transforma em um json
+@RestController - é o cara, faz tudo
+
+@Autowired - ela cria uma service para voce, ou seja, quando preciso persistir algo, so chamo isso.
+SERVICE - cada de service, ela faz camada de negocios, ou seja, faz as validações do objeto.
+Component - quando quiser algo muito generico que flutua entre as camadas
+SPRING DATA - facilita muito a manipulacao de dados da aplicacao;
+Repository - Olhar a documentacao do spring data
