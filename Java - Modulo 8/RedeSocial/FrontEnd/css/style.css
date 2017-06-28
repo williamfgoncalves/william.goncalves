@@ -4,14 +4,12 @@
     margin: 0;
     padding: 0;
 }
-
 body{
-    background-image: url("https://pmctvline2.files.wordpress.com/2015/01/vikings_season3_cast.jpg");
+    background-image: url("http://www.belesscrazy.com/wp-content/uploads/2015/01/watching-the-sky.jpg?189db0");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
-
 #check{
     display: none;
 }
@@ -60,12 +58,13 @@ nav a{
     transition-delay: 0.2s;
 }
 .welcome{
-    background-color: #f4f4f9;
+    background-color: rgba(52, 73, 94, 0.7);;
     width: 600px;
-    height: 90px;
+    height: 110px;
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    color: #fff;
 }
 .welcome .imgW{
     text-align: center;
@@ -82,19 +81,20 @@ nav a{
     font-size: 19px;   
 }
 .insertPost{
-    background-color: #f4f4f9;
+    background-color: rgba(52, 73, 94, 0.7);
     width: 600px;
-    height: 90px;
+    height: 120px;
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
 }
 .insertPost textarea{
+    margin-top: 10px;
     resize: none;
 }
 .Post{
-    background-color: #f4f4f9;
+    background-color: rgba(52, 73, 94, 0.7);
     width: 600px;
     height: 150px;
     margin: 0 auto;
@@ -109,14 +109,70 @@ nav a{
 }
 .Post .imagemPost img{
     width: 100px;
-    height: 120px;
-    border-radius: 25px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.Post .imagemPost p{
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
 }
 .Post .dadoPost{
     width: 460px;
     height: 120px;
     margin: 10px;
-    background-color: red;
+    background-color: rgba(52, 73, 94, 0.7);
     display: inline-block; 
     float: right;
+}
+.container{
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(52, 73, 94, 0.7);
+    margin-top: 150px;
+    border-radius: 25px;
+}
+.container img{
+    height: 120px;
+    width: 150px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+}
+.container input{
+    height: 45px;
+    width: 300px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding-left: 10px;
+}
+.cad_input{
+    width: 600px;
+    height: 680px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(52, 73, 94, 0.7);
+    margin-top: 150px;
+    border-radius: 25px;
+}
+.cad_input img{
+    height: 120px;
+    width: 150px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+}
+.cad_input input{
+    margin-top: 10px;
+    height: 45px;
+    width: 300px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding-left: 10px;
 }
