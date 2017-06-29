@@ -18,6 +18,10 @@ public class Genero implements Serializable{
     
     @Column(name="DESCRICAO", length = 60, nullable = false)
     private String Descricao;
+    
+    public Genero(){
+        
+    }
 
     public Long getId() {
         return Id;

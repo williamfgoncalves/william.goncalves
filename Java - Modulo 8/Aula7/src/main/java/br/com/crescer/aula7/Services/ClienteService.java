@@ -14,4 +14,20 @@ public class ClienteService {
     public Iterable<Cliente> listar(){
         return clienteRepositorio.findAll();
     }
+    
+    public Cliente salvar(Cliente c){
+        return clienteRepositorio.save(c);
+    }
+    
+    public Cliente atualizar(Cliente c){
+        return clienteRepositorio.save(c);
+    }
+    
+    public void remover(Cliente c){
+        clienteRepositorio.delete(c);
+    }
+    
+    public Cliente findById(Long id){
+        return clienteRepositorio.findOne(id);
+    }
 }

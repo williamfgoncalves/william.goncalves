@@ -15,4 +15,20 @@ public class FuncionarioService {
     public Iterable<Funcionario> listar(){
         return funcionarioRepositorio.findAll();
     }
+    
+    public Funcionario salvar(Funcionario c){
+        return funcionarioRepositorio.save(c);
+    }
+    
+    public Funcionario atualizar(Funcionario c){
+        return funcionarioRepositorio.save(c);
+    }
+    
+    public void remover(Funcionario c){
+        funcionarioRepositorio.delete(c);
+    }
+    
+    public Funcionario findById(Long id){
+        return funcionarioRepositorio.findOne(id);
+    }
 }

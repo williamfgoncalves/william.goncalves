@@ -14,4 +14,20 @@ public class GeneroService{
     public Iterable<Genero> listar(){
         return generoRepositorio.findAll();
     }
+    
+    public Genero salvar(Genero c){
+        return generoRepositorio.save(c);
+    }
+    
+    public Genero atualizar(Genero c){
+        return generoRepositorio.save(c);
+    }
+    
+    public void remover(Genero c){
+        generoRepositorio.delete(c);
+    }
+    
+    public Genero findById(Long id){
+        return generoRepositorio.findOne(id);
+    }
 }

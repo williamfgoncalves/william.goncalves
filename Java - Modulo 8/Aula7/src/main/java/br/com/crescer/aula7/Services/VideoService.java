@@ -14,4 +14,20 @@ public class VideoService {
     public Iterable<Video> listar(){
         return videoRepositorio.findAll();
     }
+    
+    public Video salvar(Video c){
+        return videoRepositorio.save(c);
+    }
+    
+    public Video atualizar(Video c){
+        return videoRepositorio.save(c);
+    }
+    
+    public void remover(Video c){
+        videoRepositorio.delete(c);
+    }
+    
+    public Video findById(Long id){
+        return videoRepositorio.findOne(id);
+    }
 }

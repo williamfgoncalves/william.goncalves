@@ -54,6 +54,10 @@ public class Cliente implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date Nascimento;
 
+    public Cliente(){
+        
+    }
+
     public Long getId() {
         return Id;
     }

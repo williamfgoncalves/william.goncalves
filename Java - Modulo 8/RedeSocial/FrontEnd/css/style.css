@@ -214,6 +214,7 @@ nav a{
   height:150px;
   background-color: rgba(52, 73, 94, 0.7);
   margin:0 auto;
+  color: white;
 }
 .listaAmigos div{
   width:33%;

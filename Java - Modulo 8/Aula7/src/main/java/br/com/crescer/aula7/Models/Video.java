@@ -40,6 +40,10 @@ public class Video implements Serializable{
     @Column(name = "DATA_LANCAMENTO")
     private Date Data_Lancamento;
 
+    public Video(){
+        
+    }
+    
     public Long getId() {
         return Id;
     }

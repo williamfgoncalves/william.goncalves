@@ -41,6 +41,10 @@ public class Locacao implements Serializable{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date Data_Devolucao;
 
+    public Locacao(){
+        
+    }
+    
     public Long getId() {
         return Id;
     }

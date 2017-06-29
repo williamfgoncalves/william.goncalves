@@ -14,4 +14,20 @@ public class LocacaoService {
     public Iterable<Locacao> listar(){
         return locacaoRepositorio.findAll();
     }
+    
+    public Locacao salvar(Locacao c){
+        return locacaoRepositorio.save(c);
+    }
+    
+    public Locacao atualizar(Locacao c){
+        return locacaoRepositorio.save(c);
+    }
+    
+    public void remover(Locacao c){
+        locacaoRepositorio.delete(c);
+    }
+    
+    public Locacao findById(Long id){
+        return locacaoRepositorio.findOne(id);
+    }
 }

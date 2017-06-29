@@ -60,7 +60,11 @@ public class Funcionario implements Serializable {
     @Column(name="NASCIMENTO")
     @Temporal(TemporalType.DATE)
     private Date Nascimento;
-
+    
+    public Funcionario(){
+        
+    }
+    
     public Long getId() {
         return Id;
     }
