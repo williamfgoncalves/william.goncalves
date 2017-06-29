@@ -1,0 +1,18 @@
+Toda vez que adicionamos uma dependencia se spring security 
+
+ma das formas de criar autenticacao e criar uma classe que estenda web security adapeter
+
+User detais - vai fazre a regra de negocio sobre o usuario logado
+
+ususario service - find by user name, user name e senha encripada no banco
+
+roles de acesso  -regras de acesso;
+
+csrf - preciso ter um token adicional de seguranca para cada post para um url
+por padrao ele vem habilitado, tem que desabilitar
+
+So consigo fazer com que a url seja anotada com o usuario especifico ,tem que ter do anotation gçlobalsecurity na classe de seguranca
+
+abas de dubug, pontos de interupção
+
+Exception hendler
