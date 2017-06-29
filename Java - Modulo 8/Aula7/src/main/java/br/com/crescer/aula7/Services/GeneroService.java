@@ -1,6 +1,7 @@
-package br.com.crescer.aula7;
+package br.com.crescer.aula7.Services;
 
-import java.util.List;
+import br.com.crescer.aula7.Models.Genero;
+import br.com.crescer.aula7.Repositories.GeneroRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class GeneroService{
     
     @Autowired
-    GeneroRepositorio generoRepositorio;
+    private GeneroRepositorio generoRepositorio;
     
     public Iterable<Genero> listar(){
         return generoRepositorio.findAll();

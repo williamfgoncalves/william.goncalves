@@ -1,7 +1,7 @@
-package br.com.crescer.aula7;
+package br.com.crescer.aula7.Controllers;
 
-import br.com.crescer.aula7.GeneroService;
-import java.util.List;
+import br.com.crescer.aula7.Models.Genero;
+import br.com.crescer.aula7.Services.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

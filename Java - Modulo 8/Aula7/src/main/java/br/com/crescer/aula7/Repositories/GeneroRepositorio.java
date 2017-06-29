@@ -1,7 +1,7 @@
 
-package br.com.crescer.aula7;
+package br.com.crescer.aula7.Repositories;
 
-import br.com.crescer.aula7.Genero;
+import br.com.crescer.aula7.Models.Genero;
 import org.springframework.data.repository.CrudRepository;
 
 
