@@ -1,4 +1,4 @@
-angular.module('upEventos').config(function ($routeProvider) {
+angular.module('Andromeda').config(function ($routeProvider) {
 
     $routeProvider
 
@@ -6,45 +6,29 @@ angular.module('upEventos').config(function ($routeProvider) {
             controller: 'loginController',
             templateUrl: './login.html'
         })
-        .when('/index', {
+        .when('/cadastro', {
+            controller: 'cadastroController',
+            templateUrl: './cadastro.html'
+        })
+        .when('/login', {
+            controller: 'loginController',
+            templateUrl: './login.html'
+        })
+        .when('/home', {
             controller: 'homeController',
-            templateUrl: './index.html',
-            resolve: {
-                // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
-                autenticado: function (authService) {
-                    return authService.isAutenticadoPromise();
-                }
-            }
+            templateUrl: './home.html'
         })
         .when('/amigos', {
             controller: 'amigosController',
-            templateUrl: './amigos.html',
-            resolve: {
-                // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
-                autenticado: function (authService) {
-                    return authService.isAutenticadoPromise();
-                }
-            }
+            templateUrl: './amigos.html'
         })
         .when('/convites', {
             controller: 'convitesController',
-            templateUrl: './convites.html',
-            resolve: {
-                // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
-                autenticado: function (authService) {
-                    return authService.isAutenticadoPromise();
-                }
-            }
+            templateUrl: './convites.html'
         })
         .when('/perfil', {
             controller: 'perfilController',
-            templateUrl: './perfil.html',
-            resolve: {
-                // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
-                autenticado: function (authService) {
-                    return authService.isAutenticadoPromise();
-                }
-            }
+            templateUrl: './perfil.html'
         })
         .otherwise({ redirectTo: '/login' })
 })

@@ -1,11 +1,12 @@
 *{
     box-sizing: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Slabo 27px', serif;
+    font-family: 'Josefin Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
 body{
-    background-image: url("http://www.belesscrazy.com/wp-content/uploads/2015/01/watching-the-sky.jpg?189db0");
+    background-image: url("http://i0.kym-cdn.com/photos/images/original/000/964/872/5b5.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -58,7 +59,7 @@ nav a{
     transition-delay: 0.2s;
 }
 .welcome{
-    background-color: rgba(52, 73, 94, 0.7);;
+    background-color: rgba(52, 73, 94, 0.7);
     width: 600px;
     height: 110px;
     margin: 0 auto;
@@ -175,4 +176,36 @@ nav a{
     margin-bottom: 20px;
     background-color: #fff;
     padding-left: 10px;
+}
+.cabecalhoPerfil{
+  width:600px;
+  height:250px;
+  background-color: rgba(52, 73, 94, 0.7);
+  margin: 0 auto;
+  color: white;
+  margin-top: 10px;
+}
+.cabecalhoPerfil .fotoPerfil{
+  width:200px;
+  height:250px;
+  float:left;
+}
+.cabecalhoPerfil .fotoPerfil img{
+  width: 180px;
+  height: 200px;
+  border-radius: 50%;
+  display:block;
+  margin: 0 auto;
+  padding-top:12%;
+}
+.infosPerfil{
+  width:400px;
+  height:250px;
+  float: right;
+}
+.infosPerfil div{
+  width:400px;
+  height:25%;
+  text-align:center;
+  font-size:20px;
 }
