@@ -32,7 +32,7 @@ public class UsuariosService{
         usuariosRepositorio.delete(id);
     }
     
-    public Usuarios buscarPorId(Long Id){
-        return usuariosRepositorio.findOne(Id);
+    public Usuarios buscarPorEmail(String email){
+        return usuariosRepositorio.findOneByEmail(email);
     }
 }

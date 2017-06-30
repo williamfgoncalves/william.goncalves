@@ -76,12 +76,8 @@ public class Usuarios implements Serializable {
     private Character sexo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitado")
     private List<Solicitacao> solicitacaoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitante")
-    private List<Solicitacao> solicitacaoList1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
     private List<Amizades> amizadesList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-    private List<Amizades> amizadesList1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
     private List<Curtidas> curtidasList;
 
@@ -157,16 +153,7 @@ public class Usuarios implements Serializable {
     public void setSolicitacaoList(List<Solicitacao> solicitacaoList) {
         this.solicitacaoList = solicitacaoList;
     }
-
-    @XmlTransient
-    public List<Solicitacao> getSolicitacaoList1() {
-        return solicitacaoList1;
-    }
-
-    public void setSolicitacaoList1(List<Solicitacao> solicitacaoList1) {
-        this.solicitacaoList1 = solicitacaoList1;
-    }
-
+    
     @XmlTransient
     public List<Amizades> getAmizadesList() {
         return amizadesList;
@@ -174,15 +161,6 @@ public class Usuarios implements Serializable {
 
     public void setAmizadesList(List<Amizades> amizadesList) {
         this.amizadesList = amizadesList;
-    }
-
-    @XmlTransient
-    public List<Amizades> getAmizadesList1() {
-        return amizadesList1;
-    }
-
-    public void setAmizadesList1(List<Amizades> amizadesList1) {
-        this.amizadesList1 = amizadesList1;
     }
 
     @XmlTransient

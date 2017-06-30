@@ -1,5 +1,4 @@
-angular.module('Andromeda', ['ngRoute', 'ngStorage', `auth`]);
-
+angular.module('Andromeda', ['ngRoute', 'ngStorage', 'auth']);
 
 angular.module('Andromeda').constant('authConfig', {
 

@@ -10,10 +10,6 @@ angular.module('Andromeda').config(function ($routeProvider) {
             controller: 'cadastroController',
             templateUrl: './cadastro.html'
         })
-        .when('/login', {
-            controller: 'loginController',
-            templateUrl: './login.html'
-        })
         .when('/home', {
             controller: 'homeController',
             templateUrl: './home.html'
