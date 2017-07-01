@@ -1,13 +1,13 @@
 <div class="container">
     <img src="https://www.braskem.com.br/Portal/Braskem/img/hotsites/mis/astronauta.png">
-    <form action="#!/home">
+    <form name="formLogin" >
         <div class="form-input">
-            <input type="email" name="email" placeholder="Insira seu email">
+            <input type="email" name="email" ng-model="usuario.email" placeholder="Insira seu email">
         </div>
         <div class="form-input">
-            <input type="password" name="senha" placeholder="Insira sua senha">
+            <input type="password" name="senha" ng-model="usuario.senha" placeholder="Insira sua senha">
         </div>
-        <input type="submit" name="submit" value="Login" class="btn-login">
-        <input type="submit" name="submit" value="Cadastre-se" class="btn-cadastro">
+        <button type="submit" ng-click="login(usuario)" class="btn-login"> Login </button>
+        <button type="submit" ng-click="cadastrar()" class="btn-cadastro"> Cadastre-se </button>
     </form>
 </div>

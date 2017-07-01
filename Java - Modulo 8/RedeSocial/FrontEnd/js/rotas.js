@@ -12,19 +12,39 @@ angular.module('Andromeda').config(function ($routeProvider) {
         })
         .when('/home', {
             controller: 'homeController',
-            templateUrl: './home.html'
+            templateUrl: './home.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
         })
         .when('/amigos', {
             controller: 'amigosController',
-            templateUrl: './amigos.html'
+            templateUrl: './amigos.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
         })
         .when('/convites', {
             controller: 'convitesController',
-            templateUrl: './convites.html'
+            templateUrl: './convites.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
         })
         .when('/perfil', {
             controller: 'perfilController',
-            templateUrl: './perfil.html'
+            templateUrl: './perfil.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
         })
         .otherwise({ redirectTo: '/login' })
 })

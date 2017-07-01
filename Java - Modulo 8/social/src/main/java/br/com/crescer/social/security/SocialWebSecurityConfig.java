@@ -44,7 +44,7 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity webSecurity) throws Exception {
         webSecurity.ignoring()
                 .antMatchers(securityPublic)
-                .antMatchers(HttpMethod.POST, "/usuario");
+                .antMatchers(HttpMethod.POST, "/usuarios");
     }
 
     @Bean

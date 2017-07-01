@@ -1,25 +1,29 @@
 <div class="cad_input">
-    <form action="">
+    <form name="formCadastro">
         <img src="https://www.braskem.com.br/Portal/Braskem/img/hotsites/mis/astronauta.png">
         <div class="form-input">
-            <input type="text" name="email" placeholder="Insira seu nome">
+            <input type="text" ng-model="usuario.nome" placeholder="Insira seu nome">
         </div>
         <div class="form-input">
-            <input type="text" name="email" placeholder="Insira seu sobrenome">
+            <input type="email" ng-model="usuario.email" placeholder="Insira seu email">
         </div>
         <div class="form-input">
-            <input type="email" name="email" placeholder="Insira seu email">
+            <input type="password" ng-model="usuario.senha" placeholder="Insira sua senha">
         </div>
         <div class="form-input">
-            <input type="password" name="email" placeholder="Insira sua senha">
+            <input type="password" ng-model="comparar" placeholder="Insira sua senha novamente">
         </div>
         <div class="form-input">
-            <input type="password" name="email" placeholder="Insira sua senha novamente">
+            <label for="dataAniversario">Insira sua data de nascimento</label><br>
+            <input type="date" ng-model="usuario.datanascimento">
         </div>
         <div class="form-input">
-            <label for="dataAniversario">Insira sua data de aniversário</label><br>
-            <input type="date" name="dataAniversario">
+            <select ng-model="usuario.sexo" class="form-control">
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
         </div>
-        <input type="submit" name="submit" value="Realizar Cadastro" class="btn-login">
+        <button type="submit" class="btn-login" ng-click="cadastrar(usuario)">Cadastrar</button>
+        <button type="submit" class="btn-login" ng-click="voltar()" >Voltar</button>
     </form>
 </div>

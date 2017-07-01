@@ -13,10 +13,13 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,53 +45,65 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Usuarios.findBySexo", query = "SELECT u FROM Usuarios u WHERE u.sexo = :sexo")})
 public class Usuarios implements Serializable {
 
+    private static final String SQ_NAME = "SQ_USUARIO";
+
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = SEQUENCE, generator = SQ_NAME)
+    @SequenceGenerator(name = SQ_NAME, sequenceName = SQ_NAME, allocationSize = 1)
     @Column(name = "IDUSUARIO", nullable = false, precision = 19, scale = 0)
-    private BigDecimal idusuario;
+    private Long idusuario;
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATANASCIMENTO", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date datanascimento;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+
+// @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "EMAIL", nullable = false, length = 100)
     private String email;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "NOME", nullable = false, length = 50)
     private String nome;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "SENHA", nullable = false, length = 100)
     private String senha;
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "SEXO", nullable = false)
     private Character sexo;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitado")
     private List<Solicitacao> solicitacaoList;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
     private List<Amizades> amizadesList;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
     private List<Curtidas> curtidasList;
 
     public Usuarios() {
     }
 
-    public Usuarios(BigDecimal idusuario) {
+    public Usuarios(Long idusuario) {
         this.idusuario = idusuario;
     }
 
-    public Usuarios(BigDecimal idusuario, Date datanascimento, String email, String nome, String senha, Character sexo) {
+    public Usuarios(Long idusuario, Date datanascimento, String email, String nome, String senha, Character sexo) {
         this.idusuario = idusuario;
         this.datanascimento = datanascimento;
         this.email = email;
@@ -97,11 +112,11 @@ public class Usuarios implements Serializable {
         this.sexo = sexo;
     }
 
-    public BigDecimal getIdusuario() {
+    public Long getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(BigDecimal idusuario) {
+    public void setIdusuario(Long idusuario) {
         this.idusuario = idusuario;
     }
 
@@ -153,7 +168,7 @@ public class Usuarios implements Serializable {
     public void setSolicitacaoList(List<Solicitacao> solicitacaoList) {
         this.solicitacaoList = solicitacaoList;
     }
-    
+
     @XmlTransient
     public List<Amizades> getAmizadesList() {
         return amizadesList;
@@ -196,5 +211,4 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "br.com.crescer.social.Models.Usuarios[ idusuario=" + idusuario + " ]";
     }
-    
 }
