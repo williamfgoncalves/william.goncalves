@@ -154,7 +154,7 @@ nav a{
 }
 .cad_input{
     width: 600px;
-    height: 680px;
+    height: 850px;
     text-align: center;
     margin: 0 auto;
     background-color: rgba(52, 73, 94, 0.7);
@@ -236,4 +236,21 @@ nav a{
   display: block;
   text-decoration: none;
   margin: 0 auto;
+}
+.btn-login{
+    width: 150px;
+    height: 50px;
+    background-color: #494950;
+    color: white;
+    font-size: 20px;
+}
+.btn-login:hover{
+    background-color: #222;
+}
+.cad_input select{
+    width: 320px;
+    height: 40px;
+}
+.cad_input label{
+    font-size: 20px;
 }

@@ -87,6 +87,10 @@ public class Usuarios implements Serializable {
     @Column(name = "SEXO", nullable = false)
     private Character sexo;
 
+    @Basic(optional = false)
+    @Column(name = "URLFOTO", nullable = true)
+    private String urlfoto;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitado")
     private List<Solicitacao> solicitacaoList;
 
@@ -103,13 +107,14 @@ public class Usuarios implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public Usuarios(Long idusuario, Date datanascimento, String email, String nome, String senha, Character sexo) {
+    public Usuarios(Long idusuario, Date datanascimento, String email, String nome, String senha, Character sexo, String urlfoto) {
         this.idusuario = idusuario;
         this.datanascimento = datanascimento;
         this.email = email;
         this.nome = nome;
         this.senha = senha;
         this.sexo = sexo;
+        this.urlfoto = urlfoto;
     }
 
     public Long getIdusuario() {
@@ -158,6 +163,14 @@ public class Usuarios implements Serializable {
 
     public void setSexo(Character sexo) {
         this.sexo = sexo;
+    }
+
+    public String getUrlfoto() {
+        return urlfoto;
+    }
+
+    public void setUrlfoto(String urlfoto) {
+        this.urlfoto = urlfoto;
     }
 
     @XmlTransient

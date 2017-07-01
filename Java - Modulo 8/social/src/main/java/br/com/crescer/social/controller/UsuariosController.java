@@ -16,9 +16,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -42,12 +45,16 @@ public class UsuariosController {
         hashMap.put("dados", u);
         return hashMap;
     }
+
+    @GetMapping(value = "/login")
+    public Usuarios login(@RequestParam String email) {
+        return service.buscarPorEmail(email);
+    }
     
     @PostMapping(consumes = "application/json")
     public Usuarios createUsuario(@Valid @RequestBody Usuarios s){
-        String senha  = s.getSenha();
-        String nSenha = new BCryptPasswordEncoder().encode(senha);
-        s.setSenha(nSenha);
+        service.EncodePassWord(s);
+        service.setImagem(s);
         return service.criar(s);
     }
 }

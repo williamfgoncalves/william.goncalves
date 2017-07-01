@@ -10,7 +10,16 @@ angular.module('Andromeda').factory('cadastroService', function ($http) {
         return $http.post(urlBase, usuario);
     };
 
+     function buscarUsuarioPorEmail(username) {
+         return $http({
+             url: urlBase + '/login',
+             params: {email: username},
+             method: 'GET'
+         })
+     }
+
     return {
+        buscarUsuarioPorEmail : buscarUsuarioPorEmail,
         listarUsuarios: listarUsuarios,
         cadastrarUsuario: cadastrarUsuario
     };

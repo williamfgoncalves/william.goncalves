@@ -8,11 +8,10 @@ angular.module('Andromeda').controller('loginController', function ($scope, auth
                 .then(function (response) {
                     toastr.success('Login com sucesso!');
                     $location.path('/home');
-
                 },
                 function (response) {
                     toastr.error('Login ou Senha inválidos!');
-                });
+                });      
         } else {
             toastr.warning('Preencha todos os dados corretamente.', 'Dados inválidos!');
         }
