@@ -5,6 +5,7 @@
  */
 package br.com.crescer.social.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -44,6 +45,7 @@ public class Curtida implements Serializable {
     @Column(name = "IDCURTIDA", nullable = false)
     private Long idcurtida;
     
+    @JsonIgnore
     @JoinColumn(name = "IDPOSTAGEM", referencedColumnName = "IDPOSTAGEM", nullable = false)
     @ManyToOne(optional = false)
     private Postagem idpostagem;

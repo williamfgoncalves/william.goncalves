@@ -5,6 +5,7 @@
  */
 package br.com.crescer.social.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -92,6 +93,7 @@ public class Usuario implements Serializable {
     @Column(name = "URLFOTO", length = 500)
     private String urlfoto;
     
+    @JsonIgnore
     @OneToMany(mappedBy = "idusuario")
     private List<Postagem> postagemList;
     

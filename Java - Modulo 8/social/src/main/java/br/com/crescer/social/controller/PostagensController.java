@@ -26,10 +26,10 @@ public class PostagensController {
     @Autowired
     private PostagensService postagensService;
     
-    @GetMapping
-    public Iterable<Postagem> getPostagens(){
-        return postagensService.listarTodos();
-    }
+        @GetMapping
+        public Iterable<Postagem> getPostagens(){
+            return postagensService.listarTodos();
+        }
     
     @PostMapping(consumes = "application/json")
     public Postagem createUsuario(@Valid @RequestBody Postagem p){
