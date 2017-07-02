@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,17 +23,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/postagem")
 public class PostagensController {
-    
+
     @Autowired
     private PostagensService postagensService;
+
+    @GetMapping
+    public Iterable<Postagem> getPostagens() {
+        return postagensService.listarTodos();
+    }
     
-        @GetMapping
-        public Iterable<Postagem> getPostagens(){
-            return postagensService.listarTodos();
-        }
-    
+    @GetMapping(value = "/post")
+    public Iterable<Postagem> getPostagensPorUsuario(@RequestParam String email) {
+        return postagensService.listarPorIdUsuario(email);
+    }
+
     @PostMapping(consumes = "application/json")
-    public Postagem createUsuario(@Valid @RequestBody Postagem p){
+    public Postagem createUsuario(@Valid @RequestBody Postagem p) {
         return postagensService.criar(p);
     }
 }

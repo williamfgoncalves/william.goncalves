@@ -1,5 +1,5 @@
 <input type="checkbox" id="check">
-<label id="icone" for="check"><img src="https://lh3.googleusercontent.com/UNwWiLvFeOaRf5AyzOArEZLisXTXS8KxdNYCpnhVIDmcNUUrmpLtHY4YuGBJgQbrCDvc7Yke5pTFEMc=w1304-h702"></label>
+<label id="icone" for="check"><img src="https://png.icons8.com/rocket/dusk/64" title="Rocket" width="64" height="64"></label>
 <div class="barra">
     <nav>
         <a href="#!/home">
@@ -29,78 +29,24 @@
     </div>
 </div>
 
-<div class="insertPost">
-    <textarea rows="6" cols="80"></textarea>
-    <input type="submit" value="Postar">
-</div>
+<form novalidade name="formCadastro">
+    <div class="insertPost">
+        <textarea rows="6" ng-model="postagem.texto" cols="80"></textarea>
+        <input type="text" ng-model="postagem.urlimagem" placeholder: "ex: foto.com/04.jpg" class="foto-post"></input>
+        <button type="submit" ng-click="cadastrar(postagem)" class="btn-post"> Cadastrar </button>
+    </div>
+</form>
 
-<div class="Post">
-    <div class="imagemPost">
-        <p>{{user.nome}}</p>
-        <img ng-src="{{user.urlfoto}}">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
-    </div>
-</div>
-<div class="Post">
-    <div class="imagemPost">
-        <p>{{user.nome}}</p>
-        <img ng-src="{{user.urlfoto}}">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
-    </div>
-</div>
-<div class="Post">
-    <div class="imagemPost">
-        <p>{{user.nome}}</p>
-        <img ng-src="{{user.urlfoto}}">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
-    </div>
-</div>
-<div class="Post">
-    <div class="imagemPost">
-        <p>{{user.nome}}</p>
-        <img ng-src="{{user.urlfoto}}">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
-    </div>
-</div>
-<div class="Post">
-    <div class="imagemPost">
-        <p>{{user.nome}}</p>
-        <img ng-src="{{user.urlfoto}}">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
-    </div>
-</div>
-<div class="Post">
-    <div class="imagemPost">
-        <p>{{user.nome}}</p>
-        <img ng-src="{{user.urlfoto}}">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
-    </div>
-</div>
-<div class="Post">
-    <div class="imagemPost">
-        <p>{{user.nome}}</p>
-        <img ng-src="{{user.urlfoto}}">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
+<div ng-repeat="post in postagens">
+    <div class="Post">
+        <div class="imagemPost">
+            <p>{{post.idusuario.nome}}</p>
+            <img ng-src="{{post.idusuario.urlfoto}}">
+            <p>{{post.datapostagem | date :  "dd.MM.y h:mm"}}</p>
+        </div>
+        <div class="dadoPost">
+            <div class="texto">{{post.texto}}</div>
+            <div class="imagem"><img ng-src="{{post.urlimagem}}"></div>
+        </div>
     </div>
 </div>

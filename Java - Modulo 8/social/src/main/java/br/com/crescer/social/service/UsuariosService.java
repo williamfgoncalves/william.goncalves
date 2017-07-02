@@ -28,6 +28,10 @@ public class UsuariosService {
     public Usuario criar(Usuario s) {
         return usuariosRepositorio.save(s);
     }
+    
+    public Usuario update(Usuario s){
+        return usuariosRepositorio.save(s);
+    }
 
     public void remover(Long id) {
         usuariosRepositorio.delete(id);

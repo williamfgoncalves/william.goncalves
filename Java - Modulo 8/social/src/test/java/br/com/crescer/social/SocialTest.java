@@ -45,6 +45,7 @@ public class SocialTest {
     /**
      * Test of health method, of class HealthController.
      */
+    
     @Test
     public void testHealth() {
         assertTrue(testRestTemplate.getForObject(host + HealthController.PATH, Boolean.class));

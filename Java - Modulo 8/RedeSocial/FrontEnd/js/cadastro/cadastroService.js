@@ -1,5 +1,5 @@
 angular.module('Andromeda').factory('cadastroService', function ($http) {
-    
+
     var urlBase = 'http://localhost:9090/usuarios';
 
     function listarUsuarios() {
@@ -10,18 +10,23 @@ angular.module('Andromeda').factory('cadastroService', function ($http) {
         return $http.post(urlBase, usuario);
     };
 
-     function buscarUsuarioPorEmail(username) {
-         return $http({
-             url: urlBase + '/login',
-             params: {email: username},
-             method: 'GET'
-         })
-     }
+    function atualizarUsuario(usuario) {
+        return $http.put(urlBase, usuario);
+    };
+
+    function buscarUsuarioPorEmail(username) {
+        return $http({
+            url: urlBase + '/login',
+            params: { email: username },
+            method: 'GET'
+        })
+    }
 
     return {
-        buscarUsuarioPorEmail : buscarUsuarioPorEmail,
+        buscarUsuarioPorEmail: buscarUsuarioPorEmail,
         listarUsuarios: listarUsuarios,
-        cadastrarUsuario: cadastrarUsuario
+        cadastrarUsuario: cadastrarUsuario,
+        atualizarUsuario: atualizarUsuario
     };
 
 })

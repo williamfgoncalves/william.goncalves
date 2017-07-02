@@ -1,5 +1,5 @@
 <input type="checkbox" id="check">
-<label id="icone" for="check"><img src="https://lh3.googleusercontent.com/UNwWiLvFeOaRf5AyzOArEZLisXTXS8KxdNYCpnhVIDmcNUUrmpLtHY4YuGBJgQbrCDvc7Yke5pTFEMc=w1304-h702"></label>
+<label id="icone" for="check"><img src="https://png.icons8.com/rocket/dusk/64" title="Rocket" width="64" height="64"></label>
 <div class="barra">
     <nav>
         <a href="#!/home">
@@ -20,25 +20,61 @@
     </nav>
 </div>
 
-<div class="cabecalhoPerfil">
-    <div class="fotoPerfil">
-        <img src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-9/11107364_713654478760566_8383194471697808546_n.jpg?oh=1d538d07cd2f21ad2ee4a97f4c97fd44&oe=59DC016C">
+<div ng-show="perfil">
+    <div class="cabecalhoPerfil">
+        <div class="fotoPerfil">
+            <img ng-src="{{postagensUsuario[0].idusuario.urlfoto}}">
+        </div>
+        <div class="infosPerfil">
+            <div class="nome">Nome: {{postagensUsuario[0].idusuario.nome}}</div>
+            <div class="dataNascimento">Data de Nascimento: {{postagensUsuario[0].idusuario.datanascimento | date : "dd/MM/y"}}</div>
+            <div class="sexo">Sexo: {{postagensUsuario[0].idusuario.sexo}}</div>
+            <div class="email">Email: {{postagensUsuario[0].idusuario.email}}</div>
+            <button type="submit" ng-click="editarUser()">Editar perfil</button>
+        </div>
     </div>
-    <div class="infosPerfil">
-        <div class="nome">NOME</div>
-        <div class="dataNascimento"> DATA DE NASCIMENTO</div>
-        <div class="sexo"> SEXO</div>
-        <div class="email"> DATA DE NASCIMENTO</div>
+
+    <div ng-repeat="post in postagensUsuario">
+        <div class="Post">
+            <div class="imagemPost">
+                <p>{{post.idusuario.nome}}</p>
+                <img ng-src="{{post.idusuario.urlfoto}}">
+                <p>{{post.datapostagem | date : "dd.MM.y h:mm"}}</p>
+            </div>
+            <div class="dadoPost">
+                <div class="texto">{{post.texto}}</div>
+                <div class="imagem"><img ng-src="{{post.urlimagem}}"></div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="Post">
-    <div class="imagemPost">
-        <p>William Gonçalves</p>
-        <img src="https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p130x130/11107364_713654478760566_8383194471697808546_n.jpg?oh=e4702f211a63d949c7d652b10c9758bb&oe=59DAEEDD">
-        <p>20/05/17 às 18:30</p>
-    </div>
-    <div class="dadoPost">
-        teste
+<div ng-show="editar">
+    <div class="cad_input">
+        <form name="formCadastro">
+            <img src="https://www.braskem.com.br/Portal/Braskem/img/hotsites/mis/astronauta.png">
+            <div class="form-input">
+                <label for="nome">Insira seu novo nome</label><br>
+                <input type="text" ng-model="user.nome" placeholder="Insira seu nome">
+            </div>
+            <div class="form-input">
+                <label for="dataAniversario">Insira sua data de nascimento</label><br>
+                <input type="date" ng-model="user.datanascimento">
+            </div>
+            <div class="form-input">
+                <label for="senha">Insira sua nova senha</label><br>
+                <input type="password" ng-model="novasenha" placeholder="Insira sua senha">
+            </div>
+            <div class="form-input">
+                <label for="senha">Repita sua nova senha</label><br>
+                <input type="password" ng-model="comparar" placeholder="Insira sua senha novamente">
+            </div>
+            <div class="form-input">
+                <label for="imagem">Insira sua url de sua nova imagem</label><br>
+                <input type="text" ng-model="user.urlfoto" placeholder="ex: www.foto.com/foto.jpg">
+            </div>
+            <button type="submit" class="btn-login" ng-click="atualizar(user)">Cadastrar</button>
+            <button type="submit" class="btn-login" ng-click="cancelarUser(user)">Voltar</button>
+        </form>
     </div>
 </div>

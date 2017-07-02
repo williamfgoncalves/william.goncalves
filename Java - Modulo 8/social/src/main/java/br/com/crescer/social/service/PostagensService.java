@@ -6,6 +6,7 @@
 package br.com.crescer.social.service;
 
 import br.com.crescer.social.Models.Postagem;
+import br.com.crescer.social.Models.Usuario;
 import br.com.crescer.social.repository.PostagensRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Service;
 public class PostagensService {
     @Autowired
     private PostagensRepositorio postagensRepositorio;
+    @Autowired
+    private UsuariosService service;
     
     public Postagem criar(Postagem p){
         return postagensRepositorio.save(p);
@@ -25,5 +28,9 @@ public class PostagensService {
     
     public Iterable<Postagem> listarTodos() {
         return postagensRepositorio.findAll();
+    }
+    public Iterable<Postagem> listarPorIdUsuario(String email){
+        Usuario u = service.buscarPorEmail(email);
+        return postagensRepositorio.findByidusuario(u);
     }
 }

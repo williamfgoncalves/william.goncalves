@@ -68,7 +68,6 @@ public class Postagem implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATAPOSTAGEM", nullable = false)
-    @JsonFormat(pattern="dd/MM/yyyy")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datapostagem;
     
