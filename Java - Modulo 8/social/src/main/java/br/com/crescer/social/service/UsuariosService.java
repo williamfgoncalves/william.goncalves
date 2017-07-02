@@ -5,7 +5,7 @@
  */
 package br.com.crescer.social.service;
 
-import br.com.crescer.social.Models.Usuarios;
+import br.com.crescer.social.Models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.crescer.social.repository.UsuariosRepositorio;
@@ -21,11 +21,11 @@ public class UsuariosService {
     @Autowired
     private UsuariosRepositorio usuariosRepositorio;
 
-    public Iterable<Usuarios> listarTodos() {
+    public Iterable<Usuario> listarTodos() {
         return usuariosRepositorio.findAll();
     }
 
-    public Usuarios criar(Usuarios s) {
+    public Usuario criar(Usuario s) {
         return usuariosRepositorio.save(s);
     }
 
@@ -33,16 +33,16 @@ public class UsuariosService {
         usuariosRepositorio.delete(id);
     }
 
-    public Usuarios buscarPorEmail(String email) {
+    public Usuario buscarPorEmail(String email) {
         return usuariosRepositorio.findOneByEmail(email);
     }
 
-    public void EncodePassWord(Usuarios s) {
+    public void EncodePassWord(Usuario s) {
         String senha = new BCryptPasswordEncoder().encode(s.getSenha());
         s.setSenha(senha);
     }
 
-    public void setImagem(Usuarios s) {
+    public void setImagem(Usuario s) {
         if ( s.getUrlfoto() == null || s.getUrlfoto().isEmpty()){
             if (s.getSexo().toString().contains("M")) {
                 s.setUrlfoto("http://baxtercoaching.com/wp-content/uploads/2013/12/facebook-default-no-profile-pic-300x300.jpg");

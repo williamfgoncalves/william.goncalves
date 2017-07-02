@@ -5,7 +5,7 @@
  */
 package br.com.crescer.social.controller;
 
-import br.com.crescer.social.Models.Amizades;
+import br.com.crescer.social.Models.Amizade;
 import br.com.crescer.social.service.AmizadesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class AmizadesController {
     private AmizadesService amizadesService;
     
     @GetMapping
-    public Iterable<Amizades> getAmizades(){
+    public Iterable<Amizade> getAmizades(){
         return amizadesService.listar();
     }
 }

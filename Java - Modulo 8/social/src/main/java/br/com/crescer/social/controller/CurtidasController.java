@@ -5,7 +5,7 @@
  */
 package br.com.crescer.social.controller;
 
-import br.com.crescer.social.Models.Curtidas;
+import br.com.crescer.social.Models.Curtida;
 import br.com.crescer.social.service.CurtidasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class CurtidasController {
     private CurtidasService curtidasService;
     
     @GetMapping
-    public Iterable<Curtidas> getCurtidas(){
+    public Iterable<Curtida> getCurtidas(){
         return curtidasService.listar();
     }
 }

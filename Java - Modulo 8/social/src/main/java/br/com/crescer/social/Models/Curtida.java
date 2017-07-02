@@ -6,87 +6,80 @@
 package br.com.crescer.social.Models;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author William
  */
 @Entity
-@Table(name = "CURTIDAS", catalog = "", schema = "ANDROMEDA")
+@Table(name = "CURTIDA", catalog = "", schema = "ANDROMEDA2")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Curtidas.findAll", query = "SELECT c FROM Curtidas c")
-    , @NamedQuery(name = "Curtidas.findByIdcurtida", query = "SELECT c FROM Curtidas c WHERE c.idcurtida = :idcurtida")})
-public class Curtidas implements Serializable {
+    @NamedQuery(name = "Curtida.findAll", query = "SELECT c FROM Curtida c")
+    , @NamedQuery(name = "Curtida.findByIdcurtida", query = "SELECT c FROM Curtida c WHERE c.idcurtida = :idcurtida")})
+public class Curtida implements Serializable {
 
+    private static final String SQ_NAME = "SQ_CURTIDA";
+    
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "IDCURTIDA", nullable = false, precision = 19, scale = 0)
-    private BigDecimal idcurtida;
-    @OneToMany(mappedBy = "idcurtida")
-    private List<Postagens> postagensList;
+    @GeneratedValue(strategy = SEQUENCE, generator = SQ_NAME)
+    @SequenceGenerator(name = SQ_NAME, sequenceName = SQ_NAME, allocationSize = 1)
+    @Column(name = "IDCURTIDA", nullable = false)
+    private Long idcurtida;
+    
     @JoinColumn(name = "IDPOSTAGEM", referencedColumnName = "IDPOSTAGEM", nullable = false)
     @ManyToOne(optional = false)
-    private Postagens idpostagem;
+    private Postagem idpostagem;
+    
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO", nullable = false)
     @ManyToOne(optional = false)
-    private Usuarios idusuario;
+    private Usuario idusuario;
 
-    public Curtidas() {
+    public Curtida() {
     }
 
-    public Curtidas(BigDecimal idcurtida) {
+    public Curtida(Long idcurtida) {
         this.idcurtida = idcurtida;
     }
 
-    public BigDecimal getIdcurtida() {
+    public Long getIdcurtida() {
         return idcurtida;
     }
 
-    public void setIdcurtida(BigDecimal idcurtida) {
+    public void setIdcurtida(Long idcurtida) {
         this.idcurtida = idcurtida;
     }
 
-    @XmlTransient
-    public List<Postagens> getPostagensList() {
-        return postagensList;
-    }
-
-    public void setPostagensList(List<Postagens> postagensList) {
-        this.postagensList = postagensList;
-    }
-
-    public Postagens getIdpostagem() {
+    public Postagem getIdpostagem() {
         return idpostagem;
     }
 
-    public void setIdpostagem(Postagens idpostagem) {
+    public void setIdpostagem(Postagem idpostagem) {
         this.idpostagem = idpostagem;
     }
 
-    public Usuarios getIdusuario() {
+    public Usuario getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(Usuarios idusuario) {
+    public void setIdusuario(Usuario idusuario) {
         this.idusuario = idusuario;
     }
 
@@ -100,10 +93,10 @@ public class Curtidas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Curtidas)) {
+        if (!(object instanceof Curtida)) {
             return false;
         }
-        Curtidas other = (Curtidas) object;
+        Curtida other = (Curtida) object;
         if ((this.idcurtida == null && other.idcurtida != null) || (this.idcurtida != null && !this.idcurtida.equals(other.idcurtida))) {
             return false;
         }
@@ -112,7 +105,7 @@ public class Curtidas implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.crescer.social.Models.Curtidas[ idcurtida=" + idcurtida + " ]";
+        return "br.com.crescer.social.Models.Curtida[ idcurtida=" + idcurtida + " ]";
     }
     
 }

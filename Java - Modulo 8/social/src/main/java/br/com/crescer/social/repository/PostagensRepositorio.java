@@ -5,13 +5,13 @@
  */
 package br.com.crescer.social.repository;
 
-import br.com.crescer.social.Models.Amizade;
+import br.com.crescer.social.Models.Postagem;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author William
  */
-public interface AmizadesRepositorio extends CrudRepository<Amizade, Long> {
+public interface PostagensRepositorio extends CrudRepository<Postagem, Long>{
     
 }

@@ -5,13 +5,13 @@
  */
 package br.com.crescer.social.repository;
 
-import br.com.crescer.social.Models.Usuarios;
+import br.com.crescer.social.Models.Usuario;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author William
  */
-public interface UsuariosRepositorio extends CrudRepository<Usuarios, Long> {
-    public Usuarios findOneByEmail(String email);
+public interface UsuariosRepositorio extends CrudRepository<Usuario, Long> {
+    public Usuario findOneByEmail(String email);
 }

@@ -1,6 +1,6 @@
 package br.com.crescer.social.security;
 
-import br.com.crescer.social.Models.Usuarios;
+import br.com.crescer.social.Models.Usuario;
 import br.com.crescer.social.service.UsuariosService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class SocialUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuarios s = service.buscarPorEmail(username);
+        Usuario s = service.buscarPorEmail(username);
         return new User(s.getEmail(), s.getSenha(), new ArrayList<GrantedAuthority>());
     }
 }

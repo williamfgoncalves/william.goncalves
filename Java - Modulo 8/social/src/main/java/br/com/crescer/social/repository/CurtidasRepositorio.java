@@ -5,10 +5,10 @@
  */
 package br.com.crescer.social.repository;
 
-import br.com.crescer.social.Models.Curtidas;
+import br.com.crescer.social.Models.Curtida;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface CurtidasRepositorio extends CrudRepository<Curtidas, Long> {
+public interface CurtidasRepositorio extends CrudRepository<Curtida, Long> {
     
 }

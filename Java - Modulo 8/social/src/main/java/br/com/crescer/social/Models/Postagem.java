@@ -5,20 +5,23 @@
  */
 package br.com.crescer.social.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,69 +35,69 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author William
  */
 @Entity
-@Table(name = "POSTAGENS", catalog = "", schema = "ANDROMEDA")
+@Table(name = "POSTAGEM", catalog = "", schema = "ANDROMEDA2")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Postagens.findAll", query = "SELECT p FROM Postagens p")
-    , @NamedQuery(name = "Postagens.findByIdpostagem", query = "SELECT p FROM Postagens p WHERE p.idpostagem = :idpostagem")
-    , @NamedQuery(name = "Postagens.findByDatapostagem", query = "SELECT p FROM Postagens p WHERE p.datapostagem = :datapostagem")
-    , @NamedQuery(name = "Postagens.findByTexto", query = "SELECT p FROM Postagens p WHERE p.texto = :texto")
-    , @NamedQuery(name = "Postagens.findByUrlimagem", query = "SELECT p FROM Postagens p WHERE p.urlimagem = :urlimagem")})
-public class Postagens implements Serializable {
+    @NamedQuery(name = "Postagem.findAll", query = "SELECT p FROM Postagem p")
+    , @NamedQuery(name = "Postagem.findByIdpostagem", query = "SELECT p FROM Postagem p WHERE p.idpostagem = :idpostagem")
+    , @NamedQuery(name = "Postagem.findByTexto", query = "SELECT p FROM Postagem p WHERE p.texto = :texto")
+    , @NamedQuery(name = "Postagem.findByUrlimagem", query = "SELECT p FROM Postagem p WHERE p.urlimagem = :urlimagem")
+    , @NamedQuery(name = "Postagem.findByDatapostagem", query = "SELECT p FROM Postagem p WHERE p.datapostagem = :datapostagem")})
+public class Postagem implements Serializable {
 
+    private static final String SQ_NAME = "SQ_POSTAGEM";
+    
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "IDPOSTAGEM", nullable = false, precision = 19, scale = 0)
-    private BigDecimal idpostagem;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "DATAPOSTAGEM", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date datapostagem;
+    @GeneratedValue(strategy = SEQUENCE, generator = SQ_NAME)
+    @SequenceGenerator(name = SQ_NAME, sequenceName = SQ_NAME, allocationSize = 1)
+    @Column(name = "IDPOSTAGEM", nullable = false)
+    private Long idpostagem;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 500)
     @Column(name = "TEXTO", nullable = false, length = 500)
     private String texto;
+    
     @Size(max = 300)
     @Column(name = "URLIMAGEM", length = 300)
     private String urlimagem;
-    @JoinColumn(name = "IDCURTIDA", referencedColumnName = "IDCURTIDA")
+    
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "DATAPOSTAGEM", nullable = false)
+    @JsonFormat(pattern="dd/MM/yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date datapostagem;
+    
+    @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
     @ManyToOne
-    private Curtidas idcurtida;
+    private Usuario idusuario;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpostagem")
-    private List<Curtidas> curtidasList;
+    private List<Curtida> curtidaList;
 
-    public Postagens() {
+    public Postagem() {
     }
 
-    public Postagens(BigDecimal idpostagem) {
+    public Postagem(Long idpostagem) {
         this.idpostagem = idpostagem;
     }
 
-    public Postagens(BigDecimal idpostagem, Date datapostagem, String texto) {
+    public Postagem(Long idpostagem, String texto, Date datapostagem) {
         this.idpostagem = idpostagem;
-        this.datapostagem = datapostagem;
         this.texto = texto;
+        this.datapostagem = datapostagem;
     }
 
-    public BigDecimal getIdpostagem() {
+    public Long getIdpostagem() {
         return idpostagem;
     }
 
-    public void setIdpostagem(BigDecimal idpostagem) {
+    public void setIdpostagem(Long idpostagem) {
         this.idpostagem = idpostagem;
-    }
-
-    public Date getDatapostagem() {
-        return datapostagem;
-    }
-
-    public void setDatapostagem(Date datapostagem) {
-        this.datapostagem = datapostagem;
     }
 
     public String getTexto() {
@@ -113,21 +116,29 @@ public class Postagens implements Serializable {
         this.urlimagem = urlimagem;
     }
 
-    public Curtidas getIdcurtida() {
-        return idcurtida;
+    public Date getDatapostagem() {
+        return datapostagem;
     }
 
-    public void setIdcurtida(Curtidas idcurtida) {
-        this.idcurtida = idcurtida;
+    public void setDatapostagem(Date datapostagem) {
+        this.datapostagem = datapostagem;
+    }
+
+    public Usuario getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(Usuario idusuario) {
+        this.idusuario = idusuario;
     }
 
     @XmlTransient
-    public List<Curtidas> getCurtidasList() {
-        return curtidasList;
+    public List<Curtida> getCurtidaList() {
+        return curtidaList;
     }
 
-    public void setCurtidasList(List<Curtidas> curtidasList) {
-        this.curtidasList = curtidasList;
+    public void setCurtidaList(List<Curtida> curtidaList) {
+        this.curtidaList = curtidaList;
     }
 
     @Override
@@ -140,10 +151,10 @@ public class Postagens implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Postagens)) {
+        if (!(object instanceof Postagem)) {
             return false;
         }
-        Postagens other = (Postagens) object;
+        Postagem other = (Postagem) object;
         if ((this.idpostagem == null && other.idpostagem != null) || (this.idpostagem != null && !this.idpostagem.equals(other.idpostagem))) {
             return false;
         }
@@ -152,7 +163,7 @@ public class Postagens implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.crescer.social.Models.Postagens[ idpostagem=" + idpostagem + " ]";
+        return "br.com.crescer.social.Models.Postagem[ idpostagem=" + idpostagem + " ]";
     }
     
 }

@@ -5,7 +5,7 @@
  */
 package br.com.crescer.social.controller;
 
-import br.com.crescer.social.Models.Usuarios;
+import br.com.crescer.social.Models.Usuario;
 import br.com.crescer.social.service.UsuariosService;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,13 +14,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -47,12 +44,12 @@ public class UsuariosController {
     }
 
     @GetMapping(value = "/login")
-    public Usuarios login(@RequestParam String email) {
+    public Usuario login(@RequestParam String email) {
         return service.buscarPorEmail(email);
     }
     
     @PostMapping(consumes = "application/json")
-    public Usuarios createUsuario(@Valid @RequestBody Usuarios s){
+    public Usuario createUsuario(@Valid @RequestBody Usuario s){
         service.EncodePassWord(s);
         service.setImagem(s);
         return service.criar(s);

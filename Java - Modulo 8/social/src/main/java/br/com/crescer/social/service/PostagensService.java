@@ -5,8 +5,8 @@
  */
 package br.com.crescer.social.service;
 
-import br.com.crescer.social.Models.Amizade;
-import br.com.crescer.social.repository.AmizadesRepositorio;
+import br.com.crescer.social.Models.Postagem;
+import br.com.crescer.social.repository.PostagensRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +15,15 @@ import org.springframework.stereotype.Service;
  * @author William
  */
 @Service
-public class AmizadesService {
-    
+public class PostagensService {
     @Autowired
-    private AmizadesRepositorio amizadesRepositorio;
+    private PostagensRepositorio postagensRepositorio;
     
-    public Iterable<Amizade> listar(){
-       return amizadesRepositorio.findAll();
-   }
+    public Postagem criar(Postagem p){
+        return postagensRepositorio.save(p);
+    }
+    
+    public Iterable<Postagem> listarTodos() {
+        return postagensRepositorio.findAll();
+    }
 }
