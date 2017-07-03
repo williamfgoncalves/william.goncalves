@@ -328,3 +328,36 @@ nav a{
   height:20px;
   margin-top:20px;
 }
+.pesquisa{
+  width:600px;
+  height:80px;
+  background-color: rgba(52, 73, 94, 0.7);
+  margin:0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.pesquisa .campoTexto{
+  width:70%;
+  height:80px;
+  float:left;
+}
+.pesquisa .campoTexto input{
+  height:40px;
+  width:90%;
+  margin-left: 20px;
+  margin-top:15px;
+}
+.campoBotao button{
+  margin-top:15px;
+  margin-left:10px;
+}
+.btn-pesquisa{
+    width: 150px;
+    height: 50px;
+    background-color: #494950;
+    color: white;
+    font-size: 20px;
+}
+.btn-pesquisa:hover{
+    background-color: #844010;
+}

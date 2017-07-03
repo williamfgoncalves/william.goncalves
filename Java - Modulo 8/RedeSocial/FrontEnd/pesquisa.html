@@ -23,6 +23,15 @@
     </nav>
 </div>
 
+<div class="pesquisa">
+    <div class="campoTexto">
+        <input type="text" placeholder="Insira dados para sua pesquisa">
+    </div>
+    <div class="campoBotao">
+        <button type="submit" ng-click="cadastrar(postagem)" class="btn-pesquisa"> Cadastrar </button>
+    </div>
+</div>
+
 <div ng-repeat="usuario in usuarios">
     <div class="listaAmigos">
         <div class="imagemAmigo"><img ng-src="{{usuario.urlfoto}}"></div>
