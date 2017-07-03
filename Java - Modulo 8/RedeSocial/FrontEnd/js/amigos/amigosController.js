@@ -1,4 +1,12 @@
-angular.module('Andromeda').controller('amigosController', function ($scope, $routeParams, $localStorage){
+angular.module('Andromeda').controller('amigosController', function ($scope, $routeParams, $localStorage, amigosService, authService){
     
-    console.log("Loguei na HOME");
+    var userLocal = authService.getUsuario();
+    pegarAmigos();
+
+    function pegarAmigos(){
+        amigosService.listarAmigos(userLocal.username).then(function(response){
+            $scope.amigos = response.data;
+            console.log($scope.amigos);
+        })
+    }
 });

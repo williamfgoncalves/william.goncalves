@@ -19,3 +19,11 @@
         </a>
     </nav>
 </div>
+
+<div ng-repeat="amigo in amigospendentes">
+    <div class="listaAmigos">
+        <div class="imagemAmigo"><img ng-src="{{amigo.idamigo.urlfoto}}"></div>
+        <div class="nomeAmigo"><strong>{{amigo.idamigo.nome}}</strong></div>
+        <div class="botaoPerfil"><a href="#!/amigos" ng-click="pegaridamizade(amigo.idamizade)">Ver Perfil</a></div>
+    </div>
+</div>

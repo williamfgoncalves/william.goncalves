@@ -9,6 +9,10 @@ import br.com.crescer.social.Models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.crescer.social.repository.UsuariosRepositorio;
+import java.util.Optional;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -54,5 +58,15 @@ public class UsuariosService {
                 s.setUrlfoto("http://rehrealestate.com/wp-content/uploads/2015/08/facebook-default-no-profile-pic-girl.jpg");
             }
         }
+    }
+    
+    public Usuario getLogado() {
+        return Optional
+                .ofNullable(SecurityContextHolder.getContext().getAuthentication())
+                .map(Authentication::getPrincipal)
+                .map(User.class::cast)
+                .map(User::getUsername)
+                .map(this::buscarPorEmail)
+                .orElse(null);
     }
 }

@@ -100,6 +100,7 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
     private List<Curtida> curtidaList;
     
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
     private List<Amizade> amizadeList;
 
