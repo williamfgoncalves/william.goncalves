@@ -7,6 +7,7 @@ package br.com.crescer.social.controller;
 
 import br.com.crescer.social.Models.Postagem;
 import br.com.crescer.social.service.PostagensService;
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +36,11 @@ public class PostagensController {
     @GetMapping(value = "/post")
     public Iterable<Postagem> getPostagensPorUsuario(@RequestParam String email) {
         return postagensService.listarPorIdUsuario(email);
+    }
+    
+    @GetMapping(value = "/postAmigos")
+    public List<Postagem> getPostagensAmigoUser(@RequestParam String email){
+        return postagensService.listarPostagemAmigos(email);
     }
 
     @PostMapping(consumes = "application/json")

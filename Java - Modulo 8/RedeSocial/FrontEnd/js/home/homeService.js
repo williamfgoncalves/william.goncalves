@@ -6,8 +6,12 @@ angular.module('Andromeda').factory('homeService', function ($http) {
         return $http.post(urlBase, postagem);
     };
 
-    function buscarPostagens(){
-        return $http.get(urlBase);
+    function buscarPostagens(email) {
+        return $http({
+            url: urlBase + '/postAmigos',
+            params: { email: email },
+            method: 'GET'
+        })
     }
 
     return {

@@ -14,6 +14,9 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author William
  */
-public interface PostagensRepositorio extends CrudRepository<Postagem, Long>{
-        public List<Postagem> findByidusuario(Usuario usuario);
+public interface PostagensRepositorio extends CrudRepository<Postagem, Long> {
+
+    List<Postagem> findByidusuario(Usuario usuario);
+
+    public List<Postagem> findByIdusuario_idusuarioIn(List<Long> ids);
 }

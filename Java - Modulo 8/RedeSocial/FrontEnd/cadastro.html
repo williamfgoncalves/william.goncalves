@@ -3,19 +3,19 @@
         <img src="https://www.braskem.com.br/Portal/Braskem/img/hotsites/mis/astronauta.png">
         <div class="form-input">
             <label for="nome">Insira seu nome</label><br>
-            <input type="text" ng-model="usuario.nome" placeholder="Insira seu nome">
+            <input type="text" maxlength="100" ng-model="usuario.nome" placeholder="Insira seu nome" required>
         </div>
         <div class="form-input">
             <label for="email">Insira seu email</label><br>
-            <input type="email" ng-model="usuario.email" placeholder="Insira seu email">
+            <input type="email" maxlength="100" ng-model="usuario.email" placeholder="Insira seu email" required>
         </div>
         <div class="form-input">
             <label for="senha">Insira sua senha</label><br>
-            <input type="password" ng-model="usuario.senha" placeholder="Insira sua senha">
+            <input type="password" maxlength="100" ng-model="usuario.senha" placeholder="Insira sua senha" required>
         </div>
         <div class="form-input">
             <label for="senha">Repita sua senha</label><br>
-            <input type="password" ng-model="comparar" placeholder="Insira sua senha novamente">
+            <input type="password" maxlength="100" ng-model="comparar" placeholder="Insira sua senha novamente" required>
         </div>
         <div class="form-input">
             <label for="dataAniversario">Insira sua data de nascimento</label><br>

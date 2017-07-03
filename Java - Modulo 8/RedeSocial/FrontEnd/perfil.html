@@ -11,11 +11,14 @@
         <a href="#!/amigos">
             <div class="link">AMIGOS</div>
         </a>
+        <a href="#!/pesquisar">
+            <div class="link">PESQUISA</div>
+        </a>
         <a href="#!/perfil">
             <div class="link">MEU PERFIL</div>
         </a>
         <a href="#!/login">
-            <div class="link">LOGOUT</div>
+            <div class="link" ng-click="logout()">LOGOUT</div>
         </a>
     </nav>
 </div>
@@ -23,13 +26,13 @@
 <div ng-show="perfil">
     <div class="cabecalhoPerfil">
         <div class="fotoPerfil">
-            <img ng-src="{{postagensUsuario[0].idusuario.urlfoto}}">
+            <img ng-src="{{userSession.urlfoto}}">
         </div>
         <div class="infosPerfil">
-            <div class="nome">Nome: {{postagensUsuario[0].idusuario.nome}}</div>
-            <div class="dataNascimento">Data de Nascimento: {{postagensUsuario[0].idusuario.datanascimento | date : "dd/MM/y"}}</div>
-            <div class="sexo">Sexo: {{postagensUsuario[0].idusuario.sexo}}</div>
-            <div class="email">Email: {{postagensUsuario[0].idusuario.email}}</div>
+            <div class="nome">Nome: {{userSession.nome}}</div>
+            <div class="dataNascimento">Data de Nascimento: {{userSession.datanascimento | date : "dd/MM/y"}}</div>
+            <div class="sexo">Sexo: {{userSession.sexo | formataSexo}}</div>
+            <div class="email">Email: {{userSession.email}}</div>
             <button type="submit" ng-click="editarUser()">Editar perfil</button>
         </div>
     </div>

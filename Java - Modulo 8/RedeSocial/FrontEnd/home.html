@@ -11,6 +11,9 @@
         <a href="#!/amigos">
             <div class="link">AMIGOS</div>
         </a>
+        <a href="#!/pesquisar">
+            <div class="link">PESQUISA</div>
+        </a>
         <a href="#!/perfil">
             <div class="link">MEU PERFIL</div>
         </a>
@@ -31,7 +34,7 @@
 
 <form novalidade name="formCadastro">
     <div class="insertPost">
-        <textarea rows="6" ng-model="postagem.texto" cols="80"></textarea>
+        <textarea rows="6" ng-model="postagem.texto" max="500" cols="80" required></textarea>
         <input type="text" ng-model="postagem.urlimagem" placeholder: "ex: foto.com/04.jpg" class="foto-post"></input>
         <button type="submit" ng-click="cadastrar(postagem)" class="btn-post"> Cadastrar </button>
     </div>

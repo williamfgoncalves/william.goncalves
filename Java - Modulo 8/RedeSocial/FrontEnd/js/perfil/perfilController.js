@@ -7,6 +7,7 @@ angular.module('Andromeda').controller('perfilController', function ($scope, $ro
 
     $scope.userGet = authService.getUsuario();
     pegarPostagensUsuario();
+    pegarUserSessao();
 
     function pegarPostagensUsuario() {
         perfilService.buscarPostagemPorUsuario($scope.userGet.username).then(function (response) {
@@ -15,8 +16,13 @@ angular.module('Andromeda').controller('perfilController', function ($scope, $ro
         })
     }
 
+    function pegarUserSessao() {
+        cadastroService.buscarUsuarioPorEmail($scope.userGet.username).then(function (response) {
+            $scope.userSession = response.data;
+        })
+    }
+
     $scope.editarUser = function () {
-        console.log("rwa");
         cadastroService.buscarUsuarioPorEmail($scope.userGet.username).then(function (response) {
             $scope.user = response.data;
             $scope.perfil = false;

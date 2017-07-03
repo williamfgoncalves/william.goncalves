@@ -13,7 +13,7 @@ angular.module('Andromeda').controller('homeController', function ($scope, $rout
   }
 
   function pegarPostagens(){
-    homeService.buscarPostagens().then(function(response){
+    homeService.buscarPostagens($scope.userGet.username).then(function(response){
       $scope.postagens = response.data;
       console.log($scope.postagens);
     })
