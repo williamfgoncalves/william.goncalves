@@ -269,20 +269,32 @@ nav a{
   display:block;
   float:left;
   text-align:center;
-  margin-top: 10px;
 }
 .imagemAmigo img{
-  width:80%;
+  width:60%;
   height:130px;
   border-radius:50%;
 }
-.nomeAmigo strong{
+.listaAmigos .nomeAmigo{
+  height:10px;
+  padding-top:65px;
+}
+.listaAmigos .nomeAmigo strong{
   margin: 0 auto;
 }
-.botaoPerfil a{
-  display: block;
-  text-decoration: none;
-  margin: 0 auto;
+.listaAmigos .botaoPerfil{
+  height:20px;
+  margin-top:50px;
+}
+.btn-perfil{
+    width: 150px;
+    height: 50px;
+    background-color: #494950;
+    color: white;
+    font-size: 20px;
+}
+.btn-perfil:hover{
+    background-color: #844010;
 }
 .btn-login{
     width: 150px;
@@ -300,4 +312,19 @@ nav a{
 }
 .cad_input label{
     font-size: 20px;
+}
+.btn-convite{
+    width: 150px;
+    height: 30x;
+    background-color: #494950;
+    color: white;
+    font-size: 20px;
+    margin-top:5px;
+}
+.btn-convite:hover{
+    background-color: #844010;
+}
+.listaAmigos .botaoPerfilConvite{
+  height:20px;
+  margin-top:20px;
 }

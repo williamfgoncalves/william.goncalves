@@ -46,5 +46,14 @@ angular.module('Andromeda').config(function ($routeProvider) {
                 }
             }
         })
+        .when('/pesquisar', {
+            controller: 'pesquisaController',
+            templateUrl: './pesquisa.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        })
         .otherwise({ redirectTo: '/login' })
 })

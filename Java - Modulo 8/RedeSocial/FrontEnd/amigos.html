@@ -24,6 +24,6 @@
     <div class="listaAmigos">
         <div class="imagemAmigo"><img ng-src="{{amigo.idamigo.urlfoto}}"></div>
         <div class="nomeAmigo"><strong>{{amigo.idamigo.nome}}</strong></div>
-        <div class="botaoPerfil"><a href="#!/perfil">Ver Perfil</a></div>
+        <div class="botaoPerfil"><button type="submit" ng-click="verPerfil(amigo.idamigo.email)" class="btn-perfil"> Ver Perfil</button></div>
     </div>
 </div>

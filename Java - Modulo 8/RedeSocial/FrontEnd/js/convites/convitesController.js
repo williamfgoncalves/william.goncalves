@@ -6,7 +6,6 @@ angular.module('Andromeda').controller('convitesController', function ($scope, $
     function pegarAmigosPendentes(){
         amigosService.listarAmigosPendentes(userLocal.username).then(function(response){
             $scope.amigospendentes = response.data;
-            console.log($scope.amigospendentes);
         })
     }
 

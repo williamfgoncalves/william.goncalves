@@ -59,8 +59,8 @@ public class AmizadesService {
         Usuario u = usuariosService.getLogado();
         Usuario a = repositorio.findOne(amigo);
         Amizade amigos = new Amizade();
-        amigos.setIdusuario(u);
-        amigos.setIdamigo(a);
+        amigos.setIdusuario(a);
+        amigos.setIdamigo(u);
         amigos.setSituacao('P');
         return amizadesRepositorio.save(amigos);
     }

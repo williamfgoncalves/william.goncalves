@@ -8,6 +8,7 @@ package br.com.crescer.social.controller;
 import br.com.crescer.social.Models.Usuario;
 import br.com.crescer.social.service.UsuariosService;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.validation.Valid;
@@ -47,6 +48,11 @@ public class UsuariosController {
     @GetMapping(value = "/login")
     public Usuario login(@RequestParam String email) {
         return service.buscarPorEmail(email);
+    }
+    
+    @GetMapping(value = "/pesquisar")
+    public Iterable<Usuario> carregarUsuarios() {
+        return service.listarTodos();
     }
     
     @PostMapping(consumes = "application/json")

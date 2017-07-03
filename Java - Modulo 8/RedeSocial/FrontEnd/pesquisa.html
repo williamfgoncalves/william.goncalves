@@ -20,13 +20,12 @@
     </nav>
 </div>
 
-<div ng-repeat="amigo in amigospendentes">
+<div ng-repeat="usuario in usuarios">
     <div class="listaAmigos">
-        <div class="imagemAmigo"><img ng-src="{{amigo.idamigo.urlfoto}}"></div>
-        <div class="nomeAmigo"><strong>{{amigo.idamigo.nome}}</strong></div>
+        <div class="imagemAmigo"><img ng-src="{{usuario.urlfoto}}"></div>
+        <div class="nomeAmigo"><strong>{{usuario.nome}}</strong></div>
         <div class="botaoPerfilConvite">
-            <button type="submit" ng-click="pegaridamizade(amigo.idamizade)" class="btn-convite">Aceitar Amizade</button>
-            <button type="submit" ng-click="#" class="btn-convite"> Cancelar </button>
+            <button type="submit" ng-click="pegaridamigo(usuario.idusuario)" class="btn-convite">Adicionar como amigo</button>
         </div>
     </div>
 </div>

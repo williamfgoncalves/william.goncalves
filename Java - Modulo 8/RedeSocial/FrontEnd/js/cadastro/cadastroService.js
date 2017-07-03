@@ -6,6 +6,10 @@ angular.module('Andromeda').factory('cadastroService', function ($http) {
         return $http.get(urlBase);
     };
 
+    function listarTodosUsuarios() {
+        return $http.get(urlBase + "/pesquisar");
+    };
+
     function cadastrarUsuario(usuario) {
         return $http.post(urlBase, usuario);
     };
@@ -26,7 +30,8 @@ angular.module('Andromeda').factory('cadastroService', function ($http) {
         buscarUsuarioPorEmail: buscarUsuarioPorEmail,
         listarUsuarios: listarUsuarios,
         cadastrarUsuario: cadastrarUsuario,
-        atualizarUsuario: atualizarUsuario
+        atualizarUsuario: atualizarUsuario,
+        listarTodosUsuarios: listarTodosUsuarios
     };
 
 })
