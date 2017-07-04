@@ -10,8 +10,8 @@ import br.com.crescer.social.Models.Postagem;
 import br.com.crescer.social.Models.Usuario;
 import br.com.crescer.social.repository.AmizadesRepositorio;
 import br.com.crescer.social.repository.PostagensRepositorio;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,11 +36,18 @@ public class PostagensService {
 
     public List<Postagem> listarPostagemAmigos(String email) {
         Usuario u = service.buscarPorEmail(email);
-        List<Long> ids = amizadesRepositorio.findByidusuario(u).stream()
+        Usuario a = service.buscarPorEmail(email);
+        List<Long> ids = new ArrayList<>(); 
+                
+               amizadesRepositorio.findAllByIdusuarioOrIdamigoAndSituacao(u, a, 'A').stream()
                 .map(Amizade::getIdamigo)
                 .map(Usuario::getIdusuario)
-                .collect(Collectors.toList());
-                ids.add(u.getIdusuario());
+                .forEach(ids::add);
+               
+               amizadesRepositorio.findAllByIdusuarioOrIdamigoAndSituacao(u, a, 'P').stream()
+                .map(Amizade::getIdamigo)
+                .map(Usuario::getIdusuario)
+                .forEach(ids::add);
         return postagensRepositorio.findByIdusuario_idusuarioIn(ids);
     }
 

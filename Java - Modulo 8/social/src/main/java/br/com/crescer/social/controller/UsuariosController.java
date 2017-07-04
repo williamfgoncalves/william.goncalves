@@ -61,6 +61,11 @@ public class UsuariosController {
         return service.buscarUsuariosNaoAmigos(email);
     }
     
+    @GetMapping(value = "/pesaquisarUsuario")
+    public List<Usuario> getUsuarioPorNome(@RequestParam String nome){
+        return service.buscarUsuarioPorNome(nome);
+    }
+    
     @PostMapping(consumes = "application/json")
     public Usuario createUsuario(@Valid @RequestBody Usuario s){
         service.EncodePassWord(s);

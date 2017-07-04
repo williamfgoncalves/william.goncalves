@@ -17,4 +17,6 @@ public interface UsuariosRepositorio extends CrudRepository<Usuario, Long> {
     public Usuario findOneByEmail(String email);
 
     public List<Usuario> findByidusuarioNotIn(List<Long> amigos);
+
+    public List<Usuario> findByNomeContainingIgnoreCase(String nome);
 }

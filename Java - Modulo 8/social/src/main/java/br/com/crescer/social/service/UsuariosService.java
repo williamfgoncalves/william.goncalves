@@ -13,6 +13,9 @@ import br.com.crescer.social.repository.UsuariosRepositorio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -51,17 +54,16 @@ public class UsuariosService {
     }
 
     public List<Usuario> buscarUsuariosNaoAmigos(String email) {
-        Usuario u = buscarPorEmail(email);
-        List<Long> amigos = new ArrayList<>();
-        List<Usuario> user = new ArrayList<>();
-        amigos.add(u.getIdusuario());
-        amizadesService.listarTodosPorIdUsuario(u.getIdusuario())
-                .stream()
-                .map(Amizade::getIdamigo)
-                .map(Usuario::getIdusuario)
-                .forEach(amigos::add);
-        user = usuariosRepositorio.findByidusuarioNotIn(amigos);
-        return user;
+        Usuario usuario = buscarPorEmail(email);
+        List<Amizade> amizades = amizadesService.listarTodosPorIdUsuario(usuario.getIdusuario());
+        Set<Long> amigos = amizades.stream().map(Amizade::getIdamigo).map(Usuario::getIdusuario).collect(toSet());
+        amizades.stream().map(Amizade::getIdusuario).map(Usuario::getIdusuario).forEach(amigos::add);
+        amigos.add(usuario.getIdusuario());
+        return usuariosRepositorio.findByidusuarioNotIn(amigos.stream().collect(toList()));
+    }
+    
+    public List<Usuario> buscarUsuarioPorNome(String nome) {
+        return usuariosRepositorio.findByNomeContainingIgnoreCase(nome);
     }
 
     public void EncodePassWord(Usuario s) {
@@ -88,4 +90,5 @@ public class UsuariosService {
                 .map(this::buscarPorEmail)
                 .orElse(null);
     }
+    
 }

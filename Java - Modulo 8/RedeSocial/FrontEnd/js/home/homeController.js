@@ -32,6 +32,7 @@ angular.module('Andromeda').controller('homeController', function ($scope, $rout
       postagem.datapostagem = new Date();
       homeService.cadastrarPostagem(postagem).then(function () {
         toastr.success('Postagem cadastrada com sucesso!');
+        delete $scope.postagem;
         pegarPostagens();
       });
     } else {

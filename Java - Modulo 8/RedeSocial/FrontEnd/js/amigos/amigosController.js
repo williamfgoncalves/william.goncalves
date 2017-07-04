@@ -1,4 +1,4 @@
-angular.module('Andromeda').controller('amigosController', function ($scope, $routeParams, $localStorage, amigosService, authService, cadastroService, perfilService) {
+angular.module('Andromeda').controller('amigosController', function ($scope, $routeParams, $localStorage, amigosService, authService, cadastroService, perfilService, toastr) {
 
     $scope.meusamigos = true;
     $scope.perfilamigo = false;
@@ -9,7 +9,9 @@ angular.module('Andromeda').controller('amigosController', function ($scope, $ro
     function pegarAmigos() {
         amigosService.listarAmigos(userLocal.username).then(function (response) {
             $scope.amigos = response.data;
-            console.log($scope.amigos);
+            if(!$scope.amigos.length){
+                toastr.warning('Você não tem amigos!');
+            }
         })
     }
     //$scope.email;

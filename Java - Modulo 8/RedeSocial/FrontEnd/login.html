@@ -2,10 +2,10 @@
     <img src="https://www.braskem.com.br/Portal/Braskem/img/hotsites/mis/astronauta.png">
     <form name="formLogin" >
         <div class="form-input">
-            <input type="email" name="email" ng-model="usuario.email" placeholder="Insira seu email">
+            <input type="email" name="email" required ng-model="usuario.email" placeholder="Insira seu email">
         </div>
         <div class="form-input">
-            <input type="password" name="senha" ng-model="usuario.senha" placeholder="Insira sua senha">
+            <input type="password" name="senha" required ng-model="usuario.senha" placeholder="Insira sua senha">
         </div>
         <button type="submit" ng-click="login(usuario)" class="btn-login"> Login </button>
         <button type="submit" ng-click="cadastrar()" class="btn-login"> Cadastre-se </button>

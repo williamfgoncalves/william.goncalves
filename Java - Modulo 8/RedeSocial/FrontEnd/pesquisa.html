@@ -24,20 +24,24 @@
 </div>
 
 <div class="pesquisa">
-    <div class="campoTexto">
-        <input type="text" placeholder="Insira dados para sua pesquisa">
-    </div>
-    <div class="campoBotao">
-        <button type="submit" ng-click="cadastrar(postagem)" class="btn-pesquisa"> Cadastrar </button>
-    </div>
+    <form ng-submit="filtrar(filtro)">
+        <div class="campoTexto">
+            <input type="text" ng-model="filtro" placeholder="Insira dados para sua pesquisa">
+        </div>
+        <div class="campoBotao">
+            <button type="submit" type="submit" class="btn-pesquisa"> Pesquisar </button>
+        </div>
+    </form>
 </div>
 
-<div ng-repeat="usuario in usuarios">
-    <div class="listaAmigos">
-        <div class="imagemAmigo"><img ng-src="{{usuario.urlfoto}}"></div>
-        <div class="nomeAmigo"><strong>{{usuario.nome}}</strong></div>
-        <div class="botaoPerfilConvite">
-            <button type="submit" ng-click="pegaridamigo(usuario.idusuario)" class="btn-convite">Adicionar como amigo</button>
+<div ng-show="usuarioEncontrado">
+    <div ng-repeat="usuario in usuarios">
+        <div class="listaAmigos">
+            <div class="imagemAmigo"><img ng-src="{{usuario.urlfoto}}"></div>
+            <div class="nomeAmigo"><strong>{{usuario.nome}}</strong></div>
+            <div class="botaoPerfilConvite">
+                <button type="submit" ng-click="pegaridamigo(usuario.idusuario)" class="btn-convite">Adicionar como amigo</button>
+            </div>
         </div>
     </div>
 </div>

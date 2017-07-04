@@ -33,7 +33,7 @@ public class AmizadesService {
     
     public List<Amizade> listarTodosPorIdUsuario(Long Id){
         Usuario u = repositorio.findOne(Id);
-        return amizadesRepositorio.findAllByidusuario(u);
+        return amizadesRepositorio.findAllByIdusuarioOrIdamigo(u, u);
     }
     
     public List<Amizade> listarAmizadesUsuario(String email) {
@@ -84,5 +84,10 @@ public class AmizadesService {
         b.setIdamigo(user);
         b.setIdusuario(amigo);
         return amizadesRepositorio.save(b);
+    }
+    
+    public void rejeitarAmizade(Long idamizade){
+        Amizade amizade = amizadesRepositorio.findOne(idamizade);
+        amizadesRepositorio.delete(amizade);
     }
 }
