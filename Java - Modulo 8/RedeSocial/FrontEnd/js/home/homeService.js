@@ -6,6 +6,14 @@ angular.module('Andromeda').factory('homeService', function ($http) {
         return $http.post(urlBase, postagem);
     };
 
+    function curtirPostagem(email, idpostagem){
+        return $http({
+            url: 'http://localhost:9090/curtidas',
+            params: { email: email, idpostagem : idpostagem},
+            method: 'POST'
+        })
+    }
+
     function buscarPostagens(email) {
         return $http({
             url: urlBase + '/postAmigos',
@@ -16,6 +24,7 @@ angular.module('Andromeda').factory('homeService', function ($http) {
 
     return {
         buscarPostagens: buscarPostagens,
+        curtirPostagem, curtirPostagem,
         cadastrarPostagem: cadastrarPostagem
     };
 })

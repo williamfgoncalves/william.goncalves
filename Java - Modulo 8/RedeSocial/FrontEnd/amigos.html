@@ -23,10 +23,40 @@
     </nav>
 </div>
 
-<div ng-repeat="amigo in amigos">
-    <div class="listaAmigos">
-        <div class="imagemAmigo"><img ng-src="{{amigo.idamigo.urlfoto}}"></div>
-        <div class="nomeAmigo"><strong>{{amigo.idamigo.nome}}</strong></div>
-        <div class="botaoPerfil"><button type="submit" ng-click="verPerfil(amigo.idamigo.email)" class="btn-perfil"> Ver Perfil</button></div>
+<div ng-show="meusamigos">
+    <div ng-repeat="amigo in amigos">
+        <div class="listaAmigos">
+            <div class="imagemAmigo"><img ng-src="{{amigo.idamigo.urlfoto}}"></div>
+            <div class="nomeAmigo"><strong>{{amigo.idamigo.nome}}</strong></div>
+            <div class="botaoPerfil"><button type="submit" ng-click="verPerfil(amigo.idamigo.email)" class="btn-perfil"> Ver Perfil</button></div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="perfilamigo">
+    <div class="cabecalhoPerfil">
+        <div class="fotoPerfil">
+            <img ng-src="{{userSession.urlfoto}}">
+        </div>
+        <div class="infosPerfil">
+            <div class="nome">Nome: {{userSession.nome}}</div>
+            <div class="dataNascimento">Data de Nascimento: {{userSession.datanascimento | date : "dd/MM/y"}}</div>
+            <div class="sexo">Sexo: {{userSession.sexo | formataSexo}}</div>
+            <div class="email">Email: {{userSession.email}}</div>
+            <button type="submit" ng-click="voltar()">Voltar</button>
+        </div>
+    </div>
+    <div ng-repeat="post in postagensUsuario">
+        <div class="Post">
+            <div class="imagemPost">
+                <p>{{post.idusuario.nome}}</p>
+                <img ng-src="{{post.idusuario.urlfoto}}">
+                <p>{{post.datapostagem | date : "dd.MM.y h:mm"}}</p>
+            </div>
+            <div class="dadoPost">
+                <div class="texto">{{post.texto}}</div>
+                <div class="imagem"><img ng-src="{{post.urlimagem}}"></div>
+            </div>
+        </div>
     </div>
 </div>

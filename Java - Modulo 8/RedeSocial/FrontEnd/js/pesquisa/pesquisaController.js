@@ -1,11 +1,11 @@
-angular.module('Andromeda').controller('pesquisaController', function ($scope, $routeParams, $localStorage, amigosService, authService, toastr, cadastroService) {
+angular.module('Andromeda').controller('pesquisaController', function ($scope, $location, $routeParams, $localStorage, amigosService, authService, toastr, cadastroService) {
 
     var userLocal = authService.getUsuario();
 
     pegarUsuarios() ;
 
     function pegarUsuarios() {
-        cadastroService.listarTodosUsuarios().then(function (response) {
+        cadastroService.buscarUsuariosNaoAmigos(userLocal.username).then(function (response) {
             $scope.usuarios = response.data;
             console.log($scope.usuarios);
         })
@@ -15,6 +15,7 @@ angular.module('Andromeda').controller('pesquisaController', function ($scope, $
         console.log(idamigo);
         amigosService.cadastrarAmizade(idamigo).then(function(response){
             toastr.success("Convite enviado com Successo!");
+            $location.path('/home');
         })
     }
 });

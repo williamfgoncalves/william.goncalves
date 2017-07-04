@@ -5,10 +5,13 @@
  */
 package br.com.crescer.social.service;
 
+import br.com.crescer.social.Models.Amizade;
 import br.com.crescer.social.Models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.crescer.social.repository.UsuariosRepositorio;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +27,8 @@ public class UsuariosService {
 
     @Autowired
     private UsuariosRepositorio usuariosRepositorio;
+    @Autowired
+    private AmizadesService amizadesService;
 
     public Iterable<Usuario> listarTodos() {
         return usuariosRepositorio.findAll();
@@ -32,8 +37,8 @@ public class UsuariosService {
     public Usuario criar(Usuario s) {
         return usuariosRepositorio.save(s);
     }
-    
-    public Usuario update(Usuario s){
+
+    public Usuario update(Usuario s) {
         return usuariosRepositorio.save(s);
     }
 
@@ -45,13 +50,27 @@ public class UsuariosService {
         return usuariosRepositorio.findOneByEmail(email);
     }
 
+    public List<Usuario> buscarUsuariosNaoAmigos(String email) {
+        Usuario u = buscarPorEmail(email);
+        List<Long> amigos = new ArrayList<>();
+        List<Usuario> user = new ArrayList<>();
+        amigos.add(u.getIdusuario());
+        amizadesService.listarTodosPorIdUsuario(u.getIdusuario())
+                .stream()
+                .map(Amizade::getIdamigo)
+                .map(Usuario::getIdusuario)
+                .forEach(amigos::add);
+        user = usuariosRepositorio.findByidusuarioNotIn(amigos);
+        return user;
+    }
+
     public void EncodePassWord(Usuario s) {
         String senha = new BCryptPasswordEncoder().encode(s.getSenha());
         s.setSenha(senha);
     }
 
     public void setImagem(Usuario s) {
-        if ( s.getUrlfoto() == null || s.getUrlfoto().isEmpty()){
+        if (s.getUrlfoto() == null || s.getUrlfoto().isEmpty()) {
             if (s.getSexo().toString().contains("M")) {
                 s.setUrlfoto("http://baxtercoaching.com/wp-content/uploads/2013/12/facebook-default-no-profile-pic-300x300.jpg");
             } else {
@@ -59,7 +78,7 @@ public class UsuariosService {
             }
         }
     }
-    
+
     public Usuario getLogado() {
         return Optional
                 .ofNullable(SecurityContextHolder.getContext().getAuthentication())

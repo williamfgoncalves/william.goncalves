@@ -30,7 +30,12 @@ public class AmizadesService {
     public Iterable<Amizade> listar() {
         return amizadesRepositorio.findAll();
     }
-
+    
+    public List<Amizade> listarTodosPorIdUsuario(Long Id){
+        Usuario u = repositorio.findOne(Id);
+        return amizadesRepositorio.findAllByidusuario(u);
+    }
+    
     public List<Amizade> listarAmizadesUsuario(String email) {
         Usuario u = repositorio.findOneByEmail(email);
         List<Amizade> amigos = amizadesRepositorio.findByidusuario(u);
@@ -59,6 +64,7 @@ public class AmizadesService {
         Usuario u = usuariosService.getLogado();
         Usuario a = repositorio.findOne(amigo);
         Amizade amigos = new Amizade();
+        
         amigos.setIdusuario(a);
         amigos.setIdamigo(u);
         amigos.setSituacao('P');

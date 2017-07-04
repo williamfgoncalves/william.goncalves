@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,6 +54,11 @@ public class UsuariosController {
     @GetMapping(value = "/pesquisar")
     public Iterable<Usuario> carregarUsuarios() {
         return service.listarTodos();
+    }
+    
+    @GetMapping(value = "/usuarios/naoamigos")
+    public List<Usuario> getUsuariosNaoAmigos(@RequestParam String email){
+        return service.buscarUsuariosNaoAmigos(email);
     }
     
     @PostMapping(consumes = "application/json")

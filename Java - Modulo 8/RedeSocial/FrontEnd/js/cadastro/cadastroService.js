@@ -26,12 +26,21 @@ angular.module('Andromeda').factory('cadastroService', function ($http) {
         })
     }
 
+    function buscarUsuariosNaoAmigos(email) {
+        return $http({
+            url: urlBase + '/usuarios/naoamigos',
+            params: { email: email },
+            method: 'GET'
+        })
+    }
+
     return {
         buscarUsuarioPorEmail: buscarUsuarioPorEmail,
         listarUsuarios: listarUsuarios,
         cadastrarUsuario: cadastrarUsuario,
         atualizarUsuario: atualizarUsuario,
-        listarTodosUsuarios: listarTodosUsuarios
+        listarTodosUsuarios: listarTodosUsuarios,
+        buscarUsuariosNaoAmigos: buscarUsuariosNaoAmigos
     };
 
 })

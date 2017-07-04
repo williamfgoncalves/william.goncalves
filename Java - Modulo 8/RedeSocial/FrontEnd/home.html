@@ -45,11 +45,12 @@
         <div class="imagemPost">
             <p>{{post.idusuario.nome}}</p>
             <img ng-src="{{post.idusuario.urlfoto}}">
-            <p>{{post.datapostagem | date :  "dd.MM.y h:mm"}}</p>
+            <p>{{post.datapostagem | date : "dd.MM.y h:mm"}}</p>
         </div>
         <div class="dadoPost">
             <div class="texto">{{post.texto}}</div>
             <div class="imagem"><img ng-src="{{post.urlimagem}}"></div>
+            <div class="like"><img src="https://png.icons8.com/facebook-like/color/48" ng-click="curtirPostagem(post.idpostagem)"></div>
         </div>
     </div>
 </div>

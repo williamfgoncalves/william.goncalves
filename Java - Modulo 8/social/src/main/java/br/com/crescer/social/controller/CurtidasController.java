@@ -8,8 +8,12 @@ package br.com.crescer.social.controller;
 import br.com.crescer.social.Models.Curtida;
 import br.com.crescer.social.service.CurtidasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,5 +30,9 @@ public class CurtidasController {
     @GetMapping
     public Iterable<Curtida> getCurtidas(){
         return curtidasService.listar();
+    }
+    @PostMapping
+    public Curtida criarCurtida(@RequestParam String email, @RequestParam Long idpostagem){
+        return curtidasService.cadastrar(email, idpostagem);
     }
 }

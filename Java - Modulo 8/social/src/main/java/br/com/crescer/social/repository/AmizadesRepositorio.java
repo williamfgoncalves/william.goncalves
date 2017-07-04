@@ -15,5 +15,8 @@ import org.springframework.data.repository.CrudRepository;
  * @author William
  */
 public interface AmizadesRepositorio extends CrudRepository<Amizade, Long> {
+    
     public List<Amizade> findByidusuario(Usuario u);
+
+    public List<Amizade> findAllByidusuario(Usuario u);
 }

@@ -97,6 +97,7 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "idusuario")
     private List<Postagem> postagemList;
     
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
     private List<Curtida> curtidaList;
     

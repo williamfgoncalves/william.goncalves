@@ -39,7 +39,6 @@ public class Curtida implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
     @GeneratedValue(strategy = SEQUENCE, generator = SQ_NAME)
     @SequenceGenerator(name = SQ_NAME, sequenceName = SQ_NAME, allocationSize = 1)
     @Column(name = "IDCURTIDA", nullable = false)

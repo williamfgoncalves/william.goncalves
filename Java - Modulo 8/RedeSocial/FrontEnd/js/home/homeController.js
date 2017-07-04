@@ -19,6 +19,13 @@ angular.module('Andromeda').controller('homeController', function ($scope, $rout
     })
   }
 
+  $scope.curtirPostagem = function(idpostagem){
+    homeService.curtirPostagem($scope.userGet.username, idpostagem).then(function(response){
+        $scope.curtida = response.data;
+        console.log($scope.curtida);
+    })
+  }
+
   $scope.cadastrar = function (postagem) {
     if ($scope.formCadastro.$valid) {
       postagem.idusuario = $scope.user.idusuario;
