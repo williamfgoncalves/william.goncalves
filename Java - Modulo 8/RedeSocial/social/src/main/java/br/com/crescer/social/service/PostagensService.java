@@ -48,6 +48,7 @@ public class PostagensService {
                 .map(Amizade::getIdamigo)
                 .map(Usuario::getIdusuario)
                 .forEach(ids::add);
+               ids.add(u.getIdusuario());
         return postagensRepositorio.findByIdusuario_idusuarioIn(ids);
     }
 

@@ -58,19 +58,19 @@
             <img src="https://www.braskem.com.br/Portal/Braskem/img/hotsites/mis/astronauta.png">
             <div class="form-input">
                 <label for="nome">Insira seu novo nome</label><br>
-                <input type="text" ng-model="user.nome" placeholder="Insira seu nome">
+                <input type="text" ng-model="user.nome" required placeholder="Insira seu nome">
             </div>
             <div class="form-input">
                 <label for="dataAniversario">Insira sua data de nascimento</label><br>
-                <input type="date" ng-model="user.datanascimento">
+                <input type="date" required ng-model="user.datanascimento">
             </div>
             <div class="form-input">
                 <label for="senha">Insira sua nova senha</label><br>
-                <input type="password" ng-model="novasenha" placeholder="Insira sua senha">
+                <input type="password" required ng-model="novasenha" placeholder="Insira sua senha">
             </div>
             <div class="form-input">
                 <label for="senha">Repita sua nova senha</label><br>
-                <input type="password" ng-model="comparar" placeholder="Insira sua senha novamente">
+                <input type="password" required ng-model="comparar" placeholder="Insira sua senha novamente">
             </div>
             <div class="form-input">
                 <label for="imagem">Insira sua url de sua nova imagem</label><br>

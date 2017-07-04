@@ -1,9 +1,10 @@
-angular.module('Andromeda').controller('perfilController', function ($scope, $routeParams, $localStorage, cadastroService, perfilService, authService, toastr) {
+angular.module('Andromeda').controller('perfilController', function ($scope, $filter, $routeParams, $localStorage, cadastroService, perfilService, authService, toastr) {
 
     $scope.perfil = true;
     $scope.editar = false;
     $scope.novasenha;
     $scope.comparar;
+    $scope.senhaAtual = 
 
     $scope.userGet = authService.getUsuario();
     pegarPostagensUsuario();
@@ -25,6 +26,7 @@ angular.module('Andromeda').controller('perfilController', function ($scope, $ro
     $scope.editarUser = function () {
         cadastroService.buscarUsuarioPorEmail($scope.userGet.username).then(function (response) {
             $scope.user = response.data;
+            $scope.user.datanascimento = new Date($filter('date')($scope.user.datanascimento,'yyyy/MM/dd')) ;
             $scope.perfil = false;
             $scope.editar = true;
         })

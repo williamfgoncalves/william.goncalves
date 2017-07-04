@@ -40,7 +40,7 @@
     </div>
 </form>
 
-<div ng-repeat="post in postagens">
+<div ng-repeat="post in postagens | orderBy: '-datapostagem'">
     <div class="Post">
         <div class="imagemPost">
             <p>{{post.idusuario.nome}}</p>
