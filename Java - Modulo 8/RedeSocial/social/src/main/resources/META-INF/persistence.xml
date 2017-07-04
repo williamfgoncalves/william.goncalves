@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="br.com.crescer_social_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.com.crescer.social.Models.Curtidas</class>
+    <class>br.com.crescer.social.Models.Usuarios</class>
+    <class>br.com.crescer.social.Models.Solicitacao</class>
+    <class>br.com.crescer.social.Models.Postagens</class>
+    <class>br.com.crescer.social.Models.Amizades</class>
+    <class>br.com.crescer.social.Models.Postagem</class>
+    <class>br.com.crescer.social.Models.Amizade</class>
+    <class>br.com.crescer.social.Models.Curtida</class>
+    <class>br.com.crescer.social.Models.Usuario</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+      <property name="javax.persistence.jdbc.user" value="ANDROMEDA"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.password" value="ANDROMEDA"/>
+    </properties>
+  </persistence-unit>
+</persistence>
