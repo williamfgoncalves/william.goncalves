@@ -8,7 +8,8 @@
 ### [4º Módulo - JavaScript](https://github.com/cwi-crescer-2017-1/william.goncalves/tree/master/JavaScript%20-%20Modulo%204)
 ### [5º Módulo - Angular JS](https://github.com/cwi-crescer-2017-1/william.goncalves/tree/master/Angular%20JS%20-%20Modulo%205)
 ### [6º Módulo - C# Web Api](https://github.com/cwi-crescer-2017-1/william.goncalves/tree/master/C%23%20-%20Web%20Api%20-%20Modulo%206)
-
+### [7º Módulo - Banco de dados 2](https://github.com/williamfgoncalves/william.goncalves/tree/master/Banco%20de%20Dados%202%20-%20Modulo%207)
+### [8º Módulo - Java Web Api](https://github.com/williamfgoncalves/william.goncalves/tree/master/Java%20-%20Modulo%208)
 ![Spock](http://indicetj.com/pdf/95_ehoba_iehova_jehova.jpg)
 
 #### Vida longa e próspera!
